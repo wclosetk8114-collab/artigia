@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARTIGIA（アルティージャ）｜AIは、ひとりで学ばないほうが早い。</title>
+<meta name="description" content="AIを仕事にするための、学び合うコミュニティ。動画見放題、週1のペア学習、案件の紹介まで。月3,300円から、入会金も解約金もなし。">
+<meta property="og:title" content="ARTIGIA｜AIは、ひとりで学ばないほうが早い。">
+<meta property="og:description" content="AIを仕事にするための、学び合うコミュニティ。月3,300円から。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F0E8;
+  --paper-d:#E9E4D7;
+  --ink:#15140F;
+  --ink-soft:#5C594E;
+  --gold:#9C7C22;
+  --gold-br:#D9B34A;
+  --rule:#D8D2C1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Zen Kaku Gothic New',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+  background:var(--paper);color:var(--ink);
+  line-height:1.95;font-size:15px;
+  font-feature-settings:"palt";
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1120px,88vw);margin:0 auto}
+.narrow{width:min(720px,88vw);margin:0 auto}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:60;background:rgba(243,240,232,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
+}
+.hd{display:flex;align-items:center;justify-content:space-between;height:66px}
+.mark{display:flex;align-items:baseline;gap:10px}
+.mark b{font-size:22px;font-weight:900;letter-spacing:.16em}
+.mark span{font-size:10px;letter-spacing:.24em;color:var(--gold);font-weight:700}
+.nav{display:none;gap:26px;font-size:13px;color:var(--ink-soft)}
+@media(min-width:940px){.nav{display:flex}}
+.nav a:hover{color:var(--gold)}
+.hcta{
+  background:var(--ink);color:var(--paper);font-size:13px;font-weight:700;
+  padding:11px 22px;border-radius:2px;transition:.18s;
+}
+.hcta:hover{background:var(--gold)}
+
+/* ---------- type utilities ---------- */
+.idx{
+  font-size:11px;letter-spacing:.22em;font-weight:700;color:var(--gold);
+  display:flex;align-items:center;gap:12px;margin-bottom:18px;
+}
+.idx::after{content:"";flex:1;height:1px;background:var(--rule);max-width:90px}
+h2{
+  font-size:clamp(23px,4.4vw,40px);font-weight:900;line-height:1.5;
+  letter-spacing:.005em;margin-bottom:16px;word-break:auto-phrase;
+}
+.lede{font-size:15.5px;color:var(--ink-soft);max-width:620px;margin-bottom:52px;line-height:2.05}
+section{padding:96px 0}
+.dark{background:var(--ink);color:var(--paper)}
+.dark .lede{color:#A9A497}
+.dark .idx{color:var(--gold-br)}
+.dark .idx::after{background:#38352C}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 88px;border-bottom:1px solid var(--rule)}
+.hero .kicker{
+  display:inline-block;font-size:11.5px;letter-spacing:.2em;font-weight:700;
+  color:var(--gold);border:1px solid var(--gold);padding:5px 14px;margin-bottom:34px;
+}
+.hero h1{
+  font-size:clamp(30px,7vw,74px);font-weight:900;line-height:1.34;
+  letter-spacing:-.005em;margin-bottom:30px;word-break:auto-phrase;
+}
+.hero h1 .g{
+  position:relative;display:inline-block;
+}
+.hero h1 .g::after{
+  content:"";position:absolute;left:0;right:0;bottom:.12em;height:.24em;
+  background:var(--gold-br);opacity:.45;z-index:-1;
+}
+.hero .sub{font-size:16.5px;line-height:2.1;color:var(--ink-soft);max-width:600px;margin-bottom:38px}
+.facts{
+  display:flex;flex-wrap:wrap;gap:0 26px;font-size:13px;font-weight:700;
+  margin-bottom:40px;color:var(--ink);
+}
+.facts span{position:relative;padding-left:16px}
+.facts span::before{
+  content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;background:var(--gold);
+}
+.cta{
+  display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--paper);
+  font-size:16px;font-weight:700;padding:20px 40px;border-radius:2px;transition:.2s;
+}
+.cta:hover{background:var(--gold);transform:translateY(-1px)}
+.cta.line{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.cta.line:hover{background:var(--ink);color:var(--paper)}
+.dark .cta{background:var(--gold-br);color:var(--ink)}
+.dark .cta:hover{background:var(--paper)}
+.fine{font-size:12px;color:#8A8578;margin-top:18px}
+
+/* ---------- about ---------- */
+.two{display:grid;gap:44px}
+@media(min-width:840px){.two{grid-template-columns:1.05fr .95fr;gap:70px}}
+.two h3{font-size:19px;font-weight:900;margin-bottom:14px}
+.two p{color:var(--ink-soft);font-size:15px}
+.two p + h3{margin-top:36px}
+.quotebox{
+  border-left:2px solid var(--gold);padding:6px 0 6px 24px;
+  font-family:'Zen Old Mincho',serif;font-size:19px;line-height:2.05;
+}
+
+/* ---------- reasons ---------- */
+.rlist{border-top:1px solid var(--rule)}
+.dark .rlist{border-color:#33302A}
+.r{
+  display:grid;gap:6px 40px;padding:38px 0;border-bottom:1px solid var(--rule);
+}
+.dark .r{border-color:#33302A}
+@media(min-width:840px){.r{grid-template-columns:110px 1fr}}
+.r .n{
+  font-size:38px;font-weight:900;line-height:1;color:transparent;
+  -webkit-text-stroke:1px var(--gold);letter-spacing:.02em;
+}
+.dark .r .n{-webkit-text-stroke-color:var(--gold-br)}
+.r h3{font-size:20px;font-weight:900;margin-bottom:10px}
+.r p{color:var(--ink-soft);font-size:15px;max-width:640px}
+.dark .r p{color:#A9A497}
+
+/* ---------- pillars ---------- */
+.pills{display:grid;gap:0;border-top:1px solid var(--rule)}
+@media(min-width:900px){.pills{grid-template-columns:repeat(3,1fr);border-top:none}}
+.p{
+  padding:36px 0;border-bottom:1px solid var(--rule);
+}
+@media(min-width:900px){
+  .p{padding:0 34px;border-bottom:none;border-left:1px solid var(--rule)}
+  .p:first-child{padding-left:0;border-left:none}
+  .p:last-child{padding-right:0}
+}
+.p .jp{font-size:10.5px;letter-spacing:.24em;font-weight:700;color:var(--gold);margin-bottom:12px}
+.p h3{font-size:21px;font-weight:900;line-height:1.5;margin-bottom:14px}
+.p p{color:var(--ink-soft);font-size:14.5px;margin-bottom:16px}
+.p ul{list-style:none}
+.p li{
+  font-size:13.5px;color:var(--ink);padding:9px 0;border-top:1px solid var(--rule);
+}
+
+/* ---------- benefits ---------- */
+.bl{display:grid;gap:0;border-top:1px solid #33302A}
+@media(min-width:700px){.bl{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.bl{grid-template-columns:repeat(3,1fr)}}
+.b{padding:30px 0;border-bottom:1px solid #33302A}
+@media(min-width:700px){
+  .b{padding:30px 30px 30px 0}
+  .b:nth-child(2n){padding-left:30px;border-left:1px solid #33302A}
+}
+@media(min-width:1040px){
+  .b{padding:30px 30px 30px 0;border-left:none}
+  .b:nth-child(2n){padding-left:30px;border-left:1px solid #33302A}
+  .b:nth-child(3n){padding-left:30px;border-left:1px solid #33302A}
+  .b:nth-child(3n+1){padding-left:0;border-left:none}
+}
+.b h3{font-size:16.5px;font-weight:900;margin-bottom:9px}
+.b p{font-size:13.5px;color:#A9A497}
+
+/* ---------- curriculum ---------- */
+.cur{display:grid;gap:52px}
+@media(min-width:880px){.cur{grid-template-columns:1fr 1fr;gap:64px}}
+.cur h3{font-size:20px;font-weight:900;margin-bottom:4px}
+.cur .cd{font-size:13.5px;color:var(--ink-soft);margin-bottom:20px}
+.cur ol{list-style:none;counter-reset:k;border-top:1px solid var(--rule)}
+.cur li{
+  counter-increment:k;font-size:14px;padding:11px 0 11px 40px;
+  border-bottom:1px solid var(--rule);position:relative;line-height:1.7;
+}
+.cur li::before{
+  content:counter(k,decimal-leading-zero);position:absolute;left:0;top:12px;
+  font-size:11.5px;font-weight:700;color:var(--gold);letter-spacing:.06em;
+}
+
+/* ---------- pricing ---------- */
+.plans{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media(min-width:920px){.plans{grid-template-columns:repeat(3,1fr)}}
+.pl{background:var(--paper);padding:40px 32px;display:flex;flex-direction:column}
+.pl.top{background:var(--ink);color:var(--paper)}
+.pl .flag{
+  display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.1em;
+  background:var(--gold-br);color:var(--ink);padding:4px 12px;margin-bottom:18px;
+}
+.pl .flag.void{visibility:hidden}
+.pl h3{font-size:21px;font-weight:900;margin-bottom:6px}
+.pl .for{font-size:13px;color:var(--ink-soft);margin-bottom:26px;min-height:42px}
+.pl.top .for{color:#A9A497}
+.amt{display:flex;align-items:baseline;gap:3px;margin-bottom:4px}
+.amt .c{font-size:20px;font-weight:700}
+.amt .v{font-size:46px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.amt .u{font-size:13px;color:var(--ink-soft);margin-left:4px}
+.pl.top .amt .v{color:var(--gold-br)}
+.pl.top .amt .u{color:#A9A497}
+.pl .tx{font-size:11.5px;color:var(--ink-soft);margin-bottom:26px}
+.pl.top .tx{color:#8E8A7D}
+.pl ul{list-style:none;flex:1;margin-bottom:30px;border-top:1px solid var(--rule)}
+.pl.top ul{border-color:#33302A}
+.pl li{font-size:13.5px;padding:10px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.pl.top li{border-color:#33302A;color:#D6D2C6}
+.pl .cta{width:100%;justify-content:center;font-size:15px;padding:17px}
+.pl.top .cta{background:var(--gold-br);color:var(--ink)}
+.pl.top .cta:hover{background:var(--paper)}
+.paynote{
+  margin-top:30px;font-size:12.5px;color:var(--ink-soft);line-height:2;
+  border-left:2px solid var(--gold);padding-left:18px;
+}
+
+/* ---------- faq ---------- */
+details{border-bottom:1px solid var(--rule)}
+summary{
+  cursor:pointer;list-style:none;padding:22px 40px 22px 0;
+  font-size:15.5px;font-weight:700;position:relative;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";position:absolute;right:6px;top:32px;width:13px;height:1px;background:var(--gold);
+}
+summary::before{
+  content:"";position:absolute;right:12px;top:26px;width:1px;height:13px;background:var(--gold);
+  transition:.2s;
+}
+details[open] summary::before{opacity:0}
+details .a{padding:0 0 24px;font-size:14.5px;color:var(--ink-soft);line-height:2.05}
+
+/* ---------- closing ---------- */
+.close{text-align:center;padding:110px 0}
+.close h2{font-size:clamp(26px,5vw,44px);margin-bottom:20px}
+.close p{color:#A9A497;margin-bottom:38px;font-size:15.5px}
+
+/* ---------- footer ---------- */
+footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--rule)}
+.ft{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start;margin-bottom:34px}
+.fl{display:flex;flex-wrap:wrap;gap:22px;font-size:13px;color:var(--ink-soft)}
+.fl a:hover{color:var(--gold)}
+.note{font-size:12px;color:#7C7869;line-height:1.95;border-top:1px solid var(--rule);padding-top:22px}
+.cp{font-size:11.5px;color:#8E8A7D;margin-top:14px}
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="wrap hd">
+    <a href="#top" class="mark"><b>ARTIGIA</b><span>アルティージャ</span></a>
+    <nav class="nav">
+      <a href="#about">どんなところ</a>
+      <a href="#why">選ばれる理由</a>
+      <a href="#how">3つの仕組み</a>
+      <a href="#learn">学べること</a>
+      <a href="#price">料金</a>
+    </nav>
+    <a href="#price" class="hcta">入会する</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker">AI × フリーランス コミュニティ</span>
+    <h1>AIは、<br><span class="g">ひとりで学ばない</span>ほうが早い。</h1>
+    <p class="sub">動画を見て終わり、にはしません。となりに一緒に走る人がいて、覚えたことがそのまま仕事につながる。そういう場所をつくりました。</p>
+    <div class="facts">
+      <span>入会金・解約金なし</span>
+      <span>月3,300円から</span>
+      <span>教材は見放題</span>
+      <span>案件の紹介あり</span>
+    </div>
+    <a href="#price" class="cta">料金を見る　→</a>
+    <p class="fine">いまは先行公開中です。決済はテストモードなので、まだ請求は発生しません。</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="idx">01　どんなところ</div>
+    <h2>「勉強したいけど、何から？」<br>で止まっている人へ。</h2>
+    <div class="two">
+      <div>
+        <p>AIの情報はSNSに溢れていて、いざ始めようとすると何から手をつければいいのか分からない。かといって、数十万円のスクールにローンを組むのはさすがに怖い。</p>
+        <p style="margin-top:16px">ARTIGIA は、その間を埋める場所です。無理のない金額で、迷わない順番の教材と、一緒に走る相手が手に入ります。</p>
+        <h3>先生は、いません</h3>
+        <p>カリスマ講師が教えてくれる場所ではありません。教材とAIが基礎を担当して、詰まったところは会員同士で解きます。だから誰かが抜けても場が続くし、そのうちあなたが教える側にまわることもあります。</p>
+      </div>
+      <div>
+        <div class="quotebox">名前の ARTIGIA は、イタリア語の artigiano（職人）から。誰かに雇われるのではなく、自分の腕で仕事をつくる人の集まりでありたい。そういう意味を込めています。</div>
+        <h3 style="margin-top:34px">できるようになること</h3>
+        <p>資料の下書きを30分で作る。議事録を自動でまとめる。Excelの関数をAIに書かせる。そのあと、それを人の仕事として受ける。順番に、そこまで持っていきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section id="why" class="dark">
+  <div class="wrap">
+    <div class="idx">02　選ばれる理由</div>
+    <h2>「稼げます」とは言いません。</h2>
+    <p class="lede">かわりに、明日の仕事の中身が変わります。ARTIGIA が大事にしていることを4つ。</p>
+    <div class="rlist">
+      <div class="r">
+        <div class="n">01</div>
+        <div>
+          <h3>お金の話がクリア</h3>
+          <p>月3,300円から。入会金なし、解約金なし、年間まとめ払いもなし。あとから高額な講座をすすめることもしません。会費以外でお金をいただかない、というのが運営のルールです。</p>
+        </div>
+      </div>
+      <div class="r">
+        <div class="n">02</div>
+        <div>
+          <h3>ひとりの人に頼りきらない</h3>
+          <p>特定の講師に全部おんぶする作りにしていません。教材は録画とAI、質問は会員同士。だから講師の都合で場が止まらないし、盛り上がって半年で消える、みたいなことになりません。</p>
+        </div>
+      </div>
+      <div class="r">
+        <div class="n">03</div>
+        <div>
+          <h3>学びっぱなしで終わらせない</h3>
+          <p>コミュニティに入ってきた仕事を、会員に流します。規模が大きいものは何人かでチームを組んで受けます。ひとりでは手を挙げられなかった仕事に、届くようになります。</p>
+        </div>
+      </div>
+      <div class="r">
+        <div class="n">04</div>
+        <div>
+          <h3>会社員も、フリーランスも</h3>
+          <p>副業から始めたい会社員と、すでに独立していて単価を上げたいフリーランスが同じ場所にいます。立場の違う人が混ざっているので、次の一歩の実例がいつも近くにあります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 PILLARS -->
+<section id="how">
+  <div class="wrap">
+    <div class="idx">03　3つの仕組み</div>
+    <h2>盛り上がって消える場所に、<br>したくないので。</h2>
+    <p class="lede">ユダヤの共同体が長く続いてきた仕組みを、そのまま3つ借りています。仲がいいだけで終わらせないための設計です。</p>
+    <div class="pills">
+      <div class="p">
+        <div class="jp">HAVRUTA</div>
+        <h3>ハブルータ<br>2人1組で学ぶ</h3>
+        <p>講義を聞くのではなく、2人で話しながら進めます。入会したら必ず相方がつきます。続く理由はだいたいこれです。「相方に悪いから今週もやるか」が、いちばん強い。</p>
+        <ul>
+          <li>スキルが1段ちがう2人で組む</li>
+          <li>週1回30分、進み具合を報告</li>
+          <li>1ヶ月ごとに相手を替える</li>
+        </ul>
+      </div>
+      <div class="p">
+        <div class="jp">TZEDAKAH</div>
+        <h3>ツェダカ<br>助け合いのプール</h3>
+        <p>コミュニティ経由で仕事を受けたら、その一部を場に戻します。取り合いではなく、支え合いの場にするためのお金です。</p>
+        <ul>
+          <li>案件金額の15%をコミュニティへ</li>
+          <li>うち5%は支援用にためておく</li>
+          <li>休職・産休中の人は会費を免除</li>
+        </ul>
+      </div>
+      <div class="p">
+        <div class="jp">COUNCIL</div>
+        <h3>評議会<br>運営を1人に集めない</h3>
+        <p>主宰者がぜんぶ抱える形にしません。会員から選ばれた5人が、持ち回りで場を回します。</p>
+        <ul>
+          <li>在籍3ヶ月以上から5名を選出</li>
+          <li>任期は3ヶ月、順番に交代</li>
+          <li>やった人は会費が半額に</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="learn" class="dark">
+  <div class="wrap">
+    <div class="idx">04　学べること</div>
+    <h2>入ったその日から、<br>使えるもの。</h2>
+    <div class="bl">
+      <div class="b"><h3>ゼロから学ぶAI講座</h3><p>ChatGPT・Claude・Gemini の基礎から実務まで。上から順に見ていけば形になります。</p></div>
+      <div class="b"><h3>毎月のライブ勉強会</h3><p>新しいツールの使い方と、会員が実際にやっている事例を毎月共有します。</p></div>
+      <div class="b"><h3>週1回のペア学習</h3><p>相方と30分、進み具合を報告し合う。挫折しない最大の理由がこれです。</p></div>
+      <div class="b"><h3>チャットで質問し放題</h3><p>詰まったら投げてください。答えるのは運営ではなく、少し先を行く会員です。</p></div>
+      <div class="b"><h3>案件の紹介</h3><p>コミュニティに来た仕事を会員に。プランによって、声がかかる順番が変わります。</p></div>
+      <div class="b"><h3>オンライン・オフラインの交流</h3><p>職種も年齢もバラバラな人と混ざります。仕事はだいたいここから生まれます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section>
+  <div class="wrap">
+    <div class="idx">05　カリキュラム</div>
+    <h2>迷わない順番に、<br>並べてあります。</h2>
+    <p class="lede">全部で12本。一例としてこんな中身です。</p>
+    <div class="cur">
+      <div>
+        <h3>まず、明日の仕事を軽くする</h3>
+        <p class="cd">前提知識ゼロからでも大丈夫なところ。</p>
+        <ol>
+          <li>生成AIで何が変わったのか、15分で</li>
+          <li>会社で使うときに気をつけること</li>
+          <li>プロンプトの型を5つだけ覚える</li>
+          <li>議事録・要約・メールを任せる</li>
+          <li>Excelの関数とマクロを書かせる</li>
+          <li>資料の下書きを30分で作る</li>
+          <li>調べものを任せて、裏を取る</li>
+          <li>自分専用のAIアシスタントを作る</li>
+        </ol>
+      </div>
+      <div>
+        <h3>次に、仕事として受ける</h3>
+        <p class="cd">「使える」から「お金になる」へ渡すところ。</p>
+        <ol>
+          <li>AIで受けられる仕事を書き出す</li>
+          <li>実績ゼロから最初の1件を取る</li>
+          <li>見積もりと単価の決め方</li>
+          <li>LP・記事・動画をまとめて作る</li>
+          <li>業務効率化を提案書にする</li>
+          <li>納品前に必ず見るチェック項目</li>
+          <li>何人かで受けて、分担する</li>
+          <li>単発を、続く契約に変える</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="price">
+  <div class="wrap">
+    <div class="idx">06　料金</div>
+    <h2>入会金も、解約金も、<br>いただきません。</h2>
+    <p class="lede">合わなければいつでも抜けられます。引き止めもしません。</p>
+    <div class="plans">
+
+      <div class="pl top">
+        <span class="flag">先行200名まで</span>
+        <h3>創設メンバー</h3>
+        <p class="for">立ち上げから一緒に場をつくってくれる人へ</p>
+        <div class="amt"><span class="c">¥</span><span class="v">3,300</span><span class="u">/ 月</span></div>
+        <p class="tx">税込・入会金なし</p>
+        <ul>
+          <li>ベーシックの中身、ぜんぶ</li>
+          <li>この価格は在籍中ずっと据え置き</li>
+          <li>評議会に最初から立候補できる</li>
+          <li>ルールづくりに口を出せる</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_4gMbJ19ht05PfjUfI06g80p" class="cta" target="_blank" rel="noopener">この枠で入る</a>
+      </div>
+
+      <div class="pl">
+        <span class="flag void">-</span>
+        <h3>ベーシック</h3>
+        <p class="for">これからAIを仕事に取り入れたい人へ</p>
+        <div class="amt"><span class="c">¥</span><span class="v">5,500</span><span class="u">/ 月</span></div>
+        <p class="tx">税込・入会金なし</p>
+        <ul>
+          <li>教材はぜんぶ見放題</li>
+          <li>週1回のペア学習</li>
+          <li>毎月のライブ勉強会</li>
+          <li>チャットで質問し放題</li>
+          <li>交流会に参加できる</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_6oUbJ1gJV05P0p07bu6g80q" class="cta line" target="_blank" rel="noopener">入会する</a>
+      </div>
+
+      <div class="pl">
+        <span class="flag void">-</span>
+        <h3>プロ</h3>
+        <p class="for">すでに独立していて、単価を上げたい人へ</p>
+        <div class="amt"><span class="c">¥</span><span class="v">16,500</span><span class="u">/ 月</span></div>
+        <p class="tx">税込・入会金なし</p>
+        <ul>
+          <li>ベーシックの中身、ぜんぶ</li>
+          <li>案件の紹介が優先で回る</li>
+          <li>共同受注チームに入れる</li>
+          <li>法人研修の講師枠</li>
+          <li>月1回、個別に見てもらえる</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_28E4gz65h19Tb3E9jC6g80r" class="cta line" target="_blank" rel="noopener">入会する</a>
+      </div>
+
+    </div>
+    <p class="paynote">
+      お支払いは Stripe（外部サイト）に移動して、クレジットカードで。<br>
+      <strong>いまはテストモードです。</strong>実際の請求は発生しません。動作を試すときは、カード番号 4242 4242 4242 4242 ／ 有効期限は未来の日付 ／ CVC は好きな3桁で。
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="narrow">
+    <div class="idx">07　よくある質問</div>
+    <h2>気になるところ、<br>先に答えておきます。</h2>
+    <div style="margin-top:40px;border-top:1px solid var(--rule)">
+      <details open><summary>AIをまったく触ったことがなくても大丈夫？</summary><div class="a">大丈夫です。「ChatGPTを開いたことはあるけど、仕事では使っていない」くらいの人がいちばん多いです。教材も、その前提で作ってあります。</div></details>
+      <details><summary>入ったら、AI副業で月100万円稼げますか？</summary><div class="a">なりません。そこは正直に言っておきます。約束できるのは「明日から仕事でAIを使えるようになること」と「案件を取りにいく道があること」の2つです。短期間で大きく稼ぎたい方には、たぶん向いていません。</div></details>
+      <details><summary>途中でやめられますか？</summary><div class="a">やめられます。解約金はかかりません。次の更新日の前日までに手続きすれば、それ以降の請求は止まります。</div></details>
+      <details><summary>ペア学習は必ずやらないとダメ？</summary><div class="a">強制ではありません。ただ、いちばんおすすめしています。続く人と途中で止まる人の差は、ほぼここで決まります。忙しい時期はお休みもできます。</div></details>
+      <details><summary>会社員でも参加できますか？</summary><div class="a">できます。というより、半分以上が会社員です。勉強会は平日の夜と土日の午前に分けて開いています。</div></details>
+      <details><summary>地方に住んでいます。オフラインの会には行けません。</summary><div class="a">オンラインの勉強会と交流会を毎月やっているので、それだけでも十分に回ります。オフラインは東京が多めですが、人が集まった地域から順に開いていきます。</div></details>
+      <details><summary>領収書は出ますか？</summary><div class="a">出ます。決済完了のメールからダウンロードできます。インボイス対応の書類が必要なときは、ご連絡ください。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="dark close">
+  <div class="wrap">
+    <div class="idx" style="justify-content:center">08　さいごに</div>
+    <h2>ひとりで学ぶのは、<br>今日で終わりにする。</h2>
+    <p>入会金も解約金もなし。合わなければ、いつでも抜けられます。</p>
+    <a href="#price" class="cta">料金を見る　→</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="mark"><b>ARTIGIA</b><span>アルティージャ</span></div>
+      <div class="fl">
+        <a href="#price">料金</a>
+        <a href="terms.html">利用規約</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      </div>
+    </div>
+    <p class="note">
+      ARTIGIA は生成AIの実務活用を学ぶ会員制コミュニティです。収入や成果を保証するものではありません。<br>
+      現在は準備中のため、決済は Stripe のテストモードで動いています。実際の請求は発生しません。
+    </p>
+    <p class="cp">© 2026 ARTIGIA</p>
+  </div>
+</footer>
+
+</body>
+</html>
