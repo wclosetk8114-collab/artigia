@@ -1,6 +1,6 @@
-# ARTIGIA — 会員募集LP
+# BUILDERS — 会員募集LP
 
-AI×フリーランスのスクール型コミュニティ「ARTIGIA（アルティージャ）」の会員募集サイト。
+AI×フリーランスのスクール型コミュニティ「BUILDERS（ビルダーズ）」の会員募集サイト。
 静的HTML（ビルド不要）。Vercel に接続済みで、main に push すると自動で再デプロイされる。
 
 ## 構成
@@ -46,7 +46,7 @@ git add -A && git commit -m "..." && git push
 # → Vercel が自動で再デプロイ
 ```
 
-Cowork からは「ARTIGIA のサイトを直して」で `update-deploy` が走る。
+Cowork からは「BUILDERS のサイトを直して」で `update-deploy` が走る。
 Vercel プロジェクトの再作成はしない（名前衝突で重複が増える）。
 
 ## 設計の背景
