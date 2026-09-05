@@ -19,9 +19,15 @@ legal.css        法務ページ共通スタイル
 
 | コース | 月額 | price_id (test) |
 | --- | --- | --- |
-| FORGE supporter | 3,300円 | price_1UCFUGGV1dNJ9MiqOU1pyUUk |
-| FORGE startup | 5,500円 | price_1UCFUMGV1dNJ9MiqIDYjBVxW |
-| FORGE freelance | 16,500円 | price_1UCFUSGV1dNJ9MiqlPuuJVZk |
+| FORGE supporter 初級 | 2,200円 | price_1UCFdfGV1dNJ9MiqSLFBhXBj |
+| FORGE supporter 中級 | 3,300円 | price_1UCFdkGV1dNJ9Miqgk5TbTXl |
+| FORGE supporter 上級 | 4,400円 | price_1UCFdoGV1dNJ9MiqySjQ5Sgu |
+| FORGE startup 初級 | 5,500円 | price_1UCFduGV1dNJ9Miq2ZlzW6cv |
+| FORGE startup 中級 | 8,800円 | price_1UCFdyGV1dNJ9MiqdAlgRYJl |
+| FORGE startup 上級 | 11,000円 | price_1UCFe3GV1dNJ9MiqCSdU7PHV |
+| FORGE freelance 初級 | 16,500円 | price_1UCFe8GV1dNJ9MiqRL7yG3O1 |
+| FORGE freelance 中級 | 22,000円 | price_1UCFeDGV1dNJ9MiqAgDesCir |
+| FORGE freelance 上級 | 33,000円 | price_1UCFeJGV1dNJ9MiqoqEuNchu |
 
 創設メンバー枠は先行33名まで。どのコースでもこの価格を在籍中据え置く。
 

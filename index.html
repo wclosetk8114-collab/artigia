@@ -215,46 +215,49 @@ h2{
 .fc ul{list-style:none}
 .fc li{font-size:14px;padding:11px 0;border-top:1px solid var(--rule);color:var(--ink-2);line-height:1.85}
 
-/* ---------- pricing ---------- */
-.plans{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-@media(min-width:940px){.plans{grid-template-columns:repeat(3,1fr)}}
-.pl{background:#fff;padding:38px 30px;display:flex;flex-direction:column}
-.pl.top{background:var(--ink);color:var(--paper)}
-.flag{
-  display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;
-  background:var(--gold-br);color:var(--ink);padding:4px 12px;margin-bottom:16px;
-}
-.flag.void{visibility:hidden}
-.pl .brand{
-  font-size:11px;letter-spacing:.28em;font-weight:900;color:var(--gold);
-  margin-bottom:2px;
-}
-.pl.top .brand{color:var(--gold-br)}
-.pl h3{font-size:26px;font-weight:900;margin-bottom:8px;letter-spacing:.01em}
+/* ---------- pricing (3 tracks x 3 levels) ---------- */
 .founding{
   display:flex;align-items:flex-start;gap:12px;background:var(--paper-2);
   border:1px solid var(--rule);border-left:3px solid var(--gold);
-  padding:16px 20px;margin-bottom:24px;font-size:13.5px;line-height:1.95;color:var(--ink-2);
+  padding:16px 20px;margin-bottom:34px;font-size:13.5px;line-height:1.95;color:var(--ink-2);
 }
 .founding .dot{margin-top:9px;flex:none}
-.pl .for{font-size:13px;color:var(--ink-soft);margin-bottom:24px;min-height:44px;line-height:1.8}
-.pl.top .for{color:#A8A497}
-.amt{display:flex;align-items:baseline;gap:3px;margin-bottom:4px}
-.amt .c{font-size:19px;font-weight:700}
-.amt .v{font-size:44px;font-weight:900;line-height:1;letter-spacing:-.02em}
-.amt .u{font-size:13px;color:var(--ink-soft);margin-left:4px}
-.pl.top .amt .v{color:var(--gold-br)}
-.pl.top .amt .u{color:#A8A497}
-.tx{font-size:11.5px;color:var(--ink-soft);margin-bottom:24px}
-.pl.top .tx{color:#8C8879}
-.pl ul{list-style:none;flex:1;margin-bottom:28px;border-top:1px solid var(--rule)}
-.pl.top ul{border-color:var(--rule-d)}
-.pl li{font-size:13.5px;padding:10px 0;border-bottom:1px solid var(--rule)}
-.pl.top li{border-color:var(--rule-d);color:#D3CFC2}
-.pl .cta{width:100%;justify-content:center;font-size:15px;padding:17px}
-.pl.top .cta{background:var(--gold-br);color:var(--ink)}
-.pl.top .cta:hover{background:var(--paper)}
-.paynote{margin-top:28px;font-size:12.5px;color:var(--ink-soft);line-height:2.1;border-left:2px solid var(--gold);padding-left:18px}
+.track{border-top:1px solid var(--rule);padding:34px 0}
+.track:last-of-type{border-bottom:1px solid var(--rule)}
+.track.feat{background:var(--ink);color:var(--paper);border-color:var(--rule-d);padding:34px 30px;margin:0 -30px}
+@media(max-width:700px){.track.feat{padding:30px 20px;margin:0 -20px}}
+.th{position:relative;margin-bottom:22px}
+.th .brand{font-size:10.5px;letter-spacing:.28em;font-weight:900;color:var(--gold);margin-bottom:2px}
+.track.feat .th .brand{color:var(--gold-br)}
+.th h3{font-size:28px;font-weight:900;letter-spacing:.01em;margin-bottom:6px}
+.th p{font-size:14px;color:var(--ink-soft)}
+.track.feat .th p{color:#A8A497}
+.tflag{
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+  background:var(--gold-br);color:var(--ink);padding:4px 12px;margin-top:12px;
+}
+.lvs{display:grid;gap:1px;background:var(--rule)}
+.track.feat .lvs{background:var(--rule-d)}
+@media(min-width:820px){.lvs{grid-template-columns:repeat(3,1fr)}}
+.lv{background:var(--paper);padding:26px 24px;display:flex;flex-direction:column}
+.track.feat .lv{background:var(--ink)}
+.lvn{
+  font-size:12px;font-weight:900;letter-spacing:.14em;color:var(--gold);margin-bottom:10px;
+}
+.track.feat .lvn{color:var(--gold-br)}
+.lv .amt{display:flex;align-items:baseline;gap:3px;margin-bottom:18px}
+.lv .amt .c{font-size:17px;font-weight:700}
+.lv .amt .v{font-size:36px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.track.feat .lv .amt .v{color:var(--gold-br)}
+.lv .amt .u{font-size:12.5px;color:var(--ink-soft);margin-left:3px}
+.track.feat .lv .amt .u{color:#A8A497}
+.lv ul{list-style:none;flex:1;margin-bottom:22px;border-top:1px solid var(--rule)}
+.track.feat .lv ul{border-color:var(--rule-d)}
+.lv li{font-size:13px;padding:9px 0;border-bottom:1px solid var(--rule);line-height:1.7}
+.track.feat .lv li{border-color:var(--rule-d);color:#D3CFC2}
+.lv .cta{width:100%;justify-content:center;font-size:14px;padding:14px}
+.track.feat .lv .cta{background:var(--gold-br);color:var(--ink)}
+.track.feat .lv .cta:hover{background:var(--paper)}
 
 /* ---------- process ---------- */
 .steps{display:grid;gap:0;border-top:1px solid var(--rule)}
@@ -479,67 +482,135 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
 <section id="price">
   <div class="wrap">
     <div class="idx">07　コースと料金</div>
-    <h2>コースは3つ。<br>いまいる場所で選んでください。</h2>
-    <p class="lede">入会金も解約金もありません。途中で上げるのも下げるのも自由です。合わなければ、次の更新前に抜けられます。</p>
+    <h2>3つの道 × 3つの段。<br>いまいる場所から始めてください。</h2>
+    <p class="lede">どこから入っても、いつでも上げ下げできます。入会金も解約金もありません。合わなければ、次の更新前に抜けられます。</p>
     <div class="founding">
       <span class="dot"></span>
       <div><b>いまは創設メンバー枠、先行33名まで。</b>どのコースを選んでも、この価格を在籍しているあいだずっと据え置きます。</div>
     </div>
-    <div class="plans">
 
-      <div class="pl">
-        <span class="flag void">-</span>
+    <div class="track">
+      <div class="th">
         <p class="brand">FORGE</p>
         <h3>supporter</h3>
-        <p class="for">まず中を見てみたい人／この場を応援したい人へ</p>
-        <div class="amt"><span class="c">¥</span><span class="v">3,300</span><span class="u">/ 月</span></div>
-        <p class="tx">税込・入会金なし</p>
-        <ul>
-          <li>毎週のお題が届く</li>
-          <li>教材はぜんぶ見放題</li>
-          <li>週報「今週のBUILDERS」</li>
-          <li>交流会に参加できる</li>
-        </ul>
-        <a href="https://buy.stripe.com/test_7sY7sLalx6ud6No9jC6g80s" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
+        <p>まず中を見てみたい人／この場を応援したい人へ</p>
       </div>
+      <div class="lvs">
+        <div class="lv">
+          <div class="lvn">初級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">2,200</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>毎週のお題が届く</li>
+            <li>教材の基礎パート（前半6本）</li>
+            <li>週報「今週のBUILDERS」</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_cNi14neBNaKt5Jk0N66g80v" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+        <div class="lv">
+          <div class="lvn">中級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">3,300</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>初級の中身、ぜんぶ</li>
+            <li>教材はぜんぶ見放題</li>
+            <li>交流会に参加できる</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_9B6fZhctFdWFgnY2Ve6g80w" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+        <div class="lv">
+          <div class="lvn">上級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">4,400</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>中級の中身、ぜんぶ</li>
+            <li>月例のライブ勉強会</li>
+            <li>お題に投稿できる</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_dRmeVd79ldWF1t4eDW6g80x" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+      </div>
+    </div>
 
-      <div class="pl top">
-        <span class="flag">いちばん多い</span>
+    <div class="track feat">
+      <div class="th">
         <p class="brand">FORGE</p>
         <h3>startup</h3>
-        <p class="for">AIを仕事にするところまで、持っていきたい人へ</p>
-        <div class="amt"><span class="c">¥</span><span class="v">5,500</span><span class="u">/ 月</span></div>
-        <p class="tx">税込・入会金なし</p>
-        <ul>
-          <li>supporter の中身、ぜんぶ</li>
-          <li>週1のペア学習（相方がつく）</li>
-          <li>チャットで質問し放題</li>
-          <li>投稿したお題に運営がコメント</li>
-          <li>案件の紹介（一般枠）</li>
-        </ul>
-        <a href="https://buy.stripe.com/test_9B628r79l5q98VwcvO6g80t" class="cta" target="_blank" rel="noopener">このコースで入る</a>
+        <p>AIを仕事にするところまで、持っていきたい人へ</p>
+        <span class="tflag">いちばん多い道</span>
       </div>
+      <div class="lvs">
+        <div class="lv">
+          <div class="lvn">初級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">5,500</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>supporter 上級の中身、ぜんぶ</li>
+            <li>週1のペア学習（相方がつく）</li>
+            <li>チャットで質問し放題</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_3cIcN5ctFg4NdbMbrK6g80y" class="cta" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+        <div class="lv">
+          <div class="lvn">中級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">8,800</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>初級の中身、ぜんぶ</li>
+            <li>投稿したお題に運営がコメント</li>
+            <li>案件の紹介（一般枠）</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_fZu14n65h05P7RseDW6g80z" class="cta" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+        <div class="lv">
+          <div class="lvn">上級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">11,000</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>中級の中身、ぜんぶ</li>
+            <li>月1回の個別レビュー（30分）</li>
+            <li>提案書・見積のテンプレ一式</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_7sYcN52T5g4Nb3E53m6g80A" class="cta" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+      </div>
+    </div>
 
-      <div class="pl">
-        <span class="flag void">-</span>
+    <div class="track">
+      <div class="th">
         <p class="brand">FORGE</p>
         <h3>freelance</h3>
-        <p class="for">すでに独立していて、単価を上げたい人へ</p>
-        <div class="amt"><span class="c">¥</span><span class="v">16,500</span><span class="u">/ 月</span></div>
-        <p class="tx">税込・入会金なし</p>
-        <ul>
-          <li>startup の中身、ぜんぶ</li>
-          <li>案件の紹介が優先で回る</li>
-          <li>共同受注チームに入れる</li>
-          <li>法人研修の講師枠</li>
-          <li>月1回、個別に見てもらえる</li>
-        </ul>
-        <a href="https://buy.stripe.com/test_8x2bJ179l8ClfjU7bu6g80u" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
+        <p>すでに独立していて、単価を上げたい人へ</p>
       </div>
-
+      <div class="lvs">
+        <div class="lv">
+          <div class="lvn">初級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">16,500</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>startup 上級の中身、ぜんぶ</li>
+            <li>案件の紹介が優先で回る</li>
+            <li>会員名簿から相方を指名できる</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_8x27sL8dp7yh4Fg7bu6g80B" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+        <div class="lv">
+          <div class="lvn">中級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">22,000</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>初級の中身、ぜんぶ</li>
+            <li>共同受注チームに入れる</li>
+            <li>法人研修の講師枠</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_14AcN5ctFaKtc7I53m6g80C" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+        <div class="lv">
+          <div class="lvn">上級</div>
+          <div class="amt"><span class="c">¥</span><span class="v">33,000</span><span class="u">/ 月</span></div>
+          <ul>
+            <li>中級の中身、ぜんぶ</li>
+            <li>案件の相談が随時できる</li>
+            <li>単価交渉の同席・教材の共同制作</li>
+          </ul>
+          <a href="https://buy.stripe.com/test_14A3cvgJV5q9c7I2Ve6g80D" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
+        </div>
+      </div>
     </div>
     <p class="paynote">
-      お支払いは Stripe（外部サイト）に移動して、クレジットカードで。<br>
+      表示はすべて税込です。お支払いは Stripe（外部サイト）に移動して、クレジットカードで。<br>
       <strong>いまはテストモードです。</strong>実際の請求は発生しません。動作を試すときは、カード番号 4242 4242 4242 4242 ／ 有効期限は未来の日付 ／ CVC は好きな3桁で。
     </p>
   </div>
@@ -552,7 +623,7 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
     <h2>申し込んだその日から、<br>中に入れます。</h2>
     <p class="lede">面談も、長いフォームも、承認待ちもありません。</p>
     <div class="steps">
-      <div class="st"><div class="no">STEP 01</div><h3>コースを選んで申し込む</h3><p>3つから選んで、Stripe でカード情報を入れるだけ。1分で終わります。</p></div>
+      <div class="st"><div class="no">STEP 01</div><h3>コースを選んで申し込む</h3><p>9つの中から、いまの自分に合うものを1つ。Stripe でカード情報を入れるだけ、1分で終わります。</p></div>
       <div class="st"><div class="no">STEP 02</div><h3>その日のうちに招待が届く</h3><p>決済が通るとメールで招待リンクが届きます。全チャンネルが開きます。</p></div>
       <div class="st"><div class="no">STEP 03</div><h3>自己紹介して、相方が決まる</h3><p>まずは挨拶から。いまのスキルを見て、こちらでペアを組みます。翌週から一緒に走ります。</p></div>
     </div>
