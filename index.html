@@ -3,264 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARTIGIA（アルティージャ）｜AIは、ひとりで学ばないほうが早い。</title>
-<meta name="description" content="AIを仕事にするための、学び合うコミュニティ。動画見放題、週1のペア学習、案件の紹介まで。月3,300円から、入会金も解約金もなし。">
-<meta property="og:title" content="ARTIGIA｜AIは、ひとりで学ばないほうが早い。">
-<meta property="og:description" content="AIを仕事にするための、学び合うコミュニティ。月3,300円から。">
+<title>ARTIGIA（アルティージャ）｜AI、ひとりで触って続いてますか。</title>
+<meta name="description" content="AIを仕事にするための、学び合うコミュニティ。毎週お題が出て、相方と報告し合う。教材見放題・案件紹介つきで月3,300円から。いまは創設メンバーを募集中です。">
+<meta property="og:title" content="ARTIGIA｜AI、ひとりで触って続いてますか。">
+<meta property="og:description" content="毎週お題が出て、相方と報告し合う。AIを仕事にするためのコミュニティ。月3,300円から。">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F3F0E8;
-  --paper-d:#E9E4D7;
-  --ink:#15140F;
-  --ink-soft:#5C594E;
-  --gold:#9C7C22;
+  --paper:#F4F1E9;
+  --paper-2:#EDE9DD;
+  --paper-3:#E6E1D1;
+  --ink:#14130F;
+  --ink-2:#3A382F;
+  --ink-soft:#605D51;
+  --gold:#9A7A20;
   --gold-br:#D9B34A;
-  --rule:#D8D2C1;
+  --rule:#DAD4C3;
+  --rule-d:#33302A;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:'Zen Kaku Gothic New',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
   background:var(--paper);color:var(--ink);
-  line-height:1.95;font-size:15px;
-  font-feature-settings:"palt";
+  line-height:2;font-size:15px;font-feature-settings:"palt";
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{width:min(1120px,88vw);margin:0 auto}
+.wrap{width:min(1140px,88vw);margin:0 auto}
+.mid{width:min(880px,88vw);margin:0 auto}
 .narrow{width:min(720px,88vw);margin:0 auto}
+section{padding:104px 0}
+@media(max-width:640px){section{padding:72px 0}}
 
 /* ---------- header ---------- */
 header{
-  position:sticky;top:0;z-index:60;background:rgba(243,240,232,.92);
-  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
+  position:sticky;top:0;z-index:60;background:rgba(244,241,233,.93);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);
 }
-.hd{display:flex;align-items:center;justify-content:space-between;height:66px}
-.mark{display:flex;align-items:baseline;gap:10px}
-.mark b{font-size:22px;font-weight:900;letter-spacing:.16em}
-.mark span{font-size:10px;letter-spacing:.24em;color:var(--gold);font-weight:700}
-.nav{display:none;gap:26px;font-size:13px;color:var(--ink-soft)}
-@media(min-width:940px){.nav{display:flex}}
+.hd{display:flex;align-items:center;justify-content:space-between;height:64px}
+.mark{display:flex;align-items:baseline;gap:9px}
+.mark b{font-size:21px;font-weight:900;letter-spacing:.16em}
+.mark i{font-style:normal;font-size:9.5px;letter-spacing:.22em;color:var(--gold);font-weight:700}
+.nav{display:none;gap:24px;font-size:13px;color:var(--ink-soft)}
+@media(min-width:1000px){.nav{display:flex}}
 .nav a:hover{color:var(--gold)}
-.hcta{
-  background:var(--ink);color:var(--paper);font-size:13px;font-weight:700;
-  padding:11px 22px;border-radius:2px;transition:.18s;
-}
+.hcta{background:var(--ink);color:var(--paper);font-size:13px;font-weight:700;padding:11px 20px;transition:.18s}
 .hcta:hover{background:var(--gold)}
 
-/* ---------- type utilities ---------- */
+/* ---------- shared type ---------- */
 .idx{
-  font-size:11px;letter-spacing:.22em;font-weight:700;color:var(--gold);
-  display:flex;align-items:center;gap:12px;margin-bottom:18px;
+  font-size:10.5px;letter-spacing:.24em;font-weight:700;color:var(--gold);
+  display:flex;align-items:center;gap:12px;margin-bottom:20px;
 }
-.idx::after{content:"";flex:1;height:1px;background:var(--rule);max-width:90px}
-h2{
-  font-size:clamp(23px,4.4vw,40px);font-weight:900;line-height:1.5;
-  letter-spacing:.005em;margin-bottom:16px;word-break:auto-phrase;
-}
-.lede{font-size:15.5px;color:var(--ink-soft);max-width:620px;margin-bottom:52px;line-height:2.05}
-section{padding:96px 0}
-.dark{background:var(--ink);color:var(--paper)}
-.dark .lede{color:#A9A497}
+.idx::after{content:"";flex:1;height:1px;background:var(--rule);max-width:80px}
 .dark .idx{color:var(--gold-br)}
-.dark .idx::after{background:#38352C}
+.dark .idx::after{background:var(--rule-d)}
+h2{
+  font-size:clamp(23px,4.3vw,38px);font-weight:900;line-height:1.55;
+  margin-bottom:18px;word-break:auto-phrase;
+}
+.lede{font-size:15.5px;color:var(--ink-soft);max-width:640px;margin-bottom:56px;line-height:2.1}
+.dark{background:var(--ink);color:var(--paper)}
+.dark .lede{color:#A8A497}
 
-/* ---------- hero ---------- */
-.hero{padding:96px 0 88px;border-bottom:1px solid var(--rule)}
-.hero .kicker{
-  display:inline-block;font-size:11.5px;letter-spacing:.2em;font-weight:700;
-  color:var(--gold);border:1px solid var(--gold);padding:5px 14px;margin-bottom:34px;
-}
-.hero h1{
-  font-size:clamp(30px,7vw,74px);font-weight:900;line-height:1.34;
-  letter-spacing:-.005em;margin-bottom:30px;word-break:auto-phrase;
-}
-.hero h1 .g{
-  position:relative;display:inline-block;
-}
-.hero h1 .g::after{
-  content:"";position:absolute;left:0;right:0;bottom:.12em;height:.24em;
-  background:var(--gold-br);opacity:.45;z-index:-1;
-}
-.hero .sub{font-size:16.5px;line-height:2.1;color:var(--ink-soft);max-width:600px;margin-bottom:38px}
-.facts{
-  display:flex;flex-wrap:wrap;gap:0 26px;font-size:13px;font-weight:700;
-  margin-bottom:40px;color:var(--ink);
-}
-.facts span{position:relative;padding-left:16px}
-.facts span::before{
-  content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;background:var(--gold);
-}
+/* ---------- buttons ---------- */
 .cta{
   display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--paper);
-  font-size:16px;font-weight:700;padding:20px 40px;border-radius:2px;transition:.2s;
+  font-size:16px;font-weight:700;padding:20px 40px;transition:.2s;
 }
 .cta:hover{background:var(--gold);transform:translateY(-1px)}
 .cta.line{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .cta.line:hover{background:var(--ink);color:var(--paper)}
 .dark .cta{background:var(--gold-br);color:var(--ink)}
 .dark .cta:hover{background:var(--paper)}
-.fine{font-size:12px;color:#8A8578;margin-top:18px}
+
+/* ---------- hero ---------- */
+.hero{padding:80px 0 92px;border-bottom:1px solid var(--rule)}
+.status{
+  display:inline-flex;align-items:center;gap:10px;border:1px solid var(--rule);
+  background:var(--paper-2);padding:7px 16px;font-size:12px;font-weight:700;
+  color:var(--ink-2);margin-bottom:34px;letter-spacing:.03em;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold-br);animation:pl 2s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.25}}
+.status s{text-decoration:none;color:var(--rule)}
+@media(max-width:560px){
+  .status{font-size:11px;padding:7px 13px;gap:8px}
+  .status .opt{display:none}
+}
+.hero h1{
+  font-size:clamp(29px,6.6vw,68px);font-weight:900;line-height:1.38;
+  letter-spacing:-.005em;margin-bottom:32px;word-break:auto-phrase;
+}
+.hero h1 .g{position:relative;display:inline-block}
+.hero h1 .g::after{
+  content:"";position:absolute;left:-2px;right:-2px;bottom:.1em;height:.26em;
+  background:var(--gold-br);opacity:.42;z-index:-1;
+}
+.hero .sub{font-size:16px;line-height:2.15;color:var(--ink-soft);max-width:580px;margin-bottom:36px}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:20px}
+.fine{font-size:12px;color:#8B8778;line-height:1.9}
+
+/* ---------- honesty ---------- */
+.honest{background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:72px 0}
+.honest .box{border-left:3px solid var(--gold);padding:4px 0 4px 26px}
+.honest h2{font-size:clamp(21px,3.4vw,29px);margin-bottom:16px}
+.honest p{color:var(--ink-2);font-size:15px;margin-bottom:12px}
+.honest p:last-child{margin-bottom:0}
 
 /* ---------- about ---------- */
-.two{display:grid;gap:44px}
-@media(min-width:840px){.two{grid-template-columns:1.05fr .95fr;gap:70px}}
-.two h3{font-size:19px;font-weight:900;margin-bottom:14px}
-.two p{color:var(--ink-soft);font-size:15px}
-.two p + h3{margin-top:36px}
-.quotebox{
-  border-left:2px solid var(--gold);padding:6px 0 6px 24px;
-  font-family:'Zen Old Mincho',serif;font-size:19px;line-height:2.05;
+.two{display:grid;gap:40px}
+@media(min-width:860px){.two{grid-template-columns:1.05fr .95fr;gap:72px}}
+.two h3{font-size:18.5px;font-weight:900;margin-bottom:12px}
+.two p{color:var(--ink-soft);font-size:15px;margin-bottom:14px}
+.two p:last-child{margin-bottom:0}
+.two p + h3{margin-top:34px}
+.quote{
+  border-left:2px solid var(--gold);padding:8px 0 8px 24px;
+  font-family:'Zen Old Mincho',serif;font-size:18.5px;line-height:2.1;color:var(--ink-2);
 }
 
+/* ---------- weekly rhythm ---------- */
+.week{border-top:1px solid var(--rule-d)}
+.wk{
+  display:grid;gap:8px 36px;padding:30px 0;border-bottom:1px solid var(--rule-d);
+  align-items:start;
+}
+@media(min-width:820px){.wk{grid-template-columns:170px 1fr}}
+.wk .day{font-size:13px;font-weight:900;color:var(--gold-br);letter-spacing:.06em;padding-top:3px}
+.wk h3{font-size:19px;font-weight:900;margin-bottom:8px}
+.wk p{font-size:14.5px;color:#A8A497;max-width:620px}
+
+/* ---------- odai sample ---------- */
+.odai{display:grid;gap:24px}
+@media(min-width:860px){.odai{grid-template-columns:1.02fr .98fr;gap:32px}}
+.odai > *{display:flex;flex-direction:column;justify-content:center}
+.card{background:#fff;border:1px solid var(--rule);padding:34px 30px}
+.card .tag,.fmt .tag{
+  display:inline-block;align-self:flex-start;font-size:10.5px;letter-spacing:.16em;
+  font-weight:700;background:var(--ink);color:var(--paper);padding:4px 11px;margin-bottom:16px;
+}
+.card h3{font-size:19px;font-weight:900;margin-bottom:12px;line-height:1.6}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+.fmt{
+  background:var(--ink);color:#D5D1C4;padding:26px 28px;font-size:14px;line-height:2.3;
+  border:1px solid var(--rule-d);
+}
+.fmt .tag{background:var(--gold-br);color:var(--ink)}
+.fmt b{color:var(--gold-br);font-weight:700}
+
 /* ---------- reasons ---------- */
-.rlist{border-top:1px solid var(--rule)}
-.dark .rlist{border-color:#33302A}
-.r{
-  display:grid;gap:6px 40px;padding:38px 0;border-bottom:1px solid var(--rule);
-}
-.dark .r{border-color:#33302A}
-@media(min-width:840px){.r{grid-template-columns:110px 1fr}}
-.r .n{
-  font-size:38px;font-weight:900;line-height:1;color:transparent;
-  -webkit-text-stroke:1px var(--gold);letter-spacing:.02em;
-}
-.dark .r .n{-webkit-text-stroke-color:var(--gold-br)}
-.r h3{font-size:20px;font-weight:900;margin-bottom:10px}
-.r p{color:var(--ink-soft);font-size:15px;max-width:640px}
-.dark .r p{color:#A9A497}
+.rl{border-top:1px solid var(--rule)}
+.r{display:grid;gap:6px 40px;padding:34px 0;border-bottom:1px solid var(--rule)}
+@media(min-width:840px){.r{grid-template-columns:100px 1fr}}
+.r .n{font-size:34px;font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold)}
+.r h3{font-size:19px;font-weight:900;margin-bottom:9px}
+.r p{color:var(--ink-soft);font-size:14.5px;max-width:660px}
 
 /* ---------- pillars ---------- */
 .pills{display:grid;gap:0;border-top:1px solid var(--rule)}
-@media(min-width:900px){.pills{grid-template-columns:repeat(3,1fr);border-top:none}}
-.p{
-  padding:36px 0;border-bottom:1px solid var(--rule);
-}
-@media(min-width:900px){
+@media(min-width:920px){.pills{grid-template-columns:repeat(3,1fr);border-top:none}}
+.p{padding:34px 0;border-bottom:1px solid var(--rule)}
+@media(min-width:920px){
   .p{padding:0 34px;border-bottom:none;border-left:1px solid var(--rule)}
   .p:first-child{padding-left:0;border-left:none}
   .p:last-child{padding-right:0}
 }
-.p .jp{font-size:10.5px;letter-spacing:.24em;font-weight:700;color:var(--gold);margin-bottom:12px}
-.p h3{font-size:21px;font-weight:900;line-height:1.5;margin-bottom:14px}
-.p p{color:var(--ink-soft);font-size:14.5px;margin-bottom:16px}
+.p .jp{font-size:10px;letter-spacing:.24em;font-weight:700;color:var(--gold);margin-bottom:12px}
+.p h3{font-size:20px;font-weight:900;line-height:1.5;margin-bottom:13px}
+.p > p{color:var(--ink-soft);font-size:14.5px;margin-bottom:16px}
 .p ul{list-style:none}
-.p li{
-  font-size:13.5px;color:var(--ink);padding:9px 0;border-top:1px solid var(--rule);
-}
+.p li{font-size:13.5px;padding:9px 0;border-top:1px solid var(--rule)}
 
 /* ---------- benefits ---------- */
-.bl{display:grid;gap:0;border-top:1px solid #33302A}
+.bl{display:grid;gap:0;border-top:1px solid var(--rule-d)}
 @media(min-width:700px){.bl{grid-template-columns:1fr 1fr}}
-@media(min-width:1040px){.bl{grid-template-columns:repeat(3,1fr)}}
-.b{padding:30px 0;border-bottom:1px solid #33302A}
+@media(min-width:1060px){.bl{grid-template-columns:repeat(3,1fr)}}
+.b{padding:28px 0;border-bottom:1px solid var(--rule-d)}
 @media(min-width:700px){
-  .b{padding:30px 30px 30px 0}
-  .b:nth-child(2n){padding-left:30px;border-left:1px solid #33302A}
+  .b{padding:28px 28px 28px 0}
+  .b:nth-child(2n){padding-left:28px;border-left:1px solid var(--rule-d)}
 }
-@media(min-width:1040px){
-  .b{padding:30px 30px 30px 0;border-left:none}
-  .b:nth-child(2n){padding-left:30px;border-left:1px solid #33302A}
-  .b:nth-child(3n){padding-left:30px;border-left:1px solid #33302A}
+@media(min-width:1060px){
+  .b{padding:28px 28px 28px 0;border-left:none}
+  .b:nth-child(2n),.b:nth-child(3n){padding-left:28px;border-left:1px solid var(--rule-d)}
   .b:nth-child(3n+1){padding-left:0;border-left:none}
 }
-.b h3{font-size:16.5px;font-weight:900;margin-bottom:9px}
-.b p{font-size:13.5px;color:#A9A497}
+.b .ic{font-size:19px;margin-bottom:10px}
+.b h3{font-size:16px;font-weight:900;margin-bottom:8px}
+.b p{font-size:13.5px;color:#A8A497}
 
-/* ---------- curriculum ---------- */
-.cur{display:grid;gap:52px}
-@media(min-width:880px){.cur{grid-template-columns:1fr 1fr;gap:64px}}
-.cur h3{font-size:20px;font-weight:900;margin-bottom:4px}
-.cur .cd{font-size:13.5px;color:var(--ink-soft);margin-bottom:20px}
-.cur ol{list-style:none;counter-reset:k;border-top:1px solid var(--rule)}
-.cur li{
-  counter-increment:k;font-size:14px;padding:11px 0 11px 40px;
-  border-bottom:1px solid var(--rule);position:relative;line-height:1.7;
+/* ---------- fit ---------- */
+.fit{display:grid;gap:0;border:1px solid var(--rule)}
+@media(min-width:880px){.fit{grid-template-columns:1fr 1fr}}
+.fc{padding:34px 30px}
+.fc.yes{background:#fff}
+.fc.no{background:var(--paper-2);border-top:1px solid var(--rule)}
+@media(min-width:880px){.fc.no{border-top:none;border-left:1px solid var(--rule)}}
+.fc h3{font-size:18px;font-weight:900;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.fc h3 em{
+  font-style:normal;width:24px;height:24px;display:grid;place-items:center;
+  font-size:13px;border-radius:50%;
 }
-.cur li::before{
-  content:counter(k,decimal-leading-zero);position:absolute;left:0;top:12px;
-  font-size:11.5px;font-weight:700;color:var(--gold);letter-spacing:.06em;
-}
+.fc.yes h3 em{background:var(--gold);color:#fff}
+.fc.no h3 em{background:#BDB8A8;color:#fff}
+.fc ul{list-style:none}
+.fc li{font-size:14px;padding:11px 0;border-top:1px solid var(--rule);color:var(--ink-2);line-height:1.85}
 
 /* ---------- pricing ---------- */
 .plans{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-@media(min-width:920px){.plans{grid-template-columns:repeat(3,1fr)}}
-.pl{background:var(--paper);padding:40px 32px;display:flex;flex-direction:column}
+@media(min-width:940px){.plans{grid-template-columns:repeat(3,1fr)}}
+.pl{background:#fff;padding:38px 30px;display:flex;flex-direction:column}
 .pl.top{background:var(--ink);color:var(--paper)}
-.pl .flag{
-  display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.1em;
-  background:var(--gold-br);color:var(--ink);padding:4px 12px;margin-bottom:18px;
+.flag{
+  display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;
+  background:var(--gold-br);color:var(--ink);padding:4px 12px;margin-bottom:16px;
 }
-.pl .flag.void{visibility:hidden}
-.pl h3{font-size:21px;font-weight:900;margin-bottom:6px}
-.pl .for{font-size:13px;color:var(--ink-soft);margin-bottom:26px;min-height:42px}
-.pl.top .for{color:#A9A497}
+.flag.void{visibility:hidden}
+.pl h3{font-size:20px;font-weight:900;margin-bottom:6px}
+.pl .for{font-size:13px;color:var(--ink-soft);margin-bottom:24px;min-height:44px;line-height:1.8}
+.pl.top .for{color:#A8A497}
 .amt{display:flex;align-items:baseline;gap:3px;margin-bottom:4px}
-.amt .c{font-size:20px;font-weight:700}
-.amt .v{font-size:46px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.amt .c{font-size:19px;font-weight:700}
+.amt .v{font-size:44px;font-weight:900;line-height:1;letter-spacing:-.02em}
 .amt .u{font-size:13px;color:var(--ink-soft);margin-left:4px}
 .pl.top .amt .v{color:var(--gold-br)}
-.pl.top .amt .u{color:#A9A497}
-.pl .tx{font-size:11.5px;color:var(--ink-soft);margin-bottom:26px}
-.pl.top .tx{color:#8E8A7D}
-.pl ul{list-style:none;flex:1;margin-bottom:30px;border-top:1px solid var(--rule)}
-.pl.top ul{border-color:#33302A}
-.pl li{font-size:13.5px;padding:10px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
-.pl.top li{border-color:#33302A;color:#D6D2C6}
+.pl.top .amt .u{color:#A8A497}
+.tx{font-size:11.5px;color:var(--ink-soft);margin-bottom:24px}
+.pl.top .tx{color:#8C8879}
+.pl ul{list-style:none;flex:1;margin-bottom:28px;border-top:1px solid var(--rule)}
+.pl.top ul{border-color:var(--rule-d)}
+.pl li{font-size:13.5px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.pl.top li{border-color:var(--rule-d);color:#D3CFC2}
 .pl .cta{width:100%;justify-content:center;font-size:15px;padding:17px}
 .pl.top .cta{background:var(--gold-br);color:var(--ink)}
 .pl.top .cta:hover{background:var(--paper)}
-.paynote{
-  margin-top:30px;font-size:12.5px;color:var(--ink-soft);line-height:2;
-  border-left:2px solid var(--gold);padding-left:18px;
+.paynote{margin-top:28px;font-size:12.5px;color:var(--ink-soft);line-height:2.1;border-left:2px solid var(--gold);padding-left:18px}
+
+/* ---------- process ---------- */
+.steps{display:grid;gap:0;border-top:1px solid var(--rule)}
+@media(min-width:880px){.steps{grid-template-columns:repeat(3,1fr);border-top:none}}
+.st{padding:30px 0;border-bottom:1px solid var(--rule)}
+@media(min-width:880px){
+  .st{padding:0 30px;border-bottom:none;border-left:1px solid var(--rule)}
+  .st:first-child{padding-left:0;border-left:none}
+  .st:last-child{padding-right:0}
 }
+.st .no{font-size:11px;font-weight:900;letter-spacing:.2em;color:var(--gold);margin-bottom:12px}
+.st h3{font-size:17.5px;font-weight:900;margin-bottom:10px}
+.st p{font-size:14px;color:var(--ink-soft)}
 
 /* ---------- faq ---------- */
 details{border-bottom:1px solid var(--rule)}
-summary{
-  cursor:pointer;list-style:none;padding:22px 40px 22px 0;
-  font-size:15.5px;font-weight:700;position:relative;
-}
+summary{cursor:pointer;list-style:none;padding:21px 42px 21px 0;font-size:15.5px;font-weight:700;position:relative;line-height:1.7}
 summary::-webkit-details-marker{display:none}
-summary::after{
-  content:"";position:absolute;right:6px;top:32px;width:13px;height:1px;background:var(--gold);
-}
-summary::before{
-  content:"";position:absolute;right:12px;top:26px;width:1px;height:13px;background:var(--gold);
-  transition:.2s;
-}
+summary::after{content:"";position:absolute;right:6px;top:31px;width:13px;height:1px;background:var(--gold)}
+summary::before{content:"";position:absolute;right:12px;top:25px;width:1px;height:13px;background:var(--gold);transition:.2s}
 details[open] summary::before{opacity:0}
-details .a{padding:0 0 24px;font-size:14.5px;color:var(--ink-soft);line-height:2.05}
+details .a{padding:0 0 24px;font-size:14.5px;color:var(--ink-soft);line-height:2.1}
 
 /* ---------- closing ---------- */
-.close{text-align:center;padding:110px 0}
-.close h2{font-size:clamp(26px,5vw,44px);margin-bottom:20px}
-.close p{color:#A9A497;margin-bottom:38px;font-size:15.5px}
+.close{text-align:center;padding:112px 0}
+.close h2{font-size:clamp(25px,4.8vw,42px);margin-bottom:18px}
+.close p{color:#A8A497;margin-bottom:36px;font-size:15.5px}
 
 /* ---------- footer ---------- */
-footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--rule)}
-.ft{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start;margin-bottom:34px}
-.fl{display:flex;flex-wrap:wrap;gap:22px;font-size:13px;color:var(--ink-soft)}
+footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--rule)}
+.ft{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;margin-bottom:32px}
+.fl{display:flex;flex-wrap:wrap;gap:20px;font-size:13px;color:var(--ink-soft)}
 .fl a:hover{color:var(--gold)}
-.note{font-size:12px;color:#7C7869;line-height:1.95;border-top:1px solid var(--rule);padding-top:22px}
-.cp{font-size:11.5px;color:#8E8A7D;margin-top:14px}
+.note{font-size:12px;color:#7B7768;line-height:2;border-top:1px solid var(--rule);padding-top:22px}
+.cp{font-size:11.5px;color:#8C8879;margin-top:14px}
 </style>
 </head>
 <body id="top">
 
 <header>
   <div class="wrap hd">
-    <a href="#top" class="mark"><b>ARTIGIA</b><span>アルティージャ</span></a>
+    <a href="#top" class="mark"><b>ARTIGIA</b><i>アルティージャ</i></a>
     <nav class="nav">
       <a href="#about">どんなところ</a>
-      <a href="#why">選ばれる理由</a>
+      <a href="#week">1週間の流れ</a>
       <a href="#how">3つの仕組み</a>
-      <a href="#learn">学べること</a>
+      <a href="#fit">合う人・合わない人</a>
       <a href="#price">料金</a>
     </nav>
     <a href="#price" class="hcta">入会する</a>
@@ -270,17 +300,26 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="kicker">AI × フリーランス コミュニティ</span>
-    <h1>AIは、<br><span class="g">ひとりで学ばない</span>ほうが早い。</h1>
-    <p class="sub">動画を見て終わり、にはしません。となりに一緒に走る人がいて、覚えたことがそのまま仕事につながる。そういう場所をつくりました。</p>
-    <div class="facts">
-      <span>入会金・解約金なし</span>
-      <span>月3,300円から</span>
-      <span>教材は見放題</span>
-      <span>案件の紹介あり</span>
+    <div class="status"><span class="dot"></span><span>創設メンバー募集中</span><s class="opt">｜</s><span class="opt">先行200名まで</span><s class="opt">｜</s><span class="opt">クローズド</span></div>
+    <h1>AI、ひとりで触って<br><span class="g">続いてますか。</span></h1>
+    <p class="sub">Claudeも ChatGPT も契約した。でも気づけば触っていない。まわりに同じ話ができる人もいない。ARTIGIA は、毎週ひとつのお題に全員で挑む会員制のコミュニティです。うまくいかなかった話も、そのまま出せる場所。</p>
+    <div class="btns">
+      <a href="#price" class="cta">料金を見る　→</a>
+      <a href="#week" class="cta line">1週間の流れを見る</a>
     </div>
-    <a href="#price" class="cta">料金を見る　→</a>
-    <p class="fine">いまは先行公開中です。決済はテストモードなので、まだ請求は発生しません。</p>
+    <p class="fine">入会金・解約金なし。月3,300円から。合わなければ、次の更新前に抜けられます。</p>
+  </div>
+</section>
+
+<!-- HONESTY -->
+<section class="honest">
+  <div class="mid">
+    <div class="box">
+      <h2>先に、正直に書いておきます。</h2>
+      <p>ARTIGIA はまだ始まっていません。会員は0人。「〇〇名が活動中」も、参加者の声も、まだ載せられません。いま募集しているのは、そこを一緒に作ってくれる最初の200人です。</p>
+      <p>だから、できあがった場所に入りたい人には向いていません。逆に、ルールづくりから口を出したい人には、たぶんいちばん面白い時期です。</p>
+      <p>創設メンバーの価格は、在籍しているあいだずっと据え置きます。それがこの時期に入ってくれる人への、いまできる唯一のお返しです。</p>
+    </div>
   </div>
 </section>
 
@@ -292,62 +331,101 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
     <div class="two">
       <div>
         <p>AIの情報はSNSに溢れていて、いざ始めようとすると何から手をつければいいのか分からない。かといって、数十万円のスクールにローンを組むのはさすがに怖い。</p>
-        <p style="margin-top:16px">ARTIGIA は、その間を埋める場所です。無理のない金額で、迷わない順番の教材と、一緒に走る相手が手に入ります。</p>
+        <p>ARTIGIA は、その間を埋める場所です。無理のない金額で、迷わない順番の教材と、一緒に走る相手が手に入ります。</p>
         <h3>先生は、いません</h3>
         <p>カリスマ講師が教えてくれる場所ではありません。教材とAIが基礎を担当して、詰まったところは会員同士で解きます。だから誰かが抜けても場が続くし、そのうちあなたが教える側にまわることもあります。</p>
       </div>
       <div>
-        <div class="quotebox">名前の ARTIGIA は、イタリア語の artigiano（職人）から。誰かに雇われるのではなく、自分の腕で仕事をつくる人の集まりでありたい。そういう意味を込めています。</div>
-        <h3 style="margin-top:34px">できるようになること</h3>
-        <p>資料の下書きを30分で作る。議事録を自動でまとめる。Excelの関数をAIに書かせる。そのあと、それを人の仕事として受ける。順番に、そこまで持っていきます。</p>
+        <div class="quote">名前の ARTIGIA は、イタリア語の artigiano（職人）から。誰かに雇われるのではなく、自分の腕で仕事をつくる人の集まりでありたい。そういう意味を込めています。</div>
+        <h3>ここまで持っていきます</h3>
+        <p>資料の下書きを30分で作る。議事録を自動でまとめる。Excelの関数をAIに書かせる。そのあと、それを人の仕事として受ける。順番に、そこまで。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKLY -->
+<section id="week" class="dark">
+  <div class="wrap">
+    <div class="idx">02　1週間の流れ</div>
+    <h2>お題が出る。やってみる。<br>並べて、比べる。</h2>
+    <p class="lede">「そのうちやろう」は来ません。毎週お題が出るから、今週なにか1つ試す理由ができます。</p>
+    <div class="week">
+      <div class="wk">
+        <div class="day">月曜</div>
+        <div><h3>今週のお題が届く</h3><p>全員が同じお題に挑みます。やり方は自由。使うツールも自由。うまくいかなかった話も、そのままネタになります。</p></div>
+      </div>
+      <div class="wk">
+        <div class="day">週のどこかで</div>
+        <div><h3>やってみて、投稿する</h3><p>決まった形式に沿って投稿。3行で構いません。同じお題への答えが並ぶと「そのやり方があったか」が起きます。</p></div>
+      </div>
+      <div class="wk">
+        <div class="day">木曜 21時</div>
+        <div><h3>みんなで手を動かす1時間</h3><p>その週のお題に、集まって一緒に取り組みます。詰まったところをその場で解剖して、動いた人のやり方を全部見せる。出られなくても録画が残ります。</p></div>
+      </div>
+      <div class="wk">
+        <div class="day">日曜まで</div>
+        <div><h3>相方と30分、報告し合う</h3><p>入会したときに組んだペアで、今週やったことを報告します。続く人と止まる人の差は、ほぼここで決まります。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ODAI -->
+<section>
+  <div class="wrap">
+    <div class="idx">03　お題の中身</div>
+    <h2>たとえば、こんなお題が出ます。</h2>
+    <p class="lede">むずかしいことはやりません。「これ自動化できたら楽なのに」を1つ潰す、くらいの粒度です。</p>
+    <div class="odai">
+      <div class="card">
+        <span class="tag">お題の一例</span>
+        <h3>自分の仕事を、ひとつ自動化する</h3>
+        <p>毎週やっている面倒な作業を1つ選んで、AIに任せてみる。動いても、動かなくても、どちらでもOK。詰まったところを持ってくるほうが、むしろ場のためになります。</p>
+      </div>
+      <div class="fmt">
+        <span class="tag">投稿フォーマット</span>
+        <div><b>【やったこと】</b>1行で</div>
+        <div><b>【使ったツール】</b></div>
+        <div><b>【Before → After】</b>何がどう変わったか</div>
+        <div><b>【詰まったこと】</b>あれば</div>
+        <div><b>【プロンプト】</b>出せる範囲で</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- REASONS -->
-<section id="why" class="dark">
+<section>
   <div class="wrap">
-    <div class="idx">02　選ばれる理由</div>
+    <div class="idx">04　選ばれる理由</div>
     <h2>「稼げます」とは言いません。</h2>
     <p class="lede">かわりに、明日の仕事の中身が変わります。ARTIGIA が大事にしていることを4つ。</p>
-    <div class="rlist">
-      <div class="r">
-        <div class="n">01</div>
-        <div>
-          <h3>お金の話がクリア</h3>
-          <p>月3,300円から。入会金なし、解約金なし、年間まとめ払いもなし。あとから高額な講座をすすめることもしません。会費以外でお金をいただかない、というのが運営のルールです。</p>
-        </div>
-      </div>
-      <div class="r">
-        <div class="n">02</div>
-        <div>
-          <h3>ひとりの人に頼りきらない</h3>
-          <p>特定の講師に全部おんぶする作りにしていません。教材は録画とAI、質問は会員同士。だから講師の都合で場が止まらないし、盛り上がって半年で消える、みたいなことになりません。</p>
-        </div>
-      </div>
-      <div class="r">
-        <div class="n">03</div>
-        <div>
-          <h3>学びっぱなしで終わらせない</h3>
-          <p>コミュニティに入ってきた仕事を、会員に流します。規模が大きいものは何人かでチームを組んで受けます。ひとりでは手を挙げられなかった仕事に、届くようになります。</p>
-        </div>
-      </div>
-      <div class="r">
-        <div class="n">04</div>
-        <div>
-          <h3>会社員も、フリーランスも</h3>
-          <p>副業から始めたい会社員と、すでに独立していて単価を上げたいフリーランスが同じ場所にいます。立場の違う人が混ざっているので、次の一歩の実例がいつも近くにあります。</p>
-        </div>
-      </div>
+    <div class="rl">
+      <div class="r"><div class="n">01</div><div>
+        <h3>お金の話がクリア</h3>
+        <p>月3,300円から。入会金なし、解約金なし、年間まとめ払いもなし。あとから高額な講座をすすめることもしません。会費以外でお金をいただかない、というのが運営のルールです。</p>
+      </div></div>
+      <div class="r"><div class="n">02</div><div>
+        <h3>ひとりの人に頼りきらない</h3>
+        <p>特定の講師に全部おんぶする作りにしていません。教材は録画とAI、質問は会員同士。だから講師の都合で場が止まらないし、盛り上がって半年で消える、みたいなことになりません。</p>
+      </div></div>
+      <div class="r"><div class="n">03</div><div>
+        <h3>学びっぱなしで終わらせない</h3>
+        <p>コミュニティに入ってきた仕事を、会員に流します。規模が大きいものは何人かでチームを組んで受けます。ひとりでは手を挙げられなかった仕事に、届くようになります。</p>
+      </div></div>
+      <div class="r"><div class="n">04</div><div>
+        <h3>会社員も、フリーランスも</h3>
+        <p>副業から始めたい会社員と、すでに独立していて単価を上げたいフリーランスが同じ場所にいます。立場の違う人が混ざっているので、次の一歩の実例がいつも近くにあります。</p>
+      </div></div>
     </div>
   </div>
 </section>
 
-<!-- 3 PILLARS -->
+<!-- PILLARS -->
 <section id="how">
   <div class="wrap">
-    <div class="idx">03　3つの仕組み</div>
+    <div class="idx">05　3つの仕組み</div>
     <h2>盛り上がって消える場所に、<br>したくないので。</h2>
     <p class="lede">ユダヤの共同体が長く続いてきた仕組みを、そのまま3つ借りています。仲がいいだけで終わらせないための設計です。</p>
     <div class="pills">
@@ -386,55 +464,47 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
 </section>
 
 <!-- BENEFITS -->
-<section id="learn" class="dark">
+<section class="dark">
   <div class="wrap">
-    <div class="idx">04　学べること</div>
-    <h2>入ったその日から、<br>使えるもの。</h2>
+    <div class="idx">06　中で使えるもの</div>
+    <h2>入ったその日から、<br>ぜんぶ開きます。</h2>
     <div class="bl">
-      <div class="b"><h3>ゼロから学ぶAI講座</h3><p>ChatGPT・Claude・Gemini の基礎から実務まで。上から順に見ていけば形になります。</p></div>
-      <div class="b"><h3>毎月のライブ勉強会</h3><p>新しいツールの使い方と、会員が実際にやっている事例を毎月共有します。</p></div>
-      <div class="b"><h3>週1回のペア学習</h3><p>相方と30分、進み具合を報告し合う。挫折しない最大の理由がこれです。</p></div>
-      <div class="b"><h3>チャットで質問し放題</h3><p>詰まったら投げてください。答えるのは運営ではなく、少し先を行く会員です。</p></div>
-      <div class="b"><h3>案件の紹介</h3><p>コミュニティに来た仕事を会員に。プランによって、声がかかる順番が変わります。</p></div>
-      <div class="b"><h3>オンライン・オフラインの交流</h3><p>職種も年齢もバラバラな人と混ざります。仕事はだいたいここから生まれます。</p></div>
+      <div class="b"><div class="ic">🎯</div><h3>週1のお題チャレンジ</h3><p>ここが心臓部。全員が同じお題に挑むから、比べられる。答えが並ぶこと自体が教材になります。</p></div>
+      <div class="b"><div class="ic">🤝</div><h3>ハブルータ（ペア学習）</h3><p>入会と同時に相方がつきます。週1回30分の報告。挫折しない最大の理由がこれです。</p></div>
+      <div class="b"><div class="ic">🎬</div><h3>ゼロから学ぶAI講座</h3><p>ChatGPT・Claude・Gemini の基礎から実務まで。上から順に見ていけば形になります。</p></div>
+      <div class="b"><div class="ic">💬</div><h3>聞いていい？チャンネル</h3><p>詰まったら投げてください。答えるのは運営ではなく、少し先を行く会員です。</p></div>
+      <div class="b"><div class="ic">📮</div><h3>今週のARTIGIA</h3><p>その週に何が起きたかを毎週まとめます。忙しくて追えなかった週も、これだけ見れば戻れます。</p></div>
+      <div class="b"><div class="ic">🧾</div><h3>案件の紹介</h3><p>コミュニティに来た仕事を会員に。プランによって、声がかかる順番が変わります。</p></div>
     </div>
   </div>
 </section>
 
-<!-- CURRICULUM -->
-<section>
-  <div class="wrap">
-    <div class="idx">05　カリキュラム</div>
-    <h2>迷わない順番に、<br>並べてあります。</h2>
-    <p class="lede">全部で12本。一例としてこんな中身です。</p>
-    <div class="cur">
-      <div>
-        <h3>まず、明日の仕事を軽くする</h3>
-        <p class="cd">前提知識ゼロからでも大丈夫なところ。</p>
-        <ol>
-          <li>生成AIで何が変わったのか、15分で</li>
-          <li>会社で使うときに気をつけること</li>
-          <li>プロンプトの型を5つだけ覚える</li>
-          <li>議事録・要約・メールを任せる</li>
-          <li>Excelの関数とマクロを書かせる</li>
-          <li>資料の下書きを30分で作る</li>
-          <li>調べものを任せて、裏を取る</li>
-          <li>自分専用のAIアシスタントを作る</li>
-        </ol>
+<!-- FIT -->
+<section id="fit">
+  <div class="mid">
+    <div class="idx">07　合う人・合わない人</div>
+    <h2>無理に誘いたくないので、<br>正直に書きます。</h2>
+    <p class="lede">読んで「違うな」と思ったら、入らないほうがお互いのためです。</p>
+    <div class="fit">
+      <div class="fc yes">
+        <h3><em>○</em>合う人</h3>
+        <ul>
+          <li>AIの有料プランは契約した。でもひとりだと開かなくなる人</li>
+          <li>まわりにAIの話ができる相手がいない人</li>
+          <li>お題が出れば動ける、という自覚がある人</li>
+          <li>できあがった場所より、作っていく側が好きな人</li>
+          <li>すでに使いこなしていて、教えることで整理したい人</li>
+        </ul>
       </div>
-      <div>
-        <h3>次に、仕事として受ける</h3>
-        <p class="cd">「使える」から「お金になる」へ渡すところ。</p>
-        <ol>
-          <li>AIで受けられる仕事を書き出す</li>
-          <li>実績ゼロから最初の1件を取る</li>
-          <li>見積もりと単価の決め方</li>
-          <li>LP・記事・動画をまとめて作る</li>
-          <li>業務効率化を提案書にする</li>
-          <li>納品前に必ず見るチェック項目</li>
-          <li>何人かで受けて、分担する</li>
-          <li>単発を、続く契約に変える</li>
-        </ol>
+      <div class="fc no">
+        <h3><em>×</em>合わない人</h3>
+        <ul>
+          <li>短期間で大きく稼ぎたい人</li>
+          <li>使い方を一から手取り足取り教わりたい人</li>
+          <li>情報を集めるだけで、手を動かす気がない人</li>
+          <li>他の会員に営業や勧誘をしたい人</li>
+          <li>週に1時間も取れない時期の人</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -443,7 +513,7 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
 <!-- PRICE -->
 <section id="price">
   <div class="wrap">
-    <div class="idx">06　料金</div>
+    <div class="idx">08　料金</div>
     <h2>入会金も、解約金も、<br>いただきません。</h2>
     <p class="lede">合わなければいつでも抜けられます。引き止めもしません。</p>
     <div class="plans">
@@ -458,7 +528,7 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
           <li>ベーシックの中身、ぜんぶ</li>
           <li>この価格は在籍中ずっと据え置き</li>
           <li>評議会に最初から立候補できる</li>
-          <li>ルールづくりに口を出せる</li>
+          <li>お題やルールづくりに口を出せる</li>
         </ul>
         <a href="https://buy.stripe.com/test_4gMbJ19ht05PfjUfI06g80p" class="cta" target="_blank" rel="noopener">この枠で入る</a>
       </div>
@@ -470,11 +540,11 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
         <div class="amt"><span class="c">¥</span><span class="v">5,500</span><span class="u">/ 月</span></div>
         <p class="tx">税込・入会金なし</p>
         <ul>
+          <li>週1のお題チャレンジ</li>
+          <li>ハブルータ（ペア学習）</li>
           <li>教材はぜんぶ見放題</li>
-          <li>週1回のペア学習</li>
-          <li>毎月のライブ勉強会</li>
           <li>チャットで質問し放題</li>
-          <li>交流会に参加できる</li>
+          <li>木曜21時の作業会</li>
         </ul>
         <a href="https://buy.stripe.com/test_6oUbJ1gJV05P0p07bu6g80q" class="cta line" target="_blank" rel="noopener">入会する</a>
       </div>
@@ -503,18 +573,35 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
   </div>
 </section>
 
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div class="idx">09　参加の流れ</div>
+    <h2>申し込んだその日から、<br>中に入れます。</h2>
+    <p class="lede">面談も、長いフォームも、承認待ちもありません。</p>
+    <div class="steps">
+      <div class="st"><div class="no">STEP 01</div><h3>プランを選んで申し込む</h3><p>上の3つから選んで、Stripe でカード情報を入れるだけ。1分で終わります。</p></div>
+      <div class="st"><div class="no">STEP 02</div><h3>その日のうちに招待が届く</h3><p>決済が通るとメールで招待リンクが届きます。全チャンネルが開きます。</p></div>
+      <div class="st"><div class="no">STEP 03</div><h3>自己紹介して、相方が決まる</h3><p>まずは挨拶から。いまのスキルを見て、こちらでペアを組みます。翌週から一緒に走ります。</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section>
   <div class="narrow">
-    <div class="idx">07　よくある質問</div>
+    <div class="idx">10　よくある質問</div>
     <h2>気になるところ、<br>先に答えておきます。</h2>
-    <div style="margin-top:40px;border-top:1px solid var(--rule)">
-      <details open><summary>AIをまったく触ったことがなくても大丈夫？</summary><div class="a">大丈夫です。「ChatGPTを開いたことはあるけど、仕事では使っていない」くらいの人がいちばん多いです。教材も、その前提で作ってあります。</div></details>
+    <div style="margin-top:38px;border-top:1px solid var(--rule)">
+      <details open><summary>AIをまったく触ったことがなくても大丈夫？</summary><div class="a">大丈夫です。「ChatGPTを開いたことはあるけど、仕事では使っていない」くらいの人を想定して教材を作っています。ただ、なにかしらのAIの有料プランは契約しておいてください。無料版だとお題に取り組みにくい回があります。</div></details>
       <details><summary>入ったら、AI副業で月100万円稼げますか？</summary><div class="a">なりません。そこは正直に言っておきます。約束できるのは「明日から仕事でAIを使えるようになること」と「案件を取りにいく道があること」の2つです。短期間で大きく稼ぎたい方には、たぶん向いていません。</div></details>
+      <details><summary>まだ会員が0人なのに、入って意味ありますか？</summary><div class="a">最初の数十人は、正直いって場としての密度は薄いです。そのかわり、お題も、ルールも、チャンネルの並びも、その時期にいる人の意見で決まります。あとから入ると変えられない部分を、いま入る人だけが決められます。価格も在籍中ずっと据え置きです。</div></details>
+      <details><summary>お題は必ずやらないとダメ？</summary><div class="a">強制ではありません。ただ、お題に乗るのと乗らないのとでは面白さが全然違います。「動かなかった」でもOK、3行でもOKです。失敗の投稿のほうが、場としては価値があります。</div></details>
+      <details><summary>ペア学習は必ずやらないとダメ？</summary><div class="a">これも強制ではありません。ただ、いちばんおすすめしています。続く人と止まる人の差は、ほぼここで決まります。忙しい時期はお休みもできます。</div></details>
+      <details><summary>会社員でも参加できますか？</summary><div class="a">できます。というより、会社員を想定してスケジュールを組んでいます。作業会は木曜の21時から。勉強会は平日の夜と土日の午前に分けて開きます。</div></details>
+      <details><summary>地方に住んでいます。オフラインの会には行けません。</summary><div class="a">オンラインだけで完結します。お題も作業会もペア学習も、全部オンラインです。オフライン会は人が集まった地域から順に開いていきます。</div></details>
       <details><summary>途中でやめられますか？</summary><div class="a">やめられます。解約金はかかりません。次の更新日の前日までに手続きすれば、それ以降の請求は止まります。</div></details>
-      <details><summary>ペア学習は必ずやらないとダメ？</summary><div class="a">強制ではありません。ただ、いちばんおすすめしています。続く人と途中で止まる人の差は、ほぼここで決まります。忙しい時期はお休みもできます。</div></details>
-      <details><summary>会社員でも参加できますか？</summary><div class="a">できます。というより、半分以上が会社員です。勉強会は平日の夜と土日の午前に分けて開いています。</div></details>
-      <details><summary>地方に住んでいます。オフラインの会には行けません。</summary><div class="a">オンラインの勉強会と交流会を毎月やっているので、それだけでも十分に回ります。オフラインは東京が多めですが、人が集まった地域から順に開いていきます。</div></details>
+      <details><summary>投稿した内容は外に出ますか？</summary><div class="a">出しません。クローズドが前提です。スクリーンショットの外部共有は禁止しています。「やり方は共有する、固有名詞は出さない」が基本ルール。だから途中の話も失敗の話も出せます。</div></details>
       <details><summary>領収書は出ますか？</summary><div class="a">出ます。決済完了のメールからダウンロードできます。インボイス対応の書類が必要なときは、ご連絡ください。</div></details>
     </div>
   </div>
@@ -523,7 +610,7 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
 <!-- CLOSING -->
 <section class="dark close">
   <div class="wrap">
-    <div class="idx" style="justify-content:center">08　さいごに</div>
+    <div class="idx" style="justify-content:center">さいごに</div>
     <h2>ひとりで学ぶのは、<br>今日で終わりにする。</h2>
     <p>入会金も解約金もなし。合わなければ、いつでも抜けられます。</p>
     <a href="#price" class="cta">料金を見る　→</a>
@@ -533,8 +620,10 @@ footer{background:var(--paper-d);padding:52px 0 34px;border-top:1px solid var(--
 <footer>
   <div class="wrap">
     <div class="ft">
-      <div class="mark"><b>ARTIGIA</b><span>アルティージャ</span></div>
+      <div class="mark"><b>ARTIGIA</b><i>アルティージャ</i></div>
       <div class="fl">
+        <a href="#week">1週間の流れ</a>
+        <a href="#fit">合う人・合わない人</a>
         <a href="#price">料金</a>
         <a href="terms.html">利用規約</a>
         <a href="privacy.html">プライバシーポリシー</a>
