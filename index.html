@@ -225,7 +225,18 @@ h2{
   background:var(--gold-br);color:var(--ink);padding:4px 12px;margin-bottom:16px;
 }
 .flag.void{visibility:hidden}
-.pl h3{font-size:20px;font-weight:900;margin-bottom:6px}
+.pl .brand{
+  font-size:11px;letter-spacing:.28em;font-weight:900;color:var(--gold);
+  margin-bottom:2px;
+}
+.pl.top .brand{color:var(--gold-br)}
+.pl h3{font-size:26px;font-weight:900;margin-bottom:8px;letter-spacing:.01em}
+.founding{
+  display:flex;align-items:flex-start;gap:12px;background:var(--paper-2);
+  border:1px solid var(--rule);border-left:3px solid var(--gold);
+  padding:16px 20px;margin-bottom:24px;font-size:13.5px;line-height:1.95;color:var(--ink-2);
+}
+.founding .dot{margin-top:9px;flex:none}
 .pl .for{font-size:13px;color:var(--ink-soft);margin-bottom:24px;min-height:44px;line-height:1.8}
 .pl.top .for{color:#A8A497}
 .amt{display:flex;align-items:baseline;gap:3px;margin-bottom:4px}
@@ -290,7 +301,7 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
       <a href="#about">どんなところ</a>
       <a href="#week">1週間の流れ</a>
       <a href="#fit">合う人・合わない人</a>
-      <a href="#price">料金</a>
+      <a href="#price">コースと料金</a>
     </nav>
     <a href="#price" class="hcta">入会する</a>
   </div>
@@ -303,7 +314,7 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
     <h1>AI、ひとりで触って<br><span class="g">続いてますか。</span></h1>
     <p class="sub">Claudeも ChatGPT も契約した。でも気づけば触っていない。まわりに同じ話ができる人もいない。BUILDERS は、毎週ひとつのお題に全員で挑む会員制のコミュニティです。うまくいかなかった話も、そのまま出せる場所。</p>
     <div class="btns">
-      <a href="#price" class="cta">料金を見る　→</a>
+      <a href="#price" class="cta">コースを見る　→</a>
       <a href="#week" class="cta line">1週間の流れを見る</a>
     </div>
     <p class="fine">入会金・解約金なし。月3,300円から。合わなければ、次の更新前に抜けられます。</p>
@@ -428,7 +439,7 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
       <div class="b"><div class="ic">🎬</div><h3>ゼロから学ぶAI講座</h3><p>ChatGPT・Claude・Gemini の基礎から実務まで。上から順に見ていけば形になります。</p></div>
       <div class="b"><div class="ic">💬</div><h3>聞いていい？チャンネル</h3><p>詰まったら投げてください。答えるのは運営ではなく、少し先を行く会員です。</p></div>
       <div class="b"><div class="ic">📮</div><h3>今週のBUILDERS</h3><p>その週に何が起きたかを毎週まとめます。忙しくて追えなかった週も、これだけ見れば戻れます。</p></div>
-      <div class="b"><div class="ic">🧾</div><h3>案件の紹介</h3><p>コミュニティに来た仕事を会員に。プランによって、声がかかる順番が変わります。</p></div>
+      <div class="b"><div class="ic">🧾</div><h3>案件の紹介</h3><p>コミュニティに来た仕事を会員に。コースによって、声がかかる順番が変わります。</p></div>
     </div>
   </div>
 </section>
@@ -467,56 +478,63 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
 <!-- PRICE -->
 <section id="price">
   <div class="wrap">
-    <div class="idx">07　料金</div>
-    <h2>入会金も、解約金も、<br>いただきません。</h2>
-    <p class="lede">合わなければいつでも抜けられます。引き止めもしません。</p>
+    <div class="idx">07　コースと料金</div>
+    <h2>コースは3つ。<br>いまいる場所で選んでください。</h2>
+    <p class="lede">入会金も解約金もありません。途中で上げるのも下げるのも自由です。合わなければ、次の更新前に抜けられます。</p>
+    <div class="founding">
+      <span class="dot"></span>
+      <div><b>いまは創設メンバー枠、先行33名まで。</b>どのコースを選んでも、この価格を在籍しているあいだずっと据え置きます。</div>
+    </div>
     <div class="plans">
 
-      <div class="pl top">
-        <span class="flag">先行33名まで</span>
-        <h3>創設メンバー</h3>
-        <p class="for">立ち上げから一緒に場をつくってくれる人へ</p>
+      <div class="pl">
+        <span class="flag void">-</span>
+        <p class="brand">FORGE</p>
+        <h3>supporter</h3>
+        <p class="for">まず中を見てみたい人／この場を応援したい人へ</p>
         <div class="amt"><span class="c">¥</span><span class="v">3,300</span><span class="u">/ 月</span></div>
         <p class="tx">税込・入会金なし</p>
         <ul>
-          <li>ベーシックの中身、ぜんぶ</li>
-          <li>この価格は在籍中ずっと据え置き</li>
-          <li>運営メンバーに最初から手を挙げられる</li>
-          <li>お題やルールづくりに口を出せる</li>
+          <li>毎週のお題が届く</li>
+          <li>教材はぜんぶ見放題</li>
+          <li>週報「今週のBUILDERS」</li>
+          <li>交流会に参加できる</li>
         </ul>
-        <a href="https://buy.stripe.com/test_4gMbJ19ht05PfjUfI06g80p" class="cta" target="_blank" rel="noopener">この枠で入る</a>
+        <a href="https://buy.stripe.com/test_7sY7sLalx6ud6No9jC6g80s" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
       </div>
 
-      <div class="pl">
-        <span class="flag void">-</span>
-        <h3>ベーシック</h3>
-        <p class="for">これからAIを仕事に取り入れたい人へ</p>
+      <div class="pl top">
+        <span class="flag">いちばん多い</span>
+        <p class="brand">FORGE</p>
+        <h3>startup</h3>
+        <p class="for">AIを仕事にするところまで、持っていきたい人へ</p>
         <div class="amt"><span class="c">¥</span><span class="v">5,500</span><span class="u">/ 月</span></div>
         <p class="tx">税込・入会金なし</p>
         <ul>
-          <li>週1のお題チャレンジ</li>
-          <li>週1のペア学習</li>
-          <li>教材はぜんぶ見放題</li>
+          <li>supporter の中身、ぜんぶ</li>
+          <li>週1のペア学習（相方がつく）</li>
           <li>チャットで質問し放題</li>
-          <li>月例のライブ勉強会</li>
+          <li>投稿したお題に運営がコメント</li>
+          <li>案件の紹介（一般枠）</li>
         </ul>
-        <a href="https://buy.stripe.com/test_6oUbJ1gJV05P0p07bu6g80q" class="cta line" target="_blank" rel="noopener">入会する</a>
+        <a href="https://buy.stripe.com/test_9B628r79l5q98VwcvO6g80t" class="cta" target="_blank" rel="noopener">このコースで入る</a>
       </div>
 
       <div class="pl">
         <span class="flag void">-</span>
-        <h3>プロ</h3>
+        <p class="brand">FORGE</p>
+        <h3>freelance</h3>
         <p class="for">すでに独立していて、単価を上げたい人へ</p>
         <div class="amt"><span class="c">¥</span><span class="v">16,500</span><span class="u">/ 月</span></div>
         <p class="tx">税込・入会金なし</p>
         <ul>
-          <li>ベーシックの中身、ぜんぶ</li>
+          <li>startup の中身、ぜんぶ</li>
           <li>案件の紹介が優先で回る</li>
           <li>共同受注チームに入れる</li>
           <li>法人研修の講師枠</li>
           <li>月1回、個別に見てもらえる</li>
         </ul>
-        <a href="https://buy.stripe.com/test_28E4gz65h19Tb3E9jC6g80r" class="cta line" target="_blank" rel="noopener">入会する</a>
+        <a href="https://buy.stripe.com/test_8x2bJ179l8ClfjU7bu6g80u" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
       </div>
 
     </div>
@@ -534,7 +552,7 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
     <h2>申し込んだその日から、<br>中に入れます。</h2>
     <p class="lede">面談も、長いフォームも、承認待ちもありません。</p>
     <div class="steps">
-      <div class="st"><div class="no">STEP 01</div><h3>プランを選んで申し込む</h3><p>上の3つから選んで、Stripe でカード情報を入れるだけ。1分で終わります。</p></div>
+      <div class="st"><div class="no">STEP 01</div><h3>コースを選んで申し込む</h3><p>3つから選んで、Stripe でカード情報を入れるだけ。1分で終わります。</p></div>
       <div class="st"><div class="no">STEP 02</div><h3>その日のうちに招待が届く</h3><p>決済が通るとメールで招待リンクが届きます。全チャンネルが開きます。</p></div>
       <div class="st"><div class="no">STEP 03</div><h3>自己紹介して、相方が決まる</h3><p>まずは挨拶から。いまのスキルを見て、こちらでペアを組みます。翌週から一緒に走ります。</p></div>
     </div>
@@ -567,7 +585,7 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
     <div class="idx" style="justify-content:center">さいごに</div>
     <h2>ひとりで学ぶのは、<br>今日で終わりにする。</h2>
     <p>入会金も解約金もなし。合わなければ、いつでも抜けられます。</p>
-    <a href="#price" class="cta">料金を見る　→</a>
+    <a href="#price" class="cta">コースを見る　→</a>
   </div>
 </section>
 
@@ -578,7 +596,7 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
       <div class="fl">
         <a href="#week">1週間の流れ</a>
         <a href="#fit">合う人・合わない人</a>
-        <a href="#price">料金</a>
+        <a href="#price">コースと料金</a>
         <a href="terms.html">利用規約</a>
         <a href="privacy.html">プライバシーポリシー</a>
         <a href="tokushoho.html">特定商取引法に基づく表記</a>

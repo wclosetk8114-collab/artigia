@@ -17,11 +17,13 @@ legal.css        法務ページ共通スタイル
 
 現在は **テストモード**。実際の課金は発生しない。
 
-| プラン | 月額 | price_id (test) |
+| コース | 月額 | price_id (test) |
 | --- | --- | --- |
-| 創設メンバー | 3,300円 | price_1UC9VxGV1dNJ9Miqt9d9gqg0 |
-| ベーシック | 5,500円 | price_1UC9W1GV1dNJ9MiqQ5rB6ghx |
-| プロ | 16,500円 | price_1UC9W5GV1dNJ9Miqk6gxi3jC |
+| FORGE supporter | 3,300円 | price_1UCFUGGV1dNJ9MiqOU1pyUUk |
+| FORGE startup | 5,500円 | price_1UCFUMGV1dNJ9MiqIDYjBVxW |
+| FORGE freelance | 16,500円 | price_1UCFUSGV1dNJ9MiqlPuuJVZk |
+
+創設メンバー枠は先行33名まで。どのコースでもこの価格を在籍中据え置く。
 
 テスト決済用カード：`4242 4242 4242 4242` / 有効期限は未来の日付 / CVCは任意の3桁。
 
