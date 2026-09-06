@@ -1,10 +1,10 @@
-# AI Bootcamp — 会員募集LP
+# AI Creator Camp — 会員募集LP
 
 90日でAIを身につけ、自分のサービスの試作品をつくるオンラインブートキャンプ
-「AI Bootcamp」の募集サイト。運営ブランドは **FORGE**。
+「AI Creator Camp」の募集サイト。運営ブランドは **FORGE**。
 静的HTML（ビルド不要）。Vercel に接続済みで、main に push すると自動で再デプロイされる。
 
-旧称は BUILDERS（さらにその前は ARTIGIA）。2026-09-06 に AI Bootcamp へ変更。
+旧称は BUILDERS（さらにその前は ARTIGIA）。2026-09-06 に AI Creator Camp へ変更。
 
 ## 構成
 
@@ -75,7 +75,7 @@ git add -A && git commit -m "..." && git push
 # → Vercel が自動で再デプロイ
 ```
 
-Cowork からは「AI Bootcamp のサイトを直して」で `update-deploy` が走る。
+Cowork からは「AI Creator Camp のサイトを直して」で `update-deploy` が走る。
 Vercel プロジェクトの再作成はしない（名前衝突で重複が増える）。
 リポジトリ名・Vercel プロジェクト名は `artigia` のまま（変更するとURLが変わるため据え置き）。
 
