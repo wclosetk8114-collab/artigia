@@ -9,6 +9,8 @@
 <meta property="og:title" content="AI Creator Camp｜90日で、自分のサービスの試作品をつくる">
 <meta property="og:description" content="毎月末に通過審査。通った人だけが次の月へ。3ヶ月後、手元に自分のサービスの試作品が残ります。">
 <meta property="og:type" content="website">
+<meta property="og:image" content="ogp.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@400;600&display=swap" rel="stylesheet">
@@ -88,7 +90,7 @@ h2{
 .status{
   display:inline-flex;align-items:center;gap:10px;border:1px solid var(--rule);
   background:var(--paper-2);padding:7px 16px;font-size:12px;font-weight:700;
-  color:var(--ink-2);margin-bottom:34px;letter-spacing:.03em;
+  color:var(--ink-2);margin-bottom:28px;letter-spacing:.03em;
 }
 .dot{width:7px;height:7px;border-radius:50%;background:var(--gold-br);animation:pl 2s infinite}
 @keyframes pl{0%,100%{opacity:1}50%{opacity:.25}}
@@ -351,6 +353,10 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
 .track.feat .total{color:#A8A497}
 .track.feat .total b{color:var(--gold-br)}
 .ladder{font-size:12.5px;color:#8B8778;line-height:1.9;margin-bottom:30px;max-width:680px}
+
+/* ---------- ヒーローのロゴ ---------- */
+.herologo{height:150px;width:auto;margin:0 0 26px -10px}
+@media(max-width:640px){.herologo{height:112px;margin-left:-6px;margin-bottom:20px}}
 /* ---------- ヘッダーの折り返し対策 ---------- */
 .mark{white-space:nowrap}
 .hcta{white-space:nowrap}
@@ -381,6 +387,7 @@ footer{background:var(--paper-3);padding:52px 0 32px;border-top:1px solid var(--
     <div class="status">
       <span class="dot"></span>0期・先行33名まで<span class="opt">　／　毎月末に通過審査があります</span>
     </div>
+    <img src="logo.png" alt="AI Creator Camp" class="herologo">
     <h1>90日後、<span class="g">自分のサービスの試作品</span>を持って帰る。</h1>
     <p class="sub">AIが使えるようになって終わり、にはしません。月末ごとに通過審査があって、通った人だけが次の月に進みます。3ヶ月走りきると、手元には自分のサービスの試作品と、それを売るための一式が残ります。</p>
     <div class="btns">
