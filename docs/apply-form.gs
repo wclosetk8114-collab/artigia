@@ -17,7 +17,7 @@
  */
 
 var SHEET_ID  = 'ここにスプレッドシートのIDを貼る';
-var NOTIFY_TO = 'w.closet.k8114@gmail.com';
+var NOTIFY_TO = 'ai.creator.camp2026@gmail.com';
 
 var HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'お立場', '分野', '作ってみたいもの', '週の時間', 'プラン', '送信元ページ'];
 
