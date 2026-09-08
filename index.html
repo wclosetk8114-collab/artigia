@@ -353,6 +353,22 @@ h2{
   .onep .cta{width:100%;justify-content:center}
 }
 
+/* ---------- PLUG 01 への導線 ---------- */
+.cross{
+  background:var(--grad-soft);border:1px solid #E7EEF8;border-radius:var(--r);
+  padding:30px 32px;margin-top:34px;display:grid;gap:20px;align-items:center;
+}
+@media(min-width:880px){.cross{grid-template-columns:1fr auto;gap:30px}}
+@media(max-width:640px){.cross{padding:24px 20px}}
+.cross .lb{
+  display:inline-block;font-size:10.5px;font-weight:900;letter-spacing:.12em;color:#fff;
+  background:var(--ink);padding:4px 12px;border-radius:999px;margin-bottom:11px;
+}
+.cross h3{font-size:20px;font-weight:900;margin-bottom:9px;line-height:1.5}
+.cross p{font-size:14px;color:var(--ink-2);line-height:1.95}
+.cross .amt{font-size:13px;font-weight:900;color:var(--ink);margin-top:10px}
+.cross .cta{white-space:nowrap}
+
 /* ---------- 3ヶ月のあと ---------- */
 .nx{display:grid;gap:18px}
 @media(min-width:900px){.nx{grid-template-columns:repeat(3,1fr);gap:20px}}
@@ -773,6 +789,16 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
     <p class="paynote">
       申し込みフォームに入力したあと、お支払いに進みます。決済はStripeです。カード情報は当方では保持しません。毎月同じ日に自動で決済され、次の更新日の前日までに手続きすれば、それ以降の会費は発生しません。
     </p>
+
+    <div class="cross">
+      <div>
+        <span class="lb">まだ迷っている人へ</span>
+        <h3>いきなり月額はちょっと、という場合。</h3>
+        <p>500円で買い切りの道具だけ先に渡しています。Claude に差し込むと、動画もLPもアプリも、話しかけるだけで作れるようになります。まずこれで手を動かしてみて、続けられそうなら90日に来てください。</p>
+        <p class="amt">PLUG 01 ／ つくる道具一式　500円（税込・買い切り）</p>
+      </div>
+      <a href="https://plug01-fawn.vercel.app" class="cta line" target="_blank" rel="noopener">PLUG 01 を見る　→</a>
+    </div>
   </div>
 </section>
 
@@ -895,6 +921,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
         <a href="#gate">通過審査</a>
         <a href="#price">料金</a>
         <a href="#faq">よくある質問</a>
+        <a href="https://plug01-fawn.vercel.app" target="_blank" rel="noopener">PLUG 01（500円）</a>
         <a href="terms.html">利用規約</a>
         <a href="privacy.html">プライバシーポリシー</a>
         <a href="tokushoho.html">特定商取引法に基づく表記</a>
