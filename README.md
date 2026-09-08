@@ -89,7 +89,9 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 
 - フォーム本体：`apply.html`（`noindex`。デザインはLPと同じトークン）
 - 受け口のスクリプト：`docs/apply-form.gs`（貼り付け手順はファイル冒頭のコメント）
-- `apply.html` の `ENDPOINT` に Apps Script の `/exec` URL を入れると動きだす。**空のままだと送信できない**
+- `apply.html` の `ENDPOINT` に Apps Script の `/exec` URL を設定済み
+- 記録先スプレッドシート：`1oUX-FtSyOWOCnMfWXrimwSfnMoAwVI1XQkKTj9_fgnY`
+- Apps Script のデプロイ設定は「実行者：自分／アクセス：**全員**」でないと、申込者がログインを求められて送信できない
 - 完了画面の決済リンクは `PAY` に直書き。プランは `?plan=student` で学割を初期選択できる
 - サーバーは持たない。静的HTMLから直接 Apps Script に投げている（`Content-Type: text/plain` にしてプリフライトを避けている）
 - スパム対策はハニーポット（`company` フィールド）のみ
