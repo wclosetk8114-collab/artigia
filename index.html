@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <title>AI Creator Camp｜90日で、自分のサービスの試作品をつくる</title>
-<meta name="description" content="90日で自分のサービスの試作品をつくるオンラインブートキャンプ。毎月末に通過審査があり、通った人だけが次の月に進みます。月額9,900円から。いまは0期・先行33名を募集中。">
+<meta name="description" content="90日で自分のサービスの試作品をつくるオンラインブートキャンプ。毎月末に通過審査があり、通った人だけが次の月に進みます。月額9,800円、高校生・大学生は月4,900円。いまは0期・先行33名を募集中。">
 <meta property="og:title" content="AI Creator Camp｜90日で、自分のサービスの試作品をつくる">
 <meta property="og:description" content="毎月末に通過審査。通った人だけが次の月へ。3ヶ月後、手元に自分のサービスの試作品が残ります。">
 <meta property="og:type" content="website">
@@ -281,6 +281,29 @@ h2{
 .track.feat .total{color:#9FB0C6}
 .track.feat .total b{color:#fff}
 .paynote{font-size:13px;color:var(--ink-soft);line-height:2;margin-top:26px}
+.onep{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;
+  background:rgba(255,255,255,.09);border-radius:18px;padding:26px 28px;margin-bottom:16px;
+}
+.onep .amt{display:flex;align-items:baseline;gap:2px}
+.onep .amt .c{font-size:23px;font-weight:800}
+.onep .amt .v{font-size:54px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.onep .amt .u{font-size:13.5px;color:#9FB0C6;margin-left:9px}
+.onep .cta{background:#fff;color:var(--ink);font-size:15px;padding:15px 28px}
+.onep.stu{background:rgba(255,255,255,.05);align-items:flex-end}
+.onep.stu .amt .v{font-size:40px}
+.stul{
+  display:inline-block;font-size:11.5px;font-weight:900;letter-spacing:.08em;
+  background:var(--grad);color:#0D1E36;padding:5px 14px;border-radius:999px;margin-bottom:12px;
+}
+.stun{font-size:12.5px;color:#9FB0C6;line-height:1.9;margin-top:10px;max-width:520px}
+.onep.stu .cta.line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
+.lvs .lvn{white-space:normal;line-height:1.6}
+@media(max-width:640px){
+  .onep{padding:22px 20px}
+  .onep .amt .v{font-size:44px}
+  .onep .cta{width:100%;justify-content:center}
+}
 
 /* ---------- 参加の流れ ---------- */
 .steps{display:grid;gap:18px}
@@ -338,10 +361,10 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
       <a href="#gate">通過審査</a>
       <a href="#week">1週間の流れ</a>
       <a href="#take">持ち帰るもの</a>
-      <a href="#price">コースと料金</a>
+      <a href="#price">料金</a>
       <a href="#faq">よくある質問</a>
     </nav>
-    <a href="#price" class="hcta">コースを見る</a>
+    <a href="#price" class="hcta">料金を見る</a>
   </div>
 </header>
 
@@ -354,7 +377,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
     <h1>AIを学んだ人で終わるか、<br><span class="g">作った人</span>になるか。</h1>
     <p class="sub">AIの講座はたくさんあります。でも、受け終わったあとに実際に何か作れた人は、ほとんどいません。ここは作るところです。毎週お題が出て、月末に審査があります。通らないと、次の月には進めません。3ヶ月で、自分のサービスを1つ完成させます。</p>
     <div class="btns">
-      <a href="#price" class="cta">コースを見る　→</a>
+      <a href="#price" class="cta">料金を見る　→</a>
       <a href="#map" class="cta line">90日の中身を見る</a>
     </div>
     <p class="fine">運営：FORGE　／　入会金なし・月額制　／　いまは決済がテストモードです（実際の請求は発生しません）</p>
@@ -505,143 +528,68 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
 
 <section id="price">
   <div class="wrap">
-    <div class="idx">06　コースと料金</div>
-    <h2>3コース。<br>月ごとに払って、月ごとに進む。</h2>
-    <p class="lede">入会金も解約金もありません。合わなければ、次の更新前に抜けられます。途中でコースを上げ下げすることもできます。</p>
+    <div class="idx">06　料金</div>
+    <h2>月9,800円。<br>プランはこれだけです。</h2>
+    <p class="lede">コース分けはありません。全員が同じ中身を受けます。入会金も解約金もなく、次の更新日の前ならいつでも抜けられます。</p>
     <div class="founding">
       <span class="dot"></span>
       <div><b>いまは0期、先行33名まで。</b>0期のあいだはこの価格です。1期からは上げます。0期生は、在籍しているあいだずっとこの価格を据え置きます。</div>
-    </div>
-    <p class="ladder">月が進むごとに金額が上がります。後半ほど、こちらが個別に見る時間が増えるからです（Month3には30分の個別講評が入ります）。3ヶ月ぶんの合計は、各コースの下に書いてあります。</p>
-
-    <div class="track">
-      <div class="th">
-        <p class="brand">AI CREATOR CAMP</p>
-        <h3>LIGHT</h3>
-        <p>まず自分に続けられるか試したい人へ。教材と課題は他のコースと同じです。審査は受けても受けなくても構いません。</p>
-      </div>
-      <div class="lvs">
-        <div class="lv">
-          <div class="lvn">MONTH 1</div>
-          <div class="amt"><span class="c">¥</span><span class="v">9,900</span><span class="u">/ 月</span></div>
-          <ul>
-            <li>毎週の課題が届く</li>
-            <li>教材はぜんぶ見放題</li>
-            <li>質問チャットは閲覧のみ</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_bJe28r2T59Gp8Vw1Ra6g80E" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
-        </div>
-        <div class="lv">
-          <div class="lvn">MONTH 2</div>
-          <div class="amt"><span class="c">¥</span><span class="v">13,200</span><span class="u">/ 月</span></div>
-          <ul>
-            <li>Month1の中身、ぜんぶ</li>
-            <li>企画書のテンプレ一式</li>
-            <li>審査は任意で受けられる</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_cNi4gzeBN7yhefQ7bu6g80F" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
-        </div>
-        <div class="lv">
-          <div class="lvn">MONTH 3</div>
-          <div class="amt"><span class="c">¥</span><span class="v">16,500</span><span class="u">/ 月</span></div>
-          <ul>
-            <li>Month2の中身、ぜんぶ</li>
-            <li>価格表・提案書のテンプレ</li>
-            <li>最終デモの見学</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_9B64gzgJV5q97RsdzS6g80G" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
-        </div>
-      </div>
-      <div class="total">3ヶ月ぶんの合計　<b>39,600円</b>（税込）</div>
     </div>
 
     <div class="track feat">
       <div class="th">
         <p class="brand">AI CREATOR CAMP</p>
-        <h3>STANDARD</h3>
-        <p>90日で自分のサービスを完成させたい人へ。審査を受けて、修了を取りにいくコースです。</p>
-        <span class="tflag">いちばん多い道</span>
+        <h3>月額メンバーシップ</h3>
+        <p>90日で、自分のサービスをひとつ完成させます。月が進んでも金額は上がりません。</p>
+      </div>
+      <div class="onep">
+        <div class="amt"><span class="c">￥</span><span class="v">9,800</span><span class="u">/ 月（税込）</span></div>
+        <a href="https://buy.stripe.com/test_9B614n65h2dX0p09jC6g80O" class="cta" target="_blank" rel="noopener">この価格で入る　→</a>
+      </div>
+      <div class="onep stu">
+        <div>
+          <div class="stul">高校生・大学生は半額</div>
+          <div class="amt"><span class="c">￥</span><span class="v">4,900</span><span class="u">/ 月（税込）</span></div>
+          <p class="stun">中身は通常プランとまったく同じです。申し込みのあと、学生証の写真を1枚だけ送ってもらいます。卒業したら通常の価格に切り替わります。</p>
+        </div>
+        <a href="https://buy.stripe.com/test_6oU9AT1P19Gpb3EcvO6g80P" class="cta line" target="_blank" rel="noopener">学割で入る　→</a>
       </div>
       <div class="lvs">
         <div class="lv">
-          <div class="lvn">MONTH 1</div>
-          <div class="amt"><span class="c">¥</span><span class="v">27,500</span><span class="u">/ 月</span></div>
+          <div class="lvn">MONTH 1　つくれる状態になる</div>
           <ul>
-            <li>LIGHTの中身、ぜんぶ</li>
-            <li>週1のペア学習（相方がつく）</li>
+            <li>毎週の課題が届く</li>
+            <li>教材はぜんぶ見放題</li>
             <li>チャットで質問し放題</li>
+            <li>週1のペア学習（相方がつく）</li>
             <li>関門1の審査を受けられる</li>
           </ul>
-          <a href="https://buy.stripe.com/test_eVq28r1P19Gp2x8anG6g80H" class="cta" target="_blank" rel="noopener">このコースで入る</a>
         </div>
         <div class="lv">
-          <div class="lvn">MONTH 2</div>
-          <div class="amt"><span class="c">¥</span><span class="v">33,000</span><span class="u">/ 月</span></div>
+          <div class="lvn">MONTH 2　自分の商品を決める</div>
           <ul>
             <li>Month1の中身、ぜんぶ</li>
+            <li>企画書のテンプレ一式</li>
             <li>企画に運営がコメントを返す</li>
             <li>試作の骨組みのレビュー</li>
             <li>関門2の審査</li>
           </ul>
-          <a href="https://buy.stripe.com/test_9B69AT65h7yh2x88fy6g80I" class="cta" target="_blank" rel="noopener">このコースで入る</a>
         </div>
         <div class="lv">
-          <div class="lvn">MONTH 3</div>
-          <div class="amt"><span class="c">¥</span><span class="v">38,500</span><span class="u">/ 月</span></div>
+          <div class="lvn">MONTH 3　売れる形にする</div>
           <ul>
             <li>Month2の中身、ぜんぶ</li>
+            <li>価格表・提案書のテンプレ</li>
             <li>デモの個別講評（30分）</li>
             <li>価格と提案書の添削</li>
             <li>関門3の審査／修了認定</li>
           </ul>
-          <a href="https://buy.stripe.com/test_9B6cN51P15q99ZAbrK6g80J" class="cta" target="_blank" rel="noopener">このコースで入る</a>
         </div>
       </div>
-      <div class="total">3ヶ月ぶんの合計　<b>99,000円</b>（税込）</div>
+      <div class="total">3ヶ月ぶんの合計　<b>29,400円</b>（税込）</div>
     </div>
 
-    <div class="track">
-      <div class="th">
-        <p class="brand">AI CREATOR CAMP</p>
-        <h3>PRO</h3>
-        <p>修了したらすぐ売りにいきたい人へ。個別に見る時間を増やして、実際の商談にも同席します。</p>
-      </div>
-      <div class="lvs">
-        <div class="lv">
-          <div class="lvn">MONTH 1</div>
-          <div class="amt"><span class="c">¥</span><span class="v">55,000</span><span class="u">/ 月</span></div>
-          <ul>
-            <li>STANDARDの中身、ぜんぶ</li>
-            <li>個別レビュー 月2回</li>
-            <li>相方を指名できる</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_fZueVd79lcSBefQ7bu6g80K" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
-        </div>
-        <div class="lv">
-          <div class="lvn">MONTH 2</div>
-          <div class="amt"><span class="c">¥</span><span class="v">66,000</span><span class="u">/ 月</span></div>
-          <ul>
-            <li>Month1の中身、ぜんぶ</li>
-            <li>商品設計の個別セッション</li>
-            <li>案件の紹介が優先で回る</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_fZu6oH51d6ud2x867q6g80L" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
-        </div>
-        <div class="lv">
-          <div class="lvn">MONTH 3</div>
-          <div class="amt"><span class="c">¥</span><span class="v">77,000</span><span class="u">/ 月</span></div>
-          <ul>
-            <li>Month2の中身、ぜんぶ</li>
-            <li>単価交渉の同席</li>
-            <li>修了後3ヶ月の販売サポート</li>
-          </ul>
-          <a href="https://buy.stripe.com/test_dRm9ATctF3i17Rs53m6g80M" class="cta line" target="_blank" rel="noopener">このコースで入る</a>
-        </div>
-      </div>
-      <div class="total">3ヶ月ぶんの合計　<b>198,000円</b>（税込）</div>
-    </div>
-
-    <p class="paynote" style="font-size:12.5px;color:#8B8778;line-height:2;margin-top:28px">
+    <p class="paynote">
       決済はStripeです。いまは<b>テストモード</b>なので、実際の請求は発生しません。動作を試す場合はカード番号 4242 4242 4242 4242、有効期限は未来の日付、CVCは任意の3桁でお願いします。
     </p>
   </div>
@@ -653,7 +601,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
     <h2>申し込みから、<br>DAY1まで3日。</h2>
     <p class="lede">思い立った週のうちに始められます。途中から入っても、その人のDAY1から始まります。</p>
     <div class="steps">
-      <div class="st"><div class="no">STEP 1</div><h3>コースを選んで申し込む</h3><p>9つの中から、いまの自分に合うものを1つ選びます。カード情報を入れるだけなので、1分で終わります。</p></div>
+      <div class="st"><div class="no">STEP 1</div><h3>申し込む</h3><p>プランは1つだけなので、選ぶものはありません。カード情報を入れるだけなので、1分で終わります。</p></div>
       <div class="st"><div class="no">STEP 2</div><h3>3日以内に案内が届く</h3><p>参加用のリンクと、DAY1の課題が届きます。最初の週にやることは1つだけです。</p></div>
       <div class="st"><div class="no">STEP 3</div><h3>月末、最初の審査</h3><p>毎週出していれば、そのまま審査に出せます。通れば次の月へ。落ちても、もう一度受けられます。</p></div>
     </div>
@@ -669,9 +617,10 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
       <details><summary>週にどのくらい時間が必要ですか？</summary><div class="a">5〜8時間です。これより少ないと審査は通りません。逆に、これ以上を求めることもありません。働きながら続けられる量にしてあります。</div></details>
       <details><summary>審査に落ちたらどうなりますか？</summary><div class="a">やめる必要はありません。次の月に、同じ月をもう一度やります。会費も同じ額です。何が足りなかったかは文章で渡すので、次に何をすればいいかは分かります。</div></details>
       <details><summary>試作品って、具体的にどんなものですか？</summary><div class="a">人によって違います。「自分の仕事の一部をAIに任せる道具」を作る人もいれば、「特定の職種向けの小さなサービス」を作る人もいます。共通しているのは、画面があって、他の人が触れて、値段をつけられる状態になっていることです。</div></details>
-      <details><summary>90日で仕事は取れますか？</summary><div class="a">保証はしません。90日で作れるのは「売れる形になったもの」までです。そこから先は、売りに行く時間が別に必要になります。PROコースにだけ、修了後3ヶ月の販売サポートがついています。</div></details>
+      <details><summary>90日で仕事は取れますか？</summary><div class="a">保証はしません。90日で作れるのは「売れる形になったもの」までです。そこから先は、売りに行く時間が別に必要になります。</div></details>
       <details><summary>途中でやめられますか？</summary><div class="a">やめられます。次の更新日の前日までに手続きすれば、それ以降の会費は発生しません。解約金はありません。日割りの返金は行っていません。</div></details>
-      <details><summary>コースは途中で変えられますか？</summary><div class="a">変えられます。次の月から切り替わります。Month2の途中でLIGHTからSTANDARDに上げる、といったこともできます。</div></details>
+      <details><summary>学割は誰が使えますか？</summary><div class="a">高校生と大学生（大学院・専門学校・高専を含みます）です。月4,900円になります。申し込みのあとに学生証の写真を1枚送ってもらうだけで、それ以外の手続きはありません。中身は通常プランとまったく同じです。卒業したら通常の価格に切り替わります。</div></details>
+      <details><summary>月が進むと金額は上がりますか？</summary><div class="a">上がりません。Month1もMonth2もMonth3も、同じ月9,800円です。審査に落ちて同じ月をもう一度やるときも、金額は変わりません。</div></details>
       <details><summary>誰が教えるんですか？</summary><div class="a">運営チームです。特定の先生のファンになってもらう場所ではないので、名前は前に出していません。教材も審査の基準も公開しているので、誰が審査しても同じ結果になります。</div></details>
     </div>
   </div>
@@ -682,7 +631,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
     <div class="idx" style="justify-content:center">さいごに</div>
     <h2>つくるって、たのしい。<br>それを90日で証明します。</h2>
     <p>0期は33名まで。DAY1でお待ちしています。</p>
-    <a href="#price" class="cta">コースを見る　→</a>
+    <a href="#price" class="cta">料金を見る　→</a>
   </div>
 </section>
 
@@ -696,7 +645,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
       <div class="fl">
         <a href="#map">90日の地図</a>
         <a href="#gate">通過審査</a>
-        <a href="#price">コースと料金</a>
+        <a href="#price">料金</a>
         <a href="#faq">よくある質問</a>
         <a href="terms.html">利用規約</a>
         <a href="privacy.html">プライバシーポリシー</a>

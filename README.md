@@ -23,6 +23,7 @@ legal.css        法務ページ共通スタイル
 - 落ちた場合は退会ではなく、翌月に同じ月をやり直す（会費は同額）
 - 3つの関門を通ると修了。ゴールは「動く試作品・価格表・提案書」の3点セット
 - 0期は先行33名まで
+- コース分けはなし。全員が同じ中身を受ける（月9,800円／学生4,900円）
 
 | 月 | 関門 | 提出物 |
 | --- | --- | --- |
@@ -32,33 +33,29 @@ legal.css        法務ページ共通スタイル
 
 ## 料金プランと Stripe
 
-**月額制**。月ごとに金額が上がる（進むほど運営の手数が増えるため）。
+**月額制の1プランのみ**。コース分けはしない。月が進んでも金額は上がらない。
+高校生・大学生は半額（申し込み後に学生証の写真を確認する運用）。
 現在は **テストモード**。実際の課金は発生しない。
 
-| コース | 月 | 月額 | price_id (test) |
-| --- | --- | --- | --- |
-| LIGHT | Month1 | 9,900円 | price_1UCVdFGV1dNJ9MiqdKaX1Kx5 |
-| LIGHT | Month2 | 13,200円 | price_1UCVdGGV1dNJ9MiqROKJcq1a |
-| LIGHT | Month3 | 16,500円 | price_1UCVdHGV1dNJ9MiqV7XbDNfb |
-| STANDARD | Month1 | 27,500円 | price_1UCVdMGV1dNJ9MiqRQ4AYf47 |
-| STANDARD | Month2 | 33,000円 | price_1UCVdOGV1dNJ9MiqCmUhKrca |
-| STANDARD | Month3 | 38,500円 | price_1UCVdPGV1dNJ9MiqKUX5gN2f |
-| PRO | Month1 | 55,000円 | price_1UCVdTGV1dNJ9MiqbY4gHZVo |
-| PRO | Month2 | 66,000円 | price_1UCVdUGV1dNJ9MiqHUKHi8Uo |
-| PRO | Month3 | 77,000円 | price_1UCVdWGV1dNJ9Miq9AaLGrmL |
+| プラン | 月額（税込） | 3ヶ月合計 | price_id (test) | Payment Link (test) |
+| --- | --- | --- | --- | --- |
+| 通常 | 9,800円 | 29,400円 | price_1UDHYjGV1dNJ9MiqvopKsMg1 | https://buy.stripe.com/test_9B614n65h2dX0p09jC6g80O |
+| 学割（高校生・大学生） | 4,900円 | 14,700円 | price_1UDHbMGV1dNJ9MiqhXyfxMXl | https://buy.stripe.com/test_6oU9AT1P19Gpb3EcvO6g80P |
 
-3ヶ月合計：LIGHT 39,600円 ／ STANDARD 99,000円 ／ PRO 198,000円（すべて税込）
+product_id：通常 `prod_VDj0ZLGQp6vGZO` ／ 学割 `prod_VDj3sImq4evuzW`
 
 テスト決済用カード：`4242 4242 4242 4242` / 有効期限は未来の日付 / CVCは任意の3桁。
 
 Payment Link は `index.html` の料金セクションに直接ベタ書きしている。
-本番化のときはここを Live の Payment Link に差し替える。
+本番化のときはここを Live の Payment Link に差し替える（`switch-to-live-mode` スキル）。
 
-旧 BUILDERS 時代の9つの price（FORGE supporter / startup / freelance）は使っていない。
+旧料金（2026-09-08 廃止）：LIGHT / STANDARD / PRO の3コース × Month1-3 の計9 price。
+月ごとに金額が上がる設計だったが、「月9,800円ひとつ」に統一した。旧priceは使っていない。
 
 ## 公開前にやること
 
 1. `tokushoho.html` の金色プレースホルダ（事業者名・所在地・電話番号・メール）を実際の情報に差し替える
+   ※ 学割の条件（対象・学生証の確認方法・卒業時の切り替え）も特商法ページに書くこと
 2. `privacy.html` のお問い合わせ窓口を記入する
 3. Stripe を Live モードに切り替える（`switch-to-live-mode` スキル）
 4. `index.html` のヒーロー下と料金下にある「テストモード」の注記を削除する
