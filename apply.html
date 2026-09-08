@@ -163,14 +163,14 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
       </div>
 
       <div class="f">
-        <label class="q">やってみたい分野<span class="req">必須</span></label>
-        <p class="hint">いまの気持ちで大丈夫です。あとから変えられます。</p>
+        <label class="q">やってみたい分野<span class="req">必須</span><span class="opt">複数選択OK</span></label>
+        <p class="hint">いまの気持ちで大丈夫です。<b>いくつ選んでも構いません。</b>あとから変えられます。</p>
         <div class="opts" data-group="field">
-          <label><input type="radio" name="field" value="動画・画像"><span class="lb"><b>動画・画像</b><span>動画制作、画像生成、サムネイル、短尺コンテンツ</span></span></label>
-          <label><input type="radio" name="field" value="アプリ・ツール開発"><span class="lb"><b>アプリ・ツール開発</b><span>Webアプリ、LP、業務ツールを作って公開する</span></span></label>
-          <label><input type="radio" name="field" value="業務自動化・DX"><span class="lb"><b>業務自動化・DX</b><span>事務・在庫・問い合わせなどを自動で回す</span></span></label>
-          <label><input type="radio" name="field" value="ゲーム・漫画・アート"><span class="lb"><b>ゲーム・漫画・アート</b><span>ゲーム、漫画、イラスト、作品としての表現</span></span></label>
-          <label><input type="radio" name="field" value="まだ決めていない"><span class="lb"><b>まだ決めていない</b><span>Month1のあいだに一緒に決めます</span></span></label>
+          <label><input type="checkbox" name="field" value="動画・画像"><span class="lb"><b>動画・画像</b><span>動画制作、画像生成、サムネイル、短尺コンテンツ</span></span></label>
+          <label><input type="checkbox" name="field" value="アプリ・ツール開発"><span class="lb"><b>アプリ・ツール開発</b><span>Webアプリ、LP、業務ツールを作って公開する</span></span></label>
+          <label><input type="checkbox" name="field" value="業務自動化・DX"><span class="lb"><b>業務自動化・DX</b><span>事務・在庫・問い合わせなどを自動で回す</span></span></label>
+          <label><input type="checkbox" name="field" value="ゲーム・漫画・アート"><span class="lb"><b>ゲーム・漫画・アート</b><span>ゲーム、漫画、イラスト、作品としての表現</span></span></label>
+          <label><input type="checkbox" name="field" value="まだ決めていない"><span class="lb"><b>まだ決めていない</b><span>Month1のあいだに一緒に決めます</span></span></label>
         </div>
       </div>
 
@@ -256,7 +256,7 @@ function syncAll(){
   });
 }
 document.addEventListener('change', function(e){
-  if (e.target && e.target.type === 'radio') {
+  if (e.target && (e.target.type === 'radio' || e.target.type === 'checkbox')) {
     syncAll();
     if (e.target.name === 'hours') {
       document.getElementById('hwarn').classList.toggle('on', e.target.value === '5時間未満');
@@ -265,6 +265,10 @@ document.addEventListener('change', function(e){
 });
 
 function val(n){ var e = document.querySelector('input[name="' + n + '"]:checked'); return e ? e.value : ''; }
+function vals(n){
+  var l = document.querySelectorAll('input[name="' + n + '"]:checked');
+  return Array.prototype.map.call(l, function(e){ return e.value; }).join('、');
+}
 function showErr(m){ var el = document.getElementById('err'); el.textContent = m; el.classList.add('on'); }
 
 document.getElementById('form').addEventListener('submit', function(ev){
@@ -275,7 +279,7 @@ document.getElementById('form').addEventListener('submit', function(ev){
     name:  document.getElementById('name').value.trim(),
     email: document.getElementById('email').value.trim(),
     role:  document.getElementById('role').value,
-    field: val('field'),
+    field: vals('field'),
     idea:  document.getElementById('idea').value.trim(),
     hours: val('hours'),
     plan:  val('plan'),
@@ -286,7 +290,7 @@ document.getElementById('form').addEventListener('submit', function(ev){
   if (!data.name)  { return showErr('お名前を入力してください。'); }
   if (!data.email || data.email.indexOf('@') < 1) { return showErr('メールアドレスを正しく入力してください。'); }
   if (!data.role)  { return showErr('いまのお立場を選んでください。'); }
-  if (!data.field) { return showErr('やってみたい分野を選んでください。'); }
+  if (!data.field) { return showErr('やってみたい分野を1つ以上選んでください。'); }
   if (!data.hours) { return showErr('週に使える時間を選んでください。'); }
   if (!data.plan)  { return showErr('プランを選んでください。'); }
   if (!document.getElementById('agree').checked) { return showErr('利用規約などへの同意にチェックを入れてください。'); }
