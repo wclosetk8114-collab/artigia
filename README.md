@@ -94,6 +94,8 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 - Apps Script のデプロイ設定は「実行者：自分／アクセス：**全員**」でないと、申込者がログインを求められて送信できない
 - 完了画面の決済リンクは `PAY` に直書き。プランは `?plan=student` で学割を初期選択できる
 - サーバーは持たない。静的HTMLから直接 Apps Script に投げている（`Content-Type: text/plain` にしてプリフライトを避けている）
+- 2026-09-08 に疎通確認済み。LPの決済ボタンは Stripe 直行をやめ、`apply.html` 経由に切り替えた
+- 学割ボタンは `apply.html?plan=student`（フォーム側でプランが初期選択される）
 - スパム対策はハニーポット（`company` フィールド）のみ
 
 ## 公開前にやること
