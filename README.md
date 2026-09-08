@@ -73,6 +73,16 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 旧料金（2026-09-08 廃止）：LIGHT / STANDARD / PRO の3コース × Month1-3 の計9 price。
 月ごとに金額が上がる設計だったが、「月9,800円ひとつ」に統一した。旧priceは使っていない。
 
+## リポジトリの分け方
+
+事業ごとにリポジトリとVercelプロジェクトを分ける。**このリポジトリは AI Creator Camp 専用**。
+
+- AI Creator Camp（90日・月額）… このリポ `artigia` → https://ai-creator-camp-theta.vercel.app
+- PLUG 01（500円・買い切り）… 別リポ `plug01` → https://plug01-fawn.vercel.app
+
+2026-09-08 に `start.html` / `thanks.html` / `plug/` を `plug01` リポへ移設した。
+売却時にリポジトリごと引き渡せるようにするため、他事業のページをここに置かないこと。
+
 ## 申し込みフォーム
 
 決済の前に `apply.html` を挟む。入力 → Google Apps Script（ウェブアプリ）→ スプレッドシートに記録＋メール通知 → 完了画面から Stripe へ。
