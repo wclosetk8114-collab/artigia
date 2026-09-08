@@ -73,6 +73,17 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 旧料金（2026-09-08 廃止）：LIGHT / STANDARD / PRO の3コース × Month1-3 の計9 price。
 月ごとに金額が上がる設計だったが、「月9,800円ひとつ」に統一した。旧priceは使っていない。
 
+## 申し込みフォーム
+
+決済の前に `apply.html` を挟む。入力 → Google Apps Script（ウェブアプリ）→ スプレッドシートに記録＋メール通知 → 完了画面から Stripe へ。
+
+- フォーム本体：`apply.html`（`noindex`。デザインはLPと同じトークン）
+- 受け口のスクリプト：`docs/apply-form.gs`（貼り付け手順はファイル冒頭のコメント）
+- `apply.html` の `ENDPOINT` に Apps Script の `/exec` URL を入れると動きだす。**空のままだと送信できない**
+- 完了画面の決済リンクは `PAY` に直書き。プランは `?plan=student` で学割を初期選択できる
+- サーバーは持たない。静的HTMLから直接 Apps Script に投げている（`Content-Type: text/plain` にしてプリフライトを避けている）
+- スパム対策はハニーポット（`company` フィールド）のみ
+
 ## 公開前にやること
 
 1. ~~`tokushoho.html` のプレースホルダを差し替える~~（2026-09-08 完了。学割の条件・販売価格も更新済み）

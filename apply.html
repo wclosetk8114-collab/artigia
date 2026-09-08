@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<title>お申し込み｜AI Creator Camp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D1E36; --ink-2:#3A4A63; --ink-soft:#6E7C93;
+  --line:#E4EAF2; --bg:#FFFFFF; --bg-2:#F5F9FD; --bg-3:#EDF4FB;
+  --cyan:#35BFF0; --blue:#4A9CF0; --purple:#A97BF0;
+  --pink:#F07A96; --orange:#F09A5E; --yellow:#F2CE6A;
+  --grad:linear-gradient(90deg,#F07A96 0%,#F09A5E 22%,#F2CE6A 42%,#35BFF0 70%,#A97BF0 100%);
+  --grad-soft:linear-gradient(135deg,#FDF0F3 0%,#FEF7EC 30%,#EEF9FE 65%,#F5F0FE 100%);
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Zen Maru Gothic',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+  background:var(--bg-2);color:var(--ink);line-height:1.9;font-size:15.5px;
+  font-feature-settings:"palt";-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(680px,92vw);margin:0 auto}
+
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px 0}
+.hd{display:flex;align-items:center;gap:10px}
+.hd img{height:38px;width:auto;flex:none}
+.hd b{font-size:17px;font-weight:900;letter-spacing:.04em}
+
+.top{background:var(--grad-soft);padding:44px 0 38px;border-bottom:1px solid var(--line)}
+.top h1{font-size:clamp(24px,5vw,34px);font-weight:900;line-height:1.5;margin-bottom:12px}
+.top p{font-size:14.5px;color:var(--ink-2);line-height:2}
+
+main{padding:38px 0 70px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 30px;margin-bottom:18px}
+@media(max-width:640px){.card{padding:24px 20px}}
+
+.f{margin-bottom:26px}
+.f:last-child{margin-bottom:0}
+label.q{display:block;font-size:15px;font-weight:900;margin-bottom:4px}
+.req{display:inline-block;font-size:10.5px;font-weight:900;color:#fff;background:var(--pink);
+  padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px}
+.opt{display:inline-block;font-size:10.5px;font-weight:900;color:var(--ink-soft);background:var(--bg-3);
+  padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px}
+.hint{font-size:12.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px}
+
+input[type=text],input[type=email],input[type=tel],textarea,select{
+  width:100%;font-family:inherit;font-size:15.5px;color:var(--ink);
+  background:var(--bg-2);border:1.5px solid var(--line);border-radius:14px;
+  padding:13px 16px;outline:none;transition:.15s;
+}
+textarea{min-height:110px;resize:vertical;line-height:1.9}
+input:focus,textarea:focus,select:focus{border-color:var(--cyan);background:#fff;box-shadow:0 0 0 4px rgba(53,191,240,.12)}
+select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%236E7C93' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat:no-repeat;background-position:right 16px center}
+
+.opts{display:grid;gap:10px}
+.opts label{
+  display:flex;align-items:flex-start;gap:11px;background:var(--bg-2);
+  border:1.5px solid var(--line);border-radius:14px;padding:13px 16px;cursor:pointer;transition:.15s;
+  font-size:14.5px;line-height:1.7;
+}
+.opts label:hover{border-color:var(--cyan)}
+.opts input{margin-top:5px;accent-color:#35BFF0;flex:none;width:17px;height:17px}
+.opts label.sel{border-color:var(--cyan);background:#fff;box-shadow:0 0 0 4px rgba(53,191,240,.10)}
+.opts .lb{flex:1}
+.opts .lb b{display:block;font-weight:900}
+.opts .lb span{display:block;font-size:12.5px;color:var(--ink-soft);line-height:1.75}
+
+.warn{
+  display:none;margin-top:10px;background:#FEF6EC;border:1px solid #F6E0BF;border-radius:14px;
+  padding:13px 16px;font-size:13px;color:#8A5A22;line-height:1.85;
+}
+.warn.on{display:block}
+
+.agree{display:flex;align-items:flex-start;gap:11px;font-size:14px;line-height:1.85}
+.agree input{margin-top:5px;accent-color:#35BFF0;width:17px;height:17px;flex:none}
+.agree a{color:var(--blue);text-decoration:underline}
+
+.sub{
+  width:100%;margin-top:6px;font-family:inherit;font-size:16.5px;font-weight:900;color:#fff;
+  background:var(--ink);border:none;border-radius:999px;padding:19px;cursor:pointer;transition:.2s;
+}
+.sub:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 28px rgba(13,30,54,.25)}
+.sub:disabled{opacity:.45;cursor:not-allowed}
+.note{font-size:12.5px;color:var(--ink-soft);line-height:1.9;margin-top:14px;text-align:center}
+.err{
+  display:none;background:#FDEEF1;border:1px solid #F6C9D3;border-radius:14px;
+  padding:14px 16px;font-size:13.5px;color:#9B3049;line-height:1.85;margin-top:14px;
+}
+.err.on{display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* 完了画面 */
+#done{display:none}
+#done.on{display:block}
+.donebox{background:var(--ink);border-radius:var(--r);padding:40px 34px;color:#fff;text-align:center;position:relative;overflow:hidden}
+.donebox::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--grad)}
+.donebox h2{font-size:26px;font-weight:900;margin-bottom:14px;line-height:1.5}
+.donebox p{font-size:14.5px;color:#BFD0E6;line-height:2;margin-bottom:26px}
+.paybtn{
+  display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--ink);
+  font-size:16.5px;font-weight:900;padding:19px 40px;border-radius:999px;text-decoration:none;transition:.2s;
+}
+.paybtn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,255,255,.22)}
+.donenote{font-size:12.5px;color:#8FA6C2;line-height:1.9;margin-top:20px}
+
+.back{display:inline-block;margin-top:26px;font-size:14px;color:var(--ink-soft)}
+.back:hover{color:var(--blue)}
+footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size:12.5px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hd">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+    <img src="mark.png" alt="AI Creator Camp"><b>CREATOR CAMP</b>
+  </a>
+</div></header>
+
+<section class="top"><div class="wrap">
+  <h1>お申し込み</h1>
+  <p>入力は1分ほどで終わります。送信したあとの画面から、そのままお支払いに進めます。</p>
+</div></section>
+
+<main><div class="wrap">
+
+  <form id="form" novalidate>
+    <div class="card">
+
+      <div class="f">
+        <label class="q" for="name">お名前<span class="req">必須</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="土屋 千穂">
+      </div>
+
+      <div class="f">
+        <label class="q" for="email">メールアドレス<span class="req">必須</span></label>
+        <p class="hint">参加のご案内をこちらにお送りします。お支払いに使うアドレスと同じにしてください。</p>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
+      </div>
+
+      <div class="f">
+        <label class="q" for="role">いまのお立場<span class="req">必須</span></label>
+        <select id="role" name="role">
+          <option value="">選んでください</option>
+          <option>起業家・経営者</option>
+          <option>フリーランス</option>
+          <option>会社員（事務・バックオフィス）</option>
+          <option>会社員（その他）</option>
+          <option>主婦・主夫</option>
+          <option>学生（高校生・大学生など）</option>
+          <option>その他</option>
+        </select>
+      </div>
+
+      <div class="f">
+        <label class="q">やってみたい分野<span class="req">必須</span></label>
+        <p class="hint">いまの気持ちで大丈夫です。あとから変えられます。</p>
+        <div class="opts" data-group="field">
+          <label><input type="radio" name="field" value="動画・画像"><span class="lb"><b>動画・画像</b><span>動画制作、画像生成、サムネイル、短尺コンテンツ</span></span></label>
+          <label><input type="radio" name="field" value="アプリ・ツール開発"><span class="lb"><b>アプリ・ツール開発</b><span>Webアプリ、LP、業務ツールを作って公開する</span></span></label>
+          <label><input type="radio" name="field" value="業務自動化・DX"><span class="lb"><b>業務自動化・DX</b><span>事務・在庫・問い合わせなどを自動で回す</span></span></label>
+          <label><input type="radio" name="field" value="ゲーム・漫画・アート"><span class="lb"><b>ゲーム・漫画・アート</b><span>ゲーム、漫画、イラスト、作品としての表現</span></span></label>
+          <label><input type="radio" name="field" value="まだ決めていない"><span class="lb"><b>まだ決めていない</b><span>Month1のあいだに一緒に決めます</span></span></label>
+        </div>
+      </div>
+
+      <div class="f">
+        <label class="q" for="idea">90日で作ってみたいもの<span class="opt">任意</span></label>
+        <p class="hint">ぼんやりでも構いません。「いまの仕事のこれを減らしたい」でも大丈夫です。</p>
+        <textarea id="idea" name="idea" placeholder="例：毎月の請求書づくりに2日かかっているので、そこを自動にしたい"></textarea>
+      </div>
+
+      <div class="f">
+        <label class="q">週に使える時間<span class="req">必須</span></label>
+        <div class="opts" data-group="hours">
+          <label><input type="radio" name="hours" value="5時間未満"><span class="lb"><b>5時間未満</b></span></label>
+          <label><input type="radio" name="hours" value="5〜8時間"><span class="lb"><b>5〜8時間</b><span>ちょうどこのくらいを想定しています</span></span></label>
+          <label><input type="radio" name="hours" value="8時間以上"><span class="lb"><b>8時間以上</b></span></label>
+        </div>
+        <div class="warn" id="hwarn">
+          週5時間を下回ると、月末の審査を通るのは難しくなります。申し込めないわけではありませんが、先にお伝えしておきます。
+        </div>
+      </div>
+
+      <div class="f">
+        <label class="q">プラン<span class="req">必須</span></label>
+        <div class="opts" data-group="plan">
+          <label><input type="radio" name="plan" value="通常（月9,800円）"><span class="lb"><b>通常　月9,800円（税込）</b></span></label>
+          <label><input type="radio" name="plan" value="学割（月4,900円）"><span class="lb"><b>学割　月4,900円（税込）</b><span>高校生・大学生。お申し込み後に学生証の画像をご提出いただきます</span></span></label>
+        </div>
+      </div>
+
+      <div class="f">
+        <label class="agree">
+          <input type="checkbox" id="agree">
+          <span><a href="terms.html" target="_blank">利用規約</a>・<a href="privacy.html" target="_blank">プライバシーポリシー</a>・<a href="tokushoho.html" target="_blank">特定商取引法に基づく表記</a>に同意します<span class="req">必須</span></span>
+        </label>
+      </div>
+
+      <div class="hp"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+
+      <button type="submit" class="sub" id="submit">確認して、お支払いへ進む</button>
+      <div class="err" id="err"></div>
+      <p class="note">送信した時点では、まだ課金は発生しません。次の画面のボタンを押すとお支払いに進みます。</p>
+
+    </div>
+  </form>
+
+  <div id="done">
+    <div class="donebox">
+      <h2>お申し込みを受け付けました。</h2>
+      <p>続けて、お支払いへお進みください。<br>決済が終わると、3日以内に参加のご案内をお送りします。</p>
+      <a href="#" class="paybtn" id="pay" target="_blank" rel="noopener">お支払いへ進む　→</a>
+      <p class="donenote">画面を閉じてしまった場合は、お手数ですがもう一度このページから進んでください。<br>ご不明な点は w.closet.k8114@gmail.com までご連絡ください。</p>
+    </div>
+    <a href="index.html" class="back">← トップへ戻る</a>
+  </div>
+
+</div></main>
+
+<footer><div class="wrap">© 2026 FORGE / AI Creator Camp. All Rights Reserved.</div></footer>
+
+<script>
+// Google Apps Script のウェブアプリ URL をここに入れる
+var ENDPOINT = "";
+
+var PAY = {
+  "通常（月9,800円）": "https://buy.stripe.com/bJebJ2ckJ3676SR06sgfu02",
+  "学割（月4,900円）": "https://buy.stripe.com/8x2bJ22K97mndhf06sgfu01"
+};
+
+// URLの ?plan= でプランを初期選択
+(function(){
+  var p = new URLSearchParams(location.search).get("plan");
+  var v = p === "student" ? "学割（月4,900円）" : "通常（月9,800円）";
+  var el = document.querySelector('input[name="plan"][value="' + v + '"]');
+  if (el) { el.checked = true; }
+  syncAll();
+})();
+
+// 選択中のカードに枠をつける
+function syncAll(){
+  document.querySelectorAll('.opts label').forEach(function(l){
+    var i = l.querySelector('input');
+    l.classList.toggle('sel', !!(i && i.checked));
+  });
+}
+document.addEventListener('change', function(e){
+  if (e.target && e.target.type === 'radio') {
+    syncAll();
+    if (e.target.name === 'hours') {
+      document.getElementById('hwarn').classList.toggle('on', e.target.value === '5時間未満');
+    }
+  }
+});
+
+function val(n){ var e = document.querySelector('input[name="' + n + '"]:checked'); return e ? e.value : ''; }
+function showErr(m){ var el = document.getElementById('err'); el.textContent = m; el.classList.add('on'); }
+
+document.getElementById('form').addEventListener('submit', function(ev){
+  ev.preventDefault();
+  document.getElementById('err').classList.remove('on');
+
+  var data = {
+    name:  document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    role:  document.getElementById('role').value,
+    field: val('field'),
+    idea:  document.getElementById('idea').value.trim(),
+    hours: val('hours'),
+    plan:  val('plan'),
+    company: document.querySelector('input[name="company"]').value,
+    page: location.href
+  };
+
+  if (!data.name)  { return showErr('お名前を入力してください。'); }
+  if (!data.email || data.email.indexOf('@') < 1) { return showErr('メールアドレスを正しく入力してください。'); }
+  if (!data.role)  { return showErr('いまのお立場を選んでください。'); }
+  if (!data.field) { return showErr('やってみたい分野を選んでください。'); }
+  if (!data.hours) { return showErr('週に使える時間を選んでください。'); }
+  if (!data.plan)  { return showErr('プランを選んでください。'); }
+  if (!document.getElementById('agree').checked) { return showErr('利用規約などへの同意にチェックを入れてください。'); }
+
+  var btn = document.getElementById('submit');
+  btn.disabled = true;
+  btn.textContent = '送信しています…';
+
+  if (!ENDPOINT) {
+    btn.disabled = false;
+    btn.textContent = '確認して、お支払いへ進む';
+    return showErr('ただいま申し込みフォームの準備中です。お手数ですが w.closet.k8114@gmail.com までご連絡ください。');
+  }
+
+  fetch(ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(data)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(res){
+    if (!res || res.ok !== true) { throw new Error('failed'); }
+    document.getElementById('pay').href = PAY[data.plan] || PAY['通常（月9,800円）'];
+    document.getElementById('form').style.display = 'none';
+    document.getElementById('done').classList.add('on');
+    window.scrollTo(0, 0);
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.textContent = '確認して、お支払いへ進む';
+    showErr('送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。何度も失敗する場合は w.closet.k8114@gmail.com までご連絡ください。');
+  });
+});
+</script>
+</body>
+</html>
