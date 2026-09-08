@@ -57,22 +57,21 @@ BEFORE→AFTER の対比で見せている。事例はすべて例示であり�
 
 **月額制の1プランのみ**。コース分けはしない。月が進んでも金額は上がらない。
 高校生・大学生は半額（申し込み後に学生証の写真を確認する運用）。
-現在は **テストモード**。実際の課金は発生しない。
 
-| プラン | 月額（税込） | 3ヶ月合計 | price_id (test) | Payment Link (test) |
+**通常プランは 2026-09-08 に本番（Live）へ切り替え済み。実際の課金が発生する。**
+
+| プラン | 月額（税込） | 3ヶ月合計 | 状態 | Payment Link |
 | --- | --- | --- | --- | --- |
-| 通常 | 9,800円 | 29,400円 | price_1UDHYjGV1dNJ9MiqvopKsMg1 | https://buy.stripe.com/test_9B614n65h2dX0p09jC6g80O |
-| 学割（高校生・大学生） | 4,900円 | 14,700円 | price_1UDHbMGV1dNJ9MiqhXyfxMXl | https://buy.stripe.com/test_6oU9AT1P19Gpb3EcvO6g80P |
-| 修了後コース | 4,980円 | — | price_1UDHiOGV1dNJ9MiqFxPEKbZT | https://buy.stripe.com/test_eVqaEX0KX3i1b3E7bu6g80Q |
+| 通常 | 9,800円 | 29,400円 | **本番（Live）** | https://buy.stripe.com/bJebJ2ckJ3676SR06sgfu02 |
+| 学割（高校生・大学生） | 4,900円 | 14,700円 | 本番リンク待ち・LPで非表示 | （未設定） |
+| 修了後コース | 4,980円 | — | テストのまま・LP非掲載 | https://buy.stripe.com/test_eVqaEX0KX3i1b3E7bu6g80Q |
 
-product_id：通常 `prod_VDj0ZLGQp6vGZO` ／ 学割 `prod_VDj3sImq4evuzW` ／ 修了後 `prod_VDjA0fZfLWH8Ly`
-
-修了後コースの Payment Link は LP には貼っていない（修了者にだけ案内する導線のため）。
-
-テスト決済用カード：`4242 4242 4242 4242` / 有効期限は未来の日付 / CVCは任意の3桁。
+テストモードの price_id（参考・現在は未使用）：
+通常 `price_1UDHYjGV1dNJ9MiqvopKsMg1` ／ 学割 `price_1UDHbMGV1dNJ9MiqhXyfxMXl` ／ 修了後 `price_1UDHiOGV1dNJ9MiqFxPEKbZT`
 
 Payment Link は `index.html` の料金セクションに直接ベタ書きしている。
-本番化のときはここを Live の Payment Link に差し替える（`switch-to-live-mode` スキル）。
+**学割ブロックは `index.html` 内でHTMLコメントアウトしてある**（`STRIPE_LIVE_LINK_HERE` が目印）。
+本番の学割リンクが用意できたら、コメントを外して href を差し替えること。
 
 旧料金（2026-09-08 廃止）：LIGHT / STANDARD / PRO の3コース × Month1-3 の計9 price。
 月ごとに金額が上がる設計だったが、「月9,800円ひとつ」に統一した。旧priceは使っていない。
@@ -82,8 +81,8 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 1. `tokushoho.html` の金色プレースホルダ（事業者名・所在地・電話番号・メール）を実際の情報に差し替える
    ※ 学割の条件（対象・学生証の確認方法・卒業時の切り替え）も特商法ページに書くこと
 2. `privacy.html` のお問い合わせ窓口を記入する
-3. Stripe を Live モードに切り替える（`switch-to-live-mode` スキル）
-4. `index.html` のヒーロー下と料金下にある「テストモード」の注記を削除する
+3. ~~Stripe を Live モードに切り替える~~（通常プランは2026-09-08に完了。学割はリンク待ち）
+4. ~~「テストモード」の注記を削除する~~（2026-09-08に完了）
 5. ロゴが確定したらヘッダーの文字ロゴを差し替え、favicon を入れる
 
 ## 更新方法
