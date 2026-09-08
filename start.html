@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<title>PLUG 01 ／ 設計図メーカー｜500円で、AIに「作らせる側」になる</title>
+<meta name="description" content="作りたいものを書くだけで、AIにそのまま貼れる開発指示書が4本出てくるツール。500円の買い切り。購入後は無料のオープンチャットで、最新AI情報と新しいツールが届き続けます。">
+<meta property="og:title" content="PLUG 01 ／ 設計図メーカー｜500円で、AIに「作らせる側」になる">
+<meta property="og:description" content="AIは「何を作るか」を決めてくれません。決めるところを肩代わりする道具を、500円で渡します。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D1E36;--ink-2:#3A4A63;--ink-soft:#6E7C93;
+  --line:#E4EAF2;--bg:#FFFFFF;--bg-2:#F5F9FD;--bg-3:#EDF4FB;
+  --cyan:#35BFF0;--blue:#4A9CF0;--purple:#A97BF0;
+  --pink:#F07A96;--orange:#F09A5E;--yellow:#F2CE6A;
+  --grad:linear-gradient(90deg,#F07A96 0%,#F09A5E 22%,#F2CE6A 42%,#35BFF0 70%,#A97BF0 100%);
+  --grad-soft:linear-gradient(135deg,#FDF0F3 0%,#FEF7EC 30%,#EEF9FE 65%,#F5F0FE 100%);
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Zen Maru Gothic',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.95;font-size:15.5px;
+  font-feature-settings:"palt";-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1080px,90vw);margin:0 auto}
+.mid{width:min(820px,90vw);margin:0 auto}
+section{padding:84px 0}
+@media(max-width:640px){section{padding:58px 0}}
+
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+.mark{display:flex;align-items:center;gap:10px;min-width:0}
+.mark img{height:36px;width:auto;flex:none}
+.mark b{font-size:16px;font-weight:900;letter-spacing:.03em;white-space:nowrap}
+.mark i{font-style:normal;font-size:9.5px;letter-spacing:.18em;color:var(--cyan);font-weight:700}
+.hcta{background:var(--ink);color:#fff;font-size:13.5px;font-weight:800;
+  padding:12px 22px;border-radius:999px;transition:.2s;white-space:nowrap}
+.hcta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(13,30,54,.22)}
+
+.idx{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.12em;
+  font-weight:900;color:var(--ink);background:var(--bg-3);padding:7px 16px;border-radius:999px;margin-bottom:20px}
+.idx::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--grad)}
+.dark .idx{background:rgba(255,255,255,.12);color:#fff}
+h2{font-size:clamp(23px,4vw,38px);font-weight:900;line-height:1.5;margin-bottom:16px;word-break:auto-phrase}
+.lede{font-size:15px;color:var(--ink-soft);max-width:640px;margin-bottom:44px;line-height:2.05}
+.dark{background:var(--ink);color:#fff}
+.dark .lede{color:#9FB0C6}
+.tint{background:var(--bg-2)}
+.gtint{background:var(--grad-soft)}
+
+.cta{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;
+  font-size:16px;font-weight:800;padding:18px 36px;border-radius:999px;transition:.2s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(13,30,54,.25)}
+.cta.line{background:#fff;color:var(--ink);border:2px solid var(--line)}
+.cta.line:hover{border-color:var(--cyan);box-shadow:0 12px 28px rgba(53,191,240,.18)}
+.dark .cta{background:#fff;color:var(--ink)}
+
+.hero{padding:52px 0 74px;background:var(--grad-soft);border-bottom:1px solid var(--line)}
+.status{display:inline-flex;align-items:center;gap:9px;background:#fff;padding:9px 18px;
+  border-radius:999px;font-size:12.5px;font-weight:800;color:var(--ink-2);margin-bottom:22px;
+  box-shadow:0 2px 10px rgba(13,30,54,.06)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--pink);animation:pl 2s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(27px,5.8vw,54px);font-weight:900;line-height:1.44;margin-bottom:24px;word-break:auto-phrase}
+.hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+.hero .sub{font-size:16px;line-height:2.1;color:var(--ink-2);max-width:610px;margin-bottom:30px}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:18px}
+.fine{font-size:12.5px;color:var(--ink-soft);line-height:1.9}
+.pricepill{display:inline-flex;align-items:baseline;gap:3px;background:#fff;border-radius:16px;
+  padding:14px 22px;margin-bottom:26px;box-shadow:0 4px 16px rgba(13,30,54,.07)}
+.pricepill .c{font-size:18px;font-weight:800}
+.pricepill .v{font-size:40px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.pricepill .u{font-size:13px;color:var(--ink-soft);margin-left:8px;font-weight:700}
+
+.box{background:var(--bg-2);border-radius:var(--r);padding:36px 38px;position:relative;overflow:hidden}
+.box::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--grad)}
+@media(max-width:640px){.box{padding:28px 22px}}
+.box h2{font-size:clamp(20px,3.2vw,28px);margin-bottom:14px}
+.box p{color:var(--ink-2);font-size:14.5px;margin-bottom:13px;line-height:2}
+.box p:last-child{margin-bottom:0}
+
+.four{display:grid;gap:16px}
+@media(min-width:760px){.four{grid-template-columns:1fr 1fr}}
+.fc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 25px;transition:.2s;position:relative;overflow:hidden}
+.fc:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(13,30,54,.09)}
+.fc::before{content:"";position:absolute;left:0;right:0;top:0;height:4px}
+.fc:nth-child(1)::before{background:linear-gradient(90deg,#35BFF0,#4A9CF0)}
+.fc:nth-child(2)::before{background:linear-gradient(90deg,#F2CE6A,#F09A5E)}
+.fc:nth-child(3)::before{background:linear-gradient(90deg,#F07A96,#A97BF0)}
+.fc:nth-child(4)::before{background:linear-gradient(90deg,#A97BF0,#35BFF0)}
+.fc .n{display:inline-block;font-size:10.5px;font-weight:900;letter-spacing:.12em;color:#fff;
+  background:var(--ink);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+.fc h3{font-size:17.5px;font-weight:900;margin-bottom:9px;line-height:1.55}
+.fc p{font-size:13.5px;color:var(--ink-soft);line-height:1.95}
+
+.st3{display:grid;gap:16px}
+@media(min-width:820px){.st3{grid-template-columns:repeat(3,1fr)}}
+.st{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px}
+.st .no{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.12em;color:#fff;
+  background:var(--grad);padding:5px 14px;border-radius:999px;margin-bottom:14px}
+.st h3{font-size:17.5px;font-weight:900;margin-bottom:9px}
+.st p{font-size:14px;color:var(--ink-soft);line-height:1.95}
+
+.gifts{display:grid;gap:16px}
+@media(min-width:900px){.gifts{grid-template-columns:repeat(2,1fr);gap:18px}}
+.gf{background:rgba(255,255,255,.06);border-radius:18px;padding:26px 26px}
+.gf .q{display:inline-block;font-size:11px;letter-spacing:.1em;font-weight:900;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;margin-bottom:8px}
+.gf h3{font-size:18px;font-weight:900;margin-bottom:9px;line-height:1.55}
+.gf p{font-size:14px;color:#9FB0C6;line-height:1.98}
+
+.fit{display:grid;gap:18px}
+@media(min-width:880px){.fit{grid-template-columns:1fr 1fr;gap:22px}}
+.fcx{border-radius:var(--r);padding:32px 30px}
+.fcx.yes{background:var(--grad-soft);border:1px solid #E7EEF8}
+.fcx.no{background:var(--bg-2);border:1px solid var(--line)}
+.fcx h3{font-size:18px;font-weight:900;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.fcx h3 em{font-style:normal;width:28px;height:28px;display:grid;place-items:center;
+  font-size:14px;border-radius:50%;color:#fff}
+.fcx.yes h3 em{background:var(--cyan)}
+.fcx.no h3 em{background:#B9C4D4}
+.fcx ul{list-style:none}
+.fcx li{font-size:14.5px;padding:10px 0 10px 26px;color:var(--ink-2);line-height:1.85;position:relative}
+.fcx li::before{content:"";position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:50%}
+.fcx.yes li::before{background:var(--cyan)}
+.fcx.no li::before{background:#C8D2DF}
+
+.buy{background:var(--ink);color:#fff;border-radius:var(--r);padding:44px 40px;position:relative;overflow:hidden}
+.buy::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--grad)}
+@media(max-width:640px){.buy{padding:30px 22px}}
+.buy .brand{font-size:10.5px;letter-spacing:.16em;font-weight:900;color:#8FA2BA;margin-bottom:6px}
+.buy h3{font-size:26px;font-weight:900;margin-bottom:8px}
+.buy .bd{font-size:14.5px;color:#9FB0C6;margin-bottom:26px;line-height:2}
+.amtrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;
+  background:rgba(255,255,255,.09);border-radius:18px;padding:26px 28px;margin-bottom:20px}
+.amt{display:flex;align-items:baseline;gap:2px}
+.amt .c{font-size:23px;font-weight:800}
+.amt .v{font-size:56px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.amt .u{font-size:13.5px;color:#9FB0C6;margin-left:10px}
+@media(max-width:640px){.amtrow{padding:22px 20px}.amt .v{font-size:44px}.amtrow .cta{width:100%;justify-content:center}}
+.inc{list-style:none;display:grid;gap:2px}
+@media(min-width:760px){.inc{grid-template-columns:1fr 1fr;gap:2px 24px}}
+.inc li{font-size:14px;color:#CBD6E4;padding:8px 0 8px 22px;position:relative;line-height:1.85}
+.inc li::before{content:"";position:absolute;left:0;top:17px;width:7px;height:7px;border-radius:50%;background:var(--yellow)}
+.paynote{font-size:13px;color:#8FA2BA;line-height:2;margin-top:24px;border-top:1px solid rgba(255,255,255,.13);padding-top:20px}
+
+details{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+summary{cursor:pointer;list-style:none;padding:20px 52px 20px 24px;font-size:15.5px;font-weight:800;position:relative;line-height:1.7}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:24px;top:31px;width:13px;height:2px;border-radius:2px;background:var(--cyan)}
+summary::before{content:"";position:absolute;right:29px;top:26px;width:2px;height:13px;border-radius:2px;background:var(--cyan);transition:.2s}
+details[open] summary::before{opacity:0}
+details .a{padding:0 24px 22px;font-size:14.5px;color:var(--ink-soft);line-height:2.05}
+
+.close{text-align:center;padding:92px 0}
+.close h2{font-size:clamp(24px,4.4vw,40px);margin-bottom:14px}
+.close p{color:#9FB0C6;margin-bottom:32px;font-size:15.5px}
+footer{background:var(--bg-2);padding:48px 0 30px;border-top:1px solid var(--line)}
+.ft{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;margin-bottom:28px}
+.fl{display:flex;flex-wrap:wrap;gap:20px;font-size:13.5px;color:var(--ink-2)}
+.note{font-size:12.5px;color:var(--ink-soft);line-height:2;border-top:1px solid var(--line);padding-top:20px}
+.cp{font-size:12px;color:var(--ink-soft);margin-top:12px}
+@media(max-width:520px){.mark img{height:30px}.mark b{font-size:14px}.mark i{display:none}.hcta{font-size:12.5px;padding:11px 16px}}
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="wrap hd">
+    <a href="#top" class="mark"><img src="mark.png" alt="AI Creator Camp"><b>CREATOR CAMP</b><i>PLUG 01</i></a>
+    <a href="#buy" class="hcta">500円で受け取る</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="status"><span class="dot"></span>買い切り500円　／　追加のツールは無料で届きます</div>
+    <h1>AIに「作って」と言っても、<br>作れない理由は<span class="g">ひとつ</span>です。</h1>
+    <p class="sub">何を作るのかが決まっていないから。AIは、決まっていないものを形にはできません。逆に、決まってさえいれば、驚くほど作ってくれます。その「決める」ところを肩代わりする道具を、500円でお渡しします。作りたいことを書くと、AIにそのまま貼れる指示書が4本出てきます。</p>
+    <div class="pricepill"><span class="c">￥</span><span class="v">500</span><span class="u">買い切り（税込）</span></div>
+    <div class="btns">
+      <a href="#buy" class="cta">500円で受け取る　→</a>
+      <a href="#what" class="cta line">中身を見る</a>
+    </div>
+    <p class="fine">運営：FORGE　／　サブスクではありません。1回きりの支払いです。</p>
+  </div>
+</section>
+
+<section>
+  <div class="mid">
+    <div class="box">
+      <h2>なぜ500円なのか、<br>先に言っておきます。</h2>
+      <p>このツールは、無料で配ることもできました。そうしなかったのは、無料でもらったものは、たいてい開かれないまま終わるからです。500円は「使う気があるかどうか」の線引きです。</p>
+      <p>そしてもうひとつ。この先に、90日のコミュニティ（AI Creator Camp）があります。いきなり月9,800円の話をされても困ると思うので、まず道具だけ渡します。使ってみて、要らないと思ったらそれで終わりで構いません。売り込みの連絡もしません。</p>
+      <p>500円で受け取ったあとに届くもの（新しいツール、最新のAI情報）に、追加のお金はかかりません。</p>
+    </div>
+  </div>
+</section>
+
+<section id="what" class="tint">
+  <div class="wrap">
+    <div class="idx">01　中身</div>
+    <h2>出てくるのは、<br>指示書が4本です。</h2>
+    <p class="lede">画面の質問に答えるだけです。作りたいものの種類、誰のためか、どうなりたいか。それを入れると、AIに上から順に貼るだけの文章が出てきます。コピーボタンとダウンロードも付いています。</p>
+    <div class="four">
+      <div class="fc">
+        <span class="n">PROMPT 01</span>
+        <h3>考えを固めさせる</h3>
+        <p>いきなり作らせると、要らないものが出てきます。まずAIに質問させて、抜けているところを埋める1本目。ここを飛ばす人がほとんどで、だから途中で止まります。</p>
+      </div>
+      <div class="fc">
+        <span class="n">PROMPT 02</span>
+        <h3>実際に作らせる</h3>
+        <p>動くものを出させる本命。「省略しないで全部書いて」「途中で切れたら続きから」まで書いてあります。ここが抜けていると、穴だらけのコードが返ってきます。</p>
+      </div>
+      <div class="fc">
+        <span class="n">PROMPT 03</span>
+        <h3>直す・足す</h3>
+        <p>必ずどこかで壊れます。そのときに何をどう伝えるか。ここを間違えると、AIは直すふりをして別の場所を壊します。伝え方の型がそのまま入っています。</p>
+      </div>
+      <div class="fc">
+        <span class="n">PROMPT 04</span>
+        <h3>公開する・人に見せる</h3>
+        <p>作っただけでは終わりません。URLで人に見せられる形にするところまで。あわせて、そのツールを人に紹介する文章も3パターン作らせます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="idx">02　使い方</div>
+    <h2>やることは、3つだけです。</h2>
+    <p class="lede">難しい設定はありません。インストールもアカウント登録もいりません。ブラウザで開いて、書いて、コピーするだけです。</p>
+    <div class="st3">
+      <div class="st"><div class="no">STEP 1</div><h3>質問に答える</h3><p>作りたいものを書きます。「自分用でもいい」「ざっくりでいい」の範囲で大丈夫です。5分もかかりません。</p></div>
+      <div class="st"><div class="no">STEP 2</div><h3>設計図をコピーする</h3><p>ボタンを押すと、指示書が4本出てきます。1本ずつコピーできて、まとめてダウンロードもできます。</p></div>
+      <div class="st"><div class="no">STEP 3</div><h3>AIに貼る</h3><p>Claude でも ChatGPT でも構いません。上から順に貼っていくと、動くものが出てきます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="idx">03　500円に付いてくるもの</div>
+    <h2>渡して終わりには、しません。</h2>
+    <p class="lede">道具だけ渡されても、途中で止まったら終わりです。買った方は、無料のオープンチャットに入れます。いつでも抜けられますし、そこで何かを売りつけることもしません。</p>
+    <div class="gifts">
+      <div class="gf">
+        <div class="q">毎日</div>
+        <h3>最新のAI情報が流れてきます</h3>
+        <p>新しいモデルが出た、機能が増えた、料金が変わった。ニュースをそのまま貼るのではなく、「で、それで何ができるようになったのか」まで日本語で書きます。追いかける時間が、まるごと要らなくなります。</p>
+      </div>
+      <div class="gf">
+        <div class="q">できしだい</div>
+        <h3>新しいPLUGが、無料で届きます</h3>
+        <p>PLUG 02、03 と増えていきます。作った人の分だけ、そこに差し込まれていくイメージです。買い直しはありません。中にいる人には、そのままお渡しします。</p>
+      </div>
+      <div class="gf">
+        <div class="q">いつでも</div>
+        <h3>詰まったところを聞けます</h3>
+        <p>エラーが出た、思っていたものと違うものが出てきた。そのまま貼って聞いてください。同じところで詰まっている人の質問も、まとめて読めます。</p>
+      </div>
+      <div class="gf">
+        <div class="q">月1回</div>
+        <h3>コミュニティの説明会に呼びます</h3>
+        <p>90日のキャンプで何をするのか。オンラインで45分。参加は無料で、顔出しも声出しもいりません。合わないと思ったら、その場で抜けて構いません。案内はチャットに流します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gtint">
+  <div class="wrap">
+    <div class="idx">04　合う人・合わない人</div>
+    <h2>500円でも、<br>合わない人はいます。</h2>
+    <p class="lede">安いからとりあえず、で買って使わないのがいちばんもったいないです。先に書いておきます。</p>
+    <div class="fit">
+      <div class="fcx yes">
+        <h3><em>○</em>合う人</h3>
+        <ul>
+          <li>AIに何度か頼んで、うまくいかなかったことがある</li>
+          <li>作りたいものが、ぼんやりとでもある</li>
+          <li>「自分の仕事のこの部分、自動化できないかな」と思ったことがある</li>
+          <li>プログラミングは分からないが、やってみる気はある</li>
+          <li>まず1つ、最後まで作りきりたい</li>
+        </ul>
+      </div>
+      <div class="fcx no">
+        <h3><em>×</em>合わない人</h3>
+        <ul>
+          <li>自分では手を動かさず、代わりに作ってほしい</li>
+          <li>買っただけで何かが変わると思っている</li>
+          <li>すでに自分でコードが書ける（このツールは要りません）</li>
+          <li>AIを一度も触ったことがなく、これからも触る気がない</li>
+          <li>今日中に収入がほしい</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="buy">
+  <div class="wrap">
+    <div class="idx">05　受け取る</div>
+    <h2>500円。買い切りです。</h2>
+    <p class="lede">月額ではありません。1回払ったら、それで終わりです。あとから請求されることもありません。</p>
+    <div class="buy">
+      <p class="brand">AI CREATOR CAMP</p>
+      <h3>PLUG 01 ／ 設計図メーカー</h3>
+      <p class="bd">作りたいものを書くと、AIにそのまま貼れる指示書が4本出てきます。何回でも、何個でも作れます。</p>
+      <div class="amtrow">
+        <div class="amt"><span class="c">￥</span><span class="v">500</span><span class="u">買い切り（税込）</span></div>
+        <a href="https://buy.stripe.com/test_6oU4gzeBNbOx2x8gM46g80R" class="cta" target="_blank" rel="noopener">500円で受け取る　→</a>
+      </div>
+      <ul class="inc">
+        <li>PLUG 01 ／ 設計図メーカー（回数制限なし）</li>
+        <li>無料オープンチャットへの参加</li>
+        <li>最新AI情報の配信</li>
+        <li>今後追加されるPLUGを無料で受け取れる</li>
+        <li>詰まったときに質問できる</li>
+        <li>コミュニティ説明会への招待</li>
+      </ul>
+      <p class="paynote">決済はStripeです。カード情報は当方では保持しません。お支払いのあと、ツールのURLとオープンチャットの入り口をご案内します。デジタル商品のため、性質上、購入後の返金には応じられません。ご了承ください。</p>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <div class="idx">06　よくある質問</div>
+    <h2>よくある質問</h2>
+    <div class="mid" style="margin:0">
+      <details><summary>AIを使ったことがなくても大丈夫ですか？</summary><div class="a">Claude か ChatGPT のどちらか、無料の範囲で使えるようにしておいてください。それさえできていれば、あとは出てきた文章を貼るだけです。どちらを使えばいいか分からない場合は、オープンチャットで聞いてください。</div></details>
+      <details><summary>プログラミングの知識は要りますか？</summary><div class="a">要りません。コードを書くのはAIで、あなたがやるのは「何を作るか決めて、指示を貼って、出てきたものを確かめる」ところまでです。ただし、まったく手を動かさずに何かができあがることはありません。</div></details>
+      <details><summary>何回でも使えますか？</summary><div class="a">何回でも使えます。作りたいものが5つあるなら、5回使ってください。入力した内容はブラウザに残るので、途中でやめて後から続きをやることもできます。</div></details>
+      <details><summary>本当に月額ではないんですか？</summary><div class="a">はい。500円を1回だけです。自動更新もありません。この先に月額のコミュニティはありますが、それは別のもので、入るかどうかはご自身で決めてください。こちらから勧誘の連絡はしません。</div></details>
+      <details><summary>オープンチャットは実名ですか？</summary><div class="a">匿名で入れます。LINEのオープンチャットなので、本名も電話番号も他の参加者には見えません。表示名はその場で好きに決められます。いつでも退出できます。</div></details>
+      <details><summary>新しいPLUGは、いつ・いくつ増えますか？</summary><div class="a">できたときに追加します。数と時期は約束しません。「毎月かならず1つ」といった約束をすると、中身より本数を優先することになるからです。追加されたら、オープンチャットで無料でお渡しします。</div></details>
+      <details><summary>返金はできますか？</summary><div class="a">デジタル商品のため、購入後の返金には応じられません。合うかどうか不安な場合は、上の「合う人・合わない人」を読んでから決めてください。</div></details>
+      <details><summary>これを買うと、コミュニティに入らないといけませんか？</summary><div class="a">いいえ。500円のツールだけ受け取って終わりで構いません。説明会も、行きたい人だけが行くものです。参加しない方に、こちらから連絡することはありません。</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="dark close">
+  <div class="wrap">
+    <div class="idx" style="justify-content:center">さいごに</div>
+    <h2>まず1つ、<br>最後まで作ってみてください。</h2>
+    <p>作れるようになると、やれることが増えます。その最初の1個を、500円で。</p>
+    <a href="#buy" class="cta">500円で受け取る　→</a>
+    <p style="margin-top:26px;font-size:13.5px"><a href="index.html" style="text-decoration:underline;color:#9FB0C6">90日のコミュニティ（AI Creator Camp）を見る →</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <a href="#top" class="mark" style="margin-bottom:10px"><img src="mark.png" alt="AI Creator Camp"><b>CREATOR CAMP</b><i>PLUG 01</i></a>
+        <p style="font-size:12.5px;color:var(--ink-soft)">運営：FORGE</p>
+      </div>
+      <div class="fl">
+        <a href="#what">中身</a>
+        <a href="#buy">受け取る</a>
+        <a href="index.html">90日のキャンプ</a>
+        <a href="terms.html">利用規約</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      </div>
+    </div>
+    <p class="note">
+      PLUG 01 は、AIに渡す指示文を生成するツールです。生成されたものを使って作られた成果物の内容・品質・収益を保証するものではありません。表示価格はすべて税込です。決済はStripeを利用しています。デジタル商品のため、購入後の返金には応じられません。
+    </p>
+    <p class="cp">© 2026 FORGE / AI Creator Camp. All Rights Reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
