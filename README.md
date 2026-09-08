@@ -25,6 +25,19 @@ legal.css        法務ページ共通スタイル
 - 0期は先行33名まで
 - コース分けはなし。全員が同じ中身を受ける（月9,800円／学生4,900円）
 
+### 修了後（DAY91〜）
+
+90日を修了すると、3つの進路 × 4つの専門分野から選んで継続する。**会費は月4,980円**（キャンプより下がる）。
+コースも分野も3ヶ月ごとに変更可。継続収益が売却価値に直結するので、修了＝解約にならない設計にしている。
+
+| 進路 | 誰向け |
+| --- | --- |
+| 起業家コース | 作ったものを自分の事業にしていく人 |
+| 右腕コース | 誰かの事業に中核として入る人 |
+| サポートコース | 手を動かして支える側で仕事を受ける人 |
+
+専門分野：動画・画像／アプリ・ツール開発／業務自動化・DX／ゲーム・漫画・アート
+
 | 月 | 関門 | 提出物 |
 | --- | --- | --- |
 | Month1（DAY1-30）つくれる状態になる | 関門1 | 動くものを1つ |
@@ -41,8 +54,11 @@ legal.css        法務ページ共通スタイル
 | --- | --- | --- | --- | --- |
 | 通常 | 9,800円 | 29,400円 | price_1UDHYjGV1dNJ9MiqvopKsMg1 | https://buy.stripe.com/test_9B614n65h2dX0p09jC6g80O |
 | 学割（高校生・大学生） | 4,900円 | 14,700円 | price_1UDHbMGV1dNJ9MiqhXyfxMXl | https://buy.stripe.com/test_6oU9AT1P19Gpb3EcvO6g80P |
+| 修了後コース | 4,980円 | — | price_1UDHiOGV1dNJ9MiqFxPEKbZT | https://buy.stripe.com/test_eVqaEX0KX3i1b3E7bu6g80Q |
 
-product_id：通常 `prod_VDj0ZLGQp6vGZO` ／ 学割 `prod_VDj3sImq4evuzW`
+product_id：通常 `prod_VDj0ZLGQp6vGZO` ／ 学割 `prod_VDj3sImq4evuzW` ／ 修了後 `prod_VDjA0fZfLWH8Ly`
+
+修了後コースの Payment Link は LP には貼っていない（修了者にだけ案内する導線のため）。
 
 テスト決済用カード：`4242 4242 4242 4242` / 有効期限は未来の日付 / CVCは任意の3桁。
 

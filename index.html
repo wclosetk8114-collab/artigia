@@ -305,6 +305,37 @@ h2{
   .onep .cta{width:100%;justify-content:center}
 }
 
+/* ---------- 3ヶ月のあと ---------- */
+.nx{display:grid;gap:18px}
+@media(min-width:900px){.nx{grid-template-columns:repeat(3,1fr);gap:20px}}
+.nxc{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:30px 28px;position:relative;overflow:hidden;transition:.2s;
+}
+.nxc:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(13,30,54,.09)}
+.nxc::before{content:"";position:absolute;left:0;right:0;top:0;height:5px}
+.nxc:nth-child(1)::before{background:linear-gradient(90deg,#F07A96,#F09A5E)}
+.nxc:nth-child(2)::before{background:linear-gradient(90deg,#F2CE6A,#35BFF0)}
+.nxc:nth-child(3)::before{background:linear-gradient(90deg,#35BFF0,#A97BF0)}
+.nxc .rn{font-size:11px;letter-spacing:.14em;font-weight:800;color:var(--ink-soft);margin-bottom:6px}
+.nxc h3{font-size:21px;font-weight:900;margin-bottom:10px}
+.nxc p{font-size:14.5px;color:var(--ink-soft);line-height:1.95;margin-bottom:14px}
+.nxc ul{list-style:none}
+.nxc li{font-size:13.5px;padding:6px 0 6px 20px;position:relative;color:var(--ink-2);line-height:1.8}
+.nxc li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:var(--cyan)}
+.fldh{font-size:15.5px;font-weight:900;margin:44px 0 6px}
+.fldl{font-size:14px;color:var(--ink-soft);line-height:1.95;margin-bottom:20px;max-width:680px}
+.flds{display:grid;gap:14px}
+@media(min-width:820px){.flds{grid-template-columns:repeat(4,1fr);gap:16px}}
+.fld{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 22px;transition:.2s}
+.fld:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(13,30,54,.08)}
+.fld .fn{
+  display:inline-block;font-size:10.5px;font-weight:900;letter-spacing:.1em;color:#fff;
+  background:var(--grad);padding:4px 12px;border-radius:999px;margin-bottom:11px;
+}
+.fld h4{font-size:16px;font-weight:900;margin-bottom:7px;line-height:1.5}
+.fld p{font-size:13px;color:var(--ink-soft);line-height:1.85}
+
 /* ---------- 参加の流れ ---------- */
 .steps{display:grid;gap:18px}
 @media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr);gap:20px}}
@@ -361,6 +392,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
       <a href="#gate">通過審査</a>
       <a href="#week">1週間の流れ</a>
       <a href="#take">持ち帰るもの</a>
+      <a href="#next">3ヶ月のあと</a>
       <a href="#price">料金</a>
       <a href="#faq">よくある質問</a>
     </nav>
@@ -595,9 +627,66 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
   </div>
 </section>
 
+<section id="next" class="tint">
+  <div class="wrap">
+    <div class="idx">07　3ヶ月のあと</div>
+    <h2>90日で終わりではなく、<br>ここから進路が分かれます。</h2>
+    <p class="lede">修了した人だけが進めます。3つのうちどれを選んでも、会費は<b>月4,980円</b>です。90日のキャンプより安くなります。3ヶ月ごとに進路を変えることもできます。</p>
+    <div class="founding" style="margin-bottom:34px">
+      <span class="dot"></span>
+      <div><b>修了後は、月4,980円。</b>90日を走りきった人だけの価格です。3つのコースはどれも同じ額で、行き来も自由です。ここから先は、続けたいだけ続けられます。</div>
+    </div>
+
+    <div class="nx">
+      <div class="nxc">
+        <div class="rn">ROUTE 01</div>
+        <h3>起業家コース</h3>
+        <p>作ったものを、自分の事業にしていく人へ。値段のつけ方、集客、お金の回し方まで扱います。</p>
+        <ul>
+          <li>自分のサービスを商品として売り出す</li>
+          <li>価格・原価・利益の設計</li>
+          <li>集客の導線をひとつ作る</li>
+          <li>月次で数字を見る習慣をつける</li>
+        </ul>
+      </div>
+      <div class="nxc">
+        <div class="rn">ROUTE 02</div>
+        <h3>右腕コース</h3>
+        <p>誰かの事業に、中核として入っていく人へ。経営者の隣でAIを回す側の動き方を身につけます。</p>
+        <ul>
+          <li>事業主の課題を聞き出して形にする</li>
+          <li>あいまいな依頼を仕様に落とす</li>
+          <li>仕組みを作って人に引き継ぐ</li>
+          <li>継続契約の結び方</li>
+        </ul>
+      </div>
+      <div class="nxc">
+        <div class="rn">ROUTE 03</div>
+        <h3>サポートコース</h3>
+        <p>手を動かして支える側で仕事を受けたい人へ。受注から納品までを、ひとりで回せる形にします。</p>
+        <ul>
+          <li>受けられる仕事の範囲を決める</li>
+          <li>見積もりと納期の出し方</li>
+          <li>納品物の品質をそろえる</li>
+          <li>単価を上げていく手順</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="fldh">どのコースでも、専門分野をひとつ選びます。</h3>
+    <p class="fldl">同じ「AIが使える人」でも、何で食べていくかは分かれます。分野ごとに課題も審査基準も別で用意しています。分野は3ヶ月ごとに変えられます。</p>
+    <div class="flds">
+      <div class="fld"><span class="fn">FIELD 01</span><h4>動画・画像</h4><p>AIでの動画制作、画像生成、サムネイル、短尺コンテンツ。</p></div>
+      <div class="fld"><span class="fn">FIELD 02</span><h4>アプリ・ツール開発</h4><p>Webアプリ、LP、業務ツールを作って公開するところまで。</p></div>
+      <div class="fld"><span class="fn">FIELD 03</span><h4>業務自動化・DX</h4><p>事務・在庫・問い合わせなど、会社の中の作業を自動で回す。</p></div>
+      <div class="fld"><span class="fn">FIELD 04</span><h4>ゲーム・漫画・アート</h4><p>ゲーム、漫画、イラスト、作品としての表現をAIで形にする。</p></div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
-    <div class="idx">07　参加の流れ</div>
+    <div class="idx">08　参加の流れ</div>
     <h2>申し込みから、<br>DAY1まで3日。</h2>
     <p class="lede">思い立った週のうちに始められます。途中から入っても、その人のDAY1から始まります。</p>
     <div class="steps">
@@ -610,7 +699,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
 
 <section id="faq">
   <div class="wrap">
-    <div class="idx">08　よくある質問</div>
+    <div class="idx">09　よくある質問</div>
     <h2>よくある質問</h2>
     <div class="narrow" style="margin:0">
       <details><summary>AIを触ったことがなくても大丈夫ですか？</summary><div class="a">大丈夫です。Month1が道具に慣れる月なので、そこから始まります。ただし、自分で調べながら手を動かすことはしてもらいます。ずっと横について教える形ではありません。</div></details>
@@ -618,7 +707,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
       <details><summary>審査に落ちたらどうなりますか？</summary><div class="a">やめる必要はありません。次の月に、同じ月をもう一度やります。会費も同じ額です。何が足りなかったかは文章で渡すので、次に何をすればいいかは分かります。</div></details>
       <details><summary>試作品って、具体的にどんなものですか？</summary><div class="a">人によって違います。「自分の仕事の一部をAIに任せる道具」を作る人もいれば、「特定の職種向けの小さなサービス」を作る人もいます。共通しているのは、画面があって、他の人が触れて、値段をつけられる状態になっていることです。</div></details>
       <details><summary>90日で仕事は取れますか？</summary><div class="a">保証はしません。90日で作れるのは「売れる形になったもの」までです。そこから先は、売りに行く時間が別に必要になります。</div></details>
-      <details><summary>途中でやめられますか？</summary><div class="a">やめられます。次の更新日の前日までに手続きすれば、それ以降の会費は発生しません。解約金はありません。日割りの返金は行っていません。</div></details>
+      <details><summary>3ヶ月が終わったらどうなりますか？</summary><div class="a">修了すると、起業家コース・右腕コース・サポートコースの3つから進路を選べます。会費は月4,980円に下がります。どのコースでも、動画・画像／アプリ・ツール開発／業務自動化・DX／ゲーム・漫画・アートの4分野からひとつ専門を選びます。コースも分野も3ヶ月ごとに変えられます。もちろん、90日で終わりにしても構いません。</div></details>\n      <details><summary>途中でやめられますか？</summary><div class="a">やめられます。次の更新日の前日までに手続きすれば、それ以降の会費は発生しません。解約金はありません。日割りの返金は行っていません。</div></details>
       <details><summary>学割は誰が使えますか？</summary><div class="a">高校生と大学生（大学院・専門学校・高専を含みます）です。月4,900円になります。申し込みのあとに学生証の写真を1枚送ってもらうだけで、それ以外の手続きはありません。中身は通常プランとまったく同じです。卒業したら通常の価格に切り替わります。</div></details>
       <details><summary>月が進むと金額は上がりますか？</summary><div class="a">上がりません。Month1もMonth2もMonth3も、同じ月9,800円です。審査に落ちて同じ月をもう一度やるときも、金額は変わりません。</div></details>
       <details><summary>誰が教えるんですか？</summary><div class="a">運営チームです。特定の先生のファンになってもらう場所ではないので、名前は前に出していません。教材も審査の基準も公開しているので、誰が審査しても同じ結果になります。</div></details>
