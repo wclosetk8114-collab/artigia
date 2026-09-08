@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+<title>PLUG 01 ／ ビルダー｜AI Creator Camp</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D1E36;--ink-2:#3A4A63;--ink-soft:#6E7C93;
+  --line:#E4EAF2;--bg:#FFFFFF;--bg-2:#F5F9FD;--bg-3:#EDF4FB;
+  --cyan:#35BFF0;--pink:#F07A96;--orange:#F09A5E;--yellow:#F2CE6A;--purple:#A97BF0;
+  --grad:linear-gradient(90deg,#F07A96 0%,#F09A5E 22%,#F2CE6A 42%,#35BFF0 70%,#A97BF0 100%);
+  --grad-soft:linear-gradient(135deg,#FDF0F3 0%,#FEF7EC 30%,#EEF9FE 65%,#F5F0FE 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Zen Maru Gothic',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+  background:var(--bg-2);color:var(--ink);line-height:1.85;font-size:14.5px;
+  font-feature-settings:"palt";-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1400px,94vw);margin:0 auto}
+
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:60}
+.hd{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.mark{display:flex;align-items:center;gap:9px;min-width:0}
+.mark img{height:30px;width:auto;flex:none}
+.mark b{font-size:14.5px;font-weight:900;white-space:nowrap}
+.ptag{font-size:10.5px;font-weight:900;letter-spacing:.12em;color:#fff;background:var(--grad);
+  padding:5px 13px;border-radius:999px;white-space:nowrap}
+.hlink{font-size:12px;color:var(--ink-soft);white-space:nowrap}
+
+.hero{background:var(--grad-soft);border-bottom:1px solid var(--line);padding:30px 0 26px}
+.hero h1{font-size:clamp(20px,3.4vw,29px);font-weight:900;line-height:1.5;margin-bottom:8px}
+.hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:13.5px;color:var(--ink-2);max-width:720px;line-height:1.95}
+
+.layout{padding:22px 0 70px;display:block}
+@media(min-width:1060px){
+  .layout{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:22px;align-items:start}
+  .right{position:sticky;top:78px}
+}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 22px;margin-bottom:16px}
+.panel h2{font-size:15px;font-weight:900;margin-bottom:4px;display:flex;align-items:center;gap:9px;line-height:1.5}
+.panel h2 em{font-style:normal;font-size:10px;font-weight:900;letter-spacing:.1em;color:#fff;
+  background:var(--ink);padding:4px 10px;border-radius:999px;flex:none}
+.panel .d{font-size:12px;color:var(--ink-soft);margin-bottom:16px;line-height:1.85}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip span{display:block;cursor:pointer;font-size:12.5px;font-weight:700;color:var(--ink-2);
+  background:var(--bg-2);border:1.5px solid var(--line);border-radius:999px;padding:9px 15px;
+  transition:.15s;user-select:none}
+.chip span:hover{border-color:var(--cyan)}
+.chip input:checked + span{background:var(--ink);border-color:var(--ink);color:#fff}
+.sw{display:inline-flex;align-items:center;gap:7px}
+.sw i{width:13px;height:13px;border-radius:4px;display:inline-block;border:1px solid rgba(0,0,0,.15)}
+
+.f{margin-bottom:16px}
+.f:last-child{margin-bottom:0}
+.f label{display:block;font-size:13px;font-weight:900;margin-bottom:3px}
+.f .hint{font-size:11.5px;color:var(--ink-soft);margin-bottom:7px;line-height:1.75}
+input[type=text],textarea{width:100%;font-family:inherit;font-size:13.5px;color:var(--ink);
+  background:var(--bg-2);border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;
+  line-height:1.8;transition:.15s}
+textarea{min-height:84px;resize:vertical}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--cyan);background:#fff}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+  background:var(--ink);color:#fff;font-family:inherit;font-size:14px;font-weight:900;
+  padding:14px 26px;border:none;border-radius:999px;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(13,30,54,.22)}
+.btn.line{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn.line:hover{border-color:var(--cyan);box-shadow:0 10px 20px rgba(53,191,240,.15)}
+.btn.sm{font-size:12.5px;padding:10px 18px}
+.btn.wide{width:100%}
+.bset{display:flex;flex-wrap:wrap;gap:9px}
+
+.pvhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.pvhead .t{font-size:13px;font-weight:900;color:var(--ink-2)}
+.dev{display:flex;gap:6px}
+.dev button{cursor:pointer;font-family:inherit;font-size:11.5px;font-weight:800;color:var(--ink-2);
+  background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:7px 15px}
+.dev button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.stage{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;overflow:hidden}
+.stage .inner{margin:0 auto;transition:width .2s}
+iframe{width:100%;height:min(74vh,780px);border:0;border-radius:12px;background:#fff;display:block}
+@media(max-width:1059px){iframe{height:66vh}}
+
+.done{background:var(--ink);color:#fff;border-radius:18px;padding:26px 24px;margin-top:16px}
+.done h2{font-size:17px;font-weight:900;margin-bottom:8px;line-height:1.55}
+.done p{font-size:13px;color:#9FB0C6;line-height:1.95;margin-bottom:16px}
+.done .btn{background:#fff;color:var(--ink)}
+.done .btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.done ol{margin:14px 0 0 18px;font-size:12.5px;color:#CBD6E4;line-height:2}
+footer{padding:26px 0 40px;font-size:11.5px;color:var(--ink-soft);text-align:center;line-height:2}
+.tiny{font-size:11.5px;color:var(--ink-soft);line-height:1.8;margin-top:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a href="../../index.html" class="mark"><img src="../../mark.png" alt="AI Creator Camp"><b>CREATOR CAMP</b></a>
+    <span class="ptag">PLUG 01</span>
+    <a href="../../thanks.html" class="hlink">受け取りページ →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>左に書くと、右が<span class="g">できあがります</span>。</h1>
+    <p>ページもアプリも、ここで作れます。書き終わったらHTMLで書き出して、そのまま公開できます。インストールもアカウント登録もいりません。最初から見本が入っているので、書き換えるところから始めてください。</p>
+  </div>
+</section>
+
+<div class="wrap layout">
+
+  <div class="left">
+
+    <div class="panel">
+      <h2><em>1</em>何を作りますか？</h2>
+      <p class="d">選ぶと、右のプレビューがまるごと入れ替わります。</p>
+      <div class="chips" id="tplchips"></div>
+    </div>
+
+    <div class="panel">
+      <h2><em>2</em>見た目</h2>
+      <p class="d">色と書体を選ぶだけです。あとから何度でも変えられます。</p>
+      <div class="f">
+        <label>配色</label>
+        <div class="chips" id="themechips"></div>
+      </div>
+      <div class="f">
+        <label>書体</label>
+        <div class="chips" id="fontchips"></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2><em>3</em>中身を書く</h2>
+      <p class="d">書いたそばから右に反映されます。空にすると、その部分は消えます。</p>
+      <div id="fields"></div>
+    </div>
+
+    <div class="panel">
+      <h2><em>4</em>持ち出す</h2>
+      <p class="d">HTMLファイルが1つ手に入ります。ダブルクリックで開けて、そのまま人に渡せます。</p>
+      <div class="bset">
+        <button class="btn" id="dl">HTMLをダウンロード</button>
+        <button class="btn line sm" id="cp">コードをコピー</button>
+        <button class="btn line sm" id="rs">見本に戻す</button>
+      </div>
+      <p class="tiny" id="saved">書いた内容は、この端末に自動で保存されます。</p>
+    </div>
+
+    <div class="done">
+      <h2>ここから先を、AIに続けさせる。</h2>
+      <p>「ここに予約カレンダーを足したい」「この計算を変えたい」。作ったHTMLと、やりたいことを、そのままAIに渡せる文章にして出します。ClaudeでもChatGPTでも使えます。</p>
+      <div class="bset">
+        <button class="btn sm" id="aip">AIに渡す文章をコピー</button>
+        <a class="btn line sm" href="../../thanks.html">聞ける場所を見る</a>
+      </div>
+      <ol>
+        <li>上のボタンでコピーする</li>
+        <li>AIに貼って、やりたいことを1つだけ足して書く</li>
+        <li>返ってきたコードを、ファイルにまるごと貼り替える</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <div class="right">
+    <div class="pvhead">
+      <span class="t">プレビュー（実際に触れます）</span>
+      <div class="dev">
+        <button data-w="100%" class="on">パソコン</button>
+        <button data-w="390px">スマホ</button>
+      </div>
+    </div>
+    <div class="stage"><div class="inner" id="inner"><iframe id="pv" sandbox="allow-scripts allow-modals" title="プレビュー"></iframe></div></div>
+  </div>
+
+</div>
+
+<footer>
+  PLUG 01 ／ ビルダー　—　AI Creator Camp<br>
+  このページのURLは購入者向けです。共有はご遠慮ください。
+</footer>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var KEY='plug01_builder_v1';
+
+var THEMES={
+  navy:{n:'白×紺',bg:'#FFFFFF',ink:'#0D1E36',sub:'#6E7C93',acc:'#2F6FEB',on:'#FFFFFF',line:'#E4EAF2',soft:'#F5F9FD',sw:'#2F6FEB'},
+  gold:{n:'黒×金',bg:'#0B0B0C',ink:'#F5F1E8',sub:'#A79E8C',acc:'#C9A227',on:'#0B0B0C',line:'#2A2926',soft:'#141414',sw:'#C9A227'},
+  kinari:{n:'生成り×茶',bg:'#FBF8F1',ink:'#3B2F26',sub:'#8A7B6C',acc:'#A9744F',on:'#FFFFFF',line:'#E7DECF',soft:'#F5EFE3',sw:'#A9744F'},
+  sky:{n:'白×水色',bg:'#FFFFFF',ink:'#12263A',sub:'#6E8195',acc:'#2AA8D8',on:'#FFFFFF',line:'#E3EDF4',soft:'#F3FAFD',sw:'#2AA8D8'},
+  mono:{n:'白×黒',bg:'#FFFFFF',ink:'#111111',sub:'#777777',acc:'#111111',on:'#FFFFFF',line:'#E5E5E5',soft:'#FAFAFA',sw:'#111111'},
+  rain:{n:'虹',bg:'#FFFFFF',ink:'#0D1E36',sub:'#6E7C93',acc:'#F07A96',on:'#FFFFFF',line:'#E4EAF2',soft:'#F5F9FD',sw:'#35BFF0',
+        grad:'linear-gradient(90deg,#F07A96 0%,#F09A5E 22%,#F2CE6A 42%,#35BFF0 70%,#A97BF0 100%)'}
+};
+var FONTS={
+  maru:{n:'まるっと',css:"'Zen Maru Gothic'",g:'Zen+Maru+Gothic:wght@400;500;700;900'},
+  kaku:{n:'すっきり',css:"'Zen Kaku Gothic New'",g:'Zen+Kaku+Gothic+New:wght@400;500;700;900'},
+  min:{n:'明朝',css:"'Zen Old Mincho',serif",g:'Zen+Old+Mincho:wght@400;700;900'}
+};
+
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function rows(s){
+  return String(s||'').split('\n').map(function(x){return x.trim()}).filter(Boolean)
+    .map(function(x){return x.split(/[|｜]/).map(function(y){return y.trim()})});
+}
+function jstr(s){return JSON.stringify(String(s==null?'':s))}
+
+/* ---------- テンプレート定義 ---------- */
+var TPL={
+lp:{n:'紹介ページ（LP）',f:[
+  {k:'title',l:'名前',t:'text',d:'やさしい整体院'},
+  {k:'catch',l:'いちばん言いたいこと',t:'text',d:'その腰痛、原因は腰じゃないかもしれません。'},
+  {k:'sub',l:'説明',t:'ta',h:'2〜3行で。',d:'国家資格をもつ施術者が、痛みの出ている場所ではなく、その原因になっている場所を探します。初回はカウンセリングに40分かけます。'},
+  {k:'ctaText',l:'ボタンの文字',t:'text',d:'はじめての方はこちら'},
+  {k:'ctaLink',l:'ボタンの行き先',t:'text',h:'URL、または mailto:メールアドレス。',d:'mailto:info@example.com'},
+  {k:'feat',l:'特徴（1行に1つ）',t:'ta',h:'「見出し｜説明」の形で書いてください。',d:'原因から探します｜痛い場所だけを揉んでも、戻ります。姿勢と動きから原因を探します。\n初回40分のカウンセリング｜いつから、どんなときに痛むのか。全部聞いてから始めます。\n通う回数を決めます｜「一生通ってください」とは言いません。何回で終わるかを最初に伝えます。'},
+  {k:'price',l:'料金（1行に1つ・空欄なら消えます）',t:'ta',h:'「名前｜金額｜説明」の形で。',d:'初回（カウンセリング＋施術）｜6,600円｜約80分。お着替えをご用意しています。\n2回目以降｜4,400円｜約50分。'},
+  {k:'faq',l:'よくある質問（1行に1つ）',t:'ta',h:'「質問｜答え」の形で。',d:'どんな服装で行けばいいですか｜動きやすい服でお越しください。お着替えもご用意しています。\n痛くない施術ですか｜バキバキ鳴らすことはしません。痛みが強い日は、触れる程度から始めます。\n何回くらい通えばいいですか｜初回に、目安の回数をお伝えします。'},
+  {k:'foot',l:'いちばん下に出す文字',t:'text',d:'やさしい整体院　／　東京都◯◯区◯◯ 1-2-3　／　09:00-19:00（日祝休）'}
+]},
+form:{n:'申し込み・予約フォーム',f:[
+  {k:'title',l:'名前',t:'text',d:'体験レッスンのお申し込み'},
+  {k:'catch',l:'いちばん言いたいこと',t:'text',d:'まずは1回、受けてみてください。'},
+  {k:'sub',l:'説明',t:'ta',d:'体験レッスンは1回1,000円です。持ち物はタオルと飲み物だけ。動きやすい服装でお越しください。'},
+  {k:'fields',l:'聞きたいこと（1行に1つ）',t:'ta',h:'最後に「＊」を付けると必須になります。「日付」「メール」「電話」という言葉を含むと入力形式が変わります。',d:'お名前＊\nメールアドレス＊\n電話番号\n希望の日付＊\n聞いておきたいこと'},
+  {k:'sendto',l:'送信先のメールアドレス',t:'text',h:'ここに入れると、メールソフトが開いて内容が入った状態になります。',d:'info@example.com'},
+  {k:'done',l:'送信ボタンを押したあとに出す文字',t:'ta',d:'ありがとうございます。2営業日以内に、こちらからご連絡します。'},
+  {k:'foot',l:'いちばん下に出す文字',t:'text',d:'ご不明な点は info@example.com までご連絡ください。'}
+]},
+quiz:{n:'診断ツール',f:[
+  {k:'title',l:'名前',t:'text',d:'あなたの片づけタイプ診断'},
+  {k:'catch',l:'いちばん言いたいこと',t:'text',d:'片づかない理由は、性格じゃなくてタイプの問題です。'},
+  {k:'sub',l:'説明',t:'ta',d:'5つの質問に答えるだけ。30秒で終わります。'},
+  {k:'qs',l:'質問（1行に1問）',t:'ta',h:'「質問｜選択肢A｜選択肢B｜選択肢C」の形で。Aが多ければ1つ目の結果、Bなら2つ目…になります。',d:'部屋が散らかるのは、たいてい｜床｜机の上｜引き出しの中\n買い物をするとき｜まず値段を見る｜まず気に入るかを見る｜まず置き場所を考える\n使わないものを見つけたら｜とりあえず取っておく｜すぐ捨てる｜誰かにあげる\n片づけを始めるのは｜人が来る前｜気分が乗ったとき｜決めた曜日\n理想の部屋は｜物が少ない部屋｜好きな物に囲まれた部屋｜すぐ元に戻せる部屋'},
+  {k:'rs',l:'結果（3行）',t:'ta',h:'「タイプ名｜説明」の形で、A・B・Cの順に3行書いてください。',d:'ためこみタイプ｜捨てられないのは、優しさの裏返しです。まず「1年使わなかった箱」を1つ作るところから始めてください。\nときめきタイプ｜好きな物への感覚が鋭いタイプ。減らすより、好きな物を見せる収納にしたほうがうまくいきます。\n仕組みタイプ｜片づけの才能があります。あとは家族を巻き込む仕組みを1つ作れば完成です。'},
+  {k:'foot',l:'いちばん下に出す文字',t:'text',d:'診断結果は目安です。'}
+]},
+app:{n:'記録アプリ（保存できます）',f:[
+  {k:'title',l:'名前',t:'text',d:'こづかい帳'},
+  {k:'sub',l:'説明',t:'ta',d:'使ったお金を書いていくだけ。合計は自動で出ます。この端末に保存されるので、閉じても消えません。'},
+  {k:'cols',l:'記録する項目（1行に1つ）',t:'ta',h:'「日付」を含む項目は日付入力に、下の合計する項目は数字入力になります。',d:'日付\n何に使ったか\n金額'},
+  {k:'sum',l:'合計を出す項目',t:'text',h:'上の項目名とそろえてください。合計が要らなければ空欄に。',d:'金額'},
+  {k:'unit',l:'単位',t:'text',d:'円'},
+  {k:'foot',l:'いちばん下に出す文字',t:'text',d:'データはこの端末の中だけに保存されます。'}
+]}
+};
+
+var state={tpl:'lp',theme:'navy',font:'maru',v:{}};
+function defaults(t){var o={};TPL[t].f.forEach(function(x){o[x.k]=x.d});return o}
+state.v=defaults('lp');
+try{var raw=localStorage.getItem(KEY);if(raw){var s=JSON.parse(raw);if(s&&s.tpl&&TPL[s.tpl]){state=s}}}catch(e){}
+
+/* ---------- 出力HTML ---------- */
+function head(d,th,fn,extraCss){
+  return ['<!DOCTYPE html>','<html lang="ja">','<head>','<meta charset="UTF-8">',
+  '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+  '<title>'+esc(d.title||'ページ')+'</title>',
+  '<link rel="preconnect" href="https://fonts.googleapis.com">',
+  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+  '<link href="https://fonts.googleapis.com/css2?family='+fn.g+'&display=swap" rel="stylesheet">',
+  '<style>',baseCss(th,fn),extraCss||'','</style>','</head>','<body>'].join('\n');
+}
+function baseCss(th,fn){
+  var accBg=th.grad?th.grad:th.acc;
+  return [
+  '*{box-sizing:border-box;margin:0;padding:0}',
+  'html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}',
+  'body{font-family:'+fn.css+',-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;background:'+th.bg+';color:'+th.ink+';line-height:1.95;font-size:15px;font-feature-settings:"palt";-webkit-font-smoothing:antialiased}',
+  'a{color:inherit;text-decoration:none}img{max-width:100%;display:block}',
+  '.w{width:min(980px,88vw);margin:0 auto}.n{width:min(680px,88vw);margin:0 auto}',
+  'section{padding:66px 0}@media(max-width:640px){section{padding:44px 0}}',
+  'h1{font-size:clamp(25px,5.2vw,44px);font-weight:900;line-height:1.45;margin-bottom:20px}',
+  'h2{font-size:clamp(20px,3.6vw,31px);font-weight:900;line-height:1.5;margin-bottom:26px}',
+  'h3{font-size:17px;font-weight:900;line-height:1.55;margin-bottom:8px}',
+  '.sub{color:'+th.sub+';font-size:15px;line-height:2.05}',
+  '.soft{background:'+th.soft+'}',
+  '.btn{display:inline-block;background:'+accBg+';color:'+th.on+';font-weight:900;font-size:16px;padding:16px 34px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;transition:.2s}',
+  '.btn:hover{opacity:.88;transform:translateY(-2px)}',
+  '.hero{padding:70px 0 60px;border-bottom:1px solid '+th.line+'}',
+  '.tag{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.1em;color:'+th.on+';background:'+accBg+';padding:6px 15px;border-radius:999px;margin-bottom:18px}',
+  '.grid{display:grid;gap:16px}@media(min-width:820px){.grid3{grid-template-columns:repeat(3,1fr)}}',
+  '.card{background:'+th.bg+';border:1px solid '+th.line+';border-radius:16px;padding:26px 24px}',
+  '.card p{color:'+th.sub+';font-size:14px;line-height:1.95}',
+  '.pr{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;border-bottom:1px solid '+th.line+';padding:20px 0}',
+  '.pr .amt{font-size:24px;font-weight:900;white-space:nowrap}',
+  '.pr .nm{font-weight:900;font-size:16px}.pr .ds{color:'+th.sub+';font-size:13px;width:100%}',
+  'details{border-bottom:1px solid '+th.line+'}',
+  'summary{cursor:pointer;list-style:none;padding:18px 30px 18px 0;font-weight:800;position:relative}',
+  'summary::-webkit-details-marker{display:none}',
+  'summary::after{content:"＋";position:absolute;right:2px;color:'+th.acc+';font-weight:900}',
+  'details[open] summary::after{content:"−"}',
+  '.ans{padding:0 0 20px;color:'+th.sub+';font-size:14.5px}',
+  'footer{border-top:1px solid '+th.line+';padding:30px 0 40px;color:'+th.sub+';font-size:12.5px;text-align:center;line-height:2}',
+  'label{display:block;font-weight:800;font-size:14px;margin-bottom:6px}',
+  'input,textarea,select{width:100%;font-family:inherit;font-size:15px;color:'+th.ink+';background:'+th.soft+';border:1.5px solid '+th.line+';border-radius:12px;padding:13px 14px;line-height:1.7}',
+  'input:focus,textarea:focus{outline:none;border-color:'+th.acc+'}',
+  'textarea{min-height:100px;resize:vertical}',
+  '.fld{margin-bottom:20px}',
+  'table{width:100%;border-collapse:collapse;font-size:14px}',
+  'th,td{text-align:left;padding:12px 10px;border-bottom:1px solid '+th.line+'}',
+  'th{font-size:12px;letter-spacing:.06em;color:'+th.sub+'}',
+  '.tot{display:flex;justify-content:space-between;align-items:baseline;padding:18px 10px;font-weight:900;font-size:19px;border-top:2px solid '+th.ink+'}',
+  '.del{cursor:pointer;background:none;border:0;color:'+th.sub+';font-family:inherit;font-size:13px;padding:4px 8px;width:auto}',
+  '.q{margin-bottom:26px}.opt{display:block;cursor:pointer;background:'+th.soft+';border:1.5px solid '+th.line+';border-radius:12px;padding:13px 16px;margin-bottom:9px;font-size:14.5px;transition:.15s}',
+  '.opt:hover{border-color:'+th.acc+'}.opt input{display:none}.opt.on{background:'+th.ink+';color:'+th.bg+';border-color:'+th.ink+'}'
+  ].join('\n');
+}
+
+function buildLP(d,th,fn){
+  var h=[head(d,th,fn)];
+  h.push('<section class="hero"><div class="w">');
+  if(d.title) h.push('<span class="tag">'+esc(d.title)+'</span>');
+  if(d.catch) h.push('<h1>'+esc(d.catch)+'</h1>');
+  if(d.sub) h.push('<p class="sub" style="max-width:620px;margin-bottom:30px">'+esc(d.sub).replace(/\n/g,'<br>')+'</p>');
+  if(d.ctaText) h.push('<a class="btn" href="'+esc(d.ctaLink||'#')+'">'+esc(d.ctaText)+'</a>');
+  h.push('</div></section>');
+  var fe=rows(d.feat);
+  if(fe.length){
+    h.push('<section class="soft"><div class="w"><h2>選ばれている理由</h2><div class="grid grid3">');
+    fe.forEach(function(r){h.push('<div class="card"><h3>'+esc(r[0])+'</h3><p>'+esc(r[1]||'')+'</p></div>')});
+    h.push('</div></div></section>');
+  }
+  var pr=rows(d.price);
+  if(pr.length){
+    h.push('<section><div class="n"><h2>料金</h2>');
+    pr.forEach(function(r){
+      h.push('<div class="pr"><span class="nm">'+esc(r[0])+'</span><span class="amt">'+esc(r[1]||'')+'</span>'+(r[2]?'<span class="ds">'+esc(r[2])+'</span>':'')+'</div>');
+    });
+    h.push('</div></section>');
+  }
+  var fq=rows(d.faq);
+  if(fq.length){
+    h.push('<section class="soft"><div class="n"><h2>よくある質問</h2>');
+    fq.forEach(function(r){h.push('<details><summary>'+esc(r[0])+'</summary><div class="ans">'+esc(r[1]||'')+'</div></details>')});
+    h.push('</div></section>');
+  }
+  if(d.ctaText){
+    h.push('<section><div class="w" style="text-align:center"><h2>'+esc(d.catch||'')+'</h2><a class="btn" href="'+esc(d.ctaLink||'#')+'">'+esc(d.ctaText)+'</a></div></section>');
+  }
+  h.push('<footer><div class="w">'+esc(d.foot||'').replace(/\n/g,'<br>')+'</div></footer>');
+  h.push('</body></html>');
+  return h.join('\n');
+}
+
+function buildForm(d,th,fn){
+  var fs=String(d.fields||'').split('\n').map(function(x){return x.trim()}).filter(Boolean);
+  var h=[head(d,th,fn)];
+  h.push('<section class="hero"><div class="n">');
+  if(d.title) h.push('<span class="tag">'+esc(d.title)+'</span>');
+  if(d.catch) h.push('<h1>'+esc(d.catch)+'</h1>');
+  if(d.sub) h.push('<p class="sub">'+esc(d.sub).replace(/\n/g,'<br>')+'</p>');
+  h.push('</div></section>');
+  h.push('<section><div class="n"><form id="fm">');
+  fs.forEach(function(raw,i){
+    var req=/[＊*]$/.test(raw);
+    var label=raw.replace(/[＊*]$/,'').trim();
+    var type='text';
+    if(/日付|日程|希望日/.test(label)) type='date';
+    else if(/メール|mail/i.test(label)) type='email';
+    else if(/電話|TEL|tel/.test(label)) type='tel';
+    var big=/こと|内容|備考|質問|要望|メッセージ/.test(label);
+    h.push('<div class="fld"><label for="q'+i+'">'+esc(label)+(req?' <span style="color:'+th.acc+'">＊</span>':'')+'</label>');
+    if(big) h.push('<textarea id="q'+i+'" data-l="'+esc(label)+'"'+(req?' required':'')+'></textarea>');
+    else h.push('<input id="q'+i+'" type="'+type+'" data-l="'+esc(label)+'"'+(req?' required':'')+'>');
+    h.push('</div>');
+  });
+  h.push('<button class="btn" type="submit">送信する</button>');
+  h.push('</form><div id="ok" style="display:none;padding:26px 0"><h2 style="margin-bottom:12px">送信できました</h2><p class="sub">'+esc(d.done||'').replace(/\n/g,'<br>')+'</p></div>');
+  h.push('</div></section>');
+  h.push('<footer><div class="w">'+esc(d.foot||'')+'</div></footer>');
+  h.push('<script>');
+  h.push('var MAILTO='+jstr(d.sendto||'')+';');
+  h.push('var SUBJ='+jstr((d.title||'お申し込み'))+';');
+  h.push('document.getElementById("fm").addEventListener("submit",function(e){');
+  h.push('  e.preventDefault();');
+  h.push('  var els=this.querySelectorAll("[data-l]"),lines=[];');
+  h.push('  for(var i=0;i<els.length;i++){lines.push(els[i].getAttribute("data-l")+"："+els[i].value)}');
+  h.push('  var body=lines.join("\\n");');
+  h.push('  if(MAILTO){window.location.href="mailto:"+MAILTO+"?subject="+encodeURIComponent(SUBJ)+"&body="+encodeURIComponent(body)}');
+  h.push('  this.style.display="none";document.getElementById("ok").style.display="block";');
+  h.push('  window.scrollTo(0,0);');
+  h.push('});');
+  h.push('<\/script></body></html>');
+  return h.join('\n');
+}
+
+function buildQuiz(d,th,fn){
+  var qs=rows(d.qs), rs=rows(d.rs);
+  var h=[head(d,th,fn)];
+  h.push('<section class="hero"><div class="n">');
+  if(d.title) h.push('<span class="tag">'+esc(d.title)+'</span>');
+  if(d.catch) h.push('<h1>'+esc(d.catch)+'</h1>');
+  if(d.sub) h.push('<p class="sub">'+esc(d.sub).replace(/\n/g,'<br>')+'</p>');
+  h.push('</div></section>');
+  h.push('<section><div class="n"><div id="qz">');
+  qs.forEach(function(r,i){
+    h.push('<div class="q"><h3>Q'+(i+1)+'　'+esc(r[0])+'</h3>');
+    for(var j=1;j<r.length;j++){
+      h.push('<label class="opt" data-q="'+i+'" data-v="'+(j-1)+'">'+esc(r[j])+'</label>');
+    }
+    h.push('</div>');
+  });
+  h.push('<button class="btn" id="go">結果を見る</button><p class="sub" id="msg" style="margin-top:14px;font-size:13px"></p>');
+  h.push('</div><div id="rz" style="display:none"></div></div></section>');
+  h.push('<footer><div class="w">'+esc(d.foot||'')+'</div></footer>');
+  h.push('<script>');
+  h.push('var RS='+JSON.stringify(rs.map(function(r){return {n:r[0]||'',t:r[1]||''}}))+';');
+  h.push('var N='+qs.length+';var pick={};');
+  h.push('var opts=document.querySelectorAll(".opt");');
+  h.push('for(var i=0;i<opts.length;i++){(function(el){el.onclick=function(){');
+  h.push('  var q=el.getAttribute("data-q");pick[q]=parseInt(el.getAttribute("data-v"),10);');
+  h.push('  var sib=document.querySelectorAll(\'.opt[data-q="\'+q+\'"]\');');
+  h.push('  for(var k=0;k<sib.length;k++){sib[k].classList.remove("on")}el.classList.add("on");');
+  h.push('}})(opts[i])}');
+  h.push('document.getElementById("go").onclick=function(){');
+  h.push('  var c=0,cnt=[];for(var i=0;i<9;i++){cnt.push(0)}');
+  h.push('  for(var k in pick){if(pick.hasOwnProperty(k)){cnt[pick[k]]++;c++}}');
+  h.push('  if(c<N){document.getElementById("msg").textContent="まだ答えていない質問があります。";return}');
+  h.push('  var best=0;for(var i=1;i<cnt.length;i++){if(cnt[i]>cnt[best])best=i}');
+  h.push('  var r=RS[best]||RS[0]||{n:"結果",t:""};');
+  h.push('  document.getElementById("qz").style.display="none";');
+  h.push('  var z=document.getElementById("rz");z.style.display="block";');
+  h.push('  z.innerHTML=\'<span class="tag">あなたのタイプ</span><h1>\'+r.n+\'</h1><p class="sub">\'+r.t+\'</p><p style="margin-top:26px"><button class="btn" onclick="location.reload()">もう一度やる</button></p>\';');
+  h.push('  window.scrollTo(0,0);');
+  h.push('};');
+  h.push('<\/script></body></html>');
+  return h.join('\n');
+}
+
+function buildApp(d,th,fn){
+  var cols=String(d.cols||'').split('\n').map(function(x){return x.trim()}).filter(Boolean);
+  var h=[head(d,th,fn)];
+  h.push('<section class="hero"><div class="w">');
+  if(d.title) h.push('<h1 style="margin-bottom:12px">'+esc(d.title)+'</h1>');
+  if(d.sub) h.push('<p class="sub">'+esc(d.sub).replace(/\n/g,'<br>')+'</p>');
+  h.push('</div></section>');
+  h.push('<section style="padding-top:40px"><div class="w"><div class="card" style="margin-bottom:26px"><form id="fm">');
+  cols.forEach(function(c,i){
+    var type='text';
+    if(/日付|日にち|date/i.test(c)) type='date';
+    else if(d.sum && c===String(d.sum).trim()) type='number';
+    h.push('<div class="fld"><label for="c'+i+'">'+esc(c)+'</label><input id="c'+i+'" type="'+type+'"></div>');
+  });
+  h.push('<button class="btn" type="submit">追加する</button></form></div>');
+  h.push('<div id="wrap"></div>');
+  h.push('<p style="margin-top:20px"><button class="btn" id="csv" style="font-size:14px;padding:12px 24px">CSVで書き出す</button></p>');
+  h.push('</div></section>');
+  h.push('<footer><div class="w">'+esc(d.foot||'')+'</div></footer>');
+  h.push('<script>');
+  h.push('var COLS='+JSON.stringify(cols)+';');
+  h.push('var SUM='+jstr(d.sum||'')+';var UNIT='+jstr(d.unit||'')+';');
+  h.push('var KEY="app_"+encodeURIComponent('+jstr(d.title||'app')+');');
+  h.push('var data=[];try{var r=localStorage.getItem(KEY);if(r)data=JSON.parse(r)}catch(e){}');
+  h.push('function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}}');
+  h.push('function esc2(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}');
+  h.push('function draw(){');
+  h.push('  var w=document.getElementById("wrap");');
+  h.push('  if(!data.length){w.innerHTML=\'<p class="sub">まだ何も入っていません。上から追加してください。</p>\';return}');
+  h.push('  var t=\'<table><tr>\';for(var i=0;i<COLS.length;i++){t+="<th>"+esc2(COLS[i])+"</th>"}t+="<th></th></tr>";');
+  h.push('  for(var r=0;r<data.length;r++){t+="<tr>";');
+  h.push('    for(var i=0;i<COLS.length;i++){t+="<td>"+esc2(data[r][i])+"</td>"}');
+  h.push('    t+=\'<td style="text-align:right"><button class="del" data-i="\'+r+\'">消す</button></td></tr>\';}');
+  h.push('  t+="</table>";');
+  h.push('  if(SUM){var si=COLS.indexOf(SUM);if(si>=0){var s=0;');
+  h.push('    for(var r=0;r<data.length;r++){var v=parseFloat(String(data[r][si]).replace(/[^0-9.-]/g,""));if(!isNaN(v))s+=v}');
+  h.push('    t+=\'<div class="tot"><span>合計</span><span>\'+s.toLocaleString()+UNIT+"</span></div>";}}');
+  h.push('  w.innerHTML=t;');
+  h.push('  var ds=w.querySelectorAll(".del");');
+  h.push('  for(var i=0;i<ds.length;i++){ds[i].onclick=function(){data.splice(parseInt(this.getAttribute("data-i"),10),1);save();draw()}}');
+  h.push('}');
+  h.push('document.getElementById("fm").addEventListener("submit",function(e){');
+  h.push('  e.preventDefault();var row=[];var ok=false;');
+  h.push('  for(var i=0;i<COLS.length;i++){var el=document.getElementById("c"+i);row.push(el.value);if(el.value)ok=true;el.value=""}');
+  h.push('  if(!ok)return;data.unshift(row);save();draw();');
+  h.push('});');
+  h.push('document.getElementById("csv").onclick=function(){');
+  h.push('  var lines=[COLS.join(",")];');
+  h.push('  for(var r=0;r<data.length;r++){lines.push(data[r].map(function(x){return \'"\'+String(x).replace(/"/g,\'""\')+\'"\'}).join(","))}');
+  h.push('  var b=new Blob(["\\ufeff"+lines.join("\\n")],{type:"text/csv"});');
+  h.push('  var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="data.csv";a.click();');
+  h.push('};');
+  h.push('draw();');
+  h.push('<\/script></body></html>');
+  return h.join('\n');
+}
+
+var BUILD={lp:buildLP,form:buildForm,quiz:buildQuiz,app:buildApp};
+function output(){
+  return BUILD[state.tpl](state.v,THEMES[state.theme],FONTS[state.font]);
+}
+
+/* ---------- 画面 ---------- */
+function chips(el,obj,cur,cb,swatch){
+  el.innerHTML='';
+  Object.keys(obj).forEach(function(k){
+    var lab=document.createElement('label');lab.className='chip';
+    var inp=document.createElement('input');inp.type='radio';inp.name=el.id;inp.checked=(k===cur);
+    var sp=document.createElement('span');
+    if(swatch){sp.className='';sp.innerHTML='<span class="sw"><i style="background:'+obj[k].sw+'"></i>'+obj[k].n+'</span>'}
+    else sp.textContent=obj[k].n;
+    inp.onchange=function(){cb(k)};
+    lab.appendChild(inp);lab.appendChild(sp);el.appendChild(lab);
+  });
+}
+function fields(){
+  var box=$('#fields');box.innerHTML='';
+  TPL[state.tpl].f.forEach(function(f){
+    var d=document.createElement('div');d.className='f';
+    var l=document.createElement('label');l.textContent=f.l;l.setAttribute('for','fld_'+f.k);
+    d.appendChild(l);
+    if(f.h){var hh=document.createElement('div');hh.className='hint';hh.textContent=f.h;d.appendChild(hh)}
+    var el=document.createElement(f.t==='ta'?'textarea':'input');
+    if(f.t!=='ta')el.type='text';
+    el.id='fld_'+f.k;el.value=state.v[f.k]==null?'':state.v[f.k];
+    el.oninput=function(){state.v[f.k]=el.value;paint()};
+    d.appendChild(el);box.appendChild(d);
+  });
+}
+var tmr=null;
+function paint(){
+  clearTimeout(tmr);
+  tmr=setTimeout(function(){
+    try{$('#pv').srcdoc=output()}catch(e){}
+    try{localStorage.setItem(KEY,JSON.stringify(state));$('#saved').textContent='書いた内容は、この端末に自動で保存されます。'}catch(e){}
+  },220);
+}
+function switchTpl(k){
+  state.tpl=k;
+  if(!state.v||!state.v.title||!TPL[k].f.every(function(f){return state.v.hasOwnProperty(f.k)})){}
+  state.v=defaults(k);
+  fields();paint();
+  chips($('#tplchips'),TPL,state.tpl,switchTpl);
+}
+chips($('#tplchips'),TPL,state.tpl,switchTpl);
+chips($('#themechips'),THEMES,state.theme,function(k){state.theme=k;paint()},true);
+chips($('#fontchips'),FONTS,state.font,function(k){state.font=k;paint()});
+fields();paint();
+
+$$('.dev button').forEach(function(b){
+  b.onclick=function(){
+    $$('.dev button').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');
+    $('#inner').style.width=b.getAttribute('data-w');
+  };
+});
+
+function copy(text,done){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done,function(){fb(text,done)});
+  }else fb(text,done);
+}
+function fb(text,done){
+  var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}
+  document.body.removeChild(ta);done();
+}
+$('#dl').onclick=function(){
+  var name=(state.v.title||'page').replace(/[\\/:*?"<>|]/g,'_');
+  var b=new Blob([output()],{type:'text/html;charset=utf-8'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name+'.html';
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a)},400);
+};
+$('#cp').onclick=function(){var b=$('#cp');copy(output(),function(){b.textContent='コピーしました';setTimeout(function(){b.textContent='コードをコピー'},1600)})};
+$('#rs').onclick=function(){state.v=defaults(state.tpl);fields();paint()};
+$('#aip').onclick=function(){
+  var b=$('#aip');
+  var t=[
+  'あなたはWebの開発者です。私はプログラミングができません。専門用語は使わず、中学生にも分かる言葉で説明してください。',
+  '',
+  '下に、いま動いているHTMLファイルの全文を貼ります。これに手を入れたいです。',
+  '',
+  '【やりたいこと】',
+  '（ここに1つだけ書いてください。2つ以上は一度に頼まないこと。例：「予約フォームに時間の選択を足したい」）',
+  '',
+  '【守ってほしいこと】',
+  '1. いま動いているところは壊さないでください。',
+  '2. 直したあとのコードを、省略せずに全文で出してください。「同様に」「以下略」は禁止です。',
+  '3. 長くて途中で切れたら、私が「続けて」と言うので、続きから出してください。作り直さないでください。',
+  '4. どこを変えたのか、最後に箇条書きで教えてください。',
+  '5. 私がやること（ファイルの保存の仕方・開き方）を3ステップ以内で書いてください。',
+  '',
+  '【いまのコード】',
+  '```html',
+  output(),
+  '```'
+  ].join('\n');
+  copy(t,function(){b.textContent='コピーしました';setTimeout(function(){b.textContent='AIに渡す文章をコピー'},1800)});
+};
+})();
+</script>
+</body>
+</html>
