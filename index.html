@@ -6,9 +6,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <title>AI Creator Camp｜90日で、自分のサービスの試作品をつくる</title>
-<meta name="description" content="90日で自分のサービスの試作品をつくるオンラインブートキャンプ。毎月末に通過審査があり、通った人だけが次の月に進みます。月額9,800円、高校生・大学生は月4,900円。いまは0期・先行33名を募集中。">
+<meta name="description" content="AIで作れるのは、もう前提。その先で、いまの仕事を減らして、やりたかったことに手を伸ばす90日のオンラインキャンプ。毎月末に通過審査。月額9,800円、高校生・大学生は月4,900円。いまは0期・先行33名を募集中。">
 <meta property="og:title" content="AI Creator Camp｜90日で、自分のサービスの試作品をつくる">
-<meta property="og:description" content="毎月末に通過審査。通った人だけが次の月へ。3ヶ月後、手元に自分のサービスの試作品が残ります。">
+<meta property="og:description" content="AIで作れるのは前提。その先で、仕事を減らして、やれることを増やす。3ヶ月後、手元に動くものと、空いた時間が残ります。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="ogp.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -202,6 +202,54 @@ h2{
 .tk h3{font-size:17px;font-weight:900;margin-bottom:8px}
 .tk p{font-size:13.5px;color:var(--ink-soft);line-height:1.9}
 
+/* ---------- こう変わる（ビフォーアフター） ---------- */
+.pcs{display:grid;gap:18px}
+.pc{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:28px 30px;display:grid;gap:20px;transition:.2s;
+}
+@media(min-width:1000px){.pc{grid-template-columns:255px 1fr;gap:32px;align-items:center}}
+@media(max-width:640px){.pc{padding:22px 20px}}
+.pc:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(13,30,54,.09)}
+.pn{
+  display:inline-block;font-size:10.5px;font-weight:900;letter-spacing:.12em;color:#fff;
+  background:var(--grad);padding:4px 12px;border-radius:999px;margin-bottom:10px;
+}
+.pc h3{font-size:22px;font-weight:900;margin-bottom:14px}
+.pmk{border-top:1px solid var(--line);padding-top:12px}
+.pl{display:block;font-size:10.5px;font-weight:900;letter-spacing:.1em;color:var(--ink-soft);margin-bottom:5px}
+.pmk p{font-size:13px;color:var(--ink-2);line-height:1.85}
+.ba{display:grid;gap:12px;align-items:stretch}
+@media(min-width:760px){.ba{grid-template-columns:1fr 42px 1.12fr;gap:10px}}
+.bf,.af{border-radius:16px;padding:20px 22px}
+.bf{background:var(--bg-2);border:1px solid var(--line)}
+.af{background:var(--ink);position:relative;overflow:hidden}
+.af::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--grad)}
+.bl{display:block;font-size:10.5px;font-weight:900;letter-spacing:.14em;margin-bottom:9px}
+.bf .bl{color:#A9B4C6}
+.af .bl{
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.bf p{font-size:13.5px;color:var(--ink-soft);line-height:1.95}
+.af p{font-size:15px;color:#fff;line-height:1.95;font-weight:500}
+.arw{
+  display:grid;place-items:center;font-size:20px;font-weight:900;color:var(--orange);
+}
+@media(max-width:759px){.arw{transform:rotate(90deg);padding:2px 0}}
+
+/* ---------- 修了後のプロジェクト ---------- */
+.prj{display:grid;gap:14px}
+@media(min-width:820px){.prj{grid-template-columns:repeat(3,1fr);gap:16px}}
+.pj{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 24px;transition:.2s}
+.pj:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(13,30,54,.08)}
+.pj .pjn{
+  display:inline-block;font-size:10.5px;font-weight:900;letter-spacing:.1em;color:#fff;
+  background:var(--ink);padding:4px 12px;border-radius:999px;margin-bottom:11px;
+}
+.pj h4{font-size:16.5px;font-weight:900;margin-bottom:8px;line-height:1.5}
+.pj p{font-size:13px;color:var(--ink-soft);line-height:1.9}
+
 /* ---------- 合う人・合わない人 ---------- */
 .fit{display:grid;gap:18px}
 @media(min-width:880px){.fit{grid-template-columns:1fr 1fr;gap:22px}}
@@ -391,7 +439,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
       <a href="#map">90日の地図</a>
       <a href="#gate">通過審査</a>
       <a href="#week">1週間の流れ</a>
-      <a href="#take">持ち帰るもの</a>
+      <a href="#cases">こう変わる</a>
       <a href="#next">3ヶ月のあと</a>
       <a href="#price">料金</a>
       <a href="#faq">よくある質問</a>
@@ -406,8 +454,8 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
       <span class="dot"></span>0期・先行33名まで<span class="opt">　／　毎月末に通過審査があります</span>
     </div>
     <img src="logo.png" alt="AI Creator Camp" class="herologo">
-    <h1>AIを学んだ人で終わるか、<br><span class="g">作った人</span>になるか。</h1>
-    <p class="sub">AIの講座はたくさんあります。でも、受け終わったあとに実際に何か作れた人は、ほとんどいません。ここは作るところです。毎週お題が出て、月末に審査があります。通らないと、次の月には進めません。3ヶ月で、自分のサービスを1つ完成させます。</p>
+    <h1>つくれる、は前提。<br><span class="g">その先</span>を、90日で。</h1>
+    <p class="sub">AIで何か作れること自体は、もう珍しくありません。ここでやるのは、その先です。いまの仕事を何時間減らせるか。やりたかったことに、どこまで手が届くか。3ヶ月で自分のサービスを1つ完成させて、そこまで持っていきます。毎週お題が出て、月末に審査があります。通らないと、次の月には進めません。</p>
     <div class="btns">
       <a href="#price" class="cta">料金を見る　→</a>
       <a href="#map" class="cta line">90日の中身を見る</a>
@@ -515,8 +563,8 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
 <section id="take" class="tint">
   <div class="wrap">
     <div class="idx">04　3ヶ月後に持ち帰るもの</div>
-    <h2>「これ、つくった」と<br>言えるものが残ります。</h2>
-    <p class="lede">修了した次の日から、人に見せられる。そこまで持っていくのがこの90日のゴールです。</p>
+    <h2>作ったものと、<br>空いた時間が残ります。</h2>
+    <p class="lede">作品ができて終わりではありません。作ったものが自分の手を空けて、その空いた時間で次のことができる。そこまでが90日のゴールです。</p>
     <div class="take">
       <div class="tk"><div class="no">01</div><h3>動く試作品</h3><p>自分のサービスの試作です。画面があって、人が触れて、動きます。</p></div>
       <div class="tk"><div class="no">02</div><h3>提案書</h3><p>自分の商品のために書き上げた1本です。ひな形ではなく、中身が入っています。</p></div>
@@ -528,9 +576,110 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
   </div>
 </section>
 
+<section id="cases" class="gtint">
+  <div class="wrap">
+    <div class="idx">05　こう変わる</div>
+    <h2>AIで作れること自体は、<br>もう強みになりません。</h2>
+    <p class="lede">強みになるのは、そのあとです。作ったもので自分の手が空いて、その時間で前からやりたかったことに手が伸びる。立場が違えば、変わり方も違います。5つ並べておきます。</p>
+    <div class="pcs">
+      <div class="pc">
+        <div class="ph">
+          <span class="pn">CASE 01</span>
+          <h3>起業家</h3>
+          <div class="pmk"><span class="pl">90日で作るもの</span><p>申し込みから案内、請求までを自動で回す仕組みを、自社サービスに1つ。</p></div>
+        </div>
+        <div class="ba">
+          <div class="bf">
+            <span class="bl">BEFORE</span>
+            <p>やりたい企画は10個ある。でも人手も外注費も足りなくて、実際に出せるのは年に1つか2つ。見積もりを待っているあいだに、熱が冷めていく。</p>
+          </div>
+          <div class="arw">→</div>
+          <div class="af">
+            <span class="bl">AFTER</span>
+            <p>思いついた企画を、その週のうちに形にして出せる。外注に出していた制作が、まるごと手元に戻ってくる。年に1回だった打席が、月に1回になる。</p>
+          </div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="ph">
+          <span class="pn">CASE 02</span>
+          <h3>フリーランス</h3>
+          <div class="pmk"><span class="pl">90日で作るもの</span><p>得意分野を小さなツールかテンプレートにして、時間ではなく形で売れるようにする。</p></div>
+        </div>
+        <div class="ba">
+          <div class="bf">
+            <span class="bl">BEFORE</span>
+            <p>手を動かした時間の分しか売上にならない。受注が途切れれば、その月はゼロ。単価を上げたいと言い出せないまま、去年と同じ金額で受けている。</p>
+          </div>
+          <div class="arw">→</div>
+          <div class="af">
+            <span class="bl">AFTER</span>
+            <p>作ったものが、自分が寝ているあいだも動く。時間を売る仕事と、作ったものを売る仕事の2本になる。値段の根拠を、自分の言葉で説明できるようになる。</p>
+          </div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="ph">
+          <span class="pn">CASE 03</span>
+          <h3>主婦</h3>
+          <div class="pmk"><span class="pl">90日で作るもの</span><p>家や地域の困りごとを片づける小さなアプリ、または受注に使える制作の型。</p></div>
+        </div>
+        <div class="ba">
+          <div class="bf">
+            <span class="bl">BEFORE</span>
+            <p>まとまった時間は、1日30分あるかどうか。ブランクが長くなるほど戻りにくくなって、履歴書に書けることが増えないまま何年も経っている。</p>
+          </div>
+          <div class="arw">→</div>
+          <div class="af">
+            <span class="bl">AFTER</span>
+            <p>子どもが寝たあとの時間だけで、動くものが1つできあがる。履歴書に「書く」のではなく、リンクを「見せる」側になる。在宅で受ける仕事が、現実的な話になる。</p>
+          </div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="ph">
+          <span class="pn">CASE 04</span>
+          <h3>大学生</h3>
+          <div class="pmk"><span class="pl">90日で作るもの</span><p>自分が興味のある分野のサービス、ゲーム、作品。何を作るかは自由。</p></div>
+        </div>
+        <div class="ba">
+          <div class="bf">
+            <span class="bl">BEFORE</span>
+            <p>ガクチカはバイトとサークル。ポートフォリオは白紙のまま。周りと同じことしか書けなくて、面接で話すことがない。</p>
+          </div>
+          <div class="arw">→</div>
+          <div class="af">
+            <span class="bl">AFTER</span>
+            <p>「これ、作りました」と画面を出して見せられる。90日ぶんの制作記録が、そのまま実績になる。就職に使うのも、卒業前に自分の商売として始めるのも選べる。学生は月4,900円。</p>
+          </div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="ph">
+          <span class="pn">CASE 05</span>
+          <h3>事務の人</h3>
+          <div class="pmk"><span class="pl">90日で作るもの</span><p>部署でいちばん時間を食っている定型作業を、自動で回る仕組みに置き換える。</p></div>
+        </div>
+        <div class="ba">
+          <div class="bf">
+            <span class="bl">BEFORE</span>
+            <p>転記と集計と問い合わせ対応で、1日が終わる。月末は残業が前提。この作業に意味があるのかなと思いながら、何年も同じことを続けている。</p>
+          </div>
+          <div class="arw">→</div>
+          <div class="af">
+            <span class="bl">AFTER</span>
+            <p>その作業が、ボタンひとつで終わる。空いた時間で、次の作業も自動化しはじめる。「AIのことはあの人に聞け」と、社内でいちばん先に呼ばれる人になる。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="ladder" style="margin-top:28px;margin-bottom:0">ここに書いたのは例です。何を作るかは自分で決めます。運営は「これを作れ」とは言いません。決めるのを手伝って、月末に見て、通ったかどうかを返します。結果を保証するものではありません。</p>
+  </div>
+</section>
+
 <section id="fit">
   <div class="wrap">
-    <div class="idx">05　合う人・合わない人</div>
+    <div class="idx">06　合う人・合わない人</div>
     <h2>向いてない人にも、<br>正直に言っておきます。</h2>
     <p class="lede">審査がある以上、向き不向きははっきり出ます。入ってから気づくより、いま知ってもらうほうがお互いのためです。</p>
     <div class="fit">
@@ -560,7 +709,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
 
 <section id="price">
   <div class="wrap">
-    <div class="idx">06　料金</div>
+    <div class="idx">07　料金</div>
     <h2>月9,800円。<br>プランはこれだけです。</h2>
     <p class="lede">コース分けはありません。全員が同じ中身を受けます。入会金も解約金もなく、次の更新日の前ならいつでも抜けられます。</p>
     <div class="founding">
@@ -629,9 +778,9 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
 
 <section id="next" class="tint">
   <div class="wrap">
-    <div class="idx">07　3ヶ月のあと</div>
+    <div class="idx">08　3ヶ月のあと</div>
     <h2>90日で終わりではなく、<br>ここから進路が分かれます。</h2>
-    <p class="lede">修了した人だけが進めます。3つのうちどれを選んでも、会費は<b>月4,980円</b>です。90日のキャンプより安くなります。3ヶ月ごとに進路を変えることもできます。</p>
+    <p class="lede">修了した人だけが進めます。3つのうちどれを選んでも、会費は<b>月4,980円</b>です。90日のキャンプより安くなります。3ヶ月ごとに進路を変えられて、実際のプロジェクトにも入れます。</p>
     <div class="founding" style="margin-bottom:34px">
       <span class="dot"></span>
       <div><b>修了後は、月4,980円。</b>90日を走りきった人だけの価格です。3つのコースはどれも同じ額で、行き来も自由です。ここから先は、続けたいだけ続けられます。</div>
@@ -681,12 +830,21 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
       <div class="fld"><span class="fn">FIELD 03</span><h4>業務自動化・DX</h4><p>事務・在庫・問い合わせなど、会社の中の作業を自動で回す。</p></div>
       <div class="fld"><span class="fn">FIELD 04</span><h4>ゲーム・漫画・アート</h4><p>ゲーム、漫画、イラスト、作品としての表現をAIで形にする。</p></div>
     </div>
+
+    <h3 class="fldh">それに、実際のプロジェクトに入れます。</h3>
+    <p class="fldl">修了した人には、運営や修了生が動かしている案件への参加枠が回ります。いきなりひとりで営業して受注しなくても、手を動かす場が中にある状態です。</p>
+    <div class="prj">
+      <div class="pj"><span class="pjn">PROJECT 01</span><h4>チームの一員として入る</h4><p>役割を決めて参加します。全部をひとりで背負う必要はありません。まず自分の担当だけを持ちます。</p></div>
+      <div class="pj"><span class="pjn">PROJECT 02</span><h4>中で仕事が回る</h4><p>起業家コースの人が案件を持ち、右腕・サポートの人が入る。コミュニティの中で仕事が動く形にしています。</p></div>
+      <div class="pj"><span class="pjn">PROJECT 03</span><h4>実績として外に出せる</h4><p>参加した案件は、自分の実績として出せます。出せる範囲は案件ごとに先に決めます。</p></div>
+    </div>
+    <p class="ladder" style="margin-top:20px;margin-bottom:0">案件の数と時期は保証できません。あるものに手を挙げる形です。審査を通った順に声がかかります。</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="idx">08　参加の流れ</div>
+    <div class="idx">09　参加の流れ</div>
     <h2>申し込みから、<br>DAY1まで3日。</h2>
     <p class="lede">思い立った週のうちに始められます。途中から入っても、その人のDAY1から始まります。</p>
     <div class="steps">
@@ -699,7 +857,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
 
 <section id="faq">
   <div class="wrap">
-    <div class="idx">09　よくある質問</div>
+    <div class="idx">10　よくある質問</div>
     <h2>よくある質問</h2>
     <div class="narrow" style="margin:0">
       <details><summary>AIを触ったことがなくても大丈夫ですか？</summary><div class="a">大丈夫です。Month1が道具に慣れる月なので、そこから始まります。ただし、自分で調べながら手を動かすことはしてもらいます。ずっと横について教える形ではありません。</div></details>
@@ -720,7 +878,7 @@ footer{background:var(--bg-2);padding:52px 0 30px;border-top:1px solid var(--lin
   <div class="wrap">
     <div class="idx" style="justify-content:center">さいごに</div>
     <h2>つくるって、たのしい。<br>それを90日で証明します。</h2>
-    <p>0期は33名まで。DAY1でお待ちしています。</p>
+    <p>つくれるようになると、やれることが増えます。0期は33名まで。DAY1でお待ちしています。</p>
     <a href="#price" class="cta">料金を見る　→</a>
   </div>
 </section>
