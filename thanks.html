@@ -8,69 +8,85 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0D1E36;--ink-2:#3A4A63;--ink-soft:#6E7C93;
-  --line:#E4EAF2;--bg:#FFFFFF;--bg-2:#F5F9FD;
-  --cyan:#35BFF0;--pink:#F07A96;--orange:#F09A5E;--yellow:#F2CE6A;--purple:#A97BF0;
+  --line:#E1E8F2;--line-2:#CBD6E4;--bg:#FFFFFF;--bg-2:#F6F9FC;--bg-3:#EDF3FA;
+  --cyan:#35BFF0;--blue:#2F6FEB;--purple:#A97BF0;
+  --pink:#F07A96;--orange:#F09A5E;--yellow:#F2CE6A;
   --grad:linear-gradient(90deg,#F07A96 0%,#F09A5E 22%,#F2CE6A 42%,#35BFF0 70%,#A97BF0 100%);
-  --grad-soft:linear-gradient(135deg,#FDF0F3 0%,#FEF7EC 30%,#EEF9FE 65%,#F5F0FE 100%);
-  --r:22px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Zen Maru Gothic',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
-  background:var(--bg);color:var(--ink);line-height:1.95;font-size:15.5px;
+body{font-family:'Zen Kaku Gothic New',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.95;font-size:15px;
   font-feature-settings:"palt";-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{width:min(760px,90vw);margin:0 auto}
+h1,h2,h3{font-family:'Zen Maru Gothic','Zen Kaku Gothic New',sans-serif}
+.wrap{width:min(780px,90vw);margin:0 auto}
+
 header{background:#fff;border-bottom:1px solid var(--line)}
-.hd{display:flex;align-items:center;height:66px}
-.mark{display:flex;align-items:center;gap:10px}
-.mark img{height:34px;width:auto}
-.mark b{font-size:16px;font-weight:900;letter-spacing:.03em}
+.hd{display:flex;align-items:center;height:64px}
+.mark{display:flex;align-items:center;gap:9px}
+.mark img{height:32px;width:auto}
+.mark b{font-size:15px;font-weight:900;font-family:'Zen Maru Gothic',sans-serif}
 
-.top{background:var(--grad-soft);padding:56px 0 50px;border-bottom:1px solid var(--line);text-align:center}
-.check{width:62px;height:62px;border-radius:50%;background:var(--grad);margin:0 auto 20px;
-  display:grid;place-items:center;color:#fff;font-size:28px;font-weight:900}
-.top h1{font-size:clamp(24px,4.6vw,36px);font-weight:900;line-height:1.5;margin-bottom:14px}
-.top p{font-size:15px;color:var(--ink-2);line-height:2.05}
+.top{background:var(--bg-2);border-bottom:2px solid var(--ink);padding:48px 0 44px}
+.brand{font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--ink-2);
+  padding-bottom:12px;border-bottom:1px solid var(--line-2);margin-bottom:22px}
+.top h1{font-size:clamp(24px,4.6vw,36px);font-weight:900;line-height:1.48;margin-bottom:14px}
+.top p{font-size:14.5px;color:var(--ink-2);line-height:2.05}
 
-main{padding:48px 0 30px}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);
-  padding:32px 32px;margin-bottom:18px;position:relative;overflow:hidden}
-@media(max-width:640px){.step{padding:26px 20px}}
-.step::before{content:"";position:absolute;left:0;right:0;top:0;height:5px}
-.step:nth-of-type(1)::before{background:linear-gradient(90deg,#35BFF0,#4A9CF0)}
-.step:nth-of-type(2)::before{background:linear-gradient(90deg,#F2CE6A,#F09A5E)}
-.step:nth-of-type(3)::before{background:linear-gradient(90deg,#F07A96,#A97BF0)}
-.no{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.12em;color:#fff;
-  background:var(--ink);padding:5px 14px;border-radius:999px;margin-bottom:14px}
-.step h2{font-size:21px;font-weight:900;line-height:1.55;margin-bottom:10px}
-.step p{font-size:14.5px;color:var(--ink-2);line-height:2;margin-bottom:16px}
+main{padding:44px 0 20px}
+.step{border-top:3px solid var(--ink);background:#fff;border-left:1px solid var(--line);
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  border-radius:0 0 10px 10px;padding:30px 30px;margin-bottom:18px}
+@media(max-width:640px){.step{padding:24px 20px}}
+.step:nth-of-type(1){border-top-color:#35BFF0}
+.step:nth-of-type(2){border-top-color:#F2CE6A}
+.step:nth-of-type(3){border-top-color:#F07A96}
+.no{display:inline-block;font-size:10.5px;font-weight:900;letter-spacing:.14em;color:#fff;
+  background:var(--ink);padding:4px 12px;border-radius:4px;margin-bottom:13px}
+.step h2{font-size:20px;font-weight:900;line-height:1.55;margin-bottom:10px}
+.step p{font-size:14.5px;color:var(--ink-2);line-height:2;margin-bottom:15px}
 .step p:last-of-type{margin-bottom:0}
 .cta{display:inline-flex;align-items:center;gap:11px;background:var(--ink);color:#fff;
-  font-size:15.5px;font-weight:800;padding:16px 32px;border-radius:999px;transition:.2s;margin-top:6px}
-.cta:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(13,30,54,.24)}
-.cta.line{background:#fff;color:var(--ink);border:2px solid var(--line)}
-.cta.line:hover{border-color:var(--cyan);box-shadow:0 12px 26px rgba(53,191,240,.18)}
+  font-family:'Zen Maru Gothic',sans-serif;font-size:15.5px;font-weight:800;
+  padding:16px 30px;border-radius:8px;transition:.18s;margin-top:4px}
+.cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(13,30,54,.24)}
+.cta.line{background:#fff;color:var(--ink);border:1.5px solid var(--line-2)}
+.cta.line:hover{border-color:var(--blue)}
+.cta.big{font-size:17px;padding:19px 36px;background:#06C755}
+.cta.big:hover{box-shadow:0 12px 26px rgba(6,199,85,.35)}
 .fine{font-size:12.5px;color:var(--ink-soft);line-height:1.9;margin-top:14px}
-.ul{list-style:none;margin:6px 0 18px}
-.ul li{font-size:14.5px;color:var(--ink-2);padding:9px 0 9px 24px;position:relative;line-height:1.9}
-.ul li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+.ul{list-style:none;margin:4px 0 18px}
+.ul li{font-size:14.5px;color:var(--ink-2);padding:11px 0 11px 26px;position:relative;
+  line-height:1.9;border-bottom:1px solid var(--line)}
+.ul li::before{content:"✓";position:absolute;left:0;top:11px;color:var(--cyan);font-weight:900}
 .ul li b{font-weight:900;color:var(--ink)}
-.bk{background:var(--bg-2);border-radius:16px;padding:18px 20px;font-size:13.5px;
+.bk{background:var(--bg-3);border-left:4px solid var(--blue);padding:16px 18px;font-size:13.5px;
   color:var(--ink-2);line-height:1.95;margin-top:16px}
 .bk b{font-weight:900;color:var(--ink)}
+.warn{display:flex;gap:13px;background:#FFF8E8;border:1px solid #F0E0B8;border-radius:8px;
+  padding:16px 18px;font-size:13.5px;line-height:1.95;color:#5A4A22;margin-top:16px}
+.warn b{font-weight:900;color:#3D3111}
+.warn .ic{flex:none;font-weight:900;color:#C9A227}
+.flow{display:grid;gap:10px;margin:6px 0 16px}
+@media(min-width:700px){.flow{grid-template-columns:repeat(3,1fr)}}
+.fl1{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:16px 16px}
+.fl1 .n{font-size:10.5px;font-weight:900;letter-spacing:.1em;color:var(--blue);margin-bottom:5px}
+.fl1 h3{font-size:14.5px;font-weight:900;margin-bottom:5px}
+.fl1 p{font-size:12.5px;color:var(--ink-soft);line-height:1.85;margin:0}
 
-.last{background:var(--ink);color:#fff;border-radius:var(--r);padding:38px 34px;margin-top:26px}
-@media(max-width:640px){.last{padding:28px 22px}}
-.last h2{font-size:22px;font-weight:900;line-height:1.6;margin-bottom:12px}
-.last p{font-size:14.5px;color:#9FB0C6;line-height:2.05;margin-bottom:20px}
+.last{background:var(--ink);color:#fff;border-radius:10px;padding:34px 30px;margin-top:24px;position:relative;overflow:hidden}
+.last::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--grad)}
+@media(max-width:640px){.last{padding:26px 20px}}
+.last h2{font-size:20px;font-weight:900;line-height:1.6;margin-bottom:12px}
+.last p{font-size:14px;color:#9FB0C6;line-height:2.05;margin-bottom:18px}
 .last .cta{background:#fff;color:var(--ink)}
-footer{padding:36px 0 44px;text-align:center;font-size:12.5px;color:var(--ink-soft);line-height:2}
+footer{padding:34px 0 44px;text-align:center;font-size:12.5px;color:var(--ink-soft);line-height:2}
 footer a{text-decoration:underline}
 </style>
 </head>
@@ -84,9 +100,9 @@ footer a{text-decoration:underline}
 
 <section class="top">
   <div class="wrap">
-    <div class="check">✓</div>
-    <h1>ありがとうございます。<br>ここから3つだけ、やってください。</h1>
-    <p>このページはブックマークしておいてください。ツールは何回でも使えます。</p>
+    <div class="brand">AI CREATOR CAMP ｜ FORGE　—　PLUG 01 の受け取り</div>
+    <h1>ありがとうございます。<br>受け取りは、オープンチャットの中です。</h1>
+    <p>下のボタンから入ってください。プラグイン本体と設定の手順書は、チャットの「ノート」に置いてあります。参加は無料、匿名で入れて、いつでも抜けられます。</p>
   </div>
 </section>
 
@@ -95,38 +111,43 @@ footer a{text-decoration:underline}
 
   <div class="step">
     <span class="no">STEP 1</span>
-    <h2>ツールを開く</h2>
-    <p>「PLUG 01 ／ ビルダー」です。左に文字を書くと、右にページやアプリができあがります。できたらHTMLで書き出して、そのまま人に渡せます。</p>
-    <p>作れるのは、紹介ページ・申し込みフォーム・診断ツール・記録アプリの4種類。最初から見本が入っているので、書き換えるところから始めてください。会員登録もインストールもありません。</p>
-    <a href="plug/01/" class="cta">PLUG 01 を開く　→</a>
-    <p class="fine">このURLは購入した方向けのものです。共有はご遠慮ください。</p>
+    <h2>オープンチャットに入る</h2>
+    <p>ここが受け取り場所です。入ったら、いちばん上に固定してある「ノート」を開いてください。プラグイン本体と、設定の手順書が置いてあります。</p>
+    <a href="https://line.me/ti/g2/ZHbg81q4ri0yH566v7ZlCnysM0MV9KowQeR1Fw" class="cta big" target="_blank" rel="noopener">オープンチャットに入る　→</a>
+    <div class="bk"><b>匿名で入れます。</b>LINEのオープンチャットなので、本名も電話番号も他の参加者には見えません。表示名はその場で好きに決められます。抜けるのも自由です。</div>
+    <ul class="ul" style="margin-top:18px">
+      <li><b>プラグイン本体</b>　Claudeに差し込むファイル一式</li>
+      <li><b>設定の手順書</b>　画面つき。上から順にやれば60〜90分で終わります</li>
+      <li><b>最新のAI情報</b>　ほぼ毎日流れます。「で、何ができるようになったのか」まで日本語で</li>
+      <li><b>新しいPLUG</b>　02、03と増えていきます。買い直しなしで、無料でお渡しします</li>
+      <li><b>質問できる場所</b>　設定で詰まったら、そのまま貼って聞いてください</li>
+    </ul>
   </div>
 
   <div class="step">
     <span class="no">STEP 2</span>
-    <h2>オープンチャットに入る（無料）</h2>
-    <p>ツールを渡して終わりにはしません。実際に作りはじめると、必ずどこかで止まります。そこを聞ける場所です。参加は無料で、いつでも抜けられます。</p>
-    <ul class="ul">
-      <li><b>最新のAI情報を、ほぼ毎日流します。</b>新しいモデル、使えるようになった機能、料金の変更。「結局それで何ができるようになったのか」まで日本語で書きます。</li>
-      <li><b>新しいPLUGを、できしだい追加でお渡しします。</b>02、03と増えていきます。買い直しは不要です。ここにいる人には無料で届きます。</li>
-      <li><b>詰まったところを聞けます。</b>エラーが出た、思ったものと違うものが出てきた。そのまま貼って聞いてください。</li>
-      <li><b>コミュニティの説明会は、ここで案内します。</b>日程もここに流します。</li>
-    </ul>
-    <a href="https://line.me/ti/g2/Rb8wl5BurHkiFmU3CnM_USl3rSwAv64a3DN4Cg" class="cta" target="_blank" rel="noopener">オープンチャットに入る　→</a>
-    <div class="bk"><b>匿名で入れます。</b>LINEのオープンチャットなので、本名も電話番号も相手に見えません。表示名はその場で好きに決められます。</div>
+    <h2>Claudeに差し込む</h2>
+    <p>手順書のとおりに進めるだけです。全体の流れはこの3つ。難しいのは2番目だけで、それも画面のどこを押すかまで書いてあります。</p>
+    <div class="flow">
+      <div class="fl1"><div class="n">1</div><h3>取り込む</h3><p>Claudeの「カスタマイズ」からファイルを選ぶ。3クリックで終わります。</p></div>
+      <div class="fl1"><div class="n">2</div><h3>鍵をつなぐ</h3><p>各サービスでアカウントを作り、鍵を発行してその場で貼る。ここが山場です。</p></div>
+      <div class="fl1"><div class="n">3</div><h3>確認する</h3><p>Claudeに一言頼むと、つながったかを自動で確かめてくれます。</p></div>
+    </div>
+    <div class="warn"><span class="ic">！</span><div><b>Claudeの有料プラン（月20ドル前後）が別途必要です。</b>無料プランでは、この道具を動かす機能が使えません。また、動画や画像を作るときに、使った分だけの実費（数十円〜数百円）がかかります。</div></div>
+    <p class="fine">設定は、途中でやめて後日続きからでも大丈夫です。詰まったところは、オープンチャットで聞いてください。</p>
   </div>
 
   <div class="step">
     <span class="no">STEP 3</span>
     <h2>説明会をのぞいてみる</h2>
-    <p>PLUGは道具です。使えば作れます。ただ、作れるようになったあと「これで何をするのか」までは、道具だけでは決まりません。そこを90日でやるのが AI Creator Camp です。</p>
-    <p>月に1回、オンラインで説明会をやっています。中で何をするのか、審査で何を見るのか、向いていない人はどういう人か。売り込みはしません。合わないと思ったらその場で抜けてもらって構いません。</p>
+    <p>道具は使えば作れます。ただ、作れるようになったあと「これで何をするのか」までは、道具だけでは決まりません。そこを90日でやるのが AI Creator Camp です。</p>
+    <p>月に1回、オンラインで説明会をやっています。中で何をするのか、審査で何を見るのか、向いていない人はどういう人か。売り込みはしません。合わないと思ったら、その場で抜けてもらって構いません。</p>
     <ul class="ul">
       <li>所要 45分（うち質疑15分）／ オンライン ／ 参加無料</li>
       <li>顔出し・声出しはしなくて大丈夫です</li>
       <li>日程はオープンチャットで案内します</li>
     </ul>
-    <a href="https://line.me/ti/g2/Rb8wl5BurHkiFmU3CnM_USl3rSwAv64a3DN4Cg" class="cta line" target="_blank" rel="noopener">説明会の日程を見る　→</a>
+    <a href="https://line.me/ti/g2/ZHbg81q4ri0yH566v7ZlCnysM0MV9KowQeR1Fw" class="cta line" target="_blank" rel="noopener">説明会の日程を見る　→</a>
   </div>
 
   <div class="last">
@@ -141,7 +162,7 @@ footer a{text-decoration:underline}
 <footer>
   <div class="wrap">
     運営：FORGE ／ AI Creator Camp<br>
-    ご不明な点は <a href="mailto:w.closet.k8114@gmail.com">w.closet.k8114@gmail.com</a> までご連絡ください。<br>
+    受け取りでお困りのときは <a href="mailto:w.closet.k8114@gmail.com">w.closet.k8114@gmail.com</a> までご連絡ください。<br>
     <a href="tokushoho.html">特定商取引法に基づく表記</a>　／　<a href="terms.html">利用規約</a>　／　<a href="privacy.html">プライバシーポリシー</a>
   </div>
 </footer>
