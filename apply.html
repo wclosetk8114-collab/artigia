@@ -201,6 +201,12 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
       </div>
 
       <div class="f">
+        <label class="q" for="ref">紹介者<span class="opt">任意</span></label>
+        <p class="hint">どなたかの紹介でこのページに来られた場合は、その方のお名前を入れてください。紹介リンクから来られた場合は、すでに入っています。</p>
+        <input type="text" id="ref" name="ref" autocomplete="off" placeholder="例：土屋 千穂">
+      </div>
+
+      <div class="f">
         <label class="agree">
           <input type="checkbox" id="agree">
           <span><a href="terms.html" target="_blank">利用規約</a>・<a href="privacy.html" target="_blank">プライバシーポリシー</a>・<a href="tokushoho.html" target="_blank">特定商取引法に基づく表記</a>に同意します<span class="req">必須</span></span>
@@ -248,6 +254,16 @@ var PAY = {
   syncAll();
 })();
 
+// URLの ?ref= で紹介者を初期入力
+(function(){
+  var r = new URLSearchParams(location.search).get("ref");
+  if (!r) { return; }
+  r = r.replace(/[<>]/g, '').slice(0, 60).trim();
+  if (!r) { return; }
+  var f = document.getElementById('ref');
+  if (f) { f.value = r; }
+})();
+
 // 選択中のカードに枠をつける
 function syncAll(){
   document.querySelectorAll('.opts label').forEach(function(l){
@@ -283,6 +299,7 @@ document.getElementById('form').addEventListener('submit', function(ev){
     idea:  document.getElementById('idea').value.trim(),
     hours: val('hours'),
     plan:  val('plan'),
+    ref:   document.getElementById('ref').value.trim(),
     company: document.querySelector('input[name="company"]').value,
     page: location.href
   };

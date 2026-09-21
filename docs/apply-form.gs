@@ -14,12 +14,16 @@
  *
  * 注意：スクリプトを直したときは「デプロイを管理」から既存デプロイを編集して
  *       バージョンを「新バージョン」にすること。URLは変わりません。
+ *
+ * 紹介リンク：https://ai-creator-camp-theta.vercel.app/apply.html?ref=お名前
+ *   ?ref= の値が「紹介者」列に入ります。学割リンクと併用するときは
+ *   ?plan=student&ref=お名前 のようにつなげてください。
  */
 
 var SHEET_ID  = 'ここにスプレッドシートのIDを貼る';
 var NOTIFY_TO = 'ai.creator.camp2026@gmail.com';
 
-var HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'お立場', '分野', '作ってみたいもの', '週の時間', 'プラン', '送信元ページ'];
+var HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'お立場', '分野', '作ってみたいもの', '週の時間', 'プラン', '紹介者', '送信元ページ'];
 
 function doPost(e) {
   try {
@@ -44,6 +48,7 @@ function doPost(e) {
       d.idea  || '',
       d.hours || '',
       d.plan  || '',
+      d.ref   || '',
       d.page  || ''
     ]);
 
@@ -70,6 +75,7 @@ function notify(d) {
       '分野　　　： ' + (d.field || ''),
       '週の時間　： ' + (d.hours || ''),
       'プラン　　： ' + (d.plan  || ''),
+      '紹介者　　： ' + (d.ref   || '（なし）'),
       '',
       '作ってみたいもの：',
       (d.idea || '（記入なし）'),

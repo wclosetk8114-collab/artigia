@@ -96,6 +96,15 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 - サーバーは持たない。静的HTMLから直接 Apps Script に投げている（`Content-Type: text/plain` にしてプリフライトを避けている）
 - 2026-09-08 に疎通確認済み。LPの決済ボタンは Stripe 直行をやめ、`apply.html` 経由に切り替えた
 - 学割ボタンは `apply.html?plan=student`（フォーム側でプランが初期選択される）
+
+### 紹介リンク
+
+`apply.html?ref=<紹介者の名前>` で来ると、フォームの「紹介者」欄に自動で入る。値はスプレッドシートの「紹介者」列と通知メールに載る。
+
+- 通常：`https://ai-creator-camp-theta.vercel.app/apply.html?ref=山田太郎`
+- 学割：`https://ai-creator-camp-theta.vercel.app/apply.html?plan=student&ref=山田太郎`
+
+名前にスペースや記号が入る場合は URL エンコードすること。`ref` は任意入力で、リンクなしで来た人が手で書くこともできる。紹介料を払う運用にするなら、支払い条件を利用規約か別紙で先に決めておくこと。
 - スパム対策はハニーポット（`company` フィールド）のみ
 
 ## 公開前にやること
