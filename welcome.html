@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<title>ようこそ｜AI Creator Camp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D1E36; --ink-2:#3A4A63; --ink-soft:#6E7C93;
+  --line:#E4EAF2; --bg:#FFFFFF; --bg-2:#F5F9FD; --bg-3:#EDF4FB;
+  --cyan:#35BFF0; --blue:#4A9CF0; --purple:#A97BF0;
+  --pink:#F07A96; --orange:#F09A5E; --yellow:#F2CE6A;
+  --green:#06C755;
+  --grad:linear-gradient(90deg,#F07A96 0%,#F09A5E 22%,#F2CE6A 42%,#35BFF0 70%,#A97BF0 100%);
+  --grad-soft:linear-gradient(135deg,#FDF0F3 0%,#FEF7EC 30%,#EEF9FE 65%,#F5F0FE 100%);
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Zen Maru Gothic',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+  background:var(--bg-2);color:var(--ink);line-height:1.95;font-size:15.5px;
+  font-feature-settings:"palt";-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(700px,92vw);margin:0 auto}
+
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px 0}
+.hd{display:flex;align-items:center;gap:10px}
+.hd img{height:38px;width:auto;flex:none}
+.hd b{font-size:17px;font-weight:900;letter-spacing:.04em}
+
+.top{background:var(--grad-soft);padding:48px 0 42px;border-bottom:1px solid var(--line)}
+.done{
+  display:inline-flex;align-items:center;gap:10px;background:#fff;
+  padding:9px 18px;border-radius:999px;font-size:12.5px;font-weight:700;
+  color:var(--ink-2);margin-bottom:20px;box-shadow:0 2px 10px rgba(13,30,54,.06);
+}
+.done .ck{
+  width:18px;height:18px;border-radius:50%;background:var(--green);color:#fff;
+  display:grid;place-items:center;font-size:11px;font-weight:900;flex:none;
+}
+.top h1{font-size:clamp(25px,5.2vw,36px);font-weight:900;line-height:1.5;margin-bottom:14px}
+.top h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+.top p{font-size:14.5px;color:var(--ink-2);line-height:2.05}
+
+main{padding:36px 0 70px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 30px;margin-bottom:16px}
+@media(max-width:640px){.card{padding:24px 20px}}
+.card.hot{border-color:var(--green);border-width:2px;position:relative;overflow:hidden}
+.card.hot::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--green)}
+
+.stn{
+  display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:900;
+  letter-spacing:.1em;color:#fff;background:var(--ink);padding:5px 14px;border-radius:999px;margin-bottom:14px;
+}
+.card.hot .stn{background:var(--green)}
+.must{
+  display:inline-block;font-size:10.5px;font-weight:900;color:#fff;background:var(--pink);
+  padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:2px;
+}
+h2{font-size:clamp(19px,3.6vw,23px);font-weight:900;line-height:1.55;margin-bottom:10px}
+.card p{font-size:14.5px;color:var(--ink-2);line-height:2.05;margin-bottom:14px}
+.card p:last-child{margin-bottom:0}
+.card p b{color:var(--ink);font-weight:900}
+
+.ocname{
+  display:flex;align-items:center;gap:12px;background:var(--bg-3);border-radius:16px;
+  padding:16px 20px;margin:16px 0 18px;
+}
+.ocname .ic{
+  width:38px;height:38px;border-radius:11px;background:var(--green);flex:none;
+  display:grid;place-items:center;color:#fff;font-size:15px;font-weight:900;
+}
+.ocname .tx{flex:1;min-width:0}
+.ocname .lb{display:block;font-size:11px;font-weight:900;color:var(--ink-soft);letter-spacing:.08em}
+.ocname .nm{display:block;font-size:16.5px;font-weight:900;color:var(--ink);line-height:1.6}
+
+.linebtn{
+  display:flex;align-items:center;justify-content:center;gap:12px;width:100%;
+  background:var(--green);color:#fff;font-size:17px;font-weight:900;
+  padding:20px;border-radius:999px;transition:.2s;text-align:center;
+}
+.linebtn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(6,199,85,.32)}
+
+.warn{
+  background:#FEF6EC;border:1px solid #F6E0BF;border-radius:16px;
+  padding:16px 20px;font-size:13.5px;color:#8A5A22;line-height:1.95;margin-top:16px;
+}
+.warn b{font-weight:900}
+
+ul.todo{list-style:none;margin-top:4px}
+ul.todo li{font-size:14px;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;line-height:1.85}
+ul.todo li::before{content:"";position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+ul.todo li b{color:var(--ink);font-weight:900}
+
+.help{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 30px;margin-top:22px}
+.help h3{font-size:16px;font-weight:900;margin-bottom:8px}
+.help p{font-size:13.5px;color:var(--ink-soft);line-height:2}
+.help a.ml{color:var(--blue);font-weight:700;text-decoration:underline}
+
+footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size:12.5px;color:var(--ink-soft)}
+.fl{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px}
+.fl a:hover{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hd">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px">
+    <img src="mark.png" alt="AI Creator Camp"><b>CREATOR CAMP</b>
+  </a>
+</div></header>
+
+<section class="top"><div class="wrap">
+  <div class="done"><span class="ck">✓</span>お支払いが完了しました</div>
+  <h1>ようこそ、<br><span class="g">AI Creator Camp</span> へ。</h1>
+  <p>ここから90日が始まります。まず下のステップ1だけ、いま済ませてください。1分で終わります。</p>
+</div></section>
+
+<main><div class="wrap">
+
+  <div class="card hot">
+    <span class="stn">STEP 1</span><span class="must">必須・いますぐ</span>
+    <h2>受講生のオープンチャットに入る</h2>
+    <p>ここが教室です。<b>毎週の課題も、審査の日程も、質問の受け付けも、全部ここで流れます。</b>入っていないと何も届きません。</p>
+
+    <div class="ocname">
+      <div class="ic">OC</div>
+      <div class="tx">
+        <span class="lb">OPEN CHAT</span>
+        <span class="nm">AIクリエイターキャンプ受講生</span>
+      </div>
+    </div>
+
+    <a href="https://line.me/ti/g2/SB-Y2Ed7DRc-2vmoAq5H31DvzdZHw9frO3hI9Q?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" class="linebtn" target="_blank" rel="noopener">オープンチャットに参加する　→</a>
+
+    <div class="warn">
+      <b>表示名は、お申し込みのときのお名前にしてください。</b><br>
+      こちらでお支払いと照合します。ニックネームだけだと、どなたか分からずご案内できないことがあります。あとから変更できます。
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="stn">STEP 2</span>
+    <h2>3日以内に、メールで案内が届きます</h2>
+    <p>お申し込みのときに入力したアドレスに、参加のご案内と <b>DAY1の課題</b> をお送りします。迷惑メールに入ることがあるので、届かない場合はそちらもご確認ください。</p>
+    <ul class="todo">
+      <li><b>学割でお申し込みの方</b>　学生証の写真を1枚、オープンチャットか下記のメールへ送ってください。確認できしだい正式に学割が適用されます。</li>
+      <li><b>3日たっても届かない場合</b>　お手数ですが、下記のメールまでご連絡ください。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="stn">STEP 3</span>
+    <h2>最初の週にやることは、1つだけです</h2>
+    <p>いきなり全部は始めません。DAY1の課題は小さいものを1つだけ用意しています。<b>週5〜8時間</b>を目安に手を動かしてください。毎週日曜に提出、月末に審査です。</p>
+    <p>ためると通りません。逆に、毎週出していれば月末に慌てることはありません。そういう作りにしてあります。</p>
+  </div>
+
+  <div class="help">
+    <h3>困ったときは</h3>
+    <p>
+      うまく参加できない、メールが届かない、内容について聞きたいことがある。どれでも構いません。<br>
+      <a href="mailto:ai.creator.camp2026@gmail.com" class="ml">ai.creator.camp2026@gmail.com</a>
+    </p>
+  </div>
+
+</div></main>
+
+<footer><div class="wrap">
+  <div class="fl">
+    <a href="index.html">トップへ戻る</a>
+    <a href="terms.html">利用規約</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  </div>
+  © 2026 FORGE / AI Creator Camp. All Rights Reserved.
+</div></footer>
+
+</body>
+</html>

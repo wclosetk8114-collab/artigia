@@ -97,6 +97,17 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 - 2026-09-08 に疎通確認済み。LPの決済ボタンは Stripe 直行をやめ、`apply.html` 経由に切り替えた
 - 学割ボタンは `apply.html?plan=student`（フォーム側でプランが初期選択される）
 
+### 決済後の受け取りページ
+
+`welcome.html`（`noindex`）。Stripe の決済完了後リダイレクト先に指定する。
+
+- URL：`https://ai-creator-camp-theta.vercel.app/welcome.html`
+- 通常（月9,800円）と学割（月4,900円）の **両方の Payment Link** に同じURLを設定すること
+- 中身：STEP1 受講生オープンチャットへの参加（必須）／STEP2 3日以内にメール＋学生証の提出／STEP3 最初の週のこと
+- オープンチャット「AIクリエイターキャンプ受講生」：`https://line.me/ti/g2/SB-Y2Ed7DRc-2vmoAq5H31DvzdZHw9frO3hI9Q`
+- PLUG 01 のオープンチャットとは**別**（あちらは購入者向け、こちらは受講生向け）
+- `thanks.html` は PLUG 01 時代の名残で `.gitignore` に入っているため、この用途では使わない
+
 ### 紹介リンク
 
 `apply.html?ref=<紹介者の名前>` で来ると、フォームの「紹介者」欄に自動で入る。値はスプレッドシートの「紹介者」列と通知メールに載る。
