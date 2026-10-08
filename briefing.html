@@ -78,6 +78,37 @@ main{padding:36px 0 70px}
 }
 .fresh b{color:var(--ink);font-weight:900}
 
+/* 話す人 */
+.who{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.who .av{
+  width:52px;height:52px;border-radius:50%;background:var(--grad);flex:none;
+  display:grid;place-items:center;color:#fff;font-size:19px;font-weight:900;
+}
+.who .nm{font-size:19px;font-weight:900;line-height:1.5}
+.who .ro{font-size:12.5px;color:var(--ink-soft);line-height:1.6}
+.bio{font-size:14px;color:var(--ink-2);line-height:2;margin-bottom:18px}
+.sns{display:flex;flex-wrap:wrap;gap:9px}
+.sns a{
+  display:inline-flex;align-items:center;gap:6px;background:var(--bg-2);
+  border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+  font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;transition:.15s;
+}
+.sns a:hover{border-color:var(--cyan);background:#fff;transform:translateY(-1px)}
+.sns a span{color:var(--ink-soft);font-weight:400;font-size:12px}
+
+/* つくったもの */
+.works{display:grid;gap:12px;margin-top:4px}
+.wk{
+  display:block;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;
+  padding:18px 20px;text-decoration:none;transition:.15s;
+}
+.wk:hover{border-color:var(--cyan);background:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(13,30,54,.07)}
+.wk .wh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:5px}
+.wk .wn{font-size:16px;font-weight:900;color:var(--ink)}
+.wk .wt{font-size:11px;font-weight:900;color:#fff;background:var(--ink);padding:2px 9px;border-radius:999px}
+.wk p{font-size:13px;color:var(--ink-2);line-height:1.9;margin:0 0 6px}
+.wk .wu{font-size:12px;color:var(--blue);font-weight:700;word-break:break-all}
+
 .f{margin-bottom:26px}
 .f:last-child{margin-bottom:0}
 label.q{display:block;font-size:15px;font-weight:900;margin-bottom:4px}
@@ -235,6 +266,55 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
     </div>
 
     <div class="card">
+      <p class="ttl">話す人</p>
+      <div class="who">
+        <div class="av">つ</div>
+        <div>
+          <div class="nm">つっちー</div>
+          <div class="ro">結び 代表／AI Creator Camp 運営</div>
+        </div>
+      </div>
+      <p class="bio">
+        AIで事業をつくっています。アプリもLPも、事業を回す仕組みも、全部AIに作らせています。
+        説明会では、そのやり方をそのままお見せします。
+      </p>
+      <div class="sns">
+        <a href="https://note.com/kai8114" target="_blank" rel="noopener">note<span>kai8114</span></a>
+        <a href="https://www.threads.com/@chiho.8114" target="_blank" rel="noopener">Threads<span>@chiho.8114</span></a>
+        <a href="https://www.instagram.com/chiho.8114" target="_blank" rel="noopener">Instagram<span>@chiho.8114</span></a>
+        <a href="https://claude.ai/artifact/2aPj6avuEzns2F9t2NdhkU" target="_blank" rel="noopener">プロフィールサイト</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="ttl">AIで実際に作ったもの</p>
+      <p class="bio" style="margin-bottom:16px">
+        どれも外注なしで、ひとりで作って公開しているサービスです。触ってみてください。
+      </p>
+      <div class="works">
+
+        <a class="wk" href="https://kakeiz-plus.vercel.app" target="_blank" rel="noopener">
+          <div class="wh"><span class="wn">KAKEIZ＋</span><span class="wt">無料</span></div>
+          <p>家系図をつくると、そこから自分の気質と才能が読み解ける診断アプリ。</p>
+          <div class="wu">kakeiz-plus.vercel.app</div>
+        </a>
+
+        <a class="wk" href="https://musubi-kakeizu.vercel.app" target="_blank" rel="noopener">
+          <div class="wh"><span class="wn">結び 家系図</span><span class="wt">サービス</span></div>
+          <p>戸籍を読み解いて、本格的な家系図をつくる受託サービス。</p>
+          <div class="wu">musubi-kakeizu.vercel.app</div>
+        </a>
+
+        <a class="wk" href="https://tsugimon.vercel.app" target="_blank" rel="noopener">
+          <div class="wh"><span class="wn">継紋（つぎもん）</span><span class="wt">無料</span></div>
+          <p>苗字から自分の家の家紋を引いて、壁紙にしたり擬人化したりできる家紋診断。</p>
+          <div class="wu">tsugimon.vercel.app</div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="card">
 
       <div class="f">
         <label class="q" for="name">お名前<span class="req">必須</span></label>
@@ -315,14 +395,26 @@ var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHM
   if (add === 0) { add = 7; }
   d.setDate(d.getDate() + add);
 
+  // お休みの回。'YYYY-MM-DD' で足すとその日は候補に出ない
+  var SKIP = ['2026-10-22'];
+  function iso(x){
+    var m = x.getMonth() + 1, dd = x.getDate();
+    return x.getFullYear() + '-' + (m < 10 ? '0' + m : m) + '-' + (dd < 10 ? '0' + dd : dd);
+  }
+
   var box = document.getElementById('dates');
   var html = '';
-  for (var i = 0; i < 5; i++) {
-    var label = (d.getMonth() + 1) + '月' + d.getDate() + '日（' + WD[d.getDay()] + '）21:00〜22:30';
-    var sub = (i === 0) ? 'いちばん近い回です' : '';
-    html += '<label><input type="radio" name="date" value="' + label + '">' +
-            '<span class="lb"><b>' + label + '</b>' +
-            (sub ? '<span>' + sub + '</span>' : '') + '</span></label>';
+  var n = 0, guard = 0;
+  while (n < 5 && guard < 60) {
+    guard++;
+    if (SKIP.indexOf(iso(d)) === -1) {
+      var label = (d.getMonth() + 1) + '月' + d.getDate() + '日（' + WD[d.getDay()] + '）21:00〜22:30';
+      var sub = (n === 0) ? 'いちばん近い回です' : '';
+      html += '<label><input type="radio" name="date" value="' + label + '">' +
+              '<span class="lb"><b>' + label + '</b>' +
+              (sub ? '<span>' + sub + '</span>' : '') + '</span></label>';
+      n++;
+    }
     d.setDate(d.getDate() + 7);
   }
   box.innerHTML = html;
