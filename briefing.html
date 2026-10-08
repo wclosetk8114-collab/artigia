@@ -58,6 +58,22 @@ main{padding:36px 0 70px}
 .row dt{font-weight:900;color:var(--ink-soft);font-size:13px;padding-top:2px}
 .row dd{color:var(--ink);line-height:1.85}
 
+.what{display:grid;gap:14px;margin-top:4px}
+.wi{display:grid;grid-template-columns:30px 1fr;gap:13px;align-items:start}
+.wi .n{
+  width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;flex:none;
+  display:grid;place-items:center;font-size:13px;font-weight:900;margin-top:1px;
+}
+.wi .n.g{background:var(--grad)}
+.wi b{display:block;font-size:15.5px;font-weight:900;color:var(--ink);line-height:1.7;margin-bottom:3px}
+.wi p{font-size:13.5px;color:var(--ink-2);line-height:1.95;margin:0}
+.ttl{font-size:17px;font-weight:900;margin-bottom:16px}
+.fresh{
+  background:var(--grad-soft);border:1px solid #E7EEF8;border-radius:16px;
+  padding:16px 20px;margin-top:18px;font-size:13.5px;color:var(--ink-2);line-height:1.95;
+}
+.fresh b{color:var(--ink);font-weight:900}
+
 .f{margin-bottom:26px}
 .f:last-child{margin-bottom:0}
 label.q{display:block;font-size:15px;font-weight:900;margin-bottom:4px}
@@ -155,7 +171,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
 <section class="top"><div class="wrap">
   <div class="tag"><span class="dot"></span>毎週木曜 21:00〜22:30　オンライン</div>
   <h1>説明会の<span class="g">お申し込み</span></h1>
-  <p>90日で何をやるのか、どんな人に向いているのかをお話しします。その場で決めていただく必要はありません。質問だけでも大丈夫です。</p>
+  <p>90日で何をやるのか、どんな人に向いているのか。そして実際にAIをどう使っているのかを、画面を共有しながらお見せします。その場で決めていただく必要はありません。質問だけでも大丈夫です。</p>
 </div></section>
 
 <main><div class="wrap">
@@ -170,6 +186,38 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
         <div class="row"><dt>持ち物</dt><dd>とくにありません。顔出しも任意です</dd></div>
       </dl>
 
+    </div>
+
+    <div class="card">
+      <p class="ttl">説明会でお話しすること</p>
+      <div class="what">
+        <div class="wi">
+          <div class="n">1</div>
+          <div>
+            <b>90日で何をやるのか</b>
+            <p>月ごとの中身、毎月の審査、1週間の流れ。どのくらい時間が要るかも正直にお伝えします。</p>
+          </div>
+        </div>
+        <div class="wi">
+          <div class="n g">2</div>
+          <div>
+            <b>実際にAIをどう活用しているか、画面を共有しながらお見せします</b>
+            <p>スライドで説明して終わり、にはしません。その場で実際に動かして見てもらいます。</p>
+          </div>
+        </div>
+        <div class="wi">
+          <div class="n">3</div>
+          <div>
+            <b>質問の時間</b>
+            <p>自分に向いているか分からない、という相談でも大丈夫です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fresh">
+        <b>毎回、その時点でのいちばん新しいAI活用を報告します。</b><br>
+        AIは日々進化していて、先月できなかったことが今月はできるようになっています。なので内容は毎週変わります。何度参加していただいても構いません。
+      </div>
     </div>
 
     <div class="card">
