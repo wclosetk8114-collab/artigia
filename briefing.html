@@ -87,9 +87,10 @@ main{padding:36px 0 70px}
 /* 話す人 */
 .who{display:flex;align-items:center;gap:14px;margin-bottom:16px}
 .who .av{
-  width:52px;height:52px;border-radius:50%;background:var(--grad);flex:none;
-  display:grid;place-items:center;color:#fff;font-size:19px;font-weight:900;
+  width:76px;height:76px;border-radius:50%;flex:none;overflow:hidden;
+  background:var(--bg-3);box-shadow:0 0 0 3px #fff, 0 0 0 5px rgba(53,191,240,.35);
 }
+.who .av img{width:100%;height:100%;object-fit:cover;display:block}
 .who .nm{font-size:19px;font-weight:900;line-height:1.5}
 .who .ro{font-size:12.5px;color:var(--ink-soft);line-height:1.6}
 .bio{font-size:14px;color:var(--ink-2);line-height:2;margin-bottom:18px}
@@ -279,7 +280,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
     <div class="card">
       <p class="ttl">話す人</p>
       <div class="who">
-        <div class="av">つ</div>
+        <div class="av"><img src="profile.jpg" alt="つっちー" width="76" height="76" loading="lazy"></div>
         <div>
           <div class="nm">つっちー</div>
           <div class="ro">結び 代表／AI Creator Camp 運営</div>
