@@ -15,6 +15,10 @@
  * 注意：スクリプトを直したときは「デプロイを管理」から既存デプロイを編集して
  *       バージョンを「新バージョン」にすること。URLは変わりません。
  *
+ * このスクリプト1本で2種類の申し込みを受けます。
+ *   入会の申し込み（apply.html）    → 1枚目のシート
+ *   説明会の申し込み（briefing.html）→ 「説明会」タブ（なければ自動で作られます）
+ *
  * 紹介リンク：https://ai-creator-camp-theta.vercel.app/apply.html?ref=お名前
  *   ?ref= の値が「紹介者」列に入ります。学割リンクと併用するときは
  *   ?plan=student&ref=お名前 のようにつなげてください。
@@ -25,12 +29,19 @@ var NOTIFY_TO = 'ai.creator.camp2026@gmail.com';
 
 var HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'お立場', '分野', '作ってみたいもの', '週の時間', 'プラン', '紹介者', '送信元ページ'];
 
+// 説明会（briefing.html）用。別タブ「説明会」に記録する
+var BRIEF_SHEET  = '説明会';
+var BRIEF_HEADERS = ['受付日時', 'お名前', 'メールアドレス', '参加希望日', '送信元ページ'];
+
 function doPost(e) {
   try {
     var d = JSON.parse(e.postData.contents);
 
     // ハニーポット（ボットが埋めた場合は記録せず成功を返す）
     if (d.company) { return json({ ok: true }); }
+
+    // 説明会の申し込みは別タブへ
+    if (d.kind === 'briefing') { return handleBriefing(d); }
 
     var sh = SpreadsheetApp.openById(SHEET_ID).getSheets()[0];
     if (sh.getLastRow() === 0) {
@@ -57,6 +68,52 @@ function doPost(e) {
 
   } catch (err) {
     return json({ ok: false, error: String(err) });
+  }
+}
+
+function handleBriefing(d) {
+  var ss = SpreadsheetApp.openById(SHEET_ID);
+  var sh = ss.getSheetByName(BRIEF_SHEET);
+  if (!sh) {
+    sh = ss.insertSheet(BRIEF_SHEET);
+  }
+  if (sh.getLastRow() === 0) {
+    sh.appendRow(BRIEF_HEADERS);
+    sh.getRange(1, 1, 1, BRIEF_HEADERS.length).setFontWeight('bold');
+    sh.setFrozenRows(1);
+  }
+
+  sh.appendRow([
+    new Date(),
+    d.name  || '',
+    d.email || '',
+    d.date  || '',
+    d.page  || ''
+  ]);
+
+  notifyBriefing(d);
+  return json({ ok: true });
+}
+
+function notifyBriefing(d) {
+  try {
+    var body = [
+      'AI Creator Camp の説明会に申し込みが入りました。',
+      '',
+      'お名前　　： ' + (d.name  || ''),
+      'メール　　： ' + (d.email || ''),
+      '参加希望日： ' + (d.date  || ''),
+      '',
+      '※ 当日の参加リンクを、オープンチャットで共有してください。'
+    ].join('\n');
+
+    MailApp.sendEmail({
+      to: NOTIFY_TO,
+      subject: '【説明会】申し込み：' + (d.name || '名前なし') + '／' + (d.date || ''),
+      body: body
+    });
+  } catch (err) {
+    // 通知に失敗しても記録は残す
   }
 }
 
