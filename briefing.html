@@ -205,7 +205,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
 </div></header>
 
 <section class="top"><div class="wrap">
-  <div class="tag"><span class="dot"></span>毎週木曜 21:00〜22:30　オンライン</div>
+  <div class="tag"><span class="dot"></span>毎週木曜 22:00〜23:00　オンライン</div>
   <h1>説明会の<span class="g">お申し込み</span></h1>
   <p>90日で何をやるのか、どんな人に向いているのか。そして実際にAIをどう使っているのかを、画面を共有しながらお見せします。その場で決めていただく必要はありません。質問だけでも大丈夫です。</p>
 </div></section>
@@ -226,7 +226,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
     <div class="card">
 
       <dl class="info">
-        <div class="row"><dt>日時</dt><dd>毎週木曜　21:00〜22:30（90分）</dd></div>
+        <div class="row"><dt>日時</dt><dd>毎週木曜　22:00〜23:00（60分）</dd></div>
         <div class="row"><dt>場所</dt><dd>オンライン。参加用のリンクは、お申し込み後にオープンチャットでお知らせします</dd></div>
         <div class="row"><dt>費用</dt><dd>無料</dd></div>
         <div class="row"><dt>持ち物</dt><dd>とくにありません。顔出しも任意です</dd></div>
@@ -385,7 +385,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
 <script>
 var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHMk9eBuFDLblYPl685n96fbOaE0OBr5KsmgGovenGEC4p/exec";
 
-// 次の木曜から5回分を自動で出す（毎週木曜 21:00〜22:30）
+// 次の木曜から5回分を自動で出す（毎週木曜 22:00〜23:00）
 (function(){
   var WD = ['日','月','火','水','木','金','土'];
   var now = new Date();
@@ -408,7 +408,7 @@ var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHM
   while (n < 5 && guard < 60) {
     guard++;
     if (SKIP.indexOf(iso(d)) === -1) {
-      var label = (d.getMonth() + 1) + '月' + d.getDate() + '日（' + WD[d.getDay()] + '）21:00〜22:30';
+      var label = (d.getMonth() + 1) + '月' + d.getDate() + '日（' + WD[d.getDay()] + '）22:00〜23:00';
       var sub = (n === 0) ? 'いちばん近い回です' : '';
       html += '<label><input type="radio" name="date" value="' + label + '">' +
               '<span class="lb"><b>' + label + '</b>' +

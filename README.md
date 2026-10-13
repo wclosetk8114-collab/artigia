@@ -110,7 +110,7 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 
 ### 説明会の申し込み（briefing.html）
 
-毎週木曜 21:00〜22:30 のオンライン説明会。入会の申し込みとは別導線。
+毎週木曜 22:00〜23:00 のオンライン説明会。入会の申し込みとは別導線。
 
 - URL：`https://ai-creator-camp-theta.vercel.app/briefing.html`（`noindex`）
 - 入力は 名前／メールアドレス／参加したい日 の3つだけ
@@ -119,7 +119,7 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
   - `https://line.me/ti/g2/Rb8wl5BurHkiFmU3CnM_USl3rSwAv64a3DN4Cg`
   - 受講生用オプチャ（AIクリエイターキャンプ受講生）とは**別物**
 - 送信先は apply.html と同じ Apps Script。`kind: 'briefing'` を付けて送り、スクリプト側で「説明会」タブに振り分ける
-- 時間を変えるときは `briefing.html` の「21:00〜22:30」3箇所（ヒーローのタグ・日時の行・日付ラベル生成部）を直す
+- 時間を変えるときは `briefing.html` の「22:00〜23:00」3箇所（ヒーローのタグ・日時の行・日付ラベル生成部）を直す
 - **お休みの回を飛ばす**：`briefing.html` の JS 内 `var SKIP = ['2026-10-22'];` に `'YYYY-MM-DD'` を足すとその日は候補に出ない（飛ばしたぶん次の木曜が繰り上がるので、常に5件表示される）
 - ページ内の構成：動画 → 日時・場所・費用 → 説明会でお話しすること → 話す人（つっちーのプロフィールとSNS）→ AIで実際に作ったもの（KAKEIZ＋／結び 家系図／継紋）→ 申し込みフォーム
 - 冒頭の紹介動画は YouTube `oCsJiN1-QkA` を埋め込み。差し替えるときは iframe の `src` の末尾のIDだけ変える
