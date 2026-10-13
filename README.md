@@ -110,7 +110,7 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 
 ### 説明会の申し込み（briefing.html）
 
-毎週木曜 22:00〜23:00 のオンライン説明会。入会の申し込みとは別導線。
+毎週木曜 22:00〜23:00 のオンライン説明会（Zoom）。入会の申し込みとは別導線。申し込むと Apps Script が申込者本人へZoomリンク入りの自動返信を送る（`replyBriefing()` の `ZOOM` に固定URL・ID・パスコードを置いている）。
 
 - URL：`https://ai-creator-camp-theta.vercel.app/briefing.html`（`noindex`）
 - 入力は 名前／メールアドレス／参加したい日 の3つだけ

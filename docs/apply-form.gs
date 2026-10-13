@@ -27,6 +27,26 @@
 var SHEET_ID  = 'ここにスプレッドシートのIDを貼る';
 var NOTIFY_TO = 'ai.creator.camp2026@gmail.com';
 
+// ---- 説明会の自動返信メール（申込者ご本人あて）の設定 ------------------
+// FROM_ALIAS は、Gmail の「設定 → アカウント → 他のメールアドレスを追加」で
+// このスクリプトを動かしているアカウントの別アドレスとして登録・確認済みに
+// しておくこと。未登録のままだとアカウント本来のアドレスから送られます。
+var FROM_ALIAS = 'ai.creator.camp2026@gmail.com';
+var FROM_NAME  = 'AI Creator Camp 運営';
+
+// Zoom は毎週同じ固定URL（定期ミーティング）
+var ZOOM = {
+  topic:    'AIクリエイターキャンプ説明会',
+  when:     '毎週木曜 22:00〜23:00（日本時間）',
+  join:     'https://us06web.zoom.us/j/89409005137?pwd=0qg5NUFay4dDiNRarpvBzoiUsm2mTa.1',
+  notes:    'https://us06web.zoom.us/j/89409005137?pwd=0qg5NUFay4dDiNRarpvBzoiUsm2mTa.1&mynotes=on',
+  chat:     'https://us06web.zoom.us/launch/jc/89409005137',
+  id:       '894 0900 5137',
+  passcode: '182515'
+};
+
+var OPENCHAT_URL = 'https://line.me/ti/g2/Rb8wl5BurHkiFmU3CnM_USl3rSwAv64a3DN4Cg';
+
 var HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'お立場', '分野', '作ってみたいもの', '週の時間', 'プラン', '紹介者', '送信元ページ'];
 
 // 説明会（briefing.html）用。別タブ「説明会」に記録する
@@ -92,7 +112,83 @@ function handleBriefing(d) {
   ]);
 
   notifyBriefing(d);
+  replyBriefing(d);
   return json({ ok: true });
+}
+
+/**
+ * 申込者ご本人への自動返信（Zoomリンク入り）
+ * 記録は済んでいるので、ここで失敗しても申し込み自体は成立させる。
+ */
+function replyBriefing(d) {
+  try {
+    var to = (d.email || '').trim();
+    if (!to || to.indexOf('@') < 1) { return; }
+
+    var name = (d.name || '').trim();
+    var body = [
+      (name ? name + ' 様' : 'お申し込みいただいた方へ'),
+      '',
+      'AI Creator Camp の説明会にお申し込みいただき、ありがとうございます。',
+      '下記の内容で承りました。',
+      '',
+      '──────────────────',
+      '■ ご希望の回',
+      (d.date || ZOOM.when),
+      '',
+      '■ 参加方法（Zoom）',
+      'トピック： ' + ZOOM.topic,
+      '時刻　　： ' + ZOOM.when,
+      '',
+      'Zoom ミーティングに参加する',
+      ZOOM.join,
+      '',
+      '参加してメモを作成',
+      ZOOM.notes,
+      '',
+      'ミーティングチャットへのリンク',
+      ZOOM.chat,
+      '',
+      'ミーティングID： ' + ZOOM.id,
+      'パスコード　　： ' + ZOOM.passcode,
+      '──────────────────',
+      '',
+      '毎週同じリンクです。当日は時間になったら上のURLから入ってください。',
+      'カメラ・マイクはオフのままでも大丈夫です。',
+      '',
+      '■ オープンチャットにもぜひ',
+      '直前のご案内や、当日に入れなかったときの連絡はこちらで行っています。',
+      OPENCHAT_URL,
+      '',
+      '■ 都合が変わったとき',
+      'このメールにそのまま返信いただければ、別の木曜に振り替えます。',
+      'キャンセルの連絡も不要ですが、いただけると助かります。',
+      '',
+      'それでは当日お会いできるのを楽しみにしています。',
+      '',
+      'AI Creator Camp 運営　つっちー',
+      NOTIFY_TO
+    ].join('\n');
+
+    var opts = {
+      name: FROM_NAME,
+      replyTo: NOTIFY_TO,
+      body: body
+    };
+
+    // FROM_ALIAS が「送信元アドレス」として登録済みならそこから送る
+    try {
+      var aliases = GmailApp.getAliases();
+      if (aliases && aliases.indexOf(FROM_ALIAS) !== -1) { opts.from = FROM_ALIAS; }
+    } catch (e2) { /* 取得できなければ既定のアドレスで送る */ }
+
+    opts.to = to;
+    opts.subject = '【AI Creator Camp】説明会のお申し込みを承りました（Zoomリンク）';
+    GmailApp.sendEmail(opts.to, opts.subject, opts.body, opts);
+
+  } catch (err) {
+    // 自動返信に失敗しても記録と運営通知は残す
+  }
 }
 
 function notifyBriefing(d) {
@@ -104,7 +200,7 @@ function notifyBriefing(d) {
       'メール　　： ' + (d.email || ''),
       '参加希望日： ' + (d.date  || ''),
       '',
-      '※ 当日の参加リンクを、オープンチャットで共有してください。'
+      '※ Zoomリンク入りの自動返信は、ご本人あてに送信済みです。'
     ].join('\n');
 
     MailApp.sendEmail({
