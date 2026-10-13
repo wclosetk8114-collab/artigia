@@ -25,13 +25,14 @@
  */
 
 var SHEET_ID  = 'ここにスプレッドシートのIDを貼る';
-var NOTIFY_TO = 'ai.creator.camp2026@gmail.com';
+var NOTIFY_TO = 'w.closet.k8114@gmail.com';        // 運営（つっちー）への通知先
+var CONTACT   = 'ai.creator.camp2026@gmail.com';   // 申込者に見せる窓口アドレス
 
 // ---- 説明会の自動返信メール（申込者ご本人あて）の設定 ------------------
 // FROM_ALIAS は、Gmail の「設定 → アカウント → 他のメールアドレスを追加」で
 // このスクリプトを動かしているアカウントの別アドレスとして登録・確認済みに
 // しておくこと。未登録のままだとアカウント本来のアドレスから送られます。
-var FROM_ALIAS = 'ai.creator.camp2026@gmail.com';
+var FROM_ALIAS = CONTACT;
 var FROM_NAME  = 'AI Creator Camp 運営';
 
 // Zoom は毎週同じ固定URL（定期ミーティング）
@@ -167,12 +168,12 @@ function replyBriefing(d) {
       'それでは当日お会いできるのを楽しみにしています。',
       '',
       'AI Creator Camp 運営　つっちー',
-      NOTIFY_TO
+      CONTACT
     ].join('\n');
 
     var opts = {
       name: FROM_NAME,
-      replyTo: NOTIFY_TO,
+      replyTo: CONTACT,
       body: body
     };
 
