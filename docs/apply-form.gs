@@ -29,10 +29,8 @@ var NOTIFY_TO = 'w.closet.k8114@gmail.com';        // 運営（つっちー）�
 var CONTACT   = 'ai.creator.camp2026@gmail.com';   // 申込者に見せる窓口アドレス
 
 // ---- 説明会の自動返信メール（申込者ご本人あて）の設定 ------------------
-// FROM_ALIAS は、Gmail の「設定 → アカウント → 他のメールアドレスを追加」で
-// このスクリプトを動かしているアカウントの別アドレスとして登録・確認済みに
-// しておくこと。未登録のままだとアカウント本来のアドレスから送られます。
-var FROM_ALIAS = CONTACT;
+// 差出人の表示名。実アドレスはスクリプトを動かしているアカウントのものになり、
+// 返信先（Reply-To）だけ CONTACT になる。
 var FROM_NAME  = 'AI Creator Camp 運営';
 
 // Zoom は毎週同じ固定URL（定期ミーティング）
@@ -171,21 +169,16 @@ function replyBriefing(d) {
       CONTACT
     ].join('\n');
 
-    var opts = {
+    // MailApp を使う（GmailApp にすると新しい権限の承認が必要になるため）。
+    // 差出人はこのスクリプトを動かしているアカウントだが、表示名は FROM_NAME、
+    // 返信先は CONTACT になるので、受け取る側には運営アドレス宛てで返信が届く。
+    MailApp.sendEmail({
+      to: to,
+      subject: '【AI Creator Camp】説明会のお申し込みを承りました（Zoomリンク）',
+      body: body,
       name: FROM_NAME,
-      replyTo: CONTACT,
-      body: body
-    };
-
-    // FROM_ALIAS が「送信元アドレス」として登録済みならそこから送る
-    try {
-      var aliases = GmailApp.getAliases();
-      if (aliases && aliases.indexOf(FROM_ALIAS) !== -1) { opts.from = FROM_ALIAS; }
-    } catch (e2) { /* 取得できなければ既定のアドレスで送る */ }
-
-    opts.to = to;
-    opts.subject = '【AI Creator Camp】説明会のお申し込みを承りました（Zoomリンク）';
-    GmailApp.sendEmail(opts.to, opts.subject, opts.body, opts);
+      replyTo: CONTACT
+    });
 
   } catch (err) {
     // 自動返信に失敗しても記録と運営通知は残す
