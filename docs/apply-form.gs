@@ -169,7 +169,7 @@ function replyBriefing(d) {
       CONTACT
     ].join('\n');
 
-    // MailApp を使う（GmailApp にすると新しい権限の承認が必要になるため）。
+    // 送信は MailApp のみを使う（別の送信APIを呼ぶと追加の権限承認が必要になる）。
     // 差出人はこのスクリプトを動かしているアカウントだが、表示名は FROM_NAME、
     // 返信先は CONTACT になるので、受け取る側には運営アドレス宛てで返信が届く。
     MailApp.sendEmail({
