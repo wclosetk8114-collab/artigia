@@ -386,21 +386,22 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
 <script>
 var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHMk9eBuFDLblYPl685n96fbOaE0OBr5KsmgGovenGEC4p/exec";
 
-// 次の木曜から5回分を自動で出す（毎週木曜 22:00〜23:00）
+// 近い木曜から5回分を自動で出す（毎週木曜 22:00〜23:00。当日は開始時刻まで表示）
 (function(){
   var WD = ['日','月','火','水','木','金','土'];
-  var now = new Date();
-  var d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  // 次の木曜（今日が木曜なら翌週の木曜）
-  var add = (4 - d.getDay() + 7) % 7;
-  if (add === 0) { add = 7; }
-  d.setDate(d.getDate() + add);
+  // 日本時間で計算する（どの国から開いても同じ候補になるように）
+  var J = new Date(Date.now() + 9 * 3600 * 1000);
+  var d = new Date(Date.UTC(J.getUTCFullYear(), J.getUTCMonth(), J.getUTCDate()));
+  // いちばん近い木曜。今日が木曜でも、22:00（開始）までは今日の回を出す
+  var add = (4 - d.getUTCDay() + 7) % 7;
+  if (add === 0 && J.getUTCHours() >= 22) { add = 7; }
+  d.setUTCDate(d.getUTCDate() + add);
 
   // お休みの回。'YYYY-MM-DD' で足すとその日は候補に出ない
   var SKIP = ['2026-10-22'];
   function iso(x){
-    var m = x.getMonth() + 1, dd = x.getDate();
-    return x.getFullYear() + '-' + (m < 10 ? '0' + m : m) + '-' + (dd < 10 ? '0' + dd : dd);
+    var m = x.getUTCMonth() + 1, dd = x.getUTCDate();
+    return x.getUTCFullYear() + '-' + (m < 10 ? '0' + m : m) + '-' + (dd < 10 ? '0' + dd : dd);
   }
 
   var box = document.getElementById('dates');
@@ -409,14 +410,15 @@ var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHM
   while (n < 5 && guard < 60) {
     guard++;
     if (SKIP.indexOf(iso(d)) === -1) {
-      var label = (d.getMonth() + 1) + '月' + d.getDate() + '日（' + WD[d.getDay()] + '）22:00〜23:00';
-      var sub = (n === 0) ? 'いちばん近い回です' : '';
+      var label = (d.getUTCMonth() + 1) + '月' + d.getUTCDate() + '日（' + WD[d.getUTCDay()] + '）22:00〜23:00';
+      var sub = (n === 0) ? (add === 0 ? '今夜の回です' : 'いちばん近い回です') : '';
       html += '<label><input type="radio" name="date" value="' + label + '">' +
               '<span class="lb"><b>' + label + '</b>' +
               (sub ? '<span>' + sub + '</span>' : '') + '</span></label>';
       n++;
     }
-    d.setDate(d.getDate() + 7);
+    d.setUTCDate(d.getUTCDate() + 7);
+    add = -1;
   }
   box.innerHTML = html;
 })();
