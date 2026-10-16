@@ -78,7 +78,7 @@ Payment Link は `index.html` の料金セクションに直接ベタ書きし�
 事業ごとにリポジトリとVercelプロジェクトを分ける。**このリポジトリは AI Creator Camp 専用**。
 
 - AI Creator Camp（90日・月額）… このリポ `artigia` → https://ai-creator-camp-theta.vercel.app
-- PLUG 01（500円・買い切り）… 別リポ `plug01` → https://plug01-fawn.vercel.app
+- PLUG 01（33,000円・買い切り）… 別リポ `plug01` → https://plug01-fawn.vercel.app
 
 2026-09-08 に `start.html` / `thanks.html` / `plug/` を `plug01` リポへ移設した。
 売却時にリポジトリごと引き渡せるようにするため、他事業のページをここに置かないこと。
