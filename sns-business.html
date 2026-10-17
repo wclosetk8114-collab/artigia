@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>企業向け SNS自動化｜研修・構築代行</title>
+<meta name="description" content="御社のSNSを、AIで自動で回す。社員研修と、仕組みの構築代行の2つのプラン。料金はお見積り。まずは30分の無料相談から。">
+<meta property="og:title" content="企業向け SNS自動化｜研修・構築代行">
+<meta property="og:description" content="御社のSNSを、AIで自動で回す。社員研修と構築代行。まずは30分の無料相談から。">
+<meta property="og:image" content="https://ai-creator-camp-theta.vercel.app/ogp.png">
+<link rel="icon" href="favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: 縦読み1カラム。紺の表紙と締め、間は白。金はラベルと要所だけ */
+:root{
+  --navy:#0D1E36; --navy2:#16294A; --paper:#FAFBFD; --card:#FFFFFF; --ink:#0D1E36; --ink2:#4A5872; --line:#DCE3EE;
+  --gold:#A8862B; --gold-l:#E3C15A; --on-navy:#F4F6FA; --on-navy2:#C9D3E3;
+  --grad:linear-gradient(90deg,#F07A96,#F09A5E,#F2CE6A,#35BFF0,#A97BF0);
+  --f:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.85}
+.bar{height:6px;background:var(--grad)}
+.in{max-width:960px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;line-height:1.4;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.label{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold)}
+section{padding-block:72px;border-top:1px solid var(--line)}
+section .in{display:grid;gap:28px}
+h2{font-size:clamp(22px,3.6vw,32px);font-weight:900}
+.lead{color:var(--ink2);max-width:42em}
+.btn{display:inline-flex;justify-content:center;align-items:center;padding:15px 30px;border-radius:99px;background:var(--gold-l);color:#0D1E36;font-weight:700;text-decoration:none;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn:focus-visible{outline:3px solid #35BFF0;outline-offset:3px}
+
+.hero{background:var(--navy);color:var(--on-navy)}
+.hero .in{padding-block:64px 80px;display:grid;gap:24px}
+.hero .label{color:var(--gold-l)}
+.hero h1{font-size:clamp(32px,6vw,58px);font-weight:900}
+.hero p{color:var(--on-navy2);font-size:18px;max-width:36em}
+.top{display:flex;justify-content:space-between;gap:12px;padding-block:18px;font-size:12px;letter-spacing:.14em;color:var(--on-navy2);font-weight:700}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:8px;align-content:start;min-width:0}
+.card h3{font-size:19px}
+.card p{color:var(--ink2);font-size:15px}
+
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;gap:4px;align-content:start}
+.step .who{font-size:12px;font-weight:700;color:var(--ink2)}
+.step b{font-size:16px}
+.step span{font-size:13px;color:var(--ink2)}
+.step.you{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.step.you .who{color:var(--gold-l)} .step.you span{color:var(--on-navy2)}
+
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:14px;min-width:0}
+.plan .tag{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
+.plan h3{font-size:24px;font-weight:900}
+.plan ol,.plan ul{margin:0;padding-left:1.3em;color:var(--ink2)}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--ink2)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;white-space:nowrap}
+
+.safe{display:grid;gap:0}
+.safe p{padding-block:16px;border-top:1px solid var(--line)}
+.safe p:last-child{border-bottom:1px solid var(--line)}
+
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:s}
+.steps4 div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;font-weight:700}
+.steps4 div::before{counter-increment:s;content:counter(s);display:block;color:var(--gold);font-weight:900}
+.steps4 small{display:block;font-weight:400;color:var(--ink2)}
+
+.contact{background:var(--navy);color:var(--on-navy);border-top:0}
+.contact .label{color:var(--gold-l)}
+.contact .lead{color:var(--on-navy2)}
+form{display:grid;gap:16px;background:var(--navy2);border-radius:20px;padding:24px;max-width:640px}
+.f{display:grid;gap:6px}
+.f label,.f .q{font-weight:700;font-size:14px}
+.req{font-size:11px;background:var(--gold-l);color:#0D1E36;border-radius:99px;padding:1px 8px;margin-left:6px}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;padding:12px 14px;border:1px solid #2C3E5C;border-radius:12px;background:#0F2240;color:var(--on-navy);font:inherit}
+textarea{min-height:110px;resize:vertical}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{display:flex;gap:6px;align-items:center;border:1px solid #2C3E5C;border-radius:99px;padding:8px 14px;font-weight:500;cursor:pointer}
+.hp{position:absolute;left:-9999px}
+.err{display:none;color:#FFB4B4;font-size:14px}.err.on{display:block}
+#done{display:none;background:var(--navy2);border-radius:20px;padding:24px;max-width:640px}#done.on{display:block}
+footer{padding-block:28px;font-size:12px;color:var(--ink2)}
+@media (max-width:760px){.grid2,.flow,.steps4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="bar" role="presentation"></div>
+  <div class="in">
+    <div class="top"><span>FOR BUSINESS</span><span>AI CREATOR CAMP ｜ SNS自動化</span></div>
+    <span class="label">企業向けのご案内</span>
+    <h1>御社のSNSを、<br>AIで自動で回す。</h1>
+    <p>社員研修と、仕組みの構築代行。2つの形でご提供します。まずは30分、お話を聞かせてください。</p>
+    <div><a class="btn" href="#contact">無料で相談する</a></div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="in">
+    <span class="label">ISSUES</span>
+    <h2>こんなことで、止まっていませんか</h2>
+    <div class="grid2">
+      <div class="card"><h3>担当者が、ほぼ手作業</h3><p>考える・つくる・投稿するで、毎日時間が消えていく。</p></div>
+      <div class="card"><h3>忙しい時期に止まる</h3><p>繁忙期や担当者の休みで、更新がぱたっと止まる。</p></div>
+      <div class="card"><h3>その人しかわからない</h3><p>やり方が属人化して、引き継げない。</p></div>
+      <div class="card"><h3>数字を見る時間がない</h3><p>出すだけで精一杯。何が効いたか振り返れない。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <span class="label">HOW IT WORKS</span>
+    <h2>人がやるのは「選ぶ」だけ</h2>
+    <div class="flow">
+      <div class="step"><span class="who">自動</span><b>ネタが届く</b><span>毎朝、候補が並ぶ</span></div>
+      <div class="step"><span class="who">自動</span><b>AIがつくる</b><span>文章・画像・動画</span></div>
+      <div class="step you"><span class="who">担当者</span><b>確認して選ぶ</b><span>OKを押すだけ</span></div>
+      <div class="step"><span class="who">自動</span><b>予約投稿</b><span>複数のSNSに一括</span></div>
+      <div class="step"><span class="who">自動</span><b>レポート</b><span>数字と改善案が届く</span></div>
+    </div>
+    <p class="lead">投稿の前に、必ず担当者の確認が入ります。勝手に出ることはありません。対応SNS：Threads・Instagram・TikTok・YouTubeショート。</p>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <span class="label">PLANS</span>
+    <h2>2つのプラン</h2>
+    <div class="grid2">
+      <div class="plan">
+        <span class="tag">PLAN A ／ 研修</span>
+        <h3>90日で、社内で回せるチームに</h3>
+        <ol>
+          <li>1ヶ月目：自動で「つくる」——投稿の型を決め、AIで1ヶ月ぶんをまとめてつくる</li>
+          <li>2ヶ月目：自動で「出す」——複数SNSへの予約、表に書くだけで投稿される仕組み</li>
+          <li>3ヶ月目：自動で「測る」——週1のレポートとAIの改善案で、回しながら良くする</li>
+        </ol>
+        <p class="lead" style="font-size:14px">毎週の課題と月末の確認つき。参加人数・オンライン／訪問は御社に合わせて決めます。</p>
+      </div>
+      <div class="plan">
+        <span class="tag">PLAN B ／ 構築代行</span>
+        <h3>仕組みごと、つくってお渡し</h3>
+        <ol>
+          <li>ヒアリング：目的・相手・今の運用</li>
+          <li>設計：投稿の型と流れを決める</li>
+          <li>構築：自動化をつくって試運転</li>
+          <li>引き渡し：使い方の説明と手順書</li>
+          <li>運用サポート：必要な場合のみ</li>
+        </ol>
+        <p class="lead" style="font-size:14px">期間は内容によって決めます。お見積りの時点でお伝えします。</p>
+      </div>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th></th><th>プランA　研修</th><th>プランB　構築代行</th></tr></thead>
+        <tbody>
+          <tr><td>向いている会社</td><td>社内に担当者を育てたい</td><td>とにかく早く回したい</td></tr>
+          <tr><td>社内の作業</td><td>週4〜6時間ほど学ぶ</td><td>ヒアリングと確認だけ</td></tr>
+          <tr><td>手元に残るもの</td><td>仕組み＋つくれる人</td><td>仕組み＋手順書</td></tr>
+          <tr><td>あとから直す</td><td>社内で直せる</td><td>サポートで対応</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">「最初は構築代行、あとから研修で社内に移す」という組み合わせもできます。</p>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <span class="label">SAFETY</span>
+    <h2>安心して使っていただくために</h2>
+    <div class="safe">
+      <p><b>投稿前に必ず人が確認。</b>AIが勝手に投稿することはありません。</p>
+      <p><b>各SNSの規約を守ります。</b>自動いいね・自動フォローは扱いません。</p>
+      <p><b>アカウントは御社のもの。</b>ログイン情報は御社で管理していただきます。</p>
+      <p><b>成果の数字は保証しません。</b>フォロワー数・売上は約束できません。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <span class="label">PRICE &amp; STEPS</span>
+    <h2>料金は、御社に合わせてお見積り</h2>
+    <p class="lead">人数・SNSの数・期間で変わるため、お話を伺ってからお出しします。</p>
+    <div class="steps4">
+      <div>無料相談<small>オンライン30分</small></div>
+      <div>ヒアリング<small>今の運用を伺う</small></div>
+      <div>お見積り<small>プランと期間をご提案</small></div>
+      <div>スタート<small>ご契約後に開始</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="in">
+    <span class="label">CONTACT</span>
+    <h2>まずは30分、お話を聞かせてください。</h2>
+    <p class="lead">送信いただくと、2営業日以内に担当（土屋）から日程のご案内をお送りします。</p>
+
+    <form id="form" novalidate>
+      <div class="f"><label for="org">会社名<span class="req">必須</span></label><input type="text" id="org" autocomplete="organization"></div>
+      <div class="f"><label for="name">ご担当者名<span class="req">必須</span></label><input type="text" id="name" autocomplete="name"></div>
+      <div class="f"><label for="email">メールアドレス<span class="req">必須</span></label><input type="email" id="email" autocomplete="email"></div>
+      <div class="f"><label for="tel">電話番号</label><input type="tel" id="tel" autocomplete="tel"></div>
+      <div class="f"><span class="q">気になっているプラン</span>
+        <div class="opts">
+          <label><input type="radio" name="plan" value="研修"> 研修</label>
+          <label><input type="radio" name="plan" value="構築代行"> 構築代行</label>
+          <label><input type="radio" name="plan" value="まだ決めていない" checked> まだ決めていない</label>
+        </div>
+      </div>
+      <div class="f"><label for="msg">ご相談内容</label><textarea id="msg" placeholder="例：Instagramを週3回出したいが、担当者1人で回らない"></textarea></div>
+      <div class="hp"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit" class="btn" id="submit">無料相談を申し込む</button>
+      <div class="err" id="err" role="alert"></div>
+    </form>
+    <div id="done"><h3>お問い合わせを受け付けました。</h3><p class="lead" style="margin-top:8px">2営業日以内に、日程のご案内をお送りします。お急ぎの場合は ai.creator.camp2026@gmail.com までご連絡ください。</p></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="in">AI Creator Camp｜SNS自動化　運営：AIクリエイター　お問い合わせ：ai.creator.camp2026@gmail.com<br><a href="https://ai-creator-camp-app.vercel.app/privacy">プライバシーポリシー</a></div></footer>
+
+<script>
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHMk9eBuFDLblYPl685n96fbOaE0OBr5KsmgGovenGEC4p/exec";
+function v(id){ return document.getElementById(id).value.trim(); }
+function showErr(m){ var e = document.getElementById('err'); e.textContent = m; e.classList.add('on'); }
+document.getElementById('form').addEventListener('submit', function(ev){
+  ev.preventDefault();
+  document.getElementById('err').classList.remove('on');
+  var plan = (document.querySelector('input[name="plan"]:checked') || {}).value || '';
+  if (!v('org')) { return showErr('会社名を入力してください。'); }
+  if (!v('name')) { return showErr('ご担当者名を入力してください。'); }
+  var em = v('email'); if (!em || em.indexOf('@') < 1) { return showErr('メールアドレスを正しく入力してください。'); }
+  // 申込シート（1枚目）の列に合わせて送る：お立場＝会社名、分野＝気になるプラン、作ってみたいもの＝相談内容
+  var data = {
+    kind: 'business',
+    name: v('name'),
+    email: em,
+    role: '【企業】' + v('org'),
+    field: plan,
+    idea: v('msg') + (v('tel') ? '（電話：' + v('tel') + '）' : ''),
+    hours: '',
+    plan: '企業向けSNS自動化の相談',
+    ref: '',
+    company: document.querySelector('input[name="company"]').value,
+    page: location.href
+  };
+  var btn = document.getElementById('submit');
+  btn.disabled = true; btn.textContent = '送信しています…';
+  fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data) })
+  .then(function(r){ return r.json(); })
+  .then(function(res){
+    if (!res || res.ok !== true) { throw new Error('failed'); }
+    document.getElementById('form').style.display = 'none';
+    document.getElementById('done').classList.add('on');
+  })
+  .catch(function(){
+    btn.disabled = false; btn.textContent = '無料相談を申し込む';
+    showErr('送信できませんでした。お手数ですが ai.creator.camp2026@gmail.com までご連絡ください。');
+  });
+});
+</script>
+</body>
+</html>
