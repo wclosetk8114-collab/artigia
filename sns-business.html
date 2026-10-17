@@ -101,6 +101,13 @@ footer{padding-block:28px;font-size:12px;color:var(--ink2)}
 .stat .what{font-weight:700}
 .stat .src{font-size:13px;color:var(--ink2)}
 @media (max-width:760px){.stats{grid-template-columns:1fr}}
+.auto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.auto-card{background:var(--card,#fff);border:1px solid var(--line,#DCE3EE);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.auto-card .what{font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--gold,#A8862B)}
+.auto-card .before{font-size:13px;color:var(--ink2);opacity:.75}
+.auto-card b{font-size:16px;line-height:1.5}
+@media (max-width:900px){.auto-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.auto-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -126,6 +133,24 @@ footer{padding-block:28px;font-size:12px;color:var(--ink2)}
       <div class="card"><h3>その人しかわからない</h3><p>やり方が属人化して、引き継げない。</p></div>
       <div class="card"><h3>数字を見る時間がない</h3><p>出すだけで精一杯。何が効いたか振り返れない。</p></div>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <span class="label">WHAT AI CAN DO</span>
+    <h2>AIで、ここまで自動になります</h2>
+    <div class="auto-grid">
+      <div class="auto-card"><span class="what">ネタ出し</span><span class="before">今まで：毎回ゼロから考える</span><b>→ 毎朝、候補が届く</b></div>
+      <div class="auto-card"><span class="what">文章</span><span class="before">今まで：1本ずつ手で書く</span><b>→ 型どおりにAIが下書き</b></div>
+      <div class="auto-card"><span class="what">画像</span><span class="before">今まで：毎回デザインする</span><b>→ まとめて10枚つくる</b></div>
+      <div class="auto-card"><span class="what">動画</span><span class="before">今まで：撮影と編集に半日</span><b>→ 台本から縦型動画をつくる</b></div>
+      <div class="auto-card"><span class="what">投稿</span><span class="before">今まで：SNSごとに手で出す</span><b>→ 表に書くだけで一括予約</b></div>
+      <div class="auto-card"><span class="what">コメント返信</span><span class="before">今まで：1件ずつ考える</span><b>→ 返信の下書きが届く</b></div>
+      <div class="auto-card"><span class="what">数字の集計</span><span class="before">今まで：各SNSを開いてメモ</span><b>→ 週1回、レポートが届く</b></div>
+      <div class="auto-card"><span class="what">改善</span><span class="before">今まで：何が効いたかわからない</span><b>→ AIが次の一手を出す</b></div>
+    </div>
+    <p class="lead">自動にしないのは2つだけ。投稿前の最終チェックと、コメントを送るボタンは人が押します。</p>
   </div>
 </section>
 
