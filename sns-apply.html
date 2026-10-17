@@ -68,12 +68,12 @@ footer{font-size:12px;color:var(--ink2);text-align:center;padding-block:24px}
     <div class="f">
       <span class="q">プラン<span class="req">必須</span></span>
       <div class="opts">
-        <label><input type="radio" name="plan" value="SNS自動化・通常（月10,000円×3ヶ月）"><span class="lb"><b>通常　月10,000円 × 3ヶ月</b><span>計30,000円（税込）。ツールを持っていない方は、ツールがついてきます</span></span></label>
-        <label><input type="radio" name="plan" value="SNS自動化・キャンプ受講生（月7,000円×3ヶ月）"><span class="lb"><b>AI Creator Camp 受講中　月7,000円 × 3ヶ月</b><span>計21,000円（税込）。受講中かどうかは、お申し込み後に確認します</span></span></label>
-        <label><input type="radio" name="plan" value="SNS自動化・学生（月5,000円×3ヶ月）"><span class="lb"><b>学生　月5,000円 × 3ヶ月</b><span>計15,000円（税込）。お申し込み後に学生証の画像をご提出いただきます</span></span></label>
+        <label><input type="radio" name="plan" value="SNS自動化・通常（月10,000円×6ヶ月）"><span class="lb"><b>通常　月10,000円 × 6ヶ月</b><span>計60,000円（税込）。ツールを持っていない方は、ツールがついてきます</span></span></label>
+        <label><input type="radio" name="plan" value="SNS自動化・キャンプ受講生（月7,000円×6ヶ月）"><span class="lb"><b>AI Creator Camp 受講中　月7,000円 × 6ヶ月</b><span>計42,000円（税込）。受講中かどうかは、お申し込み後に確認します</span></span></label>
+        <label><input type="radio" name="plan" value="SNS自動化・学生（月5,000円×6ヶ月）"><span class="lb"><b>学生　月5,000円 × 6ヶ月</b><span>計30,000円（税込）。お申し込み後に学生証の画像をご提出いただきます</span></span></label>
         <label><input type="radio" name="plan" value="ツールだけ（33,000円・買い切り）"><span class="lb"><b>ツールだけ　33,000円（買い切り）</b><span>コースには参加せず、ツールだけ購入します</span></span></label>
       </div>
-      <p class="note">コースは3ヶ月で終わります。4ヶ月目からは、続ける方だけ月3,980円です（続けない方はそこで終了です）。</p>
+      <p class="note">コースは6ヶ月です。7ヶ月目からは、月3,980円（学生1,990円）の専門コースに自動で切り替わります。キャンプ受講中の方は6ヶ月で終了です。</p>
     </div>
 
     <div class="f">
@@ -117,9 +117,9 @@ var APP = "https://ai-creator-camp-app.vercel.app/api/checkout-sns";
 var TOOL_URL = "https://ai-creator-camp-app.vercel.app/join?plan=tool";
 // 申し込み内容 → 決済の種類
 var KIND = {
-  "SNS自動化・通常（月10,000円×3ヶ月）": {plan:"sns", student:"0"},
-  "SNS自動化・キャンプ受講生（月7,000円×3ヶ月）": {plan:"sns_camp", student:"0"},
-  "SNS自動化・学生（月5,000円×3ヶ月）": {plan:"sns", student:"1"},
+  "SNS自動化・通常（月10,000円×6ヶ月）": {plan:"sns", student:"0"},
+  "SNS自動化・キャンプ受講生（月7,000円×6ヶ月）": {plan:"sns_camp", student:"0"},
+  "SNS自動化・学生（月5,000円×6ヶ月）": {plan:"sns", student:"1"},
   "ツールだけ（33,000円・買い切り）": null
 };
 
