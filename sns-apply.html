@@ -98,7 +98,11 @@ footer{font-size:12px;color:var(--ink2);text-align:center;padding-block:24px}
     <div class="donebox">
       <h2>お申し込みを受け付けました。</h2>
       <p style="margin:0">続けて、お支払いへお進みください。<br>決済が終わると、3日以内に参加のご案内をお送りします。</p>
-      <a href="#" class="paybtn" id="pay" target="_blank" rel="noopener">お支払いへ進む　→</a>
+      <a href="#" class="paybtn" id="pay">お支払いへ進む　→</a>
+      <form id="payform" method="post" style="display:none">
+        <input type="hidden" name="plan"><input type="hidden" name="student"><input type="hidden" name="name">
+        <input type="hidden" name="email"><input type="hidden" name="ref"><input type="hidden" name="agree" value="1">
+      </form>
       <p class="note">ご不明な点は ai.creator.camp2026@gmail.com までご連絡ください。</p>
     </div>
     <a href="sns.html">← コースの説明に戻る</a>
@@ -109,13 +113,15 @@ footer{font-size:12px;color:var(--ink2);text-align:center;padding-block:24px}
 <script>
 var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHMk9eBuFDLblYPl685n96fbOaE0OBr5KsmgGovenGEC4p/exec";
 
-var PAY = {
-  "SNS自動化・通常（月10,000円×3ヶ月）": "",
-  "SNS自動化・キャンプ受講生（月7,000円×3ヶ月）": "",
-  "SNS自動化・学生（月5,000円×3ヶ月）": "",
-  "ツールだけ（33,000円・買い切り）": ""
+var APP = "https://ai-creator-camp-app.vercel.app/api/checkout-sns";
+var TOOL_URL = "https://plug01-fawn.vercel.app/";
+// 申し込み内容 → 決済の種類
+var KIND = {
+  "SNS自動化・通常（月10,000円×3ヶ月）": {plan:"sns", student:"0"},
+  "SNS自動化・キャンプ受講生（月7,000円×3ヶ月）": {plan:"sns_camp", student:"0"},
+  "SNS自動化・学生（月5,000円×3ヶ月）": {plan:"sns", student:"1"},
+  "ツールだけ（33,000円・買い切り）": null
 };
-var KEYS = Object.keys(PAY);
 
 // ?plan=camp / student / tool で初期選択
 (function(){
@@ -126,6 +132,8 @@ var KEYS = Object.keys(PAY);
   var r = new URLSearchParams(location.search).get("ref");
   if (r) { document.getElementById('ref').value = r.replace(/[<>]/g,'').slice(0,60).trim(); }
   sync();
+  var er = new URLSearchParams(location.search).get("error");
+  if (er) { showErr(er.slice(0,120)); }
 })();
 
 function sync(){
@@ -162,8 +170,18 @@ document.getElementById('form').addEventListener('submit', function(ev){
   .then(function(r){ return r.json(); })
   .then(function(res){
     if (!res || res.ok !== true) { throw new Error('failed'); }
-    var u = PAY[data.plan];
-    if (u) { document.getElementById('pay').href = u; } else { var pb = document.getElementById('pay'); pb.removeAttribute('href'); pb.textContent = 'お支払いのご案内は、メールでお送りします'; pb.style.background = '#4A5872'; }
+    var k = KIND[data.plan];
+    var pb = document.getElementById('pay');
+    if (k) {
+      var pf = document.getElementById('payform');
+      pf.action = APP;
+      var el = pf.elements;
+      el['plan'].value = k.plan; el['student'].value = k.student;
+      el['name'].value = data.name; el['email'].value = data.email; el['ref'].value = data.ref;
+      pb.onclick = function(e){ e.preventDefault(); pf.submit(); };
+    } else {
+      pb.href = TOOL_URL;
+    }
     document.getElementById('form').style.display = 'none';
     document.getElementById('done').classList.add('on');
     window.scrollTo(0,0);
