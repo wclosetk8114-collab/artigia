@@ -110,10 +110,10 @@ footer{font-size:12px;color:var(--ink2);text-align:center;padding-block:24px}
 var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHMk9eBuFDLblYPl685n96fbOaE0OBr5KsmgGovenGEC4p/exec";
 
 var PAY = {
-  "SNS自動化・通常（月10,000円×3ヶ月）": "https://buy.stripe.com/eVq3cvbpB19T3Bc3Zi6g80j",
-  "SNS自動化・キャンプ受講生（月7,000円×3ヶ月）": "https://buy.stripe.com/3cIfZh79lcSBdbMdzS6g80k",
-  "SNS自動化・学生（月5,000円×3ヶ月）": "https://buy.stripe.com/4gMdR9alx9Gp1t467q6g80l",
-  "ツールだけ（33,000円・買い切り）": "https://buy.stripe.com/bJefZh79l5q99ZA8fy6g80m"
+  "SNS自動化・通常（月10,000円×3ヶ月）": "",
+  "SNS自動化・キャンプ受講生（月7,000円×3ヶ月）": "",
+  "SNS自動化・学生（月5,000円×3ヶ月）": "",
+  "ツールだけ（33,000円・買い切り）": ""
 };
 var KEYS = Object.keys(PAY);
 
@@ -162,7 +162,8 @@ document.getElementById('form').addEventListener('submit', function(ev){
   .then(function(r){ return r.json(); })
   .then(function(res){
     if (!res || res.ok !== true) { throw new Error('failed'); }
-    document.getElementById('pay').href = PAY[data.plan] || PAY[KEYS[0]];
+    var u = PAY[data.plan];
+    if (u) { document.getElementById('pay').href = u; } else { var pb = document.getElementById('pay'); pb.removeAttribute('href'); pb.textContent = 'お支払いのご案内は、メールでお送りします'; pb.style.background = '#4A5872'; }
     document.getElementById('form').style.display = 'none';
     document.getElementById('done').classList.add('on');
     window.scrollTo(0,0);
