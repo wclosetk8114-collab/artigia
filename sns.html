@@ -123,6 +123,14 @@ footer{padding-block:32px;font-size:12px;color:var(--ink-2);border-top:1px solid
 .stat .num small{font-size:16px;margin-left:2px}
 .stat .src{font-size:12px;color:var(--ink-2)}
 @media (max-width:760px){.stats{grid-template-columns:1fr}}
+.stat .what{font-weight:700}
+.stat .ba{display:flex;align-items:center;gap:8px;font-size:14px;opacity:.75}
+.stat .up{justify-self:start;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;background:rgba(201,162,58,.22);color:inherit}
+.acc{margin-top:18px;display:grid;gap:10px}
+.acc-h{font-size:14px;font-weight:700}
+.acc-links{display:flex;flex-wrap:wrap;gap:8px}
+.acc-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid currentColor;font-weight:700;font-size:14px;text-decoration:none;color:inherit}
+.acc-links a::after{content:"↗";margin-left:6px;font-size:12px}
 </style>
 <style>body{margin:0}</style>
 </head>
@@ -164,10 +172,19 @@ footer{padding-block:32px;font-size:12px;color:var(--ink-2);border-top:1px solid
 
   <section>
     <span class="label">RESULTS</span>
-    <h2>この仕組みで、自分のSNSを回した結果</h2>
+    <h2>この仕組みで回す前と、回したあと</h2>
     <div class="stats">
-      <div class="stat"><b>Threads 閲覧数（1ヶ月）</b><span class="num">27.2<small>万回</small></span><span class="src">直近1ヶ月（2026年10月時点）</span></div>
-      <div class="stat"><b>note 表示回数</b><span class="num">16,213<small>回</small></span><span class="src">9/20〜10/17の28日間（スキ275）</span></div>
+      <div class="stat"><span class="what">Threads 閲覧数（1ヶ月）</span><span class="ba"><span class="before">運用前 4,000回</span><span class="arrow">→</span></span><span class="num">27.2<small>万回</small></span><span class="up">約68倍</span><span class="src">直近1ヶ月（2026年10月時点）</span></div>
+      <div class="stat"><span class="what">note 表示回数（28日間）</span><span class="ba"><span class="before">運用前 200回</span><span class="arrow">→</span></span><span class="num">16,213<small>回</small></span><span class="up">約81倍</span><span class="src">2026/9/20〜10/17（スキ275）</span></div>
+    </div>
+    <div class="acc">
+      <span class="acc-h">実際に運用しているアカウント</span>
+      <div class="acc-links">
+        <a href="https://www.threads.com/@chiho.8114" target="_blank" rel="noopener">Threads</a>
+        <a href="https://www.instagram.com/chiho.8114?stkn=MW8xc290aTA1ZGpieA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@%E3%81%A4%E3%81%A3%E3%81%A1%E3%83%BCMETAPEACE" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://note.com/kai8114" target="_blank" rel="noopener">note</a>
+      </div>
     </div>
     <p class="note">数字はアカウントや時期によって変わります。同じ結果を約束するものではありません。</p>
   </section>
