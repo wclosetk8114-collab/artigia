@@ -52,6 +52,11 @@ var HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'お立場'
 var BRIEF_SHEET  = '説明会';
 var BRIEF_HEADERS = ['受付日時', 'お名前', 'メールアドレス', '参加希望日', '送信元ページ'];
 
+// SNS自動化コースの説明会（sns-briefing.html）用。こちらは Zoom リンクを
+// オープンチャットで配るので、自動返信の中身が camp 用とは別になる。
+var SNSB_SHEET   = 'SNS説明会';
+var SNSB_HEADERS = ['受付日時', 'お名前', 'メールアドレス', '参加希望日', '送信元ページ'];
+
 function doPost(e) {
   try {
     var d = JSON.parse(e.postData.contents);
@@ -61,6 +66,7 @@ function doPost(e) {
 
     // 説明会の申し込みは別タブへ
     if (d.kind === 'briefing') { return handleBriefing(d); }
+    if (d.kind === 'snsbrief') { return handleSnsBrief(d); }
 
     var sh = SpreadsheetApp.openById(SHEET_ID).getSheets()[0];
     if (sh.getLastRow() === 0) {
@@ -119,6 +125,97 @@ function handleBriefing(d) {
  * 申込者ご本人への自動返信（Zoomリンク入り）
  * 記録は済んでいるので、ここで失敗しても申し込み自体は成立させる。
  */
+/** SNS自動化コース説明会（sns-briefing.html）の受け口 */
+function handleSnsBrief(d) {
+  var ss = SpreadsheetApp.openById(SHEET_ID);
+  var sh = ss.getSheetByName(SNSB_SHEET);
+  if (!sh) { sh = ss.insertSheet(SNSB_SHEET); }
+  if (sh.getLastRow() === 0) {
+    sh.appendRow(SNSB_HEADERS);
+    sh.getRange(1, 1, 1, SNSB_HEADERS.length).setFontWeight('bold');
+    sh.setFrozenRows(1);
+  }
+
+  sh.appendRow([ new Date(), d.name || '', d.email || '', d.date || '', d.page || '' ]);
+
+  try {
+    MailApp.sendEmail({
+      to: NOTIFY_TO,
+      subject: '【SNS説明会】申し込み：' + (d.name || '名前なし') + '／' + (d.date || ''),
+      body: [
+        'SNS自動化コースの説明会に申し込みが入りました。',
+        '',
+        'お名前　　： ' + (d.name  || ''),
+        'メール　　： ' + (d.email || ''),
+        '参加希望日： ' + (d.date  || ''),
+        '',
+        '※ 受付メールは本人に送信済みです。Zoomリンクは当日までにオープンチャットで流してください。'
+      ].join('\n')
+    });
+  } catch (err) { /* 通知に失敗しても記録は残す */ }
+
+  replySnsBrief(d);
+  return json({ ok: true });
+}
+
+/** 申込者ご本人への自動返信（Zoomはオープンチャットで配る） */
+function replySnsBrief(d) {
+  try {
+    var to = (d.email || '').trim();
+    if (!to || to.indexOf('@') < 1) { return; }
+
+    var name = (d.name || '').trim();
+    var body = [
+      (name ? name + ' 様' : 'お申し込みいただいた方へ'),
+      '',
+      'SNS自動化コースの説明会にお申し込みいただき、ありがとうございます。',
+      '下記の内容で承りました。',
+      '',
+      '──────────────────',
+      '■ ご希望の回',
+      (d.date || ''),
+      '',
+      '■ 参加方法',
+      'オンライン（Zoom）／参加無料',
+      '',
+      '★ Zoomの参加リンクは、当日までに',
+      '　 オープンチャット「AI CREATOR CAMP」でお送りします。',
+      '　 まだ入っていない方は、こちらから入っておいてください。',
+      '',
+      OPENCHAT_URL,
+      '',
+      '　 ここに入っていないと、当日のリンクが届きません。',
+      '　 表示名は、お申し込みのお名前にしていただけると助かります。',
+      '──────────────────',
+      '',
+      '■ 当日お話しすること',
+      '・SNSの何を、どこまで自動にできるのか',
+      '・実際に動かしているところを、画面共有でお見せします',
+      '・コースの中身と、質問の時間',
+      '',
+      '3日とも同じ内容です。その場で決めていただく必要はありません。',
+      'カメラ・マイクはオフのままでも大丈夫です。',
+      '',
+      '■ 都合が変わったとき',
+      'このメールにそのまま返信いただくか、オープンチャットで書き込んでください。',
+      '別の日に振り替えます。',
+      '',
+      'それでは当日お会いできるのを楽しみにしています。',
+      '',
+      'AI Creator Camp 運営　つっちー',
+      CONTACT
+    ].join('\n');
+
+    MailApp.sendEmail({
+      to: to,
+      subject: '【SNS自動化コース】説明会のお申し込みを承りました',
+      body: body,
+      name: FROM_NAME,
+      replyTo: CONTACT
+    });
+  } catch (err) { /* 自動返信に失敗しても記録は残す */ }
+}
+
 function replyBriefing(d) {
   try {
     var to = (d.email || '').trim();

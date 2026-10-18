@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<title>説明会のお申し込み｜SNS自動化コース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D1E36; --ink-2:#3A4A63; --ink-soft:#6E7C93;
+  --line:#E4EAF2; --bg:#FFFFFF; --bg-2:#F5F9FD; --bg-3:#EDF4FB;
+  --cyan:#35BFF0; --blue:#4A9CF0; --purple:#A97BF0;
+  --pink:#F07A96; --orange:#F09A5E; --yellow:#F2CE6A;
+  --green:#06C755;
+  --grad:linear-gradient(90deg,#F07A96 0%,#F09A5E 22%,#F2CE6A 42%,#35BFF0 70%,#A97BF0 100%);
+  --grad-soft:linear-gradient(135deg,#FDF0F3 0%,#FEF7EC 30%,#EEF9FE 65%,#F5F0FE 100%);
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Zen Maru Gothic',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+  background:var(--bg-2);color:var(--ink);line-height:1.9;font-size:15.5px;
+  font-feature-settings:"palt";-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(680px,92vw);margin:0 auto}
+
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px 0}
+.hd{display:flex;align-items:center;gap:10px}
+.hd img{height:38px;width:auto;flex:none}
+.hd b{font-size:17px;font-weight:900;letter-spacing:.04em}
+
+.top{background:var(--grad-soft);padding:44px 0 38px;border-bottom:1px solid var(--line)}
+.tag{
+  display:inline-flex;align-items:center;gap:9px;background:#fff;
+  padding:9px 18px;border-radius:999px;font-size:12.5px;font-weight:700;
+  color:var(--ink-2);margin-bottom:20px;box-shadow:0 2px 10px rgba(13,30,54,.06);
+}
+.tag .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);flex:none}
+.top h1{font-size:clamp(24px,5vw,34px);font-weight:900;line-height:1.5;margin-bottom:14px}
+.top h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+.top p{font-size:14.5px;color:var(--ink-2);line-height:2}
+
+main{padding:36px 0 70px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 30px;margin-bottom:18px}
+@media(max-width:640px){.card{padding:24px 20px}}
+
+.info{display:grid;gap:12px;margin-bottom:4px}
+.row{display:grid;grid-template-columns:5.2em 1fr;gap:14px;align-items:start;font-size:14.5px}
+.row dt{font-weight:900;color:var(--ink-soft);font-size:13px;padding-top:2px}
+.row dd{color:var(--ink);line-height:1.85}
+
+.vid{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--ink);margin-top:4px}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vcap{font-size:13px;color:var(--ink-soft);line-height:1.9;margin-top:12px}
+
+.what{display:grid;gap:14px;margin-top:4px}
+.wi{display:grid;grid-template-columns:30px 1fr;gap:13px;align-items:start}
+.wi .n{
+  width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;flex:none;
+  display:grid;place-items:center;font-size:13px;font-weight:900;margin-top:1px;
+}
+.wi .n.g{background:var(--grad)}
+.wi b{display:block;font-size:15.5px;font-weight:900;color:var(--ink);line-height:1.7;margin-bottom:3px}
+.wi p{font-size:13.5px;color:var(--ink-2);line-height:1.95;margin:0}
+.ttl{font-size:17px;font-weight:900;margin-bottom:16px}
+.fresh{
+  background:var(--grad-soft);border:1px solid #E7EEF8;border-radius:16px;
+  padding:16px 20px;margin-top:18px;font-size:13.5px;color:var(--ink-2);line-height:1.95;
+}
+.fresh b{color:var(--ink);font-weight:900}
+
+/* 話す人 */
+.who{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.who .av{
+  width:76px;height:76px;border-radius:50%;flex:none;overflow:hidden;
+  background:var(--bg-3);box-shadow:0 0 0 3px #fff, 0 0 0 5px rgba(53,191,240,.35);
+}
+.who .av img{width:100%;height:100%;object-fit:cover;display:block}
+.who .nm{font-size:19px;font-weight:900;line-height:1.5}
+.who .ro{font-size:12.5px;color:var(--ink-soft);line-height:1.6}
+.bio{font-size:14px;color:var(--ink-2);line-height:2;margin-bottom:18px}
+.sns{display:flex;flex-wrap:wrap;gap:9px}
+.sns a{
+  display:inline-flex;align-items:center;gap:6px;background:var(--bg-2);
+  border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+  font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;transition:.15s;
+}
+.sns a:hover{border-color:var(--cyan);background:#fff;transform:translateY(-1px)}
+.sns a span{color:var(--ink-soft);font-weight:400;font-size:12px}
+
+/* つくったもの */
+.works{display:grid;gap:12px;margin-top:4px}
+.wk{
+  display:block;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;
+  padding:18px 20px;text-decoration:none;transition:.15s;
+}
+.wk:hover{border-color:var(--cyan);background:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(13,30,54,.07)}
+.wk .wh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:5px}
+.wk .wn{font-size:16px;font-weight:900;color:var(--ink)}
+.wk .wt{font-size:11px;font-weight:900;color:#fff;background:var(--ink);padding:2px 9px;border-radius:999px}
+.wk p{font-size:13px;color:var(--ink-2);line-height:1.9;margin:0 0 6px}
+.wk .wu{font-size:12px;color:var(--blue);font-weight:700;word-break:break-all}
+
+.f{margin-bottom:26px}
+.f:last-child{margin-bottom:0}
+label.q{display:block;font-size:15px;font-weight:900;margin-bottom:4px}
+.req{display:inline-block;font-size:10.5px;font-weight:900;color:#fff;background:var(--pink);
+  padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px}
+.hint{font-size:12.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:10px}
+
+input[type=text],input[type=email]{
+  width:100%;font-family:inherit;font-size:15.5px;color:var(--ink);
+  background:var(--bg-2);border:1.5px solid var(--line);border-radius:14px;
+  padding:13px 16px;outline:none;transition:.15s;
+}
+input:focus{border-color:var(--cyan);background:#fff;box-shadow:0 0 0 4px rgba(53,191,240,.12)}
+
+.opts{display:grid;gap:10px}
+.opts label{
+  display:flex;align-items:center;gap:11px;background:var(--bg-2);
+  border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;transition:.15s;
+  font-size:15px;line-height:1.6;
+}
+.opts label:hover{border-color:var(--cyan)}
+.opts input{margin:0;accent-color:#35BFF0;flex:none;width:17px;height:17px}
+.opts label.sel{border-color:var(--cyan);background:#fff;box-shadow:0 0 0 4px rgba(53,191,240,.10)}
+.opts .lb{flex:1}
+.opts .lb b{font-weight:900}
+.opts .lb span{display:block;font-size:12.5px;color:var(--ink-soft);line-height:1.7}
+
+.sub{
+  width:100%;margin-top:6px;font-family:inherit;font-size:16.5px;font-weight:900;color:#fff;
+  background:var(--ink);border:none;border-radius:999px;padding:19px;cursor:pointer;transition:.2s;
+}
+.sub:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 28px rgba(13,30,54,.25)}
+.sub:disabled{opacity:.45;cursor:not-allowed}
+.note{font-size:12.5px;color:var(--ink-soft);line-height:1.9;margin-top:14px;text-align:center}
+.err{
+  display:none;background:#FDEEF1;border:1px solid #F6C9D3;border-radius:14px;
+  padding:14px 16px;font-size:13.5px;color:#9B3049;line-height:1.85;margin-top:14px;
+}
+.err.on{display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* 完了画面 */
+#done{display:none}
+#done.on{display:block}
+.donebox{background:#fff;border:2px solid var(--green);border-radius:var(--r);padding:36px 32px;position:relative;overflow:hidden}
+.donebox::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--green)}
+@media(max-width:640px){.donebox{padding:28px 22px}}
+.ck{
+  width:46px;height:46px;border-radius:50%;background:var(--green);color:#fff;
+  display:grid;place-items:center;font-size:22px;font-weight:900;margin-bottom:18px;
+}
+.donebox h2{font-size:24px;font-weight:900;margin-bottom:12px;line-height:1.5}
+.donebox p{font-size:14.5px;color:var(--ink-2);line-height:2;margin-bottom:14px}
+.donebox p b{color:var(--ink);font-weight:900}
+.when{
+  background:var(--bg-3);border-radius:14px;padding:14px 18px;margin:16px 0 20px;
+  font-size:15px;font-weight:900;color:var(--ink);
+}
+.ocname{
+  display:flex;align-items:center;gap:12px;background:var(--bg-2);border-radius:16px;
+  padding:14px 18px;margin-bottom:16px;
+}
+.ocname .ic{
+  width:36px;height:36px;border-radius:10px;background:var(--green);flex:none;
+  display:grid;place-items:center;color:#fff;font-size:14px;font-weight:900;
+}
+.ocname .lb{display:block;font-size:11px;font-weight:900;color:var(--ink-soft);letter-spacing:.08em}
+.ocname .nm{display:block;font-size:16px;font-weight:900;color:var(--ink);line-height:1.5}
+.linebtn{
+  display:flex;align-items:center;justify-content:center;width:100%;
+  background:var(--green);color:#fff;font-size:17px;font-weight:900;
+  padding:19px;border-radius:999px;transition:.2s;text-decoration:none;
+}
+.linebtn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(6,199,85,.32)}
+.warnbox{
+  background:#FEF6EC;border:1px solid #F6E0BF;border-radius:14px;
+  padding:14px 18px;font-size:13.5px;color:#8A5A22;line-height:1.9;margin-top:16px;
+}
+.back{display:inline-block;margin-top:24px;font-size:14px;color:var(--ink-soft);text-decoration:none}
+.back:hover{color:var(--blue)}
+footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size:12.5px;color:var(--ink-soft)}
+.fl{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px}
+.fl a{text-decoration:none}
+.fl a:hover{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hd">
+  <a href="sns.html" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+    <img src="mark.png" alt="AI Creator Camp"><b>CREATOR CAMP</b>
+  </a>
+</div></header>
+
+<section class="top"><div class="wrap">
+  <div class="tag"><span class="dot"></span>10月24・25・26日　オンライン・無料</div>
+  <h1>SNS自動化コース<br>説明会の<span class="g">お申し込み</span></h1>
+  <p>つくって、出すところまでをAIにまかせる。その仕組みを、実際に動かしているところを画面共有でお見せします。その場で決めていただく必要はありません。質問だけでも大丈夫です。</p>
+</div></section>
+
+<main><div class="wrap">
+
+  <form id="form" novalidate>
+    <div class="card">
+
+      <dl class="info">
+        <div class="row"><dt>日時</dt><dd>10月24日（土）21:00〜22:00<br>10月25日（日）21:00〜22:00<br>10月26日（月）22:00〜23:00<br><span style="font-size:13px;color:var(--ink-soft)">どれも同じ内容です。都合のいい日を1つ選んでください（各60分）</span></dd></div>
+        <div class="row"><dt>場所</dt><dd>オンライン（Zoom）。<b>参加用のリンクは、当日までにオープンチャットでお送りします</b></dd></div>
+        <div class="row"><dt>費用</dt><dd>無料</dd></div>
+        <div class="row"><dt>持ち物</dt><dd>とくにありません。顔出しも任意です</dd></div>
+      </dl>
+
+    </div>
+
+    <div class="card">
+      <p class="ttl">説明会でお話しすること</p>
+      <div class="what">
+        <div class="wi">
+          <div class="n">1</div>
+          <div>
+            <b>SNSの何を、どこまで自動にできるのか</b>
+            <p>ネタ出し・原稿・画像・投稿まで。どこがAIで、どこは人がやるのかを、正直に線引きしてお話しします。</p>
+          </div>
+        </div>
+        <div class="wi">
+          <div class="n g">2</div>
+          <div>
+            <b>実際に動かしているところを、画面共有でお見せします</b>
+            <p>スライドの説明で終わりにはしません。いま回っている仕組みを、その場で動かして見てもらいます。</p>
+          </div>
+        </div>
+        <div class="wi">
+          <div class="n">3</div>
+          <div>
+            <b>コースの中身と、質問の時間</b>
+            <p>半年で何をやるのか、どのくらい時間が要るのか。「自分に向いているか分からない」という相談でも大丈夫です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fresh">
+        <b>3日とも同じ内容です。</b><br>
+        都合のいい日を1つ選んでください。どうしても3日とも難しい場合は、オープンチャットでその旨を書き込んでいただければ、別の日をご案内します。
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="ttl">話す人</p>
+      <div class="who">
+        <div class="av"><img src="profile.jpg" alt="つっちー" width="76" height="76" loading="lazy"></div>
+        <div>
+          <div class="nm">つっちー</div>
+          <div class="ro">結び 代表／AI Creator Camp 運営</div>
+        </div>
+      </div>
+      <p class="bio">
+        AIで事業をつくっています。アプリもLPも、事業を回す仕組みも、全部AIに作らせています。
+        説明会では、そのやり方をそのままお見せします。
+      </p>
+      <div class="sns">
+        <a href="https://note.com/kai8114" target="_blank" rel="noopener">note<span>kai8114</span></a>
+        <a href="https://www.threads.com/@chiho.8114" target="_blank" rel="noopener">Threads<span>@chiho.8114</span></a>
+        <a href="https://www.instagram.com/chiho.8114" target="_blank" rel="noopener">Instagram<span>@chiho.8114</span></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="ttl">AIで実際に作ったもの</p>
+      <p class="bio" style="margin-bottom:16px">
+        どれも外注なしで、ひとりで作って公開しているサービスです。触ってみてください。
+      </p>
+      <div class="works">
+
+        <a class="wk" href="https://kakeiz-plus.vercel.app" target="_blank" rel="noopener">
+          <div class="wh"><span class="wn">KAKEIZ＋</span><span class="wt">無料</span></div>
+          <p>家系図をつくると、そこから自分の気質と才能が読み解ける診断アプリ。</p>
+          <div class="wu">kakeiz-plus.vercel.app</div>
+        </a>
+
+        <a class="wk" href="https://musubi-kakeizu.vercel.app" target="_blank" rel="noopener">
+          <div class="wh"><span class="wn">結び 家系図</span><span class="wt">サービス</span></div>
+          <p>戸籍を読み解いて、本格的な家系図をつくる受託サービス。</p>
+          <div class="wu">musubi-kakeizu.vercel.app</div>
+        </a>
+
+        <a class="wk" href="https://tsugimon.vercel.app" target="_blank" rel="noopener">
+          <div class="wh"><span class="wn">継紋（つぎもん）</span><span class="wt">無料</span></div>
+          <p>苗字から自分の家の家紋を引いて、壁紙にしたり擬人化したりできる家紋診断。</p>
+          <div class="wu">tsugimon.vercel.app</div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="card">
+
+      <div class="f">
+        <label class="q" for="name">お名前<span class="req">必須</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="土屋 千穂">
+      </div>
+
+      <div class="f">
+        <label class="q" for="email">メールアドレス<span class="req">必須</span></label>
+        <p class="hint">こちらから連絡することがあります。普段お使いのアドレスをご記入ください。</p>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
+      </div>
+
+      <div class="f">
+        <label class="q">参加したい日<span class="req">必須</span></label>
+        <p class="hint">3日とも同じ内容です。都合のいい日を1つ選んでください。あとから変更もできます。</p>
+        <div class="opts" data-group="date" id="dates">
+          <label><input type="radio" name="date" value="10月24日（土）21:00〜22:00"><span class="lb"><b>10月24日（土）21:00〜22:00</b></span></label>
+          <label><input type="radio" name="date" value="10月25日（日）21:00〜22:00"><span class="lb"><b>10月25日（日）21:00〜22:00</b></span></label>
+          <label><input type="radio" name="date" value="10月26日（月）22:00〜23:00"><span class="lb"><b>10月26日（月）22:00〜23:00</b></span></label>
+        </div>
+      </div>
+
+      <div class="hp"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+
+      <button type="submit" class="sub" id="submit">この日で申し込む　→</button>
+      <div class="err" id="err"></div>
+      <p class="note">費用はかかりません。送信すると、受付のメールが届きます。</p>
+
+    </div>
+  </form>
+
+  <div id="done">
+    <div class="donebox">
+      <div class="ck">✓</div>
+      <h2>お申し込みを受け付けました。</h2>
+      <div class="when" id="picked"></div>
+      <p><b>Zoomの参加リンクは、当日までにオープンチャットでお送りします。</b>下のボタンから、必ず入っておいてください。ここに入っていないと、当日のリンクが届きません。</p>
+      <p>受付のメールもお送りしました。数分たっても届かない場合は、迷惑メールフォルダをご確認ください。それでも見つからないときは <a href="mailto:ai.creator.camp2026@gmail.com" style="color:var(--blue);font-weight:700">ai.creator.camp2026@gmail.com</a> までご連絡ください。</p>
+
+      <div class="ocname">
+        <div class="ic">OC</div>
+        <div>
+          <span class="lb">OPEN CHAT</span>
+          <span class="nm">AI CREATOR CAMP</span>
+        </div>
+      </div>
+
+      <a href="https://line.me/ti/g2/Rb8wl5BurHkiFmU3CnM_USl3rSwAv64a3DN4Cg?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" class="linebtn" target="_blank" rel="noopener">オープンチャットに入る　→</a>
+
+      <div class="warnbox">
+        表示名は、お申し込みのときのお名前にしていただけると助かります。どなたが来られるか分かるようにするためです。あとから変更できます。
+      </div>
+
+      <p style="margin-top:18px;font-size:13px;color:var(--ink-soft)">
+        都合が変わった場合は、届いたメールにそのまま返信するか、オープンチャットでその旨を書き込んでください。別の日に振り替えます。
+      </p>
+    </div>
+    <a href="sns.html" class="back">← SNS自動化コースの内容を見る</a>
+  </div>
+
+</div></main>
+
+<footer><div class="wrap">
+  <div class="fl">
+    <a href="sns.html">コースの内容へ</a>
+    <a href="terms.html">利用規約</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  </div>
+  © 2026 FORGE / AI Creator Camp. All Rights Reserved.
+</div></footer>
+
+<script>
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbyUsdAaccVQUo-dpqVONQzHMk9eBuFDLblYPl685n96fbOaE0OBr5KsmgGovenGEC4p/exec";
+
+
+function syncAll(){
+  document.querySelectorAll('.opts label').forEach(function(l){
+    var i = l.querySelector('input');
+    l.classList.toggle('sel', !!(i && i.checked));
+  });
+}
+document.addEventListener('change', function(e){
+  if (e.target && e.target.type === 'radio') { syncAll(); }
+});
+
+function val(n){ var e = document.querySelector('input[name="' + n + '"]:checked'); return e ? e.value : ''; }
+function showErr(m){ var el = document.getElementById('err'); el.textContent = m; el.classList.add('on'); }
+
+document.getElementById('form').addEventListener('submit', function(ev){
+  ev.preventDefault();
+  document.getElementById('err').classList.remove('on');
+
+  var data = {
+    kind:  'snsbrief',
+    name:  document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    date:  val('date'),
+    company: document.querySelector('input[name="company"]').value,
+    page: location.href
+  };
+
+  if (!data.name)  { return showErr('お名前を入力してください。'); }
+  if (!data.email || data.email.indexOf('@') < 1) { return showErr('メールアドレスを正しく入力してください。'); }
+  if (!data.date)  { return showErr('参加したい日を選んでください。'); }
+
+  var btn = document.getElementById('submit');
+  btn.disabled = true;
+  btn.textContent = '送信しています…';
+
+  fetch(ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(data)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(res){
+    if (!res || res.ok !== true) { throw new Error('failed'); }
+    document.getElementById('picked').textContent = data.date;
+    document.getElementById('form').style.display = 'none';
+    document.getElementById('done').classList.add('on');
+    window.scrollTo(0, 0);
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.textContent = 'この日で申し込む　→';
+    showErr('送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。何度も失敗する場合は ai.creator.camp2026@gmail.com までご連絡ください。');
+  });
+});
+</script>
+</body>
+</html>
