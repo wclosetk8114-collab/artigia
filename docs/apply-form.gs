@@ -57,6 +57,14 @@ var BRIEF_HEADERS = ['受付日時', 'お名前', 'メールアドレス', '参�
 var SNSB_SHEET   = 'SNS説明会';
 var SNSB_HEADERS = ['受付日時', 'お名前', 'メールアドレス', '参加希望日', '送信元ページ'];
 
+// SNS自動化コースの申し込み（sns-apply.html）
+var SNS_SHEET   = 'SNS申込';
+var SNS_HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'プラン', '紹介者', '送信元ページ'];
+
+// 企業向けSNS自動化の相談（sns-business.html）
+var BIZ_SHEET   = '企業相談';
+var BIZ_HEADERS = ['受付日時', 'お名前', '会社名', 'メールアドレス', 'ご希望', 'ご相談内容・電話', '送信元ページ'];
+
 function doPost(e) {
   try {
     var d = JSON.parse(e.postData.contents);
@@ -67,6 +75,8 @@ function doPost(e) {
     // 説明会の申し込みは別タブへ
     if (d.kind === 'briefing') { return handleBriefing(d); }
     if (d.kind === 'snsbrief') { return handleSnsBrief(d); }
+    if (d.kind === 'sns')      { return handleSns(d); }
+    if (d.kind === 'business') { return handleBusiness(d); }
 
     var sh = SpreadsheetApp.openById(SHEET_ID).getSheets()[0];
     if (sh.getLastRow() === 0) {
@@ -125,6 +135,129 @@ function handleBriefing(d) {
  * 申込者ご本人への自動返信（Zoomリンク入り）
  * 記録は済んでいるので、ここで失敗しても申し込み自体は成立させる。
  */
+/** タブを用意して1行足す（無ければ作る） */
+function appendTo(sheetName, headers, row) {
+  var ss = SpreadsheetApp.openById(SHEET_ID);
+  var sh = ss.getSheetByName(sheetName);
+  if (!sh) { sh = ss.insertSheet(sheetName); }
+  if (sh.getLastRow() === 0) {
+    sh.appendRow(headers);
+    sh.getRange(1, 1, 1, headers.length).setFontWeight('bold');
+    sh.setFrozenRows(1);
+  }
+  sh.appendRow(row);
+}
+
+/** 運営への通知（失敗しても記録は残す） */
+function tell(subject, lines) {
+  try {
+    MailApp.sendEmail({ to: NOTIFY_TO, subject: subject, body: lines.join('\n') });
+  } catch (err) { /* noop */ }
+}
+
+/** 申込者への自動返信（失敗しても記録は残す） */
+function replyTo(email, subject, lines) {
+  try {
+    var to = (email || '').trim();
+    if (!to || to.indexOf('@') < 1) { return; }
+    MailApp.sendEmail({
+      to: to, subject: subject, body: lines.join('\n'),
+      name: FROM_NAME, replyTo: CONTACT
+    });
+  } catch (err) { /* noop */ }
+}
+
+/** SNS自動化コースの申し込み（sns-apply.html）の受け口 */
+function handleSns(d) {
+  appendTo(SNS_SHEET, SNS_HEADERS, [
+    new Date(), d.name || '', d.email || '', d.plan || '', d.ref || '', d.page || ''
+  ]);
+
+  tell('【SNS自動化】申し込み：' + (d.name || '名前なし'), [
+    'SNS自動化コースに申し込みが入りました。',
+    '',
+    'お名前　： ' + (d.name  || ''),
+    'メール　： ' + (d.email || ''),
+    'プラン　： ' + (d.plan  || ''),
+    '紹介者　： ' + (d.ref   || '（なし）'),
+    '',
+    '※ この時点では決済が終わっていないことがあります。Stripeの入金も確認してください。'
+  ]);
+
+  replyTo(d.email, '【SNS自動化コース】お申し込みを承りました', [
+    ((d.name || '').trim() ? (d.name || '').trim() + ' 様' : 'お申し込みいただいた方へ'),
+    '',
+    'SNS自動化コースにお申し込みいただき、ありがとうございます。',
+    '下記の内容で承りました。',
+    '',
+    '──────────────────',
+    '■ お選びいただいたプラン',
+    (d.plan || ''),
+    '──────────────────',
+    '',
+    '■ このあとの流れ',
+    '1. お支払い（まだの場合は、完了画面のボタンからお進みください）',
+    '2. 決済の確認がとれ次第、3日以内に参加のご案内をお送りします',
+    '3. ご案内に沿って、オープンチャットと公式LINEにご登録ください',
+    '',
+    'お支払いが途中になってしまった場合は、このメールにご返信ください。',
+    'お支払い用のリンクを改めてお送りします。',
+    '',
+    'ご不明な点は、このメールにそのまま返信してください。',
+    '',
+    'AI Creator Camp 運営　つっちー',
+    CONTACT
+  ]);
+
+  return json({ ok: true });
+}
+
+/** 企業向けSNS自動化の相談（sns-business.html）の受け口 */
+function handleBusiness(d) {
+  var org = String(d.role || '').replace('【企業】', '');
+
+  appendTo(BIZ_SHEET, BIZ_HEADERS, [
+    new Date(), d.name || '', org, d.email || '', d.field || '', d.idea || '', d.page || ''
+  ]);
+
+  tell('【企業】SNS自動化のご相談：' + (org || '会社名なし') + '／' + (d.name || ''), [
+    '企業向けSNS自動化に相談が入りました。',
+    '',
+    '会社名　： ' + org,
+    'ご担当　： ' + (d.name  || ''),
+    'メール　： ' + (d.email || ''),
+    'ご希望　： ' + (d.field || ''),
+    '',
+    'ご相談内容・電話：',
+    (d.idea || '（記入なし）'),
+    '',
+    '※ 2営業日以内に日程のご案内を送る、とお伝えしています。'
+  ]);
+
+  replyTo(d.email, '【AI Creator Camp】SNS自動化のお問い合わせを承りました', [
+    ((d.name || '').trim() ? (d.name || '').trim() + ' 様' : 'ご担当者さま'),
+    '',
+    (org ? org + ' ' : '') + 'SNS自動化についてお問い合わせいただき、ありがとうございます。',
+    '下記の内容で承りました。',
+    '',
+    '──────────────────',
+    '会社名　： ' + org,
+    'ご希望　： ' + (d.field || ''),
+    '',
+    'ご相談内容：',
+    (d.idea || '（記入なし）'),
+    '──────────────────',
+    '',
+    '2営業日以内に、打ち合わせ日程のご案内をお送りします。',
+    'お急ぎの場合は、このメールにそのままご返信ください。',
+    '',
+    'AI Creator Camp 運営　つっちー',
+    CONTACT
+  ]);
+
+  return json({ ok: true });
+}
+
 /** SNS自動化コース説明会（sns-briefing.html）の受け口 */
 function handleSnsBrief(d) {
   var ss = SpreadsheetApp.openById(SHEET_ID);
