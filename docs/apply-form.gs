@@ -52,16 +52,16 @@ var HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'お立場'
 var BRIEF_SHEET  = '説明会';
 var BRIEF_HEADERS = ['受付日時', 'お名前', 'メールアドレス', '参加希望日', '送信元ページ'];
 
-// SNS自動化コースの説明会（sns-briefing.html）用。こちらは Zoom リンクを
+// AI×SNS自動化コースの説明会（sns-briefing.html）用。こちらは Zoom リンクを
 // オープンチャットで配るので、自動返信の中身が camp 用とは別になる。
 var SNSB_SHEET   = 'SNS説明会';
 var SNSB_HEADERS = ['受付日時', 'お名前', 'メールアドレス', '参加希望日', '送信元ページ'];
 
-// SNS自動化コースの申し込み（sns-apply.html）
+// AI×SNS自動化コースの申し込み（sns-apply.html）
 var SNS_SHEET   = 'SNS申込';
 var SNS_HEADERS = ['受付日時', 'お名前', 'メールアドレス', 'プラン', '紹介者', '送信元ページ'];
 
-// 企業向けSNS自動化の相談（sns-business.html）
+// 企業向けAI×SNS自動化の相談（sns-business.html）
 var BIZ_SHEET   = '企業相談';
 var BIZ_HEADERS = ['受付日時', 'お名前', '会社名', 'メールアドレス', 'ご希望', 'ご相談内容・電話', '送信元ページ'];
 
@@ -167,14 +167,14 @@ function replyTo(email, subject, lines) {
   } catch (err) { /* noop */ }
 }
 
-/** SNS自動化コースの申し込み（sns-apply.html）の受け口 */
+/** AI×SNS自動化コースの申し込み（sns-apply.html）の受け口 */
 function handleSns(d) {
   appendTo(SNS_SHEET, SNS_HEADERS, [
     new Date(), d.name || '', d.email || '', d.plan || '', d.ref || '', d.page || ''
   ]);
 
-  tell('【SNS自動化】申し込み：' + (d.name || '名前なし'), [
-    'SNS自動化コースに申し込みが入りました。',
+  tell('【AI×SNS自動化】申し込み：' + (d.name || '名前なし'), [
+    'AI×SNS自動化コースに申し込みが入りました。',
     '',
     'お名前　： ' + (d.name  || ''),
     'メール　： ' + (d.email || ''),
@@ -184,10 +184,10 @@ function handleSns(d) {
     '※ この時点では決済が終わっていないことがあります。Stripeの入金も確認してください。'
   ]);
 
-  replyTo(d.email, '【SNS自動化コース】お申し込みを承りました', [
+  replyTo(d.email, '【AI×SNS自動化コース】お申し込みを承りました', [
     ((d.name || '').trim() ? (d.name || '').trim() + ' 様' : 'お申し込みいただいた方へ'),
     '',
-    'SNS自動化コースにお申し込みいただき、ありがとうございます。',
+    'AI×SNS自動化コースにお申し込みいただき、ありがとうございます。',
     '下記の内容で承りました。',
     '',
     '──────────────────',
@@ -212,7 +212,7 @@ function handleSns(d) {
   return json({ ok: true });
 }
 
-/** 企業向けSNS自動化の相談（sns-business.html）の受け口 */
+/** 企業向けAI×SNS自動化の相談（sns-business.html）の受け口 */
 function handleBusiness(d) {
   var org = String(d.role || '').replace('【企業】', '');
 
@@ -220,8 +220,8 @@ function handleBusiness(d) {
     new Date(), d.name || '', org, d.email || '', d.field || '', d.idea || '', d.page || ''
   ]);
 
-  tell('【企業】SNS自動化のご相談：' + (org || '会社名なし') + '／' + (d.name || ''), [
-    '企業向けSNS自動化に相談が入りました。',
+  tell('【企業】AI×SNS自動化のご相談：' + (org || '会社名なし') + '／' + (d.name || ''), [
+    '企業向けAI×SNS自動化に相談が入りました。',
     '',
     '会社名　： ' + org,
     'ご担当　： ' + (d.name  || ''),
@@ -234,10 +234,10 @@ function handleBusiness(d) {
     '※ 2営業日以内に日程のご案内を送る、とお伝えしています。'
   ]);
 
-  replyTo(d.email, '【AI Creator Camp】SNS自動化のお問い合わせを承りました', [
+  replyTo(d.email, '【AI Creator Camp】AI×SNS自動化のお問い合わせを承りました', [
     ((d.name || '').trim() ? (d.name || '').trim() + ' 様' : 'ご担当者さま'),
     '',
-    (org ? org + ' ' : '') + 'SNS自動化についてお問い合わせいただき、ありがとうございます。',
+    (org ? org + ' ' : '') + 'AI×SNS自動化についてお問い合わせいただき、ありがとうございます。',
     '下記の内容で承りました。',
     '',
     '──────────────────',
@@ -258,7 +258,7 @@ function handleBusiness(d) {
   return json({ ok: true });
 }
 
-/** SNS自動化コース説明会（sns-briefing.html）の受け口 */
+/** AI×SNS自動化コース説明会（sns-briefing.html）の受け口 */
 function handleSnsBrief(d) {
   var ss = SpreadsheetApp.openById(SHEET_ID);
   var sh = ss.getSheetByName(SNSB_SHEET);
@@ -276,7 +276,7 @@ function handleSnsBrief(d) {
       to: NOTIFY_TO,
       subject: '【SNS説明会】申し込み：' + (d.name || '名前なし') + '／' + (d.date || ''),
       body: [
-        'SNS自動化コースの説明会に申し込みが入りました。',
+        'AI×SNS自動化コースの説明会に申し込みが入りました。',
         '',
         'お名前　　： ' + (d.name  || ''),
         'メール　　： ' + (d.email || ''),
@@ -301,7 +301,7 @@ function replySnsBrief(d) {
     var body = [
       (name ? name + ' 様' : 'お申し込みいただいた方へ'),
       '',
-      'SNS自動化コースの説明会にお申し込みいただき、ありがとうございます。',
+      'AI×SNS自動化コースの説明会にお申し込みいただき、ありがとうございます。',
       '下記の内容で承りました。',
       '',
       '──────────────────',
@@ -341,7 +341,7 @@ function replySnsBrief(d) {
 
     MailApp.sendEmail({
       to: to,
-      subject: '【SNS自動化コース】説明会のお申し込みを承りました',
+      subject: '【AI×SNS自動化コース】説明会のお申し込みを承りました',
       body: body,
       name: FROM_NAME,
       replyTo: CONTACT
