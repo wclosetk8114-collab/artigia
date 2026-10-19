@@ -72,6 +72,14 @@ main{padding:36px 0 70px}
 .wi b{display:block;font-size:15.5px;font-weight:900;color:var(--ink);line-height:1.7;margin-bottom:3px}
 .wi p{font-size:13.5px;color:var(--ink-2);line-height:1.95;margin:0}
 .ttl{font-size:17px;font-weight:900;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 18px}
+.chip{border:1px solid var(--line);background:var(--bg-2);border-radius:999px;padding:5px 12px;font-size:12.5px;color:var(--ink-2);font-weight:700}
+.pts{display:grid;gap:10px}
+.pt{border:1px solid var(--line);border-radius:16px;padding:15px 17px;font-size:14px;color:var(--ink-2);line-height:1.9}
+.pt b{display:block;color:var(--ink);font-size:15px;margin-bottom:3px}
+.gets{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
+.get{border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13.5px;color:var(--ink-2)}
+@media(max-width:600px){.gets{grid-template-columns:1fr}}
 .fresh{
   background:var(--grad-soft);border:1px solid #E7EEF8;border-radius:16px;
   padding:16px 20px;margin-top:18px;font-size:13.5px;color:var(--ink-2);line-height:1.95;
@@ -253,6 +261,34 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
       <div class="fresh">
         <b>3日とも同じ内容です。</b><br>
         都合のいい日を1つ選んでください。どうしても3日とも難しい場合は、オープンチャットでその旨を書き込んでいただければ、別の日をご案内します。
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="ttl">どこに、どこまで出せるのか</p>
+      <div class="chips">
+        <span class="chip">Threads</span><span class="chip">Instagram</span><span class="chip">X</span><span class="chip">TikTok</span><span class="chip">YouTube</span><span class="chip">YouTubeショート</span><span class="chip">note</span><span class="chip">自社・個人メディア</span><span class="chip">公式LINE</span>
+      </div>
+      <div class="pts">
+        <div class="pt"><b>この仕組みなら、毎日出せる</b>1本のネタを各媒体の形に直して、毎日ぶんを予約まで通せます。</div>
+        <div class="pt"><b>外注すると、月100万円を超えることも</b>複数の媒体を毎日まわす運用代行は、企画・原稿・画像・動画編集・投稿・分析まで人が動くぶん、月100万円を超える見積もりになることもあります。</div>
+        <div class="pt"><b>自分でやると、1日では終わらない</b>ネタ出し→原稿→画像や動画→媒体ごとの書き分け→投稿→数字の確認。全媒体ぶんを毎日やると、1日の作業では到底終わりません。</div>
+      </div>
+      <div class="fresh">
+        金額は一般的な運用代行の目安で、会社や範囲によって変わります。このコースの料金ではありません。
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="ttl">半年後、手元に残るもの</p>
+      <p class="bio" style="margin-bottom:14px">説明会では、この6つをどう作っていくかをお見せします。</p>
+      <div class="gets">
+        <div class="get">投稿の型10個と、AIへの指示文</div>
+        <div class="get">複数の媒体への一括予約の仕組み</div>
+        <div class="get">表に書くだけで投稿される仕組み</div>
+        <div class="get">毎朝ネタが届く仕組み</div>
+        <div class="get">自動で届く数字のレポートと改善案</div>
+        <div class="get">自動化マップと、構築代行の提案書</div>
       </div>
     </div>
 
