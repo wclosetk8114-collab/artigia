@@ -133,10 +133,13 @@ footer{padding-block:32px;font-size:12px;color:var(--ink-2);border-top:1px solid
 .acc-links{display:flex;flex-wrap:wrap;gap:8px}
 .acc-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid currentColor;font-weight:700;font-size:14px;text-decoration:none;color:inherit}
 .acc-links a::after{content:"↗";margin-left:6px;font-size:12px}
-.media-list{display:grid;gap:10px;padding:0;margin:0;list-style:none}
-.media-list a{display:grid;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-decoration:none;color:inherit}
-.media-list a:hover{border-color:var(--gold,#A8862B)}
-.media-list b{font-size:16px;line-height:1.5}.media-list span{font-size:13px;opacity:.75}
+.media-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0;margin:0;list-style:none}
+.media-list a{display:grid;grid-template-rows:auto 1fr;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;height:100%;transition:transform .25s,border-color .25s}
+.media-list a:hover{transform:translateY(-3px);border-color:var(--gold,#A8862B)}
+.media-list img{width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;display:block;background:#0A0D14}
+.media-list .mt{display:grid;gap:6px;padding:12px 14px 14px;align-content:start}
+.media-list b{font-size:14px;line-height:1.55}.media-list .mt span{font-size:12px;font-weight:700;color:var(--gold,#A8862B)}
+@media (max-width:760px){.media-list{grid-template-columns:1fr 1fr}}@media (max-width:480px){.media-list{grid-template-columns:1fr}}
 .media-more{font-weight:700;font-size:14px}
 </style>
 <style>body{margin:0}</style>
@@ -357,7 +360,7 @@ footer{padding-block:32px;font-size:12px;color:var(--ink-2);border-top:1px solid
   <section>
     <span class="label">MEDIA</span>
     <h2>SNS自動化のコラム</h2>
-    <ul class="media-list"><li><a href="/media/sns-jidouka-hajimekata.html"><b>SNS自動化とは？個人が毎日投稿をAIで回す仕組みのつくり方</b><span>SNS自動化とは、投稿を「つくる・出す・測る」をAIと予約投稿で回すこと。個人が毎日投稿を無理なく続けるための始め方を、…</span></a></li><li><a href="/media/threads-mainichi-toukou.html"><b>Threadsで毎日投稿を続けるコツ｜AIでネタ出しと予約投稿を回す方法</b><span>Threadsで毎日投稿を続けるには、ネタ出しと予約投稿を仕組みにするのが近道。AIを使った投稿づくりの流れと、運営者の…</span></a></li><li><a href="/media/ai-sns-prompt-kata.html"><b>AIでSNS投稿をつくる指示文（プロンプト）の型｜ブレない投稿を量産するコツ</b><span>AIでSNS投稿をつくると、毎回トーンがバラバラになる…そんな悩みは指示文の「型」で解決できます。すぐ使える指示文の例と…</span></a></li><li><a href="/media/instagram-reel-tsuzukeru.html"><b>Instagramリールを無理なく続ける方法｜AI台本とまとめ撮りのコツ</b><span>Instagramのリールが続かない人へ。AIで台本をつくり、まとめて撮って、まとめて予約する流れをやさしく解説します。…</span></a></li><li><a href="/media/youtube-shorts-mainichi.html"><b>YouTubeショートを毎日出す仕組みのつくり方｜ネタ・撮影・予約の流れ</b><span>YouTubeショートを毎日出したいけれど時間がない人へ。ネタのストック、型を使ったまとめ撮り、予約公開までを一つの流れ…</span></a></li></ul>
+    <ul class="media-list"><li><a href="/media/sns-jidouka-hajimekata.html"><img src="/media/img/sns-jidouka-hajimekata.jpg" alt="" width="1200" height="630" loading="lazy"><span class="mt"><b>SNS自動化とは？個人が毎日投稿をAIで回す仕組みのつくり方</b><span>約3分で読める →</span></span></a></li><li><a href="/media/threads-mainichi-toukou.html"><img src="/media/img/threads-mainichi-toukou.jpg" alt="" width="1200" height="630" loading="lazy"><span class="mt"><b>Threadsで毎日投稿を続けるコツ｜AIでネタ出しと予約投稿を回す方法</b><span>約3分で読める →</span></span></a></li><li><a href="/media/ai-gazou-sns.html"><img src="/media/img/ai-gazou-sns.jpg" alt="" width="1200" height="630" loading="lazy"><span class="mt"><b>AI画像生成をSNSに使うコツと注意点｜投稿画像を作る前に知ること</b><span>約3分で読める →</span></span></a></li><li><a href="/media/ai-sns-prompt-kata.html"><img src="/media/img/ai-sns-prompt-kata.jpg" alt="" width="1200" height="630" loading="lazy"><span class="mt"><b>AIでSNS投稿をつくる指示文（プロンプト）の型｜ブレない投稿を量産するコツ</b><span>約3分で読める →</span></span></a></li><li><a href="/media/ai-tool-tsukaiwake.html"><img src="/media/img/ai-tool-tsukaiwake.jpg" alt="" width="1200" height="630" loading="lazy"><span class="mt"><b>生成AIの使い分けの考え方｜ツール比較より「何を任せるか」</b><span>約3分で読める →</span></span></a></li><li><a href="/media/hassin-30nichi.html"><img src="/media/img/hassin-30nichi.jpg" alt="" width="1200" height="630" loading="lazy"><span class="mt"><b>発信ゼロから30日でやること｜最初の1ヶ月の進め方</b><span>約3分で読める →</span></span></a></li></ul>
     <a class="media-more" href="/media/#kojin">記事一覧を見る（全18本）→</a>
   </section>
 
