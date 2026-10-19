@@ -1,0 +1,113 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TikTok向け縦型動画をAIでつくる流れ｜企画から投稿前チェックまで｜AI×SNS自動化メディア</title><meta name="description" content="TikTok向けの縦型動画を、AIを使ってつくる流れをやさしく解説します。企画、台本、素材づくり、編集、投稿前の確認まで、どこにAIを使い、どこを人がやるかがわかります。"><meta name="keywords" content="TikTok 動画 AI,縦型動画 作り方,TikTok 台本 AI,AI動画 注意点">
+<link rel="canonical" href="https://ai-creator-camp-theta.vercel.app/media/tiktok-ai-douga.html"><meta property="og:type" content="article"><meta property="og:title" content="TikTok向け縦型動画をAIでつくる流れ｜企画から投稿前チェックまで｜AI×SNS自動化メディア"><meta property="og:description" content="TikTok向けの縦型動画を、AIを使ってつくる流れをやさしく解説します。企画、台本、素材づくり、編集、投稿前の確認まで、どこにAIを使い、どこを人がやるかがわかります。"><meta property="og:url" content="https://ai-creator-camp-theta.vercel.app/media/tiktok-ai-douga.html"><meta property="og:image" content="https://ai-creator-camp-theta.vercel.app/ogp.png"><meta property="og:site_name" content="AI×SNS自動化メディア｜AI Creator Camp"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon-32.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+:root{--navy:#0D1E36;--paper:#FAFBFD;--card:#FFFFFF;--ink:#0D1E36;--ink2:#4A5872;--line:#DCE3EE;--gold:#A8862B;--gold-l:#E3C15A;--on-navy:#F4F6FA;--on-navy2:#C9D3E3;--grad:linear-gradient(90deg,#F07A96,#F09A5E,#F2CE6A,#35BFF0,#A97BF0);--f:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.95}
+a{color:inherit}.bar{height:6px;background:var(--grad)}
+.in{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wide{max-width:960px}
+.top{background:var(--navy);color:var(--on-navy)}
+.top .in{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;font-size:13px;font-weight:700;letter-spacing:.08em}
+.top a{text-decoration:none;white-space:nowrap}@media (max-width:560px){.top nav a:nth-child(n+3){display:none}}.top nav{display:flex;gap:14px;flex-wrap:wrap}.top nav a{color:var(--on-navy2)}
+.crumb{font-size:12px;color:var(--ink2);padding-block:16px}.crumb a{color:var(--ink2)}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;padding:2px 10px;border-radius:99px;border:1px solid var(--gold);color:var(--gold)}
+h1{font-size:clamp(24px,4.6vw,34px);line-height:1.45;margin:12px 0 8px;text-wrap:balance}
+.meta{font-size:13px;color:var(--ink2)}
+article h2{font-size:clamp(20px,3.4vw,24px);line-height:1.5;margin:44px 0 12px;padding-left:12px;border-left:4px solid var(--gold-l)}
+article h3{font-size:18px;margin:28px 0 6px}
+article p{margin:0 0 16px}article ul,article ol{margin:0 0 16px;padding-left:1.3em}article li{margin-bottom:6px}
+article .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:15px;margin-bottom:16px}
+article .tbl{overflow-x:auto;margin-bottom:16px}article table{border-collapse:collapse;width:100%;min-width:480px;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}article th{background:var(--card)}
+article .check{list-style:none;padding:0}article .check li::before{content:"✓ ";color:var(--gold);font-weight:900}
+.author{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:40px 0 24px}
+.author img{width:56px;height:56px;border-radius:50%;object-fit:cover}.author b{display:block}.author span{font-size:13px;color:var(--ink2)}
+.cta{background:var(--navy);color:var(--on-navy);border-radius:20px;padding:28px;display:grid;gap:12px;margin:24px 0}
+.cta p{color:var(--on-navy2);margin:0}.cta b{font-size:19px}
+.btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:0 26px;border-radius:99px;background:var(--gold-l);color:#0D1E36;font-weight:700;text-decoration:none;justify-self:start}
+.rel h2{font-size:18px;margin:40px 0 12px}
+.list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.list a{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-decoration:none}
+.list a:hover{border-color:var(--gold)}.list .tag{justify-self:start}.list b{font-size:17px;line-height:1.5}.list span.d{font-size:13px;color:var(--ink2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 20px}.tabs a{min-height:40px;display:inline-flex;align-items:center;padding:0 16px;border-radius:99px;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:700}
+.hub-h{padding-block:28px 8px}.hub-h p{color:var(--ink2)}
+section.cat{margin-bottom:36px}section.cat h2{font-size:20px;margin:0 0 12px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-block:24px;font-size:12px;color:var(--ink2)}
+footer .in{display:flex;flex-wrap:wrap;gap:8px 16px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TikTok向け縦型動画をAIでつくる流れ｜企画から投稿前チェックまで", "description": "TikTok向けの縦型動画を、AIを使ってつくる流れをやさしく解説します。企画、台本、素材づくり、編集、投稿前の確認まで、どこにAIを使い、どこを人がやるかがわかります。", "datePublished": "2026-10-19", "dateModified": "2026-10-19", "inLanguage": "ja", "mainEntityOfPage": "https://ai-creator-camp-theta.vercel.app/media/tiktok-ai-douga.html", "image": "https://ai-creator-camp-theta.vercel.app/ogp.png", "author": {"@type": "Person", "name": "つっちー＠結び代表"}, "publisher": {"@type": "Organization", "name": "AIクリエイター", "logo": {"@type": "ImageObject", "url": "https://ai-creator-camp-theta.vercel.app/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "AI×SNS自動化メディア", "item": "https://ai-creator-camp-theta.vercel.app/media/"}, {"@type": "ListItem", "position": 2, "name": "個人向け", "item": "https://ai-creator-camp-theta.vercel.app/media/#kojin"}, {"@type": "ListItem", "position": 3, "name": "TikTok向け縦型動画をAIでつくる流れ｜企画から投稿前チェックまで", "item": "https://ai-creator-camp-theta.vercel.app/media/tiktok-ai-douga.html"}]}</script></head><body><div class="bar"></div>
+<div class="top"><div class="in wide"><a href="/media/">AI×SNS自動化メディア</a><nav><a href="/media/#kojin">個人向け</a><a href="/media/#kigyou">企業向け</a><a href="/sns.html">コース</a><a href="/sns-business.html">法人</a></nav></div></div>
+<main class="in"><div class="crumb"><a href="/media/">メディア</a> › <a href="/media/#kojin">個人向け</a></div>
+<span class="tag">個人向け</span><h1>TikTok向け縦型動画をAIでつくる流れ｜企画から投稿前チェックまで</h1><p class="meta">公開：2026/10/19　文：つっちー＠結び代表</p>
+<article>
+<p>TikTokに動画を出したいけれど、顔出しや撮影がむずかしい。毎回の編集に時間がかかる。そんな悩みに、AIが役立つ場面がふえてきました。ただ、AIに全部をまかせると、伝えたいことがぼやけたり、思わぬトラブルにつながったりします。</p>
+<p>この記事では、縦型動画をつくる流れを順番に見ながら、AIに頼める部分と、人が判断すべき部分を分けて説明します。</p>
+
+<h2>縦型動画づくりの全体の流れ</h2>
+<p>まず、全体の流れをつかみましょう。大きく分けると、次の5つです。</p>
+<ol>
+<li>企画：誰に、何を伝えるかを決める</li>
+<li>台本：話す内容や、画面に出す文字を決める</li>
+<li>素材：映像、画像、声などを用意する</li>
+<li>編集：つなげて、字幕や音を整える</li>
+<li>確認：投稿する前に中身をチェックする</li>
+</ol>
+<p>AIはこのうち、台本、素材、編集の一部で特に力を発揮します。企画と確認は、人が中心になって行うほうが安心です。</p>
+
+<h2>企画は人が決め、AIは案を広げる</h2>
+<p>企画でいちばん大事なのは、「誰に」「何を」伝えるかです。ここがあいまいだと、AIが出す案もぼんやりします。まず自分で、見てほしい人と、伝えたいことを一文で書きましょう。</p>
+<p>そのうえで、AIに案を広げてもらいます。</p>
+<div class="box"><p>見てほしい人：〇〇に悩んでいる人<br>伝えたいこと：〇〇<br>この内容で、短い縦型動画の企画を10個出してください。<br>それぞれ、最初の数秒で見る人の手がとまる「つかみ」の一言もつけてください。</p></div>
+<p>出てきた案の中から、自分が本当に言えることだけを選びます。経験していないことや、根拠のないことを言う企画は外しましょう。</p>
+<p>選んだ企画は、一覧にしておくと便利です。「企画名」「つかみの一言」「状態（未着手・制作中・投稿済み）」の3つを書いておくだけで、次に何をつくればよいかがすぐにわかります。週のはじめに一覧を見て、その週につくる本数を決めておくと、作業の見通しも立てやすくなります。</p>
+
+<h2>台本と素材をAIでつくる</h2>
+<p>企画が決まったら、台本をつくります。縦型動画は短いので、最初のひと言で何の動画かがわかるようにするのが基本です。AIに「話し言葉で」「短い文で」と頼むと、読み上げやすい台本になります。</p>
+<p>素材づくりでは、次のような使い方があります。</p>
+<ul>
+<li><strong>画像</strong>：説明用のイラストや背景をAIでつくる</li>
+<li><strong>声</strong>：台本を読み上げる音声をAIでつくる</li>
+<li><strong>映像</strong>：短い動きのある映像をAIでつくる</li>
+</ul>
+<p>どれも便利ですが、使う前に、そのサービスの利用ルールを確認しましょう。商用で使ってよいか、どこまで加工してよいかは、サービスによってちがいます。また、実在の人の顔や声に似せたもの、他の人の作品に似せたものはつくらないようにします。</p>
+
+<h2>編集は「型」を決めると早い</h2>
+<p>編集では、毎回の形をそろえると作業が早くなります。たとえば、文字の色や位置、字幕の出し方、最初と最後の画面を決めておきます。決まった形があると、見る人にも「この人の動画だ」と覚えてもらいやすくなります。</p>
+<p>字幕づくりにもAIが使えます。音声から文字を起こしてくれる機能を使えば、手で打つ手間が減ります。ただし、聞きまちがいはよくあるので、最後は自分で読み直して直しましょう。</p>
+<div class="tbl"><table><thead><tr><th>作業</th><th>AIに頼めること</th><th>人がやること</th></tr></thead><tbody>
+<tr><td>台本</td><td>下書きを出す</td><td>自分の言葉に直す</td></tr>
+<tr><td>素材</td><td>画像や声をつくる</td><td>利用ルールを確かめる</td></tr>
+<tr><td>字幕</td><td>文字起こし</td><td>まちがいを直す</td></tr>
+<tr><td>説明文</td><td>案を出す</td><td>言いすぎを直す</td></tr>
+</tbody></table></div>
+
+<h2>投稿前に必ず確認すること</h2>
+<p>AIを使った動画ほど、投稿前の確認が大切です。次のチェックリストを使ってみてください。</p>
+<ul class="check">
+<li>事実とちがうこと、言いすぎていることを言っていない</li>
+<li>実在の人や他の人の作品に似せていない</li>
+<li>使った素材の利用ルールを守っている</li>
+<li>AIでつくった映像であることを、必要に応じて示している</li>
+<li>字幕の誤字や聞きまちがいを直した</li>
+<li>音楽は、使ってよいものだけを使っている</li>
+</ul>
+<p>AIでつくった内容をどう示すかは、各サービスのルールが変わることもあります。ときどき公式の案内を見直しておくと安心です。</p>
+
+<h2>はじめての人におすすめの進め方</h2>
+<p>いきなり全部をAIでつくろうとすると、道具の使い方を覚えるだけで疲れてしまいます。はじめは、1つの作業だけAIにまかせるところから始めましょう。</p>
+<ol>
+<li>最初の1週間：台本だけAIに手伝ってもらい、撮影と編集はいつもどおり行う</li>
+<li>次の1週間：字幕づくりにAIの文字起こしを使ってみる</li>
+<li>慣れてきたら：画像や声など、素材づくりにもAIを使ってみる</li>
+</ol>
+<p>少しずつ広げると、どこでAIが役に立ち、どこは自分でやったほうがよいかが自然とわかってきます。また、AIでつくったものと自分で撮ったものを組み合わせると、その人らしさが出やすくなります。すべてをAIにするより、自分の声や手元の映像を少し入れるだけでも、見る人に伝わる温度が変わります。</p>
+
+<h2>まとめ</h2>
+<p>TikTok向けの縦型動画は、AIを使うことで台本、素材、編集の手間を大きく減らせます。ただし、誰に何を伝えるかを決める企画と、投稿前の確認は人の役目です。AIは下書きと素材づくりの係、判断と仕上げは自分。この分担で進めると、無理なく、安心して動画を出し続けられます。</p>
+</article>
+<div class="author"><img src="/profile.jpg" alt="" width="56" height="56" loading="lazy"><div><b>つっちー＠結び代表</b><span>AI Creator Camp 運営。AIと自動化で、自分のThreads・note・YouTubeを毎日回しています。</span></div></div>
+<div class="cta"><b>SNS自動化コース（個人向け）</b><p>半年で、SNSが毎日回る自動化の仕組みを自分の手でつくるコースです。</p><a class="btn" href="/sns.html">SNS自動化コース（個人向け）を見る</a></div>
+<div class="rel"><h2>あわせて読みたい</h2><ul class="list"><li><a href="/media/spreadsheet-sns-toukou.html"><span class="tag">個人向け</span><b>スプレッドシートに書くだけでSNS投稿される仕組みとは｜流れと注意点</b><span class="d">スプレッドシートに投稿文を書くだけで、決めた時間にSNSへ投稿される仕組みを、専門用語を使わずに説明します。全体の流れ、表のつくり方、安全に使うための注意点がわかります。</span></a></li><li><a href="/media/sns-suuji-mikata.html"><span class="tag">個人向け</span><b>SNSの数字の見方｜まず見るべき3つの指標と、ふり返りのやり方</b><span class="d">SNSの数字がたくさんあって何を見ればいいかわからない人へ。まず見るべき3つの指標と、その意味、月に1回のふり返り方を、やさしい言葉で説明します。運営者の実際の数字も紹介します。</span></a></li><li><a href="/media/hitori-kigyou-sns-shuukyaku.html"><span class="tag">個人向け</span><b>ひとり起業のSNS集客を仕組みにする方法｜発信から申し込みまでの流れ</b><span class="d">ひとりで仕事をしている人が、SNS集客を仕組みにする方法を紹介します。発信、信頼づくり、申し込みまでの流れの整え方と、AIや予約投稿の使いどころ、人がやるべきことがわかります。</span></a></li><li><a href="/media/sns-tantousha-futan.html"><span class="tag">企業向け</span><b>SNS担当者の負担を減らす方法｜1人担当・兼任でも続く仕組みづくり</b><span class="d">SNS担当が1人だけ、ほかの仕事と兼任している。そんな会社で担当者の負担を減らす方法を、作業の見える化、まとめて作る工夫、AIの使い方、社内の協力の得方に分けて、やさしく解説します。</span></a></li></ul></div></main><footer><div class="in wide"><a href="/media/">メディアトップ</a><a href="/sns.html">SNS自動化コース（個人）</a><a href="/sns-business.html">企業向けSNS自動化</a><span>運営：AIクリエイター（つっちー＠結び代表）</span></div></footer></body></html>

@@ -1,0 +1,63 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SNSのネタ切れをなくす方法｜ネタが自動で貯まる仕組みのつくり方｜AI×SNS自動化メディア</title><meta name="description" content="毎朝「今日は何を書こう」から始めると続きません。ネタが勝手に貯まる場所をつくり、週1でまとめて見出しだけ決める方法をまとめました。"><meta name="keywords" content="SNS ネタ切れ, 投稿ネタ 出し方, SNS 毎日投稿 ネタ">
+<link rel="canonical" href="https://ai-creator-camp-theta.vercel.app/media/sns-neta-gire.html"><meta property="og:type" content="article"><meta property="og:title" content="SNSのネタ切れをなくす方法｜ネタが自動で貯まる仕組みのつくり方｜AI×SNS自動化メディア"><meta property="og:description" content="毎朝「今日は何を書こう」から始めると続きません。ネタが勝手に貯まる場所をつくり、週1でまとめて見出しだけ決める方法をまとめました。"><meta property="og:url" content="https://ai-creator-camp-theta.vercel.app/media/sns-neta-gire.html"><meta property="og:image" content="https://ai-creator-camp-theta.vercel.app/ogp.png"><meta property="og:site_name" content="AI×SNS自動化メディア｜AI Creator Camp"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon-32.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+:root{--navy:#0D1E36;--paper:#FAFBFD;--card:#FFFFFF;--ink:#0D1E36;--ink2:#4A5872;--line:#DCE3EE;--gold:#A8862B;--gold-l:#E3C15A;--on-navy:#F4F6FA;--on-navy2:#C9D3E3;--grad:linear-gradient(90deg,#F07A96,#F09A5E,#F2CE6A,#35BFF0,#A97BF0);--f:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.95}
+a{color:inherit}.bar{height:6px;background:var(--grad)}
+.in{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wide{max-width:960px}
+.top{background:var(--navy);color:var(--on-navy)}
+.top .in{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;font-size:13px;font-weight:700;letter-spacing:.08em}
+.top a{text-decoration:none;white-space:nowrap}@media (max-width:560px){.top nav a:nth-child(n+3){display:none}}.top nav{display:flex;gap:14px;flex-wrap:wrap}.top nav a{color:var(--on-navy2)}
+.crumb{font-size:12px;color:var(--ink2);padding-block:16px}.crumb a{color:var(--ink2)}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;padding:2px 10px;border-radius:99px;border:1px solid var(--gold);color:var(--gold)}
+h1{font-size:clamp(24px,4.6vw,34px);line-height:1.45;margin:12px 0 8px;text-wrap:balance}
+.meta{font-size:13px;color:var(--ink2)}
+article h2{font-size:clamp(20px,3.4vw,24px);line-height:1.5;margin:44px 0 12px;padding-left:12px;border-left:4px solid var(--gold-l)}
+article h3{font-size:18px;margin:28px 0 6px}
+article p{margin:0 0 16px}article ul,article ol{margin:0 0 16px;padding-left:1.3em}article li{margin-bottom:6px}
+article .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:15px;margin-bottom:16px}
+article .tbl{overflow-x:auto;margin-bottom:16px}article table{border-collapse:collapse;width:100%;min-width:480px;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}article th{background:var(--card)}
+article .check{list-style:none;padding:0}article .check li::before{content:"✓ ";color:var(--gold);font-weight:900}
+.author{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:40px 0 24px}
+.author img{width:56px;height:56px;border-radius:50%;object-fit:cover}.author b{display:block}.author span{font-size:13px;color:var(--ink2)}
+.cta{background:var(--navy);color:var(--on-navy);border-radius:20px;padding:28px;display:grid;gap:12px;margin:24px 0}
+.cta p{color:var(--on-navy2);margin:0}.cta b{font-size:19px}
+.btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:0 26px;border-radius:99px;background:var(--gold-l);color:#0D1E36;font-weight:700;text-decoration:none;justify-self:start}
+.rel h2{font-size:18px;margin:40px 0 12px}
+.list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.list a{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-decoration:none}
+.list a:hover{border-color:var(--gold)}.list .tag{justify-self:start}.list b{font-size:17px;line-height:1.5}.list span.d{font-size:13px;color:var(--ink2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 20px}.tabs a{min-height:40px;display:inline-flex;align-items:center;padding:0 16px;border-radius:99px;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:700}
+.hub-h{padding-block:28px 8px}.hub-h p{color:var(--ink2)}
+section.cat{margin-bottom:36px}section.cat h2{font-size:20px;margin:0 0 12px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-block:24px;font-size:12px;color:var(--ink2)}
+footer .in{display:flex;flex-wrap:wrap;gap:8px 16px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SNSのネタ切れをなくす方法｜ネタが自動で貯まる仕組みのつくり方", "description": "毎朝「今日は何を書こう」から始めると続きません。ネタが勝手に貯まる場所をつくり、週1でまとめて見出しだけ決める方法をまとめました。", "datePublished": "2026-10-19", "dateModified": "2026-10-19", "inLanguage": "ja", "mainEntityOfPage": "https://ai-creator-camp-theta.vercel.app/media/sns-neta-gire.html", "image": "https://ai-creator-camp-theta.vercel.app/ogp.png", "author": {"@type": "Person", "name": "つっちー＠結び代表"}, "publisher": {"@type": "Organization", "name": "AIクリエイター", "logo": {"@type": "ImageObject", "url": "https://ai-creator-camp-theta.vercel.app/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "AI×SNS自動化メディア", "item": "https://ai-creator-camp-theta.vercel.app/media/"}, {"@type": "ListItem", "position": 2, "name": "個人向け", "item": "https://ai-creator-camp-theta.vercel.app/media/#kojin"}, {"@type": "ListItem", "position": 3, "name": "SNSのネタ切れをなくす方法｜ネタが自動で貯まる仕組みのつくり方", "item": "https://ai-creator-camp-theta.vercel.app/media/sns-neta-gire.html"}]}</script></head><body><div class="bar"></div>
+<div class="top"><div class="in wide"><a href="/media/">AI×SNS自動化メディア</a><nav><a href="/media/#kojin">個人向け</a><a href="/media/#kigyou">企業向け</a><a href="/media/#shikumi">仕組み・ツール</a><a href="/sns.html">コース</a></nav></div></div>
+<main class="in"><div class="crumb"><a href="/media/">メディア</a> › <a href="/media/#kojin">個人向け</a></div>
+<span class="tag">個人向け</span><h1>SNSのネタ切れをなくす方法｜ネタが自動で貯まる仕組みのつくり方</h1><p class="meta">公開：2026/10/19　文：つっちー＠結び代表</p>
+<article>
+<p>SNSが続かない理由の多くは「書くのがしんどい」ではなく、<strong>毎回ゼロから考えている</strong>ことにあります。ネタ切れは根性ではなく、置き場所と手順で解決できます。</p>
+<h2>ネタは「探す」ではなく「貯める」</h2>
+<p>ネタを思いつくのは机に向かっているときではありません。人に質問されたとき、うまくいかなかったとき、何かを読んで引っかかったとき。その瞬間にメモへ放り込む場所をひとつだけ決めます。</p>
+<ul><li>聞かれた質問（そのままタイトルになります）</li><li>失敗したこと、やり直したこと</li><li>人に説明して伝わった言い方</li><li>読んで引っかかった記事と、自分の意見</li></ul>
+<div class="box">置き場所は1つに絞るのが重要です。メモアプリ・スプレッドシート・LINEの自分宛てトークなど、いちばん開く場所に統一します。</div>
+<h2>週1回、見出しだけ10本決める</h2>
+<p>溜めたメモを週に1回だけ見返し、その週に出す投稿の<strong>見出しだけ</strong>を決めます。本文は書きません。見出しが決まっていれば本文は10分で書けますが、見出しが無い状態だと30分かけても出ません。</p>
+<h2>ネタの型をいくつか持っておく</h2>
+<ul><li>失敗型：やったこと → つまずいた点 → 分かったこと</li><li>質問型：もらった質問 → 前提の整理 → 答え</li><li>比較型：AとB → どちらを選ぶか → 基準</li><li>手順型：結論 → 必要なもの → 3〜5ステップ</li></ul>
+<p>同じ出来事でも、どの型に入れるかで別の投稿になります。ネタの数が足りないのではなく、1つのネタを使い切れていないことのほうが多いです。</p>
+<h2>AIに任せられるところ</h2>
+<p>貯めたメモを渡して「この中から今週出す候補を10個、見出しの形で」と頼むと、候補出しの時間はほぼゼロになります。ただし選ぶのは自分です。自分が話したいと思えないネタは、書いても伝わりません。</p>
+<h2>まとめ</h2>
+<p>ネタ切れは、記憶力の問題ではなく保存の問題です。貯める場所を決める、週1で見出しにする、型に入れる。この3つで「何を書こう」で止まる時間が消えます。</p>
+</article>
+<div class="author"><img src="/profile.jpg" alt="" width="56" height="56" loading="lazy"><div><b>つっちー＠結び代表</b><span>AI Creator Camp 運営。AIと自動化で、自分のThreads・note・YouTubeを毎日回しています。</span></div></div>
+<div class="cta"><b>AI×SNS自動化コース（個人向け）</b><p>半年で、SNSが毎日回る自動化の仕組みを自分の手でつくるコースです。</p><a class="btn" href="/sns.html">コースの中身を見る</a></div>
+<div class="rel"><h2>あわせて読みたい</h2><ul class="list"><li><a href="/media/sns-jidouka-hajimekata.html"><span class="tag">個人向け</span><b>SNS自動化とは？個人が毎日投稿をAIで回す仕組みのつくり方</b><span class="d">SNS自動化とは、投稿を「つくる・出す・測る」をAIと予約投稿で回すこと。個人が毎日投稿を無理なく続けるための始め方を、3ステップでやさしく解説します。</span></a></li><li><a href="/media/threads-mainichi-toukou.html"><span class="tag">個人向け</span><b>Threadsで毎日投稿を続けるコツ｜AIでネタ出しと予約投稿を回す方法</b><span class="d">Threadsで毎日投稿を続けるには、ネタ出しと予約投稿を仕組みにするのが近道。AIを使った投稿づくりの流れと、運営者のアカウントで閲覧数が伸びた実例を紹介します。</span></a></li><li><a href="/media/kigyou-sns-jidouka.html"><span class="tag">企業向け</span><b>企業のSNS運用を自動化する方法｜担当者の手作業を減らす5ステップ</b><span class="d">企業のSNS運用が担当者の手作業で止まっていませんか。AIと予約投稿で「つくる・出す・測る」を自動化し、確認フローを残したまま回す5ステップを解説します。</span></a></li></ul></div></main><footer><div class="in wide"><a href="/media/">メディアトップ</a><a href="/sns.html">AI×SNS自動化コース（個人）</a><a href="/sns-business.html">企業向け</a><span>運営：AIクリエイター（つっちー＠結び代表）</span></div></footer></body></html>

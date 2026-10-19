@@ -1,0 +1,117 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SNS運用マニュアルの作り方｜属人化を防いで担当交代でも止めない｜AI×SNS自動化メディア</title><meta name="description" content="SNS運用が特定の担当者だけに頼りきりになる「属人化」を防ぐために、運用マニュアルに入れる項目と作り方を解説します。アカウント管理、投稿の手順、確認、トラブル対応まで、すぐ使える形で紹介します。"><meta name="keywords" content="SNS運用マニュアル,SNS 属人化,SNS 引き継ぎ,SNS運用ルール 作り方">
+<link rel="canonical" href="https://ai-creator-camp-theta.vercel.app/media/sns-unyou-manual.html"><meta property="og:type" content="article"><meta property="og:title" content="SNS運用マニュアルの作り方｜属人化を防いで担当交代でも止めない｜AI×SNS自動化メディア"><meta property="og:description" content="SNS運用が特定の担当者だけに頼りきりになる「属人化」を防ぐために、運用マニュアルに入れる項目と作り方を解説します。アカウント管理、投稿の手順、確認、トラブル対応まで、すぐ使える形で紹介します。"><meta property="og:url" content="https://ai-creator-camp-theta.vercel.app/media/sns-unyou-manual.html"><meta property="og:image" content="https://ai-creator-camp-theta.vercel.app/ogp.png"><meta property="og:site_name" content="AI×SNS自動化メディア｜AI Creator Camp"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon-32.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+:root{--navy:#0D1E36;--paper:#FAFBFD;--card:#FFFFFF;--ink:#0D1E36;--ink2:#4A5872;--line:#DCE3EE;--gold:#A8862B;--gold-l:#E3C15A;--on-navy:#F4F6FA;--on-navy2:#C9D3E3;--grad:linear-gradient(90deg,#F07A96,#F09A5E,#F2CE6A,#35BFF0,#A97BF0);--f:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.95}
+a{color:inherit}.bar{height:6px;background:var(--grad)}
+.in{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wide{max-width:960px}
+.top{background:var(--navy);color:var(--on-navy)}
+.top .in{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;font-size:13px;font-weight:700;letter-spacing:.08em}
+.top a{text-decoration:none;white-space:nowrap}@media (max-width:560px){.top nav a:nth-child(n+3){display:none}}.top nav{display:flex;gap:14px;flex-wrap:wrap}.top nav a{color:var(--on-navy2)}
+.crumb{font-size:12px;color:var(--ink2);padding-block:16px}.crumb a{color:var(--ink2)}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;padding:2px 10px;border-radius:99px;border:1px solid var(--gold);color:var(--gold)}
+h1{font-size:clamp(24px,4.6vw,34px);line-height:1.45;margin:12px 0 8px;text-wrap:balance}
+.meta{font-size:13px;color:var(--ink2)}
+article h2{font-size:clamp(20px,3.4vw,24px);line-height:1.5;margin:44px 0 12px;padding-left:12px;border-left:4px solid var(--gold-l)}
+article h3{font-size:18px;margin:28px 0 6px}
+article p{margin:0 0 16px}article ul,article ol{margin:0 0 16px;padding-left:1.3em}article li{margin-bottom:6px}
+article .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:15px;margin-bottom:16px}
+article .tbl{overflow-x:auto;margin-bottom:16px}article table{border-collapse:collapse;width:100%;min-width:480px;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}article th{background:var(--card)}
+article .check{list-style:none;padding:0}article .check li::before{content:"✓ ";color:var(--gold);font-weight:900}
+.author{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:40px 0 24px}
+.author img{width:56px;height:56px;border-radius:50%;object-fit:cover}.author b{display:block}.author span{font-size:13px;color:var(--ink2)}
+.cta{background:var(--navy);color:var(--on-navy);border-radius:20px;padding:28px;display:grid;gap:12px;margin:24px 0}
+.cta p{color:var(--on-navy2);margin:0}.cta b{font-size:19px}
+.btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:0 26px;border-radius:99px;background:var(--gold-l);color:#0D1E36;font-weight:700;text-decoration:none;justify-self:start}
+.rel h2{font-size:18px;margin:40px 0 12px}
+.list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.list a{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-decoration:none}
+.list a:hover{border-color:var(--gold)}.list .tag{justify-self:start}.list b{font-size:17px;line-height:1.5}.list span.d{font-size:13px;color:var(--ink2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 20px}.tabs a{min-height:40px;display:inline-flex;align-items:center;padding:0 16px;border-radius:99px;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:700}
+.hub-h{padding-block:28px 8px}.hub-h p{color:var(--ink2)}
+section.cat{margin-bottom:36px}section.cat h2{font-size:20px;margin:0 0 12px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-block:24px;font-size:12px;color:var(--ink2)}
+footer .in{display:flex;flex-wrap:wrap;gap:8px 16px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SNS運用マニュアルの作り方｜属人化を防いで担当交代でも止めない", "description": "SNS運用が特定の担当者だけに頼りきりになる「属人化」を防ぐために、運用マニュアルに入れる項目と作り方を解説します。アカウント管理、投稿の手順、確認、トラブル対応まで、すぐ使える形で紹介します。", "datePublished": "2026-10-19", "dateModified": "2026-10-19", "inLanguage": "ja", "mainEntityOfPage": "https://ai-creator-camp-theta.vercel.app/media/sns-unyou-manual.html", "image": "https://ai-creator-camp-theta.vercel.app/ogp.png", "author": {"@type": "Person", "name": "つっちー＠結び代表"}, "publisher": {"@type": "Organization", "name": "AIクリエイター", "logo": {"@type": "ImageObject", "url": "https://ai-creator-camp-theta.vercel.app/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "AI×SNS自動化メディア", "item": "https://ai-creator-camp-theta.vercel.app/media/"}, {"@type": "ListItem", "position": 2, "name": "企業向け", "item": "https://ai-creator-camp-theta.vercel.app/media/#kigyou"}, {"@type": "ListItem", "position": 3, "name": "SNS運用マニュアルの作り方｜属人化を防いで担当交代でも止めない", "item": "https://ai-creator-camp-theta.vercel.app/media/sns-unyou-manual.html"}]}</script></head><body><div class="bar"></div>
+<div class="top"><div class="in wide"><a href="/media/">AI×SNS自動化メディア</a><nav><a href="/media/#kojin">個人向け</a><a href="/media/#kigyou">企業向け</a><a href="/sns.html">コース</a><a href="/sns-business.html">法人</a></nav></div></div>
+<main class="in"><div class="crumb"><a href="/media/">メディア</a> › <a href="/media/#kigyou">企業向け</a></div>
+<span class="tag">企業向け</span><h1>SNS運用マニュアルの作り方｜属人化を防いで担当交代でも止めない</h1><p class="meta">公開：2026/10/19　文：つっちー＠結び代表</p>
+<article>
+<p>「SNSのことは、あの人しかわからない」。そんな状態になっていませんか。担当者が休んだり、異動したり、退職したりした瞬間に、投稿が止まってしまう。これを「属人化（ぞくじんか）」といいます。特定の人に仕事が頼りきりになっている状態のことです。</p>
+<p>属人化を防ぐいちばんの方法は、運用のやり方を文章に残すことです。つまり、SNS運用マニュアルをつくることです。</p>
+<p>この記事では、マニュアルに入れておきたい項目と、無理なくつくるコツを紹介します。</p>
+
+<h2>SNS運用マニュアルが必要な理由</h2>
+<p>SNSの運用には、目に見えない「やり方」がたくさんあります。どんな言葉づかいで書くか、どんな写真は使わないか、だれに確認をとるか。担当者の頭の中にしかないこうした決まりごとは、引き継ぎのときに抜け落ちやすいものです。</p>
+<p>マニュアルがあると、次のようなよいことがあります。</p>
+<ul>
+<li>担当者が変わっても、同じ品質で続けられる</li>
+<li>新しく入った人が早く慣れる</li>
+<li>「これは投稿してよいか」と迷う時間が減る</li>
+<li>トラブルのときに、あわてずに動ける</li>
+</ul>
+<p>完璧なものを目指す必要はありません。まずは今のやり方を書き出すことから始めましょう。</p>
+
+<h2>マニュアルに入れる基本の項目</h2>
+<p>SNS運用マニュアルには、次のような項目を入れておくと安心です。</p>
+<div class="tbl"><table><thead><tr><th>項目</th><th>書いておく内容</th></tr></thead><tbody>
+<tr><td>目的とターゲット</td><td>何のために、だれに向けて発信するか</td></tr>
+<tr><td>アカウント情報の管理</td><td>どのアカウントがあるか、管理者はだれか、ログイン情報の保管場所</td></tr>
+<tr><td>発信のトーン</td><td>言葉づかい、絵文字の使い方、呼びかけ方</td></tr>
+<tr><td>投稿してよいこと・しないこと</td><td>出してよいテーマ、出さない情報</td></tr>
+<tr><td>投稿の手順</td><td>作る、確認する、予約するまでの流れ</td></tr>
+<tr><td>コメント対応</td><td>返信の基本、返さないケース、相談先</td></tr>
+<tr><td>トラブル時の対応</td><td>誤投稿、批判が集まったときの連絡の流れ</td></tr>
+<tr><td>ふり返りのやり方</td><td>見る数字、まとめる時期</td></tr>
+</tbody></table></div>
+<p>パスワードそのものをマニュアルに書くのは避けましょう。「どこに保管しているか」「だれが管理しているか」だけを書いておくのが安全です。</p>
+
+<h2>投稿の手順は「だれが・何を・いつ」で書く</h2>
+<p>マニュアルの中でいちばんよく使うのが、投稿の手順です。ここはできるだけ具体的に書きましょう。</p>
+<div class="box"><p>【投稿手順の書き方の例】<br>1. 毎週月曜：担当者がネタ帳から今週の投稿を3本選ぶ<br>2. 月曜〜火曜：担当者が下書きをつくる（AIを使う場合も、事実は担当者が入れる）<br>3. 水曜まで：確認者が内容をチェックする<br>4. 木曜：確認ずみの投稿だけを予約投稿に入れる<br>5. 投稿後：コメントがあれば担当者が当日中に確認する</p></div>
+<p>「だれが」「何を」「いつまでに」を書くと、読んだ人がそのまま動けます。AIで下書きをつくる場合でも、最後は必ず人が確認する、という決まりをここに入れておきましょう。</p>
+
+<h2>迷いやすいところは「例」を入れる</h2>
+<p>ルールだけを書いても、実際の場面ではどうすればよいか迷うことがあります。そこで、よい例とさけたい例をセットにしておくとわかりやすくなります。</p>
+<ul class="check">
+<li>書き出しの一文のよい例</li>
+<li>使わない言い回しの例（強すぎる表現、誤解をまねく表現など）</li>
+<li>写真で気をつけること（写りこんだ書類、ほかのお客さまの顔など）</li>
+<li>よくあるコメントへの返信の例</li>
+</ul>
+<p>例は、実際に投稿したものから選ぶのがおすすめです。自社らしさが伝わりやすく、新しい担当者もイメージしやすくなります。</p>
+
+<h2>マニュアルを「使われるもの」にするコツ</h2>
+<p>せっかくつくったマニュアルも、だれも開かなければ意味がありません。使われるマニュアルにするためのコツを紹介します。</p>
+<h3>短く、見やすくする</h3>
+<p>長い文章より、箇条書きや表のほうが読まれます。1つの項目は短くまとめましょう。</p>
+<h3>みんなが見られる場所に置く</h3>
+<p>担当者のパソコンの中だけにあると、属人化はなくなりません。社内の共有フォルダなど、関係者がいつでも見られる場所に置きます。</p>
+<h3>定期的に見直す</h3>
+<p>SNSの機能や会社の方針は変わります。半年に1回など、見直す時期を決めておきましょう。変えた日と内容をメモしておくと、あとから確認しやすくなります。</p>
+<h3>実際に別の人が使ってみる</h3>
+<p>つくった人以外がマニュアルだけを見て投稿してみると、足りないところがよくわかります。引き継ぎの前に一度ためしておくと安心です。</p>
+
+<h3>最初は1枚から始める</h3>
+<p>いきなり全部の項目を書こうとすると、手が止まってしまいます。最初は「アカウント情報の保管場所」「投稿の手順」「困ったときの相談先」の3つだけを1枚にまとめるところから始めましょう。それだけでも、急に担当者が休んだときに、ほかの人が動けるようになります。足りないところは、運用しながら少しずつ書き足していけば大丈夫です。</p>
+
+<h2>まとめ</h2>
+<p>SNS運用マニュアルは、担当者が変わっても運用を止めないための大切な道具です。</p>
+<ul>
+<li>目的、アカウント管理、トーン、投稿の手順、トラブル対応を入れる</li>
+<li>パスワードは書かず、保管場所と管理者だけを書く</li>
+<li>手順は「だれが・何を・いつ」で具体的に書く</li>
+<li>よい例とさけたい例をセットにする</li>
+<li>共有の場所に置き、定期的に見直す</li>
+</ul>
+<p>社内でマニュアルを育てていける人をつくりたい場合は担当者向けの研修、手順やマニュアルをふくめた仕組みをまとめて用意してほしい場合は構築代行、という進め方もあります。</p>
+</article>
+<div class="author"><img src="/profile.jpg" alt="" width="56" height="56" loading="lazy"><div><b>つっちー＠結び代表</b><span>AI Creator Camp 運営。AIと自動化で、自分のThreads・note・YouTubeを毎日回しています。</span></div></div>
+<div class="cta"><b>企業向けSNS自動化（研修・構築代行）</b><p>御社のSNSを、AIで自動で回す。社員研修と構築代行、まずは30分の無料相談から。</p><a class="btn" href="/sns-business.html">企業向けSNS自動化（研修・構築代行）を見る</a></div>
+<div class="rel"><h2>あわせて読みたい</h2><ul class="list"><li><a href="/media/kigyou-sns-ai-chuui.html"><span class="tag">企業向け</span><b>企業がAIでSNS投稿をつくるときの注意点｜規約・確認フロー・炎上対策</b><span class="d">企業がAIでSNS投稿をつくるときに気をつけたいことを、規約、確認フロー、情報の扱い、炎上対策の4つの観点から整理しました。安心して自動化を進めるためのチェックリスト付き。</span></a></li><li><a href="/media/sns-tantousha-futan.html"><span class="tag">企業向け</span><b>SNS担当者の負担を減らす方法｜1人担当・兼任でも続く仕組みづくり</b><span class="d">SNS担当が1人だけ、ほかの仕事と兼任している。そんな会社で担当者の負担を減らす方法を、作業の見える化、まとめて作る工夫、AIの使い方、社内の協力の得方に分けて、やさしく解説します。</span></a></li><li><a href="/media/saiyou-sns-jidouka.html"><span class="tag">企業向け</span><b>採用SNSの運用を自動化する方法｜少人数でも続ける手順と注意点</b><span class="d">採用のためのSNSを少ない人数で続けるには、どこを自動化し、どこを人がやるべきか。発信の目的の決め方から、投稿づくりの仕組み化、応募者とのやりとりの注意点まで、わかりやすく解説します。</span></a></li><li><a href="/media/youtube-shorts-mainichi.html"><span class="tag">個人向け</span><b>YouTubeショートを毎日出す仕組みのつくり方｜ネタ・撮影・予約の流れ</b><span class="d">YouTubeショートを毎日出したいけれど時間がない人へ。ネタのストック、型を使ったまとめ撮り、予約公開までを一つの流れにする方法を、やさしい言葉で順番に説明します。</span></a></li></ul></div></main><footer><div class="in wide"><a href="/media/">メディアトップ</a><a href="/sns.html">SNS自動化コース（個人）</a><a href="/sns-business.html">企業向けSNS自動化</a><span>運営：AIクリエイター（つっちー＠結び代表）</span></div></footer></body></html>

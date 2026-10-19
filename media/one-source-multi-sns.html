@@ -1,0 +1,109 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>1つのネタを複数のSNSに展開する方法｜書き直しのコツと順番｜AI×SNS自動化メディア</title><meta name="description" content="1つのネタをThreads、Instagram、noteなど複数のSNSに展開する方法を解説。元になる素材のつくり方、SNSごとの書き直しのコツ、展開の順番、やりすぎないための注意点までまとめました。"><meta name="keywords" content="SNS 使い回し,複数SNS 展開,ワンソース マルチユース,SNS 投稿 ネタ">
+<link rel="canonical" href="https://ai-creator-camp-theta.vercel.app/media/one-source-multi-sns.html"><meta property="og:type" content="article"><meta property="og:title" content="1つのネタを複数のSNSに展開する方法｜書き直しのコツと順番｜AI×SNS自動化メディア"><meta property="og:description" content="1つのネタをThreads、Instagram、noteなど複数のSNSに展開する方法を解説。元になる素材のつくり方、SNSごとの書き直しのコツ、展開の順番、やりすぎないための注意点までまとめました。"><meta property="og:url" content="https://ai-creator-camp-theta.vercel.app/media/one-source-multi-sns.html"><meta property="og:image" content="https://ai-creator-camp-theta.vercel.app/ogp.png"><meta property="og:site_name" content="AI×SNS自動化メディア｜AI Creator Camp"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon-32.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+:root{--navy:#0D1E36;--paper:#FAFBFD;--card:#FFFFFF;--ink:#0D1E36;--ink2:#4A5872;--line:#DCE3EE;--gold:#A8862B;--gold-l:#E3C15A;--on-navy:#F4F6FA;--on-navy2:#C9D3E3;--grad:linear-gradient(90deg,#F07A96,#F09A5E,#F2CE6A,#35BFF0,#A97BF0);--f:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0B1628;--card:#13233D;--ink:#EEF2F8;--ink2:#A9B5C9;--line:#22324D;--gold:#E3C15A;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.95}
+a{color:inherit}.bar{height:6px;background:var(--grad)}
+.in{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wide{max-width:960px}
+.top{background:var(--navy);color:var(--on-navy)}
+.top .in{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;font-size:13px;font-weight:700;letter-spacing:.08em}
+.top a{text-decoration:none;white-space:nowrap}@media (max-width:560px){.top nav a:nth-child(n+3){display:none}}.top nav{display:flex;gap:14px;flex-wrap:wrap}.top nav a{color:var(--on-navy2)}
+.crumb{font-size:12px;color:var(--ink2);padding-block:16px}.crumb a{color:var(--ink2)}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;padding:2px 10px;border-radius:99px;border:1px solid var(--gold);color:var(--gold)}
+h1{font-size:clamp(24px,4.6vw,34px);line-height:1.45;margin:12px 0 8px;text-wrap:balance}
+.meta{font-size:13px;color:var(--ink2)}
+article h2{font-size:clamp(20px,3.4vw,24px);line-height:1.5;margin:44px 0 12px;padding-left:12px;border-left:4px solid var(--gold-l)}
+article h3{font-size:18px;margin:28px 0 6px}
+article p{margin:0 0 16px}article ul,article ol{margin:0 0 16px;padding-left:1.3em}article li{margin-bottom:6px}
+article .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:15px;margin-bottom:16px}
+article .tbl{overflow-x:auto;margin-bottom:16px}article table{border-collapse:collapse;width:100%;min-width:480px;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}article th{background:var(--card)}
+article .check{list-style:none;padding:0}article .check li::before{content:"✓ ";color:var(--gold);font-weight:900}
+.author{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:40px 0 24px}
+.author img{width:56px;height:56px;border-radius:50%;object-fit:cover}.author b{display:block}.author span{font-size:13px;color:var(--ink2)}
+.cta{background:var(--navy);color:var(--on-navy);border-radius:20px;padding:28px;display:grid;gap:12px;margin:24px 0}
+.cta p{color:var(--on-navy2);margin:0}.cta b{font-size:19px}
+.btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:0 26px;border-radius:99px;background:var(--gold-l);color:#0D1E36;font-weight:700;text-decoration:none;justify-self:start}
+.rel h2{font-size:18px;margin:40px 0 12px}
+.list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.list a{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-decoration:none}
+.list a:hover{border-color:var(--gold)}.list .tag{justify-self:start}.list b{font-size:17px;line-height:1.5}.list span.d{font-size:13px;color:var(--ink2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 20px}.tabs a{min-height:40px;display:inline-flex;align-items:center;padding:0 16px;border-radius:99px;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:700}
+.hub-h{padding-block:28px 8px}.hub-h p{color:var(--ink2)}
+section.cat{margin-bottom:36px}section.cat h2{font-size:20px;margin:0 0 12px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-block:24px;font-size:12px;color:var(--ink2)}
+footer .in{display:flex;flex-wrap:wrap;gap:8px 16px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "1つのネタを複数のSNSに展開する方法｜書き直しのコツと順番", "description": "1つのネタをThreads、Instagram、noteなど複数のSNSに展開する方法を解説。元になる素材のつくり方、SNSごとの書き直しのコツ、展開の順番、やりすぎないための注意点までまとめました。", "datePublished": "2026-10-19", "dateModified": "2026-10-19", "inLanguage": "ja", "mainEntityOfPage": "https://ai-creator-camp-theta.vercel.app/media/one-source-multi-sns.html", "image": "https://ai-creator-camp-theta.vercel.app/ogp.png", "author": {"@type": "Person", "name": "つっちー＠結び代表"}, "publisher": {"@type": "Organization", "name": "AIクリエイター", "logo": {"@type": "ImageObject", "url": "https://ai-creator-camp-theta.vercel.app/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "AI×SNS自動化メディア", "item": "https://ai-creator-camp-theta.vercel.app/media/"}, {"@type": "ListItem", "position": 2, "name": "個人向け", "item": "https://ai-creator-camp-theta.vercel.app/media/#kojin"}, {"@type": "ListItem", "position": 3, "name": "1つのネタを複数のSNSに展開する方法｜書き直しのコツと順番", "item": "https://ai-creator-camp-theta.vercel.app/media/one-source-multi-sns.html"}]}</script></head><body><div class="bar"></div>
+<div class="top"><div class="in wide"><a href="/media/">AI×SNS自動化メディア</a><nav><a href="/media/#kojin">個人向け</a><a href="/media/#kigyou">企業向け</a><a href="/sns.html">コース</a><a href="/sns-business.html">法人</a></nav></div></div>
+<main class="in"><div class="crumb"><a href="/media/">メディア</a> › <a href="/media/#kojin">個人向け</a></div>
+<span class="tag">個人向け</span><h1>1つのネタを複数のSNSに展開する方法｜書き直しのコツと順番</h1><p class="meta">公開：2026/10/19　文：つっちー＠結び代表</p>
+<article>
+<p>SNSを複数やっていると、「全部に別々のネタを考えるのは大変」と感じることがあります。そんなときに役立つのが、1つのネタを複数のSNSに展開する方法です。</p>
+<p>1つの素材を、いろいろな形で使い回す考え方を「ワンソース・マルチユース」といいます。同じ内容をそのまま貼るのではなく、SNSごとに合う形に書き直すのがポイントです。</p>
+<p>この記事では、その手順とコツをまとめます。</p>
+
+<h2>まず「元になる素材」をつくる</h2>
+<p>展開の出発点になるのが、元になる素材です。いちばんくわしく書いたものを1つ用意します。</p>
+<ul>
+<li>noteやブログの記事</li>
+<li>話したことの文字起こし</li>
+<li>日々のメモをまとめたもの</li>
+</ul>
+<p>元の素材がしっかりしていると、そこから短い投稿をいくつも切り出せます。逆に、短い投稿から長い記事をつくるのは大変です。長いものから短いものへ、が基本の流れです。</p>
+<div class="box"><p>【元の素材に入れておくとよいこと】<br>・伝えたいこと（結論）<br>・そう思った理由<br>・具体的な場面や方法<br>・読んだ人ができる小さな行動</p></div>
+
+<h2>SNSごとに合う形に書き直す</h2>
+<p>SNSにはそれぞれ、見られ方のちがいがあります。同じ内容でも、形を変えると伝わりやすくなります。</p>
+<div class="tbl"><table><thead><tr><th>場所</th><th>向いている形</th><th>書き直しのコツ</th></tr></thead><tbody>
+<tr><td>note・ブログ</td><td>長い文章</td><td>元の素材そのもの。理由や方法をしっかり書く</td></tr>
+<tr><td>Threads・X</td><td>短い文章</td><td>結論を1つにしぼる。1投稿1テーマ</td></tr>
+<tr><td>Instagram</td><td>画像・まとめ</td><td>要点を数枚の画像に。文字は少なめ</td></tr>
+<tr><td>公式LINE</td><td>お知らせ・続き</td><td>SNSで反応があった話を、少しくわしく</td></tr>
+</tbody></table></div>
+<p>短い文章のSNSでは、元の素材から「一番伝えたい1文」を取り出します。1つの記事から、ちがう切り口の短い投稿をいくつかつくることもできます。</p>
+
+<h2>AIを使って書き直す</h2>
+<p>書き直しの作業は、AIが得意な所です。元の素材を渡して、SNSに合う形にしてもらいます。</p>
+<div class="box"><p>【指示の例】<br>次の記事をもとに、Threads用の短い投稿を3つつくってください。<br>・それぞれちがう切り口にする<br>・1投稿に伝えることは1つ<br>・記事にない話は足さない<br>記事：（ここに貼る）</p></div>
+<p>「記事にない話は足さない」と入れておくと、AIが勝手に話を作るのを防げます。できた下書きは、自分の言葉になっているか読んで直してから投稿しましょう。</p>
+
+<h2>展開の順番を決める</h2>
+<p>どの順番で出すかを決めておくと、毎回迷わずにすみます。たとえば、こんな流れがあります。</p>
+<ol>
+<li>noteに記事を書く</li>
+<li>記事の要点を、Threadsで短く投稿する</li>
+<li>反応がよかった話を、Instagramの画像にまとめる</li>
+<li>もう少し深い話を、公式LINEで届ける</li>
+</ol>
+<p>反対に、短い投稿で反応を見てから、反応がよかったものを長い記事にする順番もあります。自分が続けやすい方を選んでください。</p>
+<p>参考までに、運営者（つっちー）の個人アカウントでは、こうした発信を続ける中で、Threadsの閲覧数（1ヶ月）が4,000回から27.2万回に、noteの表示回数（28日間）が200回から16,213回になりました（2026年10月時点）。数字はアカウントや時期によって変わり、同じ結果を約束するものではありません。</p>
+
+<h2>やりすぎないための注意</h2>
+<p>使い回しは便利ですが、やり方を間違えると逆効果になることもあります。</p>
+<ul class="check">
+<li>同じ文をそのまま全部のSNSに貼らない</li>
+<li>同じSNSで、同じ内容を何度もくり返さない</li>
+<li>SNSごとの雰囲気に合わせて言い方を変える</li>
+<li>複数のSNSでフォローしてくれている人が、飽きない工夫をする</li>
+</ul>
+<p>複数のSNSでフォローしてくれている人もいます。どこを見ても同じ文だと、少しがっかりされます。切り口や形を変えて、それぞれの場所で新しく感じてもらえるようにしましょう。</p>
+
+<h2>まとめ</h2>
+<p>1つのネタを複数のSNSに展開すると、ネタ探しの手間が減り、発信を続けやすくなります。大事なのは、そのまま貼るのではなく、合う形に書き直すことです。</p>
+<ul class="check">
+<li>まず、いちばんくわしい元の素材をつくる</li>
+<li>長いものから短いものへ切り出す</li>
+<li>SNSごとに形と言い方を変える</li>
+<li>AIで書き直すときは「話を足さない」と伝える</li>
+<li>展開の順番を決めておく</li>
+</ul>
+<p>まずは、最近書いた記事を1つ選んで、短い投稿を3つつくってみてください。</p>
+</article>
+<div class="author"><img src="/profile.jpg" alt="" width="56" height="56" loading="lazy"><div><b>つっちー＠結び代表</b><span>AI Creator Camp 運営。AIと自動化で、自分のThreads・note・YouTubeを毎日回しています。</span></div></div>
+<div class="cta"><b>SNS自動化コース（個人向け）</b><p>半年で、SNSが毎日回る自動化の仕組みを自分の手でつくるコースです。</p><a class="btn" href="/sns.html">SNS自動化コース（個人向け）を見る</a></div>
+<div class="rel"><h2>あわせて読みたい</h2><ul class="list"><li><a href="/media/ai-gazou-sns.html"><span class="tag">個人向け</span><b>AI画像生成をSNSに使うコツと注意点｜投稿画像を作る前に知ること</b><span class="d">AI画像生成をSNS投稿に使うときのコツと注意点をやさしく解説。向いている使い方と向かない使い方、指示の出し方、統一感の出し方、権利や見る人への配慮まで、使う前に知っておきたいことをまとめました。</span></a></li><li><a href="/media/sns-jidouka-faq.html"><span class="tag">個人向け</span><b>SNS自動化のよくある質問Q&amp;A｜始める前の疑問10個にやさしく回答</b><span class="d">SNS自動化について、よくある質問を10個えらんでやさしく答えました。どこまで自動にしてよいか、アカウントが止められないか、AIの文章はばれるか、何から始めるかなど、始める前の疑問をまとめています。</span></a></li><li><a href="/media/sns-jidouka-hajimekata.html"><span class="tag">個人向け</span><b>SNS自動化とは？個人が毎日投稿をAIで回す仕組みのつくり方</b><span class="d">SNS自動化とは、投稿を「つくる・出す・測る」をAIと予約投稿で回すこと。個人が毎日投稿を無理なく続けるための始め方を、3ステップでやさしく解説します。</span></a></li><li><a href="/media/kigyou-sns-ai-chuui.html"><span class="tag">企業向け</span><b>企業がAIでSNS投稿をつくるときの注意点｜規約・確認フロー・炎上対策</b><span class="d">企業がAIでSNS投稿をつくるときに気をつけたいことを、規約、確認フロー、情報の扱い、炎上対策の4つの観点から整理しました。安心して自動化を進めるためのチェックリスト付き。</span></a></li></ul></div></main><footer><div class="in wide"><a href="/media/">メディアトップ</a><a href="/sns.html">SNS自動化コース（個人）</a><a href="/sns-business.html">企業向けSNS自動化</a><span>運営：AIクリエイター（つっちー＠結び代表）</span></div></footer></body></html>
