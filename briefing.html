@@ -151,6 +151,12 @@ input:focus{border-color:var(--cyan);background:#fff;box-shadow:0 0 0 4px rgba(5
 .err.on{display:block}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
+.giftbox{margin-top:22px;padding:22px 20px;border-radius:var(--r);background:linear-gradient(135deg,rgba(240,122,150,.10),rgba(242,206,106,.10) 40%,rgba(53,191,240,.10) 70%,rgba(169,123,240,.12));display:flex;flex-direction:column;gap:8px}
+.giftbox .lb{font-size:11px;letter-spacing:.24em;color:#A97BF0;font-weight:900}
+.giftbox b{font-size:17px;color:var(--ink)}
+.giftbox p{margin:0!important}
+.giftbtn{display:block;text-align:center;margin-top:6px;background:var(--ink);color:#fff;font-weight:900;font-size:16px;padding:16px;border-radius:999px;text-decoration:none}
+.giftbtn:hover{opacity:.9}
 /* 完了画面 */
 #done{display:none}
 #done.on{display:block}
@@ -363,6 +369,14 @@ footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;font-size
       <div class="warnbox">
         表示名は、お申し込みのときのお名前にしていただけると助かります。どなたが来られるか分かるようにするためです。あとから変更できます。
       </div>
+
+      <div class="giftbox">
+        <span class="lb">PRESENT</span>
+        <b>お申し込み特典：SNS発信タイプ診断</b>
+        <p>12問・約1分で、あなたに合う発信のかたちと向いているSNSがわかります。説明会の前にやっておくと、当日の話がぐっと具体的になります。</p>
+        <a href="/sns-shindan.html" target="_blank" rel="noopener" class="giftbtn">診断をうけとる　→</a>
+      </div>
+
 
       <p style="margin-top:18px;font-size:13px;color:var(--ink-soft)">
         都合が変わった場合は、届いたメールにそのまま返信してください。別の木曜に振り替えます。

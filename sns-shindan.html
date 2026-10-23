@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="12問に答えるだけ。8タイプから、あなたの発信スタイルと向いているSNSがわかります。AI Creator Camp の特典。">
+<meta property="og:title" content="SNS発信タイプ診断">
+<meta property="og:description" content="12問・約1分。あなたに合う発信のかたちと、向いているSNSがわかります。">
+<meta property="og:type" content="website">
+<link rel="icon" href="/mark.png">
+<title>SNS発信タイプ診断</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: 1カラム。表紙 → 12問 → 結果。白基調＋紺＋虹グラデ（AI Creator Camp の配色） */
+:root{
+  --bg:#ffffff; --panel:#f6f8fc; --line:#e3e8f1; --fg:#0D1E36; --mute:#5d6b80;
+  --navy:#0D1E36;
+  --rainbow:linear-gradient(90deg,#F07A96,#F09A5E,#F2CE6A,#35BFF0,#A97BF0);
+  --pink:#F07A96; --blue:#35BFF0; --violet:#A97BF0;
+  --display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+html,body{background:var(--bg);color:var(--fg)}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:15px;line-height:1.8;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+body::after{content:"";position:fixed;left:0;right:0;top:0;height:4px;background:var(--rainbow);z-index:5}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;line-height:1.4}
+p{margin:0}
+.eyebrow{font-family:var(--display);font-size:11px;letter-spacing:.24em;color:var(--violet);text-transform:uppercase;font-weight:700}
+.gold{background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rule{height:2px;border-radius:2px;background:var(--rainbow);opacity:.5}
+
+/* 表紙 */
+.cover{display:flex;flex-direction:column;gap:16px;text-align:center;padding-block:12px}
+.cover h1{font-size:clamp(30px,8vw,42px)}
+.cover .lead{color:var(--mute)}
+.btn{appearance:none;border:none;background:var(--navy);color:#fff;font:700 16px/1 var(--display);
+  padding:18px 22px;border-radius:999px;cursor:pointer;letter-spacing:.06em;width:100%;box-shadow:0 6px 18px rgba(13,30,54,.18)}
+.btn:hover{background:#1b3358}
+.btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy);box-shadow:none}
+.btn.ghost:hover{background:var(--panel)}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.types{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tchip{background:var(--panel);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tchip b{font-family:var(--display);font-size:15px;color:var(--fg)}
+.tchip span{font-size:11px;color:var(--mute);letter-spacing:.1em}
+.note{font-size:12px;color:var(--mute);text-align:center}
+
+/* 質問 */
+.progress{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums}
+.bar{flex:1;height:6px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--rainbow);transition:width .3s}
+.q{display:flex;flex-direction:column;gap:18px}
+.q h2{font-size:clamp(21px,5.6vw,26px)}
+.opts{display:flex;flex-direction:column;gap:12px}
+.opt{appearance:none;text-align:left;background:#fff;border:2px solid var(--line);color:var(--fg);
+  font:500 15px/1.6 var(--body);padding:18px;border-radius:18px;cursor:pointer;display:flex;gap:14px;align-items:flex-start}
+.opt:hover{border-color:var(--blue);background:#f2fbff}
+.opt .k{font-family:var(--display);color:#fff;background:var(--navy);font-weight:700;width:1.7em;height:1.7em;border-radius:50%;display:grid;place-items:center;flex:none;font-size:13px}
+.back{background:none;border:none;color:var(--mute);font:500 13px var(--body);cursor:pointer;padding:6px 0;align-self:flex-start}
+.back:hover{color:var(--navy)}
+
+/* 結果 */
+.res-head{text-align:center;display:flex;flex-direction:column;gap:10px;padding:30px 18px;border-radius:24px;position:relative;
+  background:linear-gradient(135deg,rgba(240,122,150,.12),rgba(242,206,106,.12) 40%,rgba(53,191,240,.12) 70%,rgba(169,123,240,.14))}
+.res-head .code{font-family:var(--display);font-size:13px;letter-spacing:.4em;color:var(--mute);font-weight:700}
+.res-head h2{font-size:clamp(30px,8.5vw,40px);color:var(--navy)}
+.res-head .catch{color:var(--fg)}
+.axes{display:flex;flex-direction:column;gap:14px}
+.axis{display:grid;grid-template-columns:4.5em 1fr 4.5em;align-items:center;gap:10px;font-size:13px;color:var(--mute)}
+.axis span:last-child{text-align:right}
+.axis .on{color:var(--navy);font-weight:700}
+.axis .track{height:8px;background:var(--rainbow);border-radius:8px;position:relative;opacity:.9}
+.axis .track i{position:absolute;top:-5px;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--navy);box-sizing:border-box;transform:translateX(-50%)}
+.sec{display:flex;flex-direction:column;gap:10px}
+.sec h3{font-size:18px;display:flex;align-items:center;gap:10px}
+.sec h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--rainbow)}
+.sns{display:flex;flex-wrap:wrap;gap:8px}
+.sns span{background:var(--navy);color:#fff;border-radius:999px;padding:6px 16px;font-size:13px;font-weight:700}
+ul.list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+ul.list li{padding-left:1.2em;position:relative}
+ul.list li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.today{border-radius:18px;padding:18px 20px;background:var(--panel);border:2px solid var(--line)}
+.today b{color:var(--violet);font-family:var(--display)}
+.actions{display:flex;flex-direction:column;gap:10px}
+.share{width:100%;min-height:90px;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:14px;padding:12px;font:13px/1.6 var(--body);resize:vertical;box-sizing:border-box}
+.cta{display:flex;flex-direction:column;gap:12px;padding:24px 20px;border-radius:20px;background:var(--panel);text-align:center}
+.cta a.btn{text-decoration:none;display:block;text-align:center}
+.toast{font-size:12px;color:var(--navy);text-align:center;min-height:1.2em}
+.fade{animation:fade .35s ease}
+@keyframes fade{from{opacity:.25;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}.bar i{transition:none}}
+</style>
+
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+const AX=[
+  {l:"言葉",r:"ビジュアル",a:"W",b:"V"},
+  {l:"素顔",r:"世界観",a:"R",b:"C"},
+  {l:"コツコツ",r:"一点集中",a:"D",b:"S"}
+];
+const Q=[
+ {x:0,t:"伝えたいことがあるとき、先に浮かぶのは？",a:"言葉や文章",b:"写真や映像のイメージ"},
+ {x:1,t:"投稿に出したいのは？",a:"自分の素顔や本音",b:"作品・テーマ・世界観"},
+ {x:2,t:"得意なのはどっち？",a:"毎日少しずつ続ける",b:"気分が乗ったときに一気に作る"},
+ {x:0,t:"人の投稿で手が止まるのは？",a:"刺さる一文",b:"目を引く写真や動画"},
+ {x:1,t:"フォロワーとの距離感は？",a:"友だちみたいに近く",b:"少し憧れられるくらい"},
+ {x:2,t:"1つの投稿にかける時間は？",a:"5〜15分でサッと",b:"何時間でもこだわる"},
+ {x:0,t:"作業していて楽しいのは？",a:"文章を書く・直す",b:"撮る・デザインする"},
+ {x:1,t:"失敗談を投稿するのは？",a:"ぜんぜんあり",b:"あまりしたくない"},
+ {x:2,t:"理想の伸び方は？",a:"じわじわ信頼を積む",b:"1本が当たって一気に"},
+ {x:0,t:"褒められてうれしいのは？",a:"「言葉が響いた」",b:"「センスいいね」"},
+ {x:1,t:"アカウントの主役は？",a:"自分という人間",b:"届けたい内容そのもの"},
+ {x:2,t:"ネタ帳の中身は？",a:"日々の小さな気づき",b:"温めている大きな企画"}
+];
+const T={
+ WRD:{n:"日々の語り部",c:"毎日の気づきを、言葉で届ける人。",sns:["Threads","X","note"],
+  s:["続けるほど「この人の言葉が好き」というファンが増える","飾らない言葉で共感を集められる","ネタ切れしにくい"],
+  i:["今日いちばん心が動いたこと","昨日の自分と今日の自分のちがい","読者からの質問に一言で答える"],
+  ng:"愚痴が続くと離れる人が出る。気づきで締めるのがコツ。",
+  td:"今日あったことを3行で書いて、Threadsに出す。"},
+ WRS:{n:"本音の論客",c:"熱い長文で、心を動かす人。",sns:["note","X","Threads"],
+  s:["1本で深く刺さり、濃いファンができる","意見をはっきり言えるので覚えてもらいやすい","長文が苦にならない"],
+  i:["「みんなこう言うけど、私はこう思う」","自分の転機になった出来事","業界やジャンルへの提言"],
+  ng:"間が空くと忘れられる。短い予告や一言投稿でつなぐ。",
+  td:"最近いちばん言いたいことを1つ決めて、見出しだけ書く。"},
+ WCD:{n:"知恵の編集者",c:"学びを整理して、役立つ形で配る人。",sns:["Instagram","X","Threads"],
+  s:["保存・シェアされやすい","専門性が伝わり、仕事につながりやすい","型を作れば量産できる"],
+  i:["〇〇な人がやるべき3つのこと","よくある勘違いとその答え","用語をやさしく言い換える"],
+  ng:"情報だけだと誰でもいい人になる。自分の意見を一言そえる。",
+  td:"自分が人によく教えていることを、3つの箇条書きにする。"},
+ WCS:{n:"物語の作家",c:"世界観ごと、言葉で描く人。",sns:["note","Instagram","YouTube"],
+  s:["連載や物語でファンを長く引きつけられる","ブランドや商品の価値を深く伝えられる","作品が資産として残る"],
+  i:["連載形式のストーリー","商品やサービスが生まれた物語","世界観を説明する用語集"],
+  ng:"完成まで出さないと止まる。下書きの一部を先に見せる。",
+  td:"描きたい世界を1行で書き、連載のタイトルを3つ出す。"},
+ VRD:{n:"暮らしの発信者",c:"日常を、そのまま魅力にする人。",sns:["Instagram ストーリーズ","Threads","TikTok"],
+  s:["親しみやすく、距離が縮まりやすい","撮るだけでネタになる","毎日の積み重ねで信頼が生まれる"],
+  i:["今日の朝のルーティン","使ってよかったもの","作業中の手元"],
+  ng:"何の人かわからなくなりやすい。軸のテーマを1つ決める。",
+  td:"今日の手元を1枚撮って、一言そえてストーリーズに出す。"},
+ VRS:{n:"素顔のライブ人",c:"顔と声で、一気に距離を縮める人。",sns:["Instagram ライブ","YouTube","TikTok"],
+  s:["話すだけで人柄が伝わる","ライブで濃いファンが生まれる","売り込みが自然にできる"],
+  i:["質問に答えるライブ","やってみた・行ってみた動画","本音トーク"],
+  ng:"準備しすぎると出られない。まずは短く撮って出す。",
+  td:"スマホで30秒、自己紹介を話して撮ってみる。"},
+ VCD:{n:"世界観のキュレーター",c:"統一感のある見た目で、憧れを作る人。",sns:["Instagram","Pinterest","Threads"],
+  s:["ひと目で「この人だ」とわかる","憧れからファンになってもらえる","並べたときのブランド力が強い"],
+  i:["色やトーンをそろえた写真","好きなものの紹介（キュレーション）","ビフォーアフター"],
+  ng:"きれいなだけだと記憶に残らない。言葉を一言入れる。",
+  td:"自分らしい色を3つ決めて、プロフ画面をそろえる。"},
+ VCS:{n:"映像の演出家",c:"作り込んだ1本で、魅せる人。",sns:["YouTube","Instagram リール","TikTok"],
+  s:["1本がバズる力が強い","作品そのものがポートフォリオになる","企業案件につながりやすい"],
+  i:["シネマティックな短編","メイキング・制作過程","世界観を伝えるティザー"],
+  ng:"投稿の間があきやすい。メイキングを小出しにする。",
+  td:"作りたい1本のイメージを、絵コンテ3コマで描く。"}
+};
+const app=document.getElementById("app");
+let ans=[];
+
+function cover(){
+  ans=[];
+  app.innerHTML=`<div class="cover fade">
+    <p class="eyebrow">SNS Type Diagnosis</p>
+    <h1>あなたに合う<br><span class="gold">発信のかたち</span>は？</h1>
+    <p class="lead">12の質問に答えるだけ。<br>8タイプから、あなたの発信スタイルと<br>向いているSNSがわかります。</p>
+  </div>
+  <button class="btn" id="start">診断をはじめる（約1分）</button>
+  <div class="rule"></div>
+  <div class="types">${Object.entries(T).map(([k,v])=>`<div class="tchip"><b>${v.n}</b><span>${k}</span></div>`).join("")}</div>
+  <p class="note">直感で選んでください。正解はありません。</p>`;
+  document.getElementById("start").onclick=()=>ask(0);
+}
+
+function ask(i){
+  if(i>=Q.length) return result();
+  const q=Q[i];
+  app.innerHTML=`<div class="progress"><span>Q${i+1} / ${Q.length}</span><div class="bar"><i style="width:${i/Q.length*100}%"></i></div></div>
+  <div class="q fade">
+    <h2>${q.t}</h2>
+    <div class="opts">
+      <button class="opt" id="oa"><span class="k">A</span><span>${q.a}</span></button>
+      <button class="opt" id="ob"><span class="k">B</span><span>${q.b}</span></button>
+    </div>
+    <button class="back" id="bk">← ${i?"ひとつ前へ":"最初にもどる"}</button>
+  </div>`;
+  document.getElementById("oa").onclick=()=>{ans[i]=0;ask(i+1)};
+  document.getElementById("ob").onclick=()=>{ans[i]=1;ask(i+1)};
+  document.getElementById("bk").onclick=()=>i?ask(i-1):cover();
+}
+
+function result(){
+  const sc=[0,0,0]; // Bの数
+  Q.forEach((q,i)=>sc[q.x]+=ans[i]);
+  const code=AX.map((a,k)=>sc[k]>=2.5?a.b:a.a).join(""); // 4問中3つ以上Bなら右
+  const t=T[code];
+  const axes=AX.map((a,k)=>{
+    const p=(sc[k]/4)*100, right=sc[k]>=2.5;
+    return `<div class="axis"><span class="${right?"":"on"}">${a.l}</span><div class="track"><i style="left:${p}%"></i></div><span class="${right?"on":""}">${a.r}</span></div>`;
+  }).join("");
+  const share=`私のSNS発信タイプは「${t.n}」でした。\n${t.c}\n向いているSNS：${t.sns.join("・")}\n#SNS発信タイプ診断`;
+  app.innerHTML=`<div class="res-head fade">
+    <p class="eyebrow">あなたの発信タイプ</p>
+    <p class="code">${code}</p>
+    <h2>${t.n}</h2>
+    <p class="catch">${t.c}</p>
+  </div>
+  <div class="axes">${axes}</div>
+  <div class="rule"></div>
+  <div class="sec"><h3>向いているSNS</h3><div class="sns">${t.sns.map(s=>`<span>${s}</span>`).join("")}</div></div>
+  <div class="sec"><h3>あなたの強み</h3><ul class="list">${t.s.map(s=>`<li>${s}</li>`).join("")}</ul></div>
+  <div class="sec"><h3>投稿ネタ</h3><ul class="list">${t.i.map(s=>`<li>${s}</li>`).join("")}</ul></div>
+  <div class="sec"><h3>気をつけること</h3><p>${t.ng}</p></div>
+  <div class="today"><b>今日やること</b><br>${t.td}</div>
+  <div class="actions">
+    <textarea class="share" id="sh" readonly>${share}</textarea>
+    <button class="btn" id="cp">結果をコピーしてシェア</button>
+    <p class="toast" id="ts"></p>
+    <button class="btn ghost" id="re">もう一度診断する</button>
+  </div>
+  <div class="cta">
+    <p class="eyebrow">NEXT STEP</p>
+    <h3>このタイプの発信を、AIで自動化するなら</h3>
+    <p>投稿づくりから予約まで、AIにまかせる仕組みを半年でつくる「AI×SNS自動化コース」があります。</p>
+    <a class="btn" href="/sns.html">AI×SNS自動化コースを見る</a>
+  </div>`;
+  window.scrollTo(0,0);
+  document.getElementById("cp").onclick=async()=>{
+    const ta=document.getElementById("sh"),ts=document.getElementById("ts");
+    try{await navigator.clipboard.writeText(ta.value);ts.textContent="コピーしました"}
+    catch(e){ta.focus();ta.select();ts.textContent="選択しました。長押しでコピーしてください"}
+  };
+  document.getElementById("re").onclick=()=>{cover();window.scrollTo(0,0)};
+}
+cover();
+</script>
+
+</body>
+</html>
