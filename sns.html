@@ -143,9 +143,13 @@ footer{padding-block:32px;font-size:12px;color:var(--ink-2);border-top:1px solid
 .media-list b{font-size:14px;line-height:1.55}.media-list .mt span{font-size:12px;font-weight:700;color:var(--gold,#A8862B)}
 @media (max-width:760px){.media-list{grid-template-columns:1fr 1fr}}@media (max-width:480px){.media-list{grid-template-columns:1fr}}
 .media-more{font-weight:700;font-size:14px}
+.stickycta{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:50;display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:56px;padding:8px 10px 8px 18px;border-radius:99px;background:#0A0D14;color:#fff;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(140%);transition:transform .3s}
+.stickycta.on{transform:none}.stickycta span{font-size:12px;color:#C9D3E3;font-weight:700}.stickycta b{background:#E3C15A;color:#0A0D14;border-radius:99px;padding:10px 16px;font-size:14px;white-space:nowrap}
+@media (min-width:900px){.stickycta{left:auto;right:24px;bottom:24px;max-width:460px}}
+@media (max-width:380px){.stickycta span{display:none}.stickycta{justify-content:center}}
 </style>
 <style>body{margin:0}</style>
-</head>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></head>
 <body>
 
 <div class="wrap">
@@ -337,7 +341,7 @@ footer{padding-block:32px;font-size:12px;color:var(--ink-2);border-top:1px solid
         <div class="plan"><b>ツールだけ</b>33,000円（買い切り）</div>
       </div>
       <p class="note"><b>ツールをまだ購入していない方は、コースにツール（33,000円ぶん）がついてきます。</b>修了後は月3,980円で続けられます。学生の方は申し込み後に学生証の画像を確認します。すべて税込です。</p>
-      <div class="btns"><a class="btn" href="sns-apply.html">申し込む</a><a class="btn sub" href="sns-briefing.html">まずは説明会へ（無料）</a></div>
+      <div class="btns"><a class="btn" href="sns-briefing.html">まずは無料説明会へ</a><a class="btn sub" href="sns-apply.html">もう決めている方はこちら</a></div>
     </div></div>
   </section>
 
@@ -387,5 +391,7 @@ footer{padding-block:32px;font-size:12px;color:var(--ink-2);border-top:1px solid
   </footer>
 </div>
 
+<a class="stickycta" id="stickycta" href="sns-briefing.html"><span>60分・無料・顔出しなしOK</span><b>無料説明会に申し込む →</b></a>
+<script>(function(){var e=document.getElementById("stickycta");function f(){e.classList.toggle("on",window.scrollY>520)}window.addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
 </html>
