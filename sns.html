@@ -393,5 +393,6 @@ footer{padding-block:32px;font-size:12px;color:var(--ink-2);border-top:1px solid
 
 <a class="stickycta" id="stickycta" href="sns-briefing.html"><span>60分・無料・顔出しなしOK</span><b>無料説明会に申し込む →</b></a>
 <script>(function(){var e=document.getElementById("stickycta");function f(){e.classList.toggle("on",window.scrollY>520)}window.addEventListener("scroll",f,{passive:true});f()})();</script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href");if(/sns-(briefing|apply)\.html/.test(h)){try{window.va&&window.va("event",{name:"cta_click",data:{to:h.indexOf("apply")>-1?"apply":"briefing"}})}catch(_){}}});</script>
 </body>
 </html>
