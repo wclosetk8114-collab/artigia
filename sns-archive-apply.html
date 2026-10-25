@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon-32.png">
+<title>説明会アーカイブの申し込み｜AI×SNS自動化コース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#fff;--soft:#F5F7FB;--ink:#0D1E36;--ink2:#4A5872;--line:#E2E7F0;--acc:#35BFF0;--err:#C0392B;
+  --grad:linear-gradient(90deg,#F07A96,#F09A5E,#F2CE6A,#35BFF0,#A97BF0);
+  --disp:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;--body:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.8;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:640px;margin:0 auto;padding-block:32px 64px;display:grid;gap:24px}
+.bar{height:6px;border-radius:99px;background:var(--grad)}
+h1{font-family:var(--disp);font-size:28px;margin:0;line-height:1.4}
+.lead{color:var(--ink2);margin:0}
+.f{display:grid;gap:8px}
+.q{font-family:var(--disp);font-weight:700}
+.req{font-size:11px;background:var(--ink);color:#fff;border-radius:99px;padding:1px 8px;margin-left:8px;vertical-align:middle}
+.opt{font-size:11px;color:var(--ink2);margin-left:8px}
+input[type=text],input[type=email]{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff;color:var(--ink)}
+input:focus-visible{outline:3px solid var(--acc);outline-offset:1px}
+.opts{display:grid;gap:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;background:#fff}
+.opts label.sel{border-color:var(--ink);background:var(--soft)}
+.opts input{margin-top:6px}
+.lb b{display:block}.lb span{font-size:13px;color:var(--ink2)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.hp{position:absolute;left:-9999px}
+.sub,.paybtn{display:block;width:100%;text-align:center;padding:16px;border:0;border-radius:99px;background:var(--ink);color:#fff;font-family:var(--disp);font-weight:700;font-size:16px;cursor:pointer;text-decoration:none}
+.sub:disabled{opacity:.6}
+.err{display:none;color:var(--err);font-size:14px}.err.on{display:block}
+.note{font-size:13px;color:var(--ink2);margin:0}
+#done{display:none}#done.on{display:grid;gap:16px}
+.donebox{border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:14px}
+.donebox h2{font-family:var(--disp);margin:0;font-size:22px}
+a{color:inherit}
+.promo{background:#0D1E36;color:#F4F6FA;border-radius:20px;padding:24px;display:grid;gap:8px}.promo .big{font-family:var(--disp);font-size:clamp(30px,8vw,42px);font-weight:900;line-height:1.2;color:#F2CE6A}.promo .was{text-decoration:line-through;color:#9AA8BF}.promo p{margin:0}.closed{display:none;background:var(--soft);border-radius:16px;padding:20px}.closed.on{display:block}
+footer{font-size:12px;color:var(--ink2);text-align:center;padding-block:24px}
+</style>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script></head>
+<body>
+<div class="wrap">
+  <div class="bar" role="presentation"></div>
+  <div id="formbox" style="display:grid;gap:24px">
+    <div style="display:grid;gap:8px">
+      <h1>AI×SNS自動化コース<br>説明会アーカイブ</h1>
+      <p class="lead">説明会の録画（約65分）を、無料でご覧いただけます。<br>お名前とメールアドレスを入れて送信すると、視聴リンクがすぐにメールで届きます。</p>
+    </div>
+    <div class="promo">
+      <p style="color:#F2CE6A;font-weight:700">録画でお話ししていること</p>
+      <p>・SNSの何を、どこまでAIで自動にできるのか<br>・実際に動いている仕組みの画面共有<br>・コースの中身と料金</p>
+    </div>
+    <form method="post" action="https://ai-creator-camp-app.vercel.app/api/sns-archive" id="form" novalidate style="display:grid;gap:24px">
+      <div class="f">
+        <label class="q" for="name">お名前<span class="req">必須</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="例：土屋 千穂" required>
+      </div>
+      <div class="f">
+        <label class="q" for="email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="例：you@example.com" required>
+      </div>
+      <div class="hp"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit" class="sub" id="submit">アーカイブを受け取る</button>
+      <div class="err" id="err" role="alert"></div>
+      <p class="note">ご入力いただいたメールアドレスは、アーカイブのお届けとコースのご案内にのみ使います。<a href="https://ai-creator-camp-app.vercel.app/privacy" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+    </form>
+  </div>
+  <div id="done" class="closed">
+    <h2 style="margin-top:0">お申し込みありがとうございます</h2>
+    <p style="margin:0">アーカイブの視聴リンクを、メールでお送りしました。<br>届いていない場合は、迷惑メールフォルダもご確認ください。<br>それでも見当たらなければ ai.creator.camp2026@gmail.com までご連絡ください。</p>
+  </div>
+</div>
+<footer>© 2026 FORGE / AI Creator Camp</footer>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  if (q.get('done')) { document.getElementById('formbox').style.display='none'; document.getElementById('done').classList.add('on'); }
+  var er = q.get('error');
+  if (er) { var e=document.getElementById('err'); e.textContent=er.slice(0,120); e.classList.add('on'); }
+  document.getElementById('form').addEventListener('submit', function(ev){
+    var n=document.getElementById('name').value.trim(), m=document.getElementById('email').value.trim();
+    var e=document.getElementById('err'); e.classList.remove('on');
+    if(!n){ev.preventDefault(); e.textContent='お名前を入力してください。'; e.classList.add('on'); return;}
+    if(!m||m.indexOf('@')<1){ev.preventDefault(); e.textContent='メールアドレスを正しく入力してください。'; e.classList.add('on'); return;}
+    var b=document.getElementById('submit'); b.disabled=true; b.textContent='送信しています…';
+    try{window.va&&window.va('event',{name:'archive_submit'})}catch(_){}
+  });
+})();
+</script>
+</body>
+</html>
