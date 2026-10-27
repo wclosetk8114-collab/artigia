@@ -87,7 +87,8 @@ footer{font-size:12px;color:var(--ink2);text-align:center;padding-block:24px}
     <div class="f">
       <span class="q">プラン<span class="req">必須</span></span>
       <div class="opts">
-        <label class="sel"><input type="radio" name="plan" value="AI×SNS自動化・10月限定（月5,000円×6ヶ月）" checked><span class="lb"><b>10月限定　月5,000円 × 6ヶ月</b><span>計30,000円（税込）。ツールをお持ちでない方は、初回にツール代10,000円が加わります</span></span></label>
+        <label><input type="radio" name="plan" value="AI×SNS自動化・10月限定（ツールなし・初回15,000円）"><span class="lb"><b>ツールをまだ持っていない方</b><span>初回15,000円（月5,000円＋ツール代10,000円）、2〜6ヶ月目は月5,000円（税込）</span></span></label>
+        <label><input type="radio" name="plan" value="AI×SNS自動化・10月限定（ツール購入済み・月5,000円）"><span class="lb"><b>すでにツールを購入済みの方</b><span>月5,000円 × 6ヶ月（計30,000円・税込）。ツールを購入したときのメールアドレスでお申し込みください</span></span></label>
       </div>
       <p class="note">コースは6ヶ月です。7ヶ月目からは、月3,980円の専門コースに自動で切り替わります。</p>
     </div>
@@ -121,7 +122,7 @@ footer{font-size:12px;color:var(--ink2);text-align:center;padding-block:24px}
       <p style="margin:0">続けて、お支払いへお進みください。<br>決済が終わると、3日以内に参加のご案内をお送りします。</p>
       <a href="#" class="paybtn" id="pay">お支払いへ進む　→</a>
       <form id="payform" method="post" style="display:none">
-        <input type="hidden" name="plan"><input type="hidden" name="student"><input type="hidden" name="promo" value="oct2026"><input type="hidden" name="name">
+        <input type="hidden" name="plan"><input type="hidden" name="student"><input type="hidden" name="promo" value="oct2026"><input type="hidden" name="owned" value="0"><input type="hidden" name="name">
         <input type="hidden" name="email"><input type="hidden" name="ref"><input type="hidden" name="agree" value="1">
       </form>
       <p class="note">ご不明な点は ai.creator.camp2026@gmail.com までご連絡ください。</p>
@@ -138,7 +139,8 @@ var APP = "https://ai-creator-camp-app.vercel.app/api/checkout-sns";
 var TOOL_URL = "https://ai-creator-camp-app.vercel.app/join?plan=tool";
 // 申し込み内容 → 決済の種類
 var KIND = {
-  "AI×SNS自動化・10月限定（月5,000円×6ヶ月）": {plan:"sns", student:"0"}
+  "AI×SNS自動化・10月限定（ツールなし・初回15,000円）": {plan:"sns", student:"0", owned:"0"},
+  "AI×SNS自動化・10月限定（ツール購入済み・月5,000円）": {plan:"sns", student:"0", owned:"1"}
 };
 
 // 10/31 23:59（日本時間）を過ぎたら受付終了
@@ -149,6 +151,10 @@ var KIND = {
   }
   var r = new URLSearchParams(location.search).get("ref");
   if (r) { document.getElementById('ref').value = r.replace(/[<>]/g,'').slice(0,60).trim(); }
+  var pp = new URLSearchParams(location.search).get("plan");
+  var opts = document.querySelectorAll('input[name="plan"]');
+  if (pp === 'owned' && opts[1]) { opts[1].checked = true; } else if (pp === 'new' && opts[0]) { opts[0].checked = true; }
+  try { sync(); } catch(_){}
   var er = new URLSearchParams(location.search).get("error");
   if (er) { showErr(er.slice(0,120)); }
 })();
@@ -193,7 +199,7 @@ document.getElementById('form').addEventListener('submit', function(ev){
       var pf = document.getElementById('payform');
       pf.action = APP;
       var el = pf.elements;
-      el['plan'].value = k.plan; el['student'].value = k.student;
+      el['plan'].value = k.plan; el['student'].value = k.student; el['owned'].value = k.owned || '0';
       el['name'].value = data.name; el['email'].value = data.email; el['ref'].value = data.ref;
       pb.onclick = function(e){ e.preventDefault(); pf.submit(); };
     } else {
