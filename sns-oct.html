@@ -202,6 +202,8 @@ document.getElementById('form').addEventListener('submit', function(ev){
       el['plan'].value = k.plan; el['student'].value = k.student; el['owned'].value = k.owned || '0';
       el['name'].value = data.name; el['email'].value = data.email; el['ref'].value = data.ref;
       pb.onclick = function(e){ e.preventDefault(); pf.submit(); };
+      // 支払いリンクと「このあとやること」をメールでも送る
+      try { fetch('https://ai-creator-camp-app.vercel.app/api/sns-applied', { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ name:data.name, email:data.email, ref:data.ref, plan:k.plan, student:k.student, owned:(k.owned||'0'), promo:(el['promo'] ? el['promo'].value : '') }) }); } catch(_){}
     } else {
       pb.href = TOOL_URL;
     }
